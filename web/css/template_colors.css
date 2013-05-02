@@ -1,0 +1,287 @@
+
+#tabmodules .module h3 {
+    color: #333333;
+}
+
+/* Preview Colors */
+
+#color-chooser .primary-bg {
+    background-color: #333333;
+}
+
+#color-chooser .primary-fg {
+    color: #ffffff;
+}
+
+#color-chooser .secondary-bg {
+    background-color: #b62922;
+}
+
+#color-chooser .secondary-fg {
+    color: #ffffff;
+}
+
+#color-chooser .tertiary-bg {
+    background-color: #0f2f6a;
+}
+
+#color-chooser .tertiary-fg {
+    color: #CCCCCC;
+}
+
+/* Primary Color */
+
+body,
+#horiz-menu,
+#horiz-menu ul ul {
+    background-color: #333333;
+}
+
+/* Secondary Color */
+
+#horiz-menu li.active a,
+td.leftcol .module h3,
+td.rightcol .module h3,
+#mainmodules1 .module h3,
+#mainmodules2 .module h3,
+#bottommodules .module h3 {
+    background-color: #b62922;
+}
+
+/* Tertiary Color */
+/** see Module Hilite4 Color **/
+
+/* Main Body Text Color */
+
+body {
+    color: #CCC;
+}
+
+/* Link Color */
+
+a,
+#banner a,
+#main-content a {
+    color: #CCCCCC;
+}
+
+/* Bottom Module Text Color */
+
+#bottom,
+#bottom a {
+    color: #fff;
+}
+
+#bottommodules .module-clean h3 {
+    color: #ffffff;
+}
+
+/* Default Module Header Text Color */
+
+.module h3,
+#bottommodules .module h3 {
+    color: #ffffff;
+}
+
+/* Hilite1 Module Header Text Color */
+
+.module-hilite1 h3 {
+    color: #ffffff;
+}
+
+/* Hilite2 Module Header Text Color */
+
+.module-hilite2 h3 {
+    color: #fff;
+}
+
+/* Hilite3 Module Header Text Color */
+
+.module-hilite3 h3 {
+    color: #fff;
+}
+
+/* Hilite4 Module Header Text Color */
+
+.module-hilite4 h3 {
+    color: #CCCCCC;
+}
+
+/* Hilite5 Module Header Text Color */
+
+.module-hilite5,
+.module-hilite5 h3 {
+    color: #ffffff;
+}
+
+/* Module Background Color */
+
+ul.menu,
+td.leftcol .module-clean,
+td.rightcol .module-clean,
+td.leftcol .module,
+td.leftcol .module-hilite1,
+td.leftcol .module-hilite2,
+td.leftcol .module-hilite3,
+td.leftcol .module-hilite4,
+td.rightcol .module,
+td.rightcol .module-hilite1,
+td.rightcol .module-hilite2,
+td.rightcol .module-hilite3,
+td.rightcol .module-hilite4 {
+    background-color: #212121;
+}
+
+/* Menu Text Colors */
+
+#horiz-menu a,
+#horiz-menu li.active li a {
+    color: #ffffff;
+}
+
+#horiz-menu li.active a {
+    color: #ffffff;
+}
+
+#horiz-menu a:hover,
+#horiz-menu li.active a:hover {
+    color: #ffffff;
+}
+
+a#active_menu.sublevel,
+a.mainlevel:hover,
+a.sublevel:hover,
+ul.menu li.active a.daddy,
+ul.menu li a:hover,
+ul.menu li.active a:hover {
+    color: #000;
+}
+
+/* Typography Heading Colors */
+
+h4,
+.contentheading,
+.componentheading {
+    color: #ffffff;
+}
+
+h2 {
+    color: #ffffff;
+}
+
+h4 {
+    color: #CCCCCC;
+}
+
+/* Side Columns Background Color */
+
+#main-content {
+    background-color: #2f2f2f;
+}
+
+/* Main Column Background Color */
+
+td.maincol {
+    background-color: #212121;
+}
+
+/* Module Hilite1 Color */
+
+td.leftcol .module-hilite1 h3,
+td.rightcol .module-hilite1 h3,
+#mainmodules1 .module-hilite1 h3,
+#mainmodules2 .module-hilite1 h3,
+#bottommodules .module-hilite1 h3 {
+    background-color: #333333;
+}
+
+/* Module Hilite2 Color */
+
+td.leftcol .module-hilite2 h3,
+td.rightcol .module-hilite2 h3,
+#mainmodules1 .module-hilite2 h3,
+#mainmodules2 .module-hilite2 h3,
+#bottommodules .module-hilite2 h3 {
+    background-color: #DEDEDE;
+    color: #444 !important;
+}
+
+/* Module Hilite3 Color */
+
+td.leftcol .module-hilite3 h3,
+td.rightcol .module-hilite3 h3,
+#mainmodules1 .module-hilite3 h3,
+#mainmodules2 .module-hilite3 h3,
+#bottommodules .module-hilite3 h3 {
+    background-color: #939392;
+}
+
+/* Module Hilite4 Color */
+
+td.leftcol .module-hilite4 h3,
+td.rightcol .module-hilite4 h3,
+#mainmodules1 .module-hilite4 h3,
+#mainmodules2 .module-hilite4 h3,
+#bottommodules .module-hilite4 h3 {
+    background-color: #0f2f6a;
+}
+
+/* Module Hilite 5 Color */
+
+td.leftcol .module-hilite5,
+td.rightcol .module-hilite5,
+#mainmodules1 .module-hilite5,
+#mainmodules2 .module-hilite5,
+td.leftcol .module-hilite5 h3,
+td.rightcol .module-hilite5 h3,
+#mainmodules1 .module-hilite5 h3,
+#mainmodules2 .module-hilite5 h3 {
+    background-color: #b62922;
+}
+
+/* RokSlide Module Colors */
+
+#moduleslider-size,
+#rokslide-toolbar,
+#rokslide-toolbar li.current,
+#rokslide-toolbar li.last.current {
+    background-color: #222;
+}
+
+#rokslide-toolbar li {
+    border-right: 1px solid #ccc;
+}
+
+/* Borders */
+
+#mainmodules1 .module,
+#mainmodules1 .module-hilite1,
+#mainmodules1 .module-hilite2,
+#mainmodules1 .module-hilite3,
+#mainmodules1 .module-hilite4,
+#mainmodules1 .module-hilite5,
+#mainmodules1 .module-clean,
+#mainmodules2 .module,
+#mainmodules2 .module-hilite1,
+#mainmodules2 .module-hilite2,
+#mainmodules2 .module-hilite3,
+#mainmodules2 .module-hilite4,
+#mainmodules2 .module-hilite5,
+#mainmodules2 .module-clean {
+    border: 1px solid #000;
+}
+
+td.maincol {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+a.mainlevel,
+ul.menu a,
+tr.sectiontableentry1 td,
+tr.sectiontableentry2 td,
+td.sectiontableentry1,
+td.sectiontableentry2,
+.sectiontableheader {
+    border-bottom: 1px solid #000;
+}
