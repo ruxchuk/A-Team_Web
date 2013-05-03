@@ -36,8 +36,10 @@ $baseUrl = base_url();
     .osolCaptchaBlock {
         width: 100%;
     }
+
     .osolCaptchaBlock label {
     }
+
     .osolCaptchaBlock table td {
         text-align: center;
     }
@@ -51,67 +53,67 @@ $baseUrl = base_url();
 <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/roktwittie.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/rokslideshow.js"></script>
 <script type="text/javascript">
-//    JCEMediaBox.init({popup: {width: "", height: "", legacy: 0, lightbox: 0, shadowbox: 0, resize: 1, icons: 1, overlay: 1, overlayopacity: 0.9, overlaycolor: "#000000", fadespeed: 500, scalespeed: 500, hideobjects: 0, scrolling: "fixed", close: 2, labels: {'close': 'Close', 'next': 'Next', 'previous': 'Previous', 'cancel': 'Cancel', 'numbers': '{$current} of {$total}'}}, tooltip: {className: "tooltip", opacity: 1, speed: 150, position: "br", offsets: {x: 16, y: 16}}, base: "/", imgpath: "plugins/system/jcemediabox/img", theme: "standard", themecustom: "", themepath: "plugins/system/jcemediabox/themes"});
-//    <
-//    !--//--><![CDATA[//><!--
-//        window.addEvent('domready', function () {
-//            new RokTwittie({
-//                username: 0,
-//                query: 0,
-//                defaultAvatar: 1,
-//                avatar: { user: 0, query: 0 },
-//                count: { user: 4, query: 4, merge: 1 },
-//                external: {    user: 1, query: 1 },
-//                showSource: { user: 1, query: 1 },
-//                showUser: {    user: 1, query: 1 },
-//                includeRts: { user: 1},
-//                inactiveOpacity: 0.5,
-//                lang: {
-//                    viewTweet: ' view tweet on twitter',
-//                    from: ' From',
-//                    lessThanAMin: ' less than a minute ago',
-//                    about: ' about',
-//                    aboutAMin: ' about a minute ago',
-//                    minutesAgo: ' minutes ago',
-//                    aboutAHour: ' about a hour ago',
-//                    hoursAgo: ' hours ago',
-//                    oneDay: ' 1 day ago',
-//                    daysAgo: ' days ago'
-//                },
-//                messages: {"CB_Daily": [
-//                    {"created_at": "Wed May 01 22:37:47 +0000 2013", "source": "<a href=\"http:\/\/www.tweetdeck.com\" rel=\"nofollow\">TweetDeck<\/a>", "text": "Did you miss @SoCal_CBDaily photo gallery from last night's #UCIrvine &amp; #UCLA? http:\/\/t.co\/z9qyTue3v6 #Pac12 #BigWest @BigWestBaseball", "user": {"profile_image_url": "http:\/\/a0.twimg.com\/profile_images\/3240362983\/c77af3b6b40e43ad3209bbbc22967985_normal.jpeg"}},
-//                    {"created_at": "Wed May 01 18:17:45 +0000 2013", "source": "<a href=\"http:\/\/www.tweetdeck.com\" rel=\"nofollow\">TweetDeck<\/a>", "text": "RT @John_Infante: New NCAA study finds 23 schools made money on athletics in both 2011 and 2012: http:\/\/t.co\/Cg2xaFZ6Ri"},
-//                    {"created_at": "Wed May 01 17:48:03 +0000 2013", "source": "<a href=\"http:\/\/www.tweetdeck.com\" rel=\"nofollow\">TweetDeck<\/a>", "text": "RT @BFoley82: One of my good friends is doing a #CFF walk. She has already raised $34k for the cause but could use more http:\/\/t.co\/IT26vaf\u2026"},
-//                    {"created_at": "Wed May 01 17:20:17 +0000 2013", "source": "<a href=\"http:\/\/www.tweetdeck.com\" rel=\"nofollow\">TweetDeck<\/a>", "text": "RT @GopherBaseball: One more article in today's Daily on the #Gophers and the Big Ten race. http:\/\/t.co\/Tkj9fTsgfC"}
-//                ]}
-//            });
-//        });
-//    //--><!]]>
-//    window.addEvent('load', function () {
-//        var imgs = [];
-//        imgs.push({file: 'Baseball-heade1.jpg', title: '', desc: '', url: '#'});
-//        imgs.push({file: 'Baseball-header2.jpg', title: '', desc: '', url: '#'});
-//        imgs.push({file: 'Baseball-header3.jpg', title: '', desc: '', url: '#'});
-//        var myshow = new Slideshow('slideshow', {
-//            type: 'combo',
-//            externals: 0,
-//            showTitleCaption: 1,
-//            captionHeight: 45,
-//            width: 700,
-//            height: 300,
-//            pan: 50,
-//            zoom: 50,
-//            loadingDiv: 1,
-//            resize: true,
-//            duration: [3000, 8000],
-//            transition: Fx.Transitions.Expo.easeOut,
-//            images: imgs,
-//            path: 'http://athlete.teamwebsitehosting.com/images/stories/header/'
-//        });
-//
-//        myshow.caps.h2.setStyles({color: '#fff', fontSize: '13px'});
-//        myshow.caps.p.setStyles({color: '#ccc', fontSize: '11px'});
-//    });
+    //    JCEMediaBox.init({popup: {width: "", height: "", legacy: 0, lightbox: 0, shadowbox: 0, resize: 1, icons: 1, overlay: 1, overlayopacity: 0.9, overlaycolor: "#000000", fadespeed: 500, scalespeed: 500, hideobjects: 0, scrolling: "fixed", close: 2, labels: {'close': 'Close', 'next': 'Next', 'previous': 'Previous', 'cancel': 'Cancel', 'numbers': '{$current} of {$total}'}}, tooltip: {className: "tooltip", opacity: 1, speed: 150, position: "br", offsets: {x: 16, y: 16}}, base: "/", imgpath: "plugins/system/jcemediabox/img", theme: "standard", themecustom: "", themepath: "plugins/system/jcemediabox/themes"});
+    //    <
+    //    !--//--><![CDATA[//><!--
+    //        window.addEvent('domready', function () {
+    //            new RokTwittie({
+    //                username: 0,
+    //                query: 0,
+    //                defaultAvatar: 1,
+    //                avatar: { user: 0, query: 0 },
+    //                count: { user: 4, query: 4, merge: 1 },
+    //                external: {    user: 1, query: 1 },
+    //                showSource: { user: 1, query: 1 },
+    //                showUser: {    user: 1, query: 1 },
+    //                includeRts: { user: 1},
+    //                inactiveOpacity: 0.5,
+    //                lang: {
+    //                    viewTweet: ' view tweet on twitter',
+    //                    from: ' From',
+    //                    lessThanAMin: ' less than a minute ago',
+    //                    about: ' about',
+    //                    aboutAMin: ' about a minute ago',
+    //                    minutesAgo: ' minutes ago',
+    //                    aboutAHour: ' about a hour ago',
+    //                    hoursAgo: ' hours ago',
+    //                    oneDay: ' 1 day ago',
+    //                    daysAgo: ' days ago'
+    //                },
+    //                messages: {"CB_Daily": [
+    //                    {"created_at": "Wed May 01 22:37:47 +0000 2013", "source": "<a href=\"http:\/\/www.tweetdeck.com\" rel=\"nofollow\">TweetDeck<\/a>", "text": "Did you miss @SoCal_CBDaily photo gallery from last night's #UCIrvine &amp; #UCLA? http:\/\/t.co\/z9qyTue3v6 #Pac12 #BigWest @BigWestBaseball", "user": {"profile_image_url": "http:\/\/a0.twimg.com\/profile_images\/3240362983\/c77af3b6b40e43ad3209bbbc22967985_normal.jpeg"}},
+    //                    {"created_at": "Wed May 01 18:17:45 +0000 2013", "source": "<a href=\"http:\/\/www.tweetdeck.com\" rel=\"nofollow\">TweetDeck<\/a>", "text": "RT @John_Infante: New NCAA study finds 23 schools made money on athletics in both 2011 and 2012: http:\/\/t.co\/Cg2xaFZ6Ri"},
+    //                    {"created_at": "Wed May 01 17:48:03 +0000 2013", "source": "<a href=\"http:\/\/www.tweetdeck.com\" rel=\"nofollow\">TweetDeck<\/a>", "text": "RT @BFoley82: One of my good friends is doing a #CFF walk. She has already raised $34k for the cause but could use more http:\/\/t.co\/IT26vaf\u2026"},
+    //                    {"created_at": "Wed May 01 17:20:17 +0000 2013", "source": "<a href=\"http:\/\/www.tweetdeck.com\" rel=\"nofollow\">TweetDeck<\/a>", "text": "RT @GopherBaseball: One more article in today's Daily on the #Gophers and the Big Ten race. http:\/\/t.co\/Tkj9fTsgfC"}
+    //                ]}
+    //            });
+    //        });
+    //    //--><!]]>
+    //    window.addEvent('load', function () {
+    //        var imgs = [];
+    //        imgs.push({file: 'Baseball-heade1.jpg', title: '', desc: '', url: '#'});
+    //        imgs.push({file: 'Baseball-header2.jpg', title: '', desc: '', url: '#'});
+    //        imgs.push({file: 'Baseball-header3.jpg', title: '', desc: '', url: '#'});
+    //        var myshow = new Slideshow('slideshow', {
+    //            type: 'combo',
+    //            externals: 0,
+    //            showTitleCaption: 1,
+    //            captionHeight: 45,
+    //            width: 700,
+    //            height: 300,
+    //            pan: 50,
+    //            zoom: 50,
+    //            loadingDiv: 1,
+    //            resize: true,
+    //            duration: [3000, 8000],
+    //            transition: Fx.Transitions.Expo.easeOut,
+    //            images: imgs,
+    //            path: 'http://athlete.teamwebsitehosting.com/images/stories/header/'
+    //        });
+    //
+    //        myshow.caps.h2.setStyles({color: '#fff', fontSize: '13px'});
+    //        myshow.caps.p.setStyles({color: '#ccc', fontSize: '11px'});
+    //    });
 </script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/transmenu_Packed.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/jquery-1.2.6.pack.js"></script>
@@ -122,9 +124,11 @@ $baseUrl = base_url();
         left: -1000px;
         top: -1000px;
     }
+
     .transMenu .content {
         position: absolute;
     }
+
     .transMenu .items {
         border: 0px none #666666;
         position: relative;
@@ -132,6 +136,7 @@ $baseUrl = base_url();
         top: 0px;
         z-index: 2;
     }
+
     .transMenu  td {
         padding: 7px 5px 8px 5px !important;
         font-size: 12px !important;
@@ -140,6 +145,7 @@ $baseUrl = base_url();
         font-weight: normal !important;
         color: #FFFF85 !important;
     }
+
     #subwrap {
         text-align: left;
     }
@@ -305,7 +311,8 @@ $baseUrl = base_url();
 
 <!--begin header-->
 <div id="header">
-    <a href="/" class="nounder"><img src="<?php echo $baseUrl; ?>web/images/web-logo2.png" border="0" alt="" id="logo" class="png"/></a>
+    <a href="/" class="nounder"><img src="<?php echo $baseUrl; ?>web/images/web-logo2.png" border="0" alt="" id="logo"
+                                     class="png"/></a>
 
     <div id="banner">
         <div class="moduletable">
@@ -325,41 +332,67 @@ $baseUrl = base_url();
 <div id="iefix">
     <div id="horiz-menu" class="suckerfish">
         <ul class="menutop">
-            <li id="current" class="active item89"><a
-                    href="http://athlete.teamwebsitehosting.com/"><span>Home</span></a></li>
-            <li class="parent item121"><a href="/index.php/senior-year.html"
-                                          class="topdaddy"><span>Senior Year</span></a>
+            <li id="current" class="active item89">
+                <a href="#"><span>หน้าแรก</span></a>
+            </li>
+            <li class="parent item121"><a href="#" class="topdaddy"><span>ผ้าม่าน</span></a>
                 <ul>
-                    <li class="item139"><a href="/index.php/senior-year/general.html"><span>General info</span></a></li>
-                    <li class="item140"><a href="/index.php/senior-year/academic-stats.html"><span>Academic Stats</span></a>
+                    <li class="item140">
+                        <a href="#"><span>ผ้าม่าน 1</span></a>
                     </li>
-                    <li class="item141"><a href="/index.php/senior-year/athletic-stats.html"><span>Athletic Stats</span></a>
+                    <li class="item140">
+                        <a href="#"><span>ผ้าม่าน 2</span></a>
                     </li>
-                    <li class="item142"><a
-                            href="/index.php/senior-year/published-photos.html"><span>Published Photos</span></a></li>
-                    <li class="item143"><a
-                            href="/index.php/senior-year/published-videos.html"><span>Published Videos</span></a></li>
+                    <li class="item140">
+                        <a href="#"><span>ผ้าม่าน 3</span></a>
+                    </li>
+
                 </ul>
             </li>
-            <li class="parent item120"><a href="/index.php/junior-year.html"
-                                          class="topdaddy"><span>Junior Year</span></a>
+            <li class="parent item120">
+                <a href="#" class="topdaddy"><span>จานดาวเทียม</span></a>
                 <ul>
-                    <li class="item136"><a href="/index.php/junior-year/general-info.html"><span>General Info</span></a>
+                    <li class="item136">
+                        <a href="#"><span>จานดาวเทียม 1</span></a>
                     </li>
-                    <li class="item134"><a href="/index.php/junior-year/academic-stats.html"><span>Academic Stats</span></a>
+                    <li class="item136">
+                        <a href="#"><span>จานดาวเทียม 2</span></a>
                     </li>
-                    <li class="item135"><a href="/index.php/junior-year/athletic-stats.html"><span>Athletic Stats</span></a>
+                    <li class="item136">
+                        <a href="#"><span>จานดาวเทียม 3</span></a>
                     </li>
-                    <li class="item137"><a
-                            href="/index.php/junior-year/published-photos.html"><span>Published Photos</span></a></li>
-                    <li class="item138"><a
-                            href="/index.php/junior-year/published-videos.html"><span>Published Videos</span></a></li>
                 </ul>
             </li>
-            <li class="item84"><a href="/index.php/calendar.html"><span>Calendar</span></a></li>
-            <li class="item85"><a href="/index.php/contact-us.html"><span>Contact Us</span></a></li>
-            <li class="item122"><a href="/index.php/references.html"><span>References</span></a></li>
-            <li class="item144"><a href="/index.php/accomplishments.html"><span>Accomplishments</span></a></li>
+            <li class="item84">
+                <a href="#"> <span>เครื่องปรับอากาศ</span></a>
+                <ul>
+                    <li class="item140">
+                        <a href="#"><span>เครื่องปรับอากาศ 1</span></a>
+                    </li>
+                    <li class="item140">
+                        <a href="#"><span>เครื่องปรับอากาศ 2</span></a>
+                    </li>
+                    <li class="item140">
+                        <a href="#"><span>เครื่องปรับอากาศ 3</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="item85">
+                <a href="#"><span>กล้องวงจรปิด</span></a>
+                <ul>
+                    <li class="item140">
+                        <a href="#"><span>เครื่องปรับอากาศ 1</span></a>
+                    </li>
+                    <li class="item140">
+                        <a href="#"><span>เครื่องปรับอากาศ 2</span></a>
+                    </li>
+                    <li class="item140">
+                        <a href="#"><span>เครื่องปรับอากาศ 3</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="item122"><a href="#"><span>เกี่ยวกับเรา</span></a></li>
+            <li class="item144"><a href="#"><span>ติดต่อเรา</span></a></li>
         </ul>
     </div>
 </div>
@@ -438,39 +471,39 @@ $baseUrl = base_url();
                     <table cellspacing="0" cellpadding="0" id="swmenu" class="swmenu">
                         <tr>
                             <td>
-                                <a id="menu89" href="/index.php/home.html">Home</a>
+                                <a id="menu89" href="#">หน้าแรก</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a id="menu121" href="/index.php/senior-year.html">Senior Year</a>
+                                <a id="menu121" href="#">ผ้าม่าน</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a id="menu120" href="/index.php/junior-year.html">Junior Year</a>
+                                <a id="menu120" href="#">จานดาวเทียม</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a id="menu84" href="/index.php/calendar.html">Calendar</a>
+                                <a id="menu84" href="#">เครื่องปรับอากาศ</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a id="menu85" href="/index.php/contact-us.html">Contact Us</a>
+                                <a id="menu85" href="#">กล้องวงจรปิด</a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <a id="menu122" href="/index.php/references.html">References</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="last">
-                                <a id="menu144" href="/index.php/accomplishments.html">Accomplishments</a>
-                            </td>
-                        </tr>
+<!--                        <tr>-->
+<!--                            <td>-->
+<!--                                <a id="menu122" href="#">References</a>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td class="last">-->
+<!--                                <a id="menu144" href="#">Accomplishments</a>-->
+<!--                            </td>-->
+<!--                        </tr>-->
                     </table>
                 </div>
                 <div id="subwrap">
@@ -479,17 +512,17 @@ $baseUrl = base_url();
                         if (TransMenu.isSupported()) {
                             var ms = new TransMenuSet(TransMenu.direction.right, 3, 0, TransMenu.reference.topRight);
                             var menu121 = ms.addMenu(document.getElementById("menu121"));
-                            menu121.addItem("General info", "/index.php/senior-year/general.html", "0");
-                            menu121.addItem("Academic Stats", "/index.php/senior-year/academic-stats.html", "0");
-                            menu121.addItem("Athletic Stats", "/index.php/senior-year/athletic-stats.html", "0");
-                            menu121.addItem("Published Photos", "/index.php/senior-year/published-photos.html", "0");
-                            menu121.addItem("Published Videos", "/index.php/senior-year/published-videos.html", "0");
+                            menu121.addItem("ผ้าม่าน 1", "#", "0");
+                            menu121.addItem("ผ้าม่าน 2", "#", "0");
+                            menu121.addItem("ผ้าม่าน 3", "#", "0");
                             var menu120 = ms.addMenu(document.getElementById("menu120"));
-                            menu120.addItem("General Info", "/index.php/junior-year/general-info.html", "0");
-                            menu120.addItem("Academic Stats", "/index.php/junior-year/academic-stats.html", "0");
-                            menu120.addItem("Athletic Stats", "/index.php/junior-year/athletic-stats.html", "0");
-                            menu120.addItem("Published Photos", "/index.php/junior-year/published-photos.html", "0");
-                            menu120.addItem("Published Videos", "/index.php/junior-year/published-videos.html", "0");
+                            menu120.addItem("จานดาวเทียม 1", "#", "0");
+                            menu120.addItem("จานดาวเทียม 2", "#", "0");
+                            menu120.addItem("จานดาวเทียม 3", "#", "0");
+                            var menu84 = ms.addMenu(document.getElementById("menu84"));
+                            menu84.addItem("เครื่องปรับอากาศ 1", "#", "0");
+                            menu84.addItem("เครื่องปรับอากาศ 2", "#", "0");
+                            menu84.addItem("เครื่องปรับอากาศ 3", "#", "0");
                             function init() {
                                 if (TransMenu.isSupported()) {
                                     TransMenu.initialize();
@@ -512,13 +545,19 @@ $baseUrl = base_url();
                                     menu120.ondeactivate = function () {
                                         document.getElementById("menu120").className = "";
                                     };
-                                    document.getElementById("menu84").onmouseover = function () {
-                                        ms.hideCurrent();
-                                        this.className = "hover";
-                                    }
-                                    document.getElementById("menu84").onmouseout = function () {
-                                        this.className = "";
-                                    }
+                                    menu84.onactivate = function () {
+                                        document.getElementById("menu84").className = "hover";
+                                    };
+                                    menu84.ondeactivate = function () {
+                                        document.getElementById("menu84").className = "";
+                                    };
+//                                    document.getElementById("menu84").onmouseover = function () {
+//                                        ms.hideCurrent();
+//                                        this.className = "hover";
+//                                    }
+//                                    document.getElementById("menu84").onmouseout = function () {
+//                                        this.className = "";
+//                                    }
                                     document.getElementById("menu85").onmouseover = function () {
                                         ms.hideCurrent();
                                         this.className = "hover";
@@ -526,20 +565,20 @@ $baseUrl = base_url();
                                     document.getElementById("menu85").onmouseout = function () {
                                         this.className = "";
                                     }
-                                    document.getElementById("menu122").onmouseover = function () {
-                                        ms.hideCurrent();
-                                        this.className = "hover";
-                                    }
-                                    document.getElementById("menu122").onmouseout = function () {
-                                        this.className = "";
-                                    }
-                                    document.getElementById("menu144").onmouseover = function () {
-                                        ms.hideCurrent();
-                                        this.className = "hover";
-                                    }
-                                    document.getElementById("menu144").onmouseout = function () {
-                                        this.className = "";
-                                    }
+//                                    document.getElementById("menu122").onmouseover = function () {
+//                                        ms.hideCurrent();
+//                                        this.className = "hover";
+//                                    }
+//                                    document.getElementById("menu122").onmouseout = function () {
+//                                        this.className = "";
+//                                    }
+//                                    document.getElementById("menu144").onmouseover = function () {
+//                                        ms.hideCurrent();
+//                                        this.className = "hover";
+//                                    }
+//                                    document.getElementById("menu144").onmouseout = function () {
+//                                        this.className = "";
+//                                    }
                                 }
                             }
 
