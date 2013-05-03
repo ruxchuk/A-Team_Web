@@ -12,199 +12,79 @@ $this->load->view('header');
 $baseUrl = base_url();
 
 ?>
-    <!--begin maincolumn-->
-    <td class="maincol">
-    <div id="maincol1">
-    <div id="maincol2">
-    <div class="padding">
-    <div id="mainmodules1" class="spacer w99">
-        <div class="block">
-            <div class="module">
-                <div>
-                    <div>
-                        <div>
-                            <div id="slidewrap">
-                                <div id="slideshow"></div>
-                                <div id="loadingDiv"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="content_section">
+
+        <h2>Our Products</h2>
+
+        <div class="product_box margin_r35">
+
+            <h3>ผ้าม่าน</h3>
+
+            <div class="image_wrapper"><a href="http://www.templatemo.com/page/1" target="_parent"><img
+                        src="" alt="product 2"/></a></div>
+
+            <p class="price">Price: $350</p>
+            <a href="#">Detail</a> | <a href="#">Buy Now</a>
 
         </div>
-    </div>
-    <div id="content-padding">
-        <div id="pathway"><span class="breadcrumbs pathway">Home</span>
+
+        <div class="product_box margin_r35">
+            <h3>จานดาวเทียม</h3>
+
+            <div class="image_wrapper"><a href="http://www.templatemo.com/page/2" target="_parent"><img
+                        src="" alt="product 3"/></a></div>
+
+            <p class="price">Price: $550</p>
+            <a href="#">Detail</a> | <a href="#">Buy Now</a>
         </div>
 
-        <table class="blog" cellpadding="0" cellspacing="0">
-            <tr>
-                <td valign="top">
-                    <div>
+        <div class="product_box">
+            <h3>เครื่องปรับอากาศ</h3>
 
-                        <table class="contentpaneopen">
-                            <tr>
-                                <td class="contentheading" width="100%">
-                                    <a href="/index.php/component/content/article/55-joomla-powered-athletes-websites-for-university-college-recruiters-and-scouting-agents.html"
-                                       class="contentpagetitle">
-                                        Joomla Powered Athletes Websites for University, College Recruiters and Scouting
-                                        Agents!</a>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="contentpaneopen">
-                            <tr>
-                                <td valign="top" colspan="2">
-                                    <p>This is a sample website for athletes looking for scholarships into University
-                                        and/or
-                                        College, these websites are used&nbsp;by University and College recruiters and
-                                        scouting agents. <br/><br/>Today many free options exist for this type of
-                                        website
-                                        the only problems are you don'treally control those sites and worst of all you
-                                        have
-                                        no real way to hiding personal information from unwanted eyes. With our
-                                        professional
-                                        Joomla 1.5 based websites you will have total control over who can and cannot
-                                        view
-                                        your personal information, you can display as much or as little information as
-                                        you
-                                        want.<br/><br/><strong>NO ADS EVER!</strong> We have no ads on your site EVER!
-                                        <br/><br/><strong>FULL
-                                            COLOR CONTROL!</strong> You are able to set the colors for your new site to
-                                        suit
-                                        your taste and style... All aspects of the template can be configured,
-                                        background
-                                        color, background overlay, background image, text color, module colors, button
-                                        colors and more.</p>
+            <div class="image_wrapper"><a href="http://www.templatemo.com/page/3" target="_parent"><img
+                        src="" alt="product 4"/></a></div>
 
-                                    <p><strong>SUPPORT INCLUDED!</strong> Best of all if you ever get stuck or are not
-                                        sure
-                                        how to do something on your new website, we are only a phone call away. If you
-                                        are
-                                        located in North America we even provide free long distance call-backs. And for
-                                        members throughout Europe and other parts of the worlds we provide Free Skype
-                                        voice
-                                        chat support. All phone support is provided in English language at this time and
-                                        available from 9:00am - 5:00pm Eastern Standard Time (EST.)from Monday Thru
-                                        Friday.
-                                    </p>
+            <p class="price">Price: $250</p>
+            <a href="#">Detail</a> | <a href="#">Buy Now</a>
+        </div>
 
-                                    <p><strong><a target="_blank" href="http://teamwebsitehosting.com">Get Yours Joomla
-                                                Powered Athlete Website&nbsp;Today! Plans as low as $6.08
-                                                /m</a></strong>
-                                    </p>
+        <div class="cleaner"></div>
 
-                                    <div class="socbook">
-                                        <!-- Social Bookmark widgets by Abivia.net SocBook Plugin -->
-                                        <div class="socbook-addthis">
-                                            <script type="text/javascript">
-                                                addthis_language = "en";
-                                                addthis_options = "email,print,facebook,twitter,aim";
-                                                addthis_header_color = "#FFFFFF";
-                                                addthis_header_background = "#000000";
-                                            </script>
-                                            <a href="http://www.addthis.com/bookmark.php?v=20"
-                                               onmouseover="return addthis_open(this, '', 'http://athlete.teamwebsitehosting.com/index.php/component/content/article/55-joomla-powered-athletes-websites-for-university-college-recruiters-and-scouting-agents.html', 'Joomla Powered Athletes Websites for  University, College Recruiters and Scouting Agents!')"
-                                               onmouseout="addthis_close()" onclick="return addthis_sendto()"><img
-                                                    src="http://s7.addthis.com/static/btn/lg-share-en.gif" alt="Share"
-                                                    border="0"/></a>
-                                            <script type="text/javascript"
-                                                    src="<?php echo $baseUrl; ?>web/js/addthis_widget.js"></
-                                            script>
-                                            <!-- End AddThis -->
-                                        </div>
-                                        <!-- debug:
+        <div class="product_box margin_r35">
+            <h3>กล้องวงจรปิด</h3>
 
-                                         --></div>
-                                </td>
-                            </tr>
+            <div class="image_wrapper"><a href="http://www.templatemo.com/page/4" target="_parent"><img
+                        src="" alt="product 5"/></a></div>
 
+            <p class="price">Price: $850</p>
+            <a href="#">Detail</a> | <a href="#">Buy Now</a>
+        </div>
 
-                        </table>
-                        <span class="article_separator">&nbsp;</span>
-                    </div>
-                </td>
-            </tr>
+        <div class="product_box margin_r35">
+            <h3>อื่นๆ</h3>
 
-            <tr>
-                <td valign="top">
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td valign="top" width="100%" class="article_column">
-<!--                                <table class="contentpaneopen">-->
-<!--                                    <tr>-->
-<!--                                        <td class="contentheading" width="100%">-->
-<!--                                            <a href="/index.php/component/content/article/1-latest/62-movies.html"-->
-<!--                                               class="contentpagetitle">-->
-<!--                                                Movies</a>-->
-<!--                                        </td>-->
-<!---->
-<!---->
-<!--                                    </tr>-->
-<!--                                </table>-->
-<!--                                <table class="contentpaneopen">-->
-<!--                                    <tr>-->
-<!--                                        <td valign="top" colspan="2">-->
-<!--                                            <p>-->
-<!---->
-<!--                                                <!-- JoomlaWorks "AllVideos" Plugin (v4.4) starts here -->-->
-<!---->
-<!--                                            <div class="avPlayerWrapper avVideo">-->
-<!--                                                <div style="width:680px;" class="avPlayerContainer">-->
-<!--                                                    <div id="AVPlayerID_a8cdd7a6_1639870043" class="avPlayerBlock">-->
-<!--                                                        <iframe-->
-<!--                                                            src="http://www.youtube.com/embed/2K_dX1DVQyo?rel=0&amp;fs=1&amp;wmode=transparent"-->
-<!--                                                            width="680" height="400" frameborder="0" allowfullscreen-->
-<!--                                                            title="JoomlaWorks AllVideos Player"></iframe>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!---->
-<!--                                            <!-- JoomlaWorks "AllVideos" Plugin (v4.4) ends here -->-->
-<!---->
-<!--                                            </p>-->
-<!--                                            <div class="socbook">-->
-<!--                                                <!-- Social Bookmark widgets by Abivia.net SocBook Plugin -->-->
-<!--                                                <div class="socbook-addthis">-->
-<!--                                                    <script type="text/javascript">-->
-<!--                                                        addthis_language = "en";-->
-<!--                                                        addthis_options = "email,print,facebook,twitter,aim";-->
-<!--                                                        addthis_header_color = "#FFFFFF";-->
-<!--                                                        addthis_header_background = "#000000";-->
-<!--                                                    </script>-->
-<!--                                                    <a href = "http://www.addthis.com/bookmark.php?v=20"-->
-<!--                                                    onmouseover="return addthis_open(this, '', 'http://athlete.teamwebsitehosting.com/index.php/component/content/article/1-latest/62-movies.html', 'Movies')"-->
-<!--                                                    onmouseout ="addthis_close()" onclick = "return addthis_sendto()"><img src = "http://s7.addthis.com/static/btn/lg-share-en.gif"-->
-<!--                                                    alt="Share"-->
-<!--                                                    border = "0" /></a>-->
-<!--                                                        <script src = "http://s7.addthis.com/js/152/addthis_widget.js"></script>-->
-<!--                                                    <!--End AddThis-->-->
-<!--                                                </div>-->
-<!--                                                <!-- debug:-->-->
-<!--                                            </div>-->
-<!--                                        </td>-->
-<!--                                    </tr>-->
-<!---->
-<!---->
-<!--                                </table>-->
-<!--                                <span class="article_separator">&nbsp;</span>-->
-                            </td>
+            <div class="image_wrapper"><a href="http://www.templatemo.com/page/5" target="_parent"><img
+                        src="" alt="product 6"/></a></div>
 
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+            <p class="price">Price: $450</p>
+            <a href="#">Detail</a> | <a href="#">Buy Now</a>
+        </div>
 
-        </table>
+        <div class="product_box">
+            <h3> Vivamus at justo</h3>
+
+            <div class="image_wrapper"><a href="http://www.templatemo.com/page/6" target="_parent"><img
+                        src="" alt="product 7"/></a></div>
+
+            <p class="price">Price: $350</p>
+            <a href="#">Detail</a> | <a href="#">Buy Now</a>
+        </div>
+
+        <div class="cleaner"></div>
+
+        <div class="button_01"><a href="#">View All</a></div>
 
     </div>
-
-    </div>
-    </div>
-    </div>
-    </td>
-    <!--end maincolumn-->
 
 <?php
 $this->load->view('footer');

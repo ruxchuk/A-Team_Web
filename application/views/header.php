@@ -25,7 +25,7 @@ $baseUrl = base_url();
 <link rel="stylesheet" href="<?php echo $baseUrl; ?>web/css/template.css" type="text/css"/>
 <link rel="stylesheet" href="<?php echo $baseUrl; ?>web/css/jcemediabox.css" type="text/css"/>
 <link rel="stylesheet" href="<?php echo $baseUrl; ?>web/css/style.css" type="text/css"/>
-<link rel="stylesheet" href="<?php echo $baseUrl; ?>web/css/roktwittie.css" type="text/css"/>
+<!--<link rel="stylesheet" href="--><?php //echo $baseUrl; ?><!--web/css/roktwittie.css" type="text/css"/>-->
 <link rel="stylesheet" href="<?php echo $baseUrl; ?>web/css/modstyle.css" type="text/css"/>
 <style type="text/css">
     .socbook-addthis {
@@ -44,14 +44,14 @@ $baseUrl = base_url();
         text-align: center;
     }
 </style>
-<script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/mootools.js"></script>
-<script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/caption.js"></script>
+<!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/js/mootools.js"></script>-->
+<!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/js/caption.js"></script>-->
 <!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/js/jw_allvideos.js"></script>-->
 <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/jcemediabox.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>web/addons/twitter-src.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>web/addons/twitter.js"></script>
-<script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/roktwittie.js"></script>
-<script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/rokslideshow.js"></script>
+<!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/js/roktwittie.js"></script>-->
+<!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/js/rokslideshow.js"></script>-->
 <script type="text/javascript">
     //    JCEMediaBox.init({popup: {width: "", height: "", legacy: 0, lightbox: 0, shadowbox: 0, resize: 1, icons: 1, overlay: 1, overlayopacity: 0.9, overlaycolor: "#000000", fadespeed: 500, scalespeed: 500, hideobjects: 0, scrolling: "fixed", close: 2, labels: {'close': 'Close', 'next': 'Next', 'previous': 'Previous', 'cancel': 'Cancel', 'numbers': '{$current} of {$total}'}}, tooltip: {className: "tooltip", opacity: 1, speed: 150, position: "br", offsets: {x: 16, y: 16}}, base: "/", imgpath: "plugins/system/jcemediabox/img", theme: "standard", themecustom: "", themepath: "plugins/system/jcemediabox/themes"});
     //    <
@@ -290,7 +290,7 @@ $baseUrl = base_url();
 </script>
 
 <!--[if IE] -->
-<script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/ie_suckerfish.js"></script>
+<!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/js/ie_suckerfish.js"></script>-->
 <!-- <![endif] -->
 
 </head>
@@ -487,48 +487,48 @@ $baseUrl = base_url();
 
 
 <!--module login-->
-<div class="module-hilite1">
-    <div>
-        <div>
-            <div>
-                <h3>เข้าสู่ระบบ</h3>
-
-                <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="login" id="form-login">
-                    <fieldset class="input">
-                        <p id="form-login-username">
-                            <label for="modlgn_username">Username</label><br/>
-                            <input id="modlgn_username" type="text" name="username" class="inputbox" alt="username"
-                                   size="18"/>
-                        </p>
-
-                        <p id="form-login-password">
-                            <label for="modlgn_passwd">Password</label><br/>
-                            <input id="modlgn_passwd" type="password" name="passwd" class="inputbox" size="18"
-                                   alt="password"/>
-                        </p>
-
-                        <p id="form-login-remember">
-                            <label for="modlgn_remember">Remember Me</label>
-                            <input id="modlgn_remember" type="checkbox" name="remember" class="inputbox" value="yes"
-                                   alt="Remember Me"/>
-                        </p>
-                        <input type="submit" name="Submit" class="button" value="Login"/>
-                    </fieldset>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                ลืมรหัสผ่าน?</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                สมัครสมาชิก?</a>
-                        </li>
-                    </ul>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="module-hilite1">-->
+<!--    <div>-->
+<!--        <div>-->
+<!--            <div>-->
+<!--                <h3>เข้าสู่ระบบ</h3>-->
+<!---->
+<!--                <form action="--><?php //$_SERVER['PHP_SELF']; ?><!--" method="post" name="login" id="form-login">-->
+<!--                    <fieldset class="input">-->
+<!--                        <p id="form-login-username">-->
+<!--                            <label for="modlgn_username">Username</label><br/>-->
+<!--                            <input id="modlgn_username" type="text" name="username" class="inputbox" alt="username"-->
+<!--                                   size="18"/>-->
+<!--                        </p>-->
+<!---->
+<!--                        <p id="form-login-password">-->
+<!--                            <label for="modlgn_passwd">Password</label><br/>-->
+<!--                            <input id="modlgn_passwd" type="password" name="passwd" class="inputbox" size="18"-->
+<!--                                   alt="password"/>-->
+<!--                        </p>-->
+<!---->
+<!--                        <p id="form-login-remember">-->
+<!--                            <label for="modlgn_remember">Remember Me</label>-->
+<!--                            <input id="modlgn_remember" type="checkbox" name="remember" class="inputbox" value="yes"-->
+<!--                                   alt="Remember Me"/>-->
+<!--                        </p>-->
+<!--                        <input type="submit" name="Submit" class="button" value="Login"/>-->
+<!--                    </fieldset>-->
+<!--                    <ul>-->
+<!--                        <li>-->
+<!--                            <a href="#">-->
+<!--                                ลืมรหัสผ่าน?</a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="#">-->
+<!--                                สมัครสมาชิก?</a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <!--module เมนูย่อย-->
 <div class="module">
@@ -704,181 +704,6 @@ $baseUrl = base_url();
     </div>
 </div>
 
-<!--module calendar-->
-<div class="module">
-    <div>
-        <div>
-            <div>
-                <h3>ปฏิทิน</h3>
-                <script language="javascript" type="text/javascript"><!--
-                    function navLoaded(elem, modid) {
-                        var myspan = document.getElementById("testspan" + modid);
-                        var modbody = myspan.parentNode;
-                        modbody.innerHTML = elem.innerHTML;
-                    }
-                    function callNavigation(link) {
-                        var body = document.getElementsByTagName('body')[0];
-                        if (!document.getElementById('calnav')) {
-                            myiframe = document.createElement('iframe');
-                            myiframe.setAttribute("name", "calnav");
-                            myiframe.setAttribute("id", "calnav");
-                            myiframe.style.display = "none";
-                        }
-                        body.appendChild(myiframe);
-                        myiframe.setAttribute("src", link);
-                    }
-                    //--></script>
-                <div style="margin:0px;padding:0px;border-width:0px;"><span id='testspan84' style='display:none'></span>
-
-                    <table cellpadding="0" cellspacing="0" align="center" class="mod_events_monthyear">
-                        <tr>
-                            <td>
-                                <div class="mod_events_link"
-                                     onmousedown="callNavigation('index.php?option=com_jevents&amp;task=modcal.ajax&amp;day=1&amp;month=05&amp;year=2012&amp;modid=84&amp;tmpl=component');">&laquo;</div>
-                            </td>
-                            <td>
-                                <div class="mod_events_link"
-                                     onmousedown="callNavigation('index.php?option=com_jevents&amp;task=modcal.ajax&amp;day=1&amp;month=04&amp;year=2013&amp;modid=84&amp;tmpl=component');">
-                                    &lt;</div>
-                            </td>
-                            <td align="center"><a href="/index.php/calendar/month.calendar/2013/05/02/-.html"
-                                                  class="mod_events_link" title="Go to calendar - current month">May</a>
-                            </td>
-                            <td>
-                                <div class="mod_events_link"
-                                     onmousedown="callNavigation('index.php?option=com_jevents&amp;task=modcal.ajax&amp;day=1&amp;month=06&amp;year=2013&amp;modid=84&amp;tmpl=component');">
-                                    &gt;</div>
-                            </td>
-                            <td>
-                                <div class="mod_events_link"
-                                     onmousedown="callNavigation('index.php?option=com_jevents&amp;task=modcal.ajax&amp;day=1&amp;month=05&amp;year=2014&amp;modid=84&amp;tmpl=component');">&raquo;</div>
-                            </td>
-                        </tr>
-                    </table>
-                    <table align="center" class="mod_events_table" cellspacing="0" cellpadding="2">
-                        <tr class="mod_events_dayname">
-                            <td class="mod_events_td_dayname"><span class="sunday">S</span></td>
-                            <td class="mod_events_td_dayname">M</td>
-                            <td class="mod_events_td_dayname">T</td>
-                            <td class="mod_events_td_dayname">W</td>
-                            <td class="mod_events_td_dayname">T</td>
-                            <td class="mod_events_td_dayname">F</td>
-                            <td class="mod_events_td_dayname"><span class="saturday">S</span></td>
-                        </tr>
-                        <tr>
-                            <td class="mod_events_td_dayoutofmonth">28</td>
-                            <td class="mod_events_td_dayoutofmonth">29</td>
-                            <td class="mod_events_td_dayoutofmonth">30</td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/01/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">1</a></td>
-                            <td class='mod_events_td_todaynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/02/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">2</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/03/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">3</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/04/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">4</a></td>
-                        </tr>
-                        <tr>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/05/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">5</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/06/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">6</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/07/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">7</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/08/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">8</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/09/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">9</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/10/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">10</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/11/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">11</a></td>
-                        </tr>
-                        <tr>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/12/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">12</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/13/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">13</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/14/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">14</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/15/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">15</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/16/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">16</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/17/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">17</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/18/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">18</a></td>
-                        </tr>
-                        <tr>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/19/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">19</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/20/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">20</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/21/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">21</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/22/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">22</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/23/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">23</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/24/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">24</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/25/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">25</a></td>
-                        </tr>
-                        <tr>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/26/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">26</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/27/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">27</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/28/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">28</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/29/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">29</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/30/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">30</a></td>
-                            <td class='mod_events_td_daynoevents'>
-                                <a href="/index.php/calendar/day.listevents/2013/05/31/-.html"
-                                   class="mod_events_daylink" title="Go to calendar - current day">31</a></td>
-                            <td class="mod_events_td_dayoutofmonth">1</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!--<div class="module">-->
 <!--    <div>-->
 <!--        <div>-->
@@ -900,3 +725,6 @@ $baseUrl = base_url();
 </div>
 </td>
 <!--end leftcolumn-->
+
+
+<td class="maincol">

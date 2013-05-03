@@ -9,9 +9,7 @@
 $baseUrl = base_url();
 
 ?>
-
-<!-- begin rightcolumn -->
-<!-- end rightcolumn -->
+</td>
 </tr>
 </table>
 </div>
