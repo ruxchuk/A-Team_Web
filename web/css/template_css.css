@@ -12,6 +12,25 @@ body {
     line-height: 135%;
 }
 
+
+div.wrapper {
+    margin: 0 auto;
+    width: 1010px;
+    padding: 0;
+}
+
+td.leftcol {
+    width: 220px;
+    padding: 0;
+}
+
+td.rightcol {
+    width: 0px;
+    padding: 0;
+}
+
+
+
 /* Font family information */
 
 body#ff-optima, #ff-optima td {
