@@ -30,17 +30,22 @@ div#horiz-menu {
     position: relative;
 }
 
-div#horiz-menu li li a, div#horiz-menu li.active li a {
-    display: block;
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    float: none;
-    height: 30px;
-    line-height: 30px;
-    text-indent: 18px;
-    width: 98%;
-}
+/*div#horiz-menu li li a, div#horiz-menu li.active li a {*/
+    /*display: block;*/
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*text-decoration: none;*/
+    /*float: none;*/
+    /*height: 30px;*/
+    /*line-height: 30px;*/
+    /*text-indent: 18px;*/
+    /*width: 98%;*/
+/*}*/
+/*div#horiz-menu li li a.sfHover {*/
+     /*background-image: none !important;*/
+     /*color: #FFFF85 !important;*/
+     /*background-color: #444444 !important;*/
+ /*}*/
 
 .menutop li ul {
     float: none;

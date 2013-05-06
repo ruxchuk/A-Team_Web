@@ -23,7 +23,7 @@ $baseUrl = base_url();
             <h3>ผ้าม่าน</h3>
 
             <div class="image_wrapper"><a href="#" target="_parent">
-                    <img src="http://www.kaceecurtain.com/images/default_page/default01.jpg"
+                    <img src="<?php echo $baseUrl; ?>web/images/curtain.jpg"
                          alt="product 2" class="block-menu-img"/></a></div>
 
             <p class="price">Price: $350</p>
@@ -35,7 +35,7 @@ $baseUrl = base_url();
             <h3>จานดาวเทียม</h3>
 
             <div class="image_wrapper"><a href="#" target="_parent"><img
-                        src="http://www.be2hand.com/upload/200804/200804-03-143415-1.jpg"
+                        src="<?php echo $baseUrl; ?>web/images/dish-aerial.jpg"
                         alt="product 3" class="block-menu-img"/></a></div>
 
             <p class="price">Price: $550</p>
@@ -44,9 +44,8 @@ $baseUrl = base_url();
 
         <div class="product_box">
             <h3>เครื่องปรับอากาศ</h3>
-
             <div class="image_wrapper"><a href="#" target="_parent"><img
-                        src="http://www.supplychains2012.org/image/article/big/A20120914161917.jpg"
+                        src="<?php echo $baseUrl; ?>web/images/air.jpg"
                         class="block-menu-img" alt="product 4"/></a></div>
 
             <p class="price">Price: $250</p>
@@ -57,9 +56,8 @@ $baseUrl = base_url();
 
         <div class="product_box margin_r35">
             <h3>กล้องวงจรปิด</h3>
-
             <div class="image_wrapper"><a href="#" target="_parent">
-                    <img src="http://www.ccss.co.th/myfile/20120719111833_ccTV.png"
+                    <img src="<?php echo $baseUrl; ?>web/images/cctv.png"
                         alt="product 5" class="block-menu-img"/></a>
             </div>
 

@@ -735,8 +735,12 @@ td.rightcol .module-clean h3,
 
 /* mouseovers */
 
-#horiz-menu li li a:hover {
-    background: none;
+#horiz-menu li li:hover, #horiz-menu li li a:hover {
+    /*background: none;*/
+
+    background-image: none;
+    color: #FFFF85 !important;
+    background-color: #444444 !important;
 }
 
 #horiz-menu li li.active,
