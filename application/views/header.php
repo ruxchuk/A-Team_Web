@@ -11,45 +11,45 @@ $baseUrl = base_url();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<!--<base href="http://athlete.teamwebsitehosting.com/"/>-->
-<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-<meta name="robots" content="index, follow"/>
-<meta name="keywords"
-      content="Top Athletes Websites Hosting - College University Scouting &amp; Recruitment. Call Today: 949 630-2718"/>
-<meta name="description"
-      content="Top Athletes Websites Hosting - College University Scouting &amp; Recruitment - www.teamwebsitehosting.com or Call Today: 949 630-2718"/>
-<meta name="generator" content="Joomla! 1.5 - Open Source Content Management"/>
-<title>Top Athletes Websites Hosting - College University Scouting &amp; Recruitment</title>
-<link href="/index.php?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0"/>
-<link href="/index.php?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0"/>
+
+<meta http-equiv='content-type' content='text/html; charset=UTF-8' />
+<meta name='robots' content='index, follow' />
+<meta name='keywords' content='ผ้าม่าน, จานดาวเทียม, เครื่องปรับอากาศ, กล้องวงจรปิด, เพื่อนช่าง'/>
+<title>ตัวแทนจำหน่าย ผ้าม่าน จากดาวเทียม แอร์ กล้องวงจรปิด</title>
+<meta name='description' content='เอทีมเคอร์เทน'/>
+<meta name='author' content='เอทีมเคอร์เทน'/>
+<meta name= 'copyright' content='บริษัท เอทีมเคอร์เทน จำกัด' />
+<meta http-equiv='content-language' content='th' />
+<meta name='revisit-after' content='1 days' />
+<meta name='Distribution' content='Global' />
+
 <link rel="stylesheet" href="<?php echo $baseUrl; ?>web/css/template.css" type="text/css"/>
 <link rel="stylesheet" href="<?php echo $baseUrl; ?>web/css/jcemediabox.css" type="text/css"/>
 <link rel="stylesheet" href="<?php echo $baseUrl; ?>web/css/style.css" type="text/css"/>
-<!--<link rel="stylesheet" href="--><?php //echo $baseUrl; ?><!--web/css/roktwittie.css" type="text/css"/>-->
 <link rel="stylesheet" href="<?php echo $baseUrl; ?>web/css/modstyle.css" type="text/css"/>
 <style type="text/css">
-    .socbook-addthis {
-        display: inline;
-        padding-right: 4px;
-    }
+    /*.socbook-addthis {*/
+        /*display: inline;*/
+        /*padding-right: 4px;*/
+    /*}*/
 
-    .osolCaptchaBlock {
-        width: 100%;
-    }
+    /*.osolCaptchaBlock {*/
+        /*width: 100%;*/
+    /*}*/
 
-    .osolCaptchaBlock label {
-    }
+    /*.osolCaptchaBlock label {*/
+    /*}*/
 
-    .osolCaptchaBlock table td {
-        text-align: center;
-    }
+    /*.osolCaptchaBlock table td {*/
+        /*text-align: center;*/
+    /*}*/
 </style>
 <!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/js/mootools.js"></script>-->
 <!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/js/caption.js"></script>-->
 <!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/js/jw_allvideos.js"></script>-->
-<script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/jcemediabox.js"></script>
-<script type="text/javascript" src="<?php echo $baseUrl; ?>web/addons/twitter-src.js"></script>
-<script type="text/javascript" src="<?php echo $baseUrl; ?>web/addons/twitter.js"></script>
+<!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/js/jcemediabox.js"></script>-->
+<!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/addons/twitter-src.js"></script>-->
+<!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/addons/twitter.js"></script>-->
 <!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/js/roktwittie.js"></script>-->
 <!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/js/rokslideshow.js"></script>-->
 <script type="text/javascript">
@@ -117,147 +117,7 @@ $baseUrl = base_url();
 </script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/transmenu_Packed.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/jquery-1.2.6.pack.js"></script>
-<style type='text/css'>
-    .transMenu {
-        position: absolute;
-        overflow: hidden;
-        left: -1000px;
-        top: -1000px;
-    }
-
-    .transMenu .content {
-        position: absolute;
-    }
-
-    .transMenu .items {
-        border: 0px none #666666;
-        position: relative;
-        left: 0px;
-        top: 0px;
-        z-index: 2;
-    }
-
-    .transMenu  td {
-        padding: 7px 5px 8px 5px !important;
-        font-size: 12px !important;
-        font-family: Verdana, Arial, Helvetica, sans-serif !important;
-        text-align: left !important;
-        font-weight: normal !important;
-        color: #FFFF85 !important;
-    }
-
-    #subwrap {
-        text-align: left;
-    }
-
-    .transMenu  .item.hover td {
-        color: #FFFFFF !important;
-    }
-
-    .transMenu .item {
-        text-decoration: none;
-        cursor: pointer;
-        cursor: hand;
-    }
-
-    .transMenu .background {
-        background-image: none;
-        background-color: #333333 !important;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        z-index: 1;
-        opacity: 0.9;
-        filter: alpha(opacity=90)
-    }
-
-    .transMenu .shadowRight {
-        position: absolute;
-        z-index: 3;
-        top: -3000px;
-        width: 2px;
-        opacity: 0.9;
-        filter: alpha(opacity=90)
-    }
-
-    .transMenu .shadowBottom {
-        position: absolute;
-        z-index: 1;
-        left: -3000px;
-        height: 2px;
-        opacity: 0.9;
-        filter: alpha(opacity=90)
-    }
-
-    .transMenu .item.hover {
-        background-image: none;
-        background-color: #444444 !important;
-    }
-
-    .transMenu .item img {
-        margin-left: 10px !important;
-    }
-
-    table.swmenu {
-        top: 0px;
-        left: 0px;
-        position: relative;
-        margin: 0px !important;
-        border: 0px none #666666;
-        z-index: 1;
-    }
-
-    table.swmenu a {
-        margin: 0px !important;
-        padding: 7px 15px 7px 10px !important;
-        display: block !important;
-        position: relative !important;
-    }
-
-    div.swmenu a,
-    div.swmenu a:visited,
-    div.swmenu a:link {
-        width: 160px;
-        height: 15px;
-        font-size: 12px !important;
-        font-family: Verdana, Arial, Helvetica, sans-serif !important;
-        text-align: left !important;
-        font-weight: normal !important;
-        color: #FFFFFF !important;
-        text-decoration: none !important;
-        margin-bottom: 0px !important;
-        display: block !important;
-        white-space: nowrap;
-    }
-
-    div.swmenu td {
-        border-right: 1px solid #666666;
-        border-top: 1px solid #666666;
-        border-left: 1px solid #666666;
-        background-image: none;
-        background-color: #222222 !important;
-    }
-
-    div.swmenu td.last {
-        border-bottom: 1px solid #666666;
-    }
-
-    #trans-active a {
-        color: #FFFF85 !important;
-        background-image: none;
-        background-color: #444444 !important;
-    }
-
-    #swmenu a.hover {
-        background-image: none;
-        color: #FFFF85 !important;
-        background-color: #444444 !important;
-    }
-
-    #swmenu span {
-        display: none;
-    }
-</style>
+    <link href="<?php echo $baseUrl; ?>web/css/trans-menu.css" rel="stylesheet" type="text/css"/>
 
 <link rel="shortcut icon" href="<?php echo $baseUrl; ?>web/images/favicon.ico"/>
 <link href="<?php echo $baseUrl; ?>web/css/rokmoomenu.css" rel="stylesheet" type="text/css"/>
@@ -267,30 +127,13 @@ $baseUrl = base_url();
     rel="stylesheet" type="text/css"/>
 <link href="<?php echo $baseUrl; ?>web/css/colorchooser.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo $baseUrl; ?>web/css/mooRainbow.css" rel="stylesheet" type="text/css"/>
-<style type="text/css">
-    div.wrapper {
-        margin: 0 auto;
-        width: 1010px;
-        padding: 0;
-    }
-
-    td.leftcol {
-        width: 220px;
-        padding: 0;
-    }
-
-    td.rightcol {
-        width: 0px;
-        padding: 0;
-    }
-</style>
 <script type="text/javascript">
     window.templatePath = '/templates/team_website';
     window.currentTheme = 'Your Theme Name:overlay-carbon,#333333,#ffffff,#b62922,#ffffff,#0f2f6a,#CCCCCC';
 </script>
 
 <!--[if IE] -->
-<!--<script type="text/javascript" src="--><?php //echo $baseUrl; ?><!--web/js/ie_suckerfish.js"></script>-->
+<script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/ie_suckerfish.js"></script>
 <!-- <![endif] -->
 
 </head>
