@@ -29,10 +29,8 @@ $baseUrl = base_url();
                             <div>
                                 <div>
                                     <div>
-                                        <p style="text-align: center;">This is a sample movie of what can be added into
-                                            your new website, a movie provied by you can easily be embedded into your
-                                            new site with us.<br/>All images used on this demonstration website are the
-                                            property of their respective owners.</p></div>
+                                        <p style="text-align: center;">ผ้าม่าน, รางโชว์, มู่ลี่, ม่านปรับแสง, ม่านม้วน, ม่านพลับ, วอลเปเปอร์, ฉากกั้นห้อง, กั้นแอร์, พรม
+                                            <br/>กระเบื้องยาง, จานดาวเทียม, เครื่องปรับอากาศ, กล้องวงจรปิด, จีพีเอสติดรถยนต์, นครปฐม, เพื่อนช่าง</p></div>
                                 </div>
                             </div>
                         </div>
@@ -42,10 +40,6 @@ $baseUrl = base_url();
             </div>
         </div>
     </div>
-</div>
-<div align="center">
-    <a href="http://www.teamwebsitehosting.com/" title="Sports Teams & Sports Leagues Websites" class="nounder">
-        <img src="<?php echo $baseUrl; ?>web/images/web-logo.png" alt="Team Website Hosting" id="team" class="png"/></a>
 </div>
 <!--end bottom section-->
 </div>
