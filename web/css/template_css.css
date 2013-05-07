@@ -222,7 +222,7 @@ table.blog {
     float: right;
     margin-top: 32px;
     width: 468px;
-    height: 60px;
+    /*height: 60px;*/
     overflow: hidden;
     color: #fff;
 }

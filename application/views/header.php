@@ -15,7 +15,7 @@ $baseUrl = base_url();
     <meta itemprop="image" content="<?php echo $baseUrl; ?>web/images/fiv_icon_128x128.png">
     <meta http-equiv='content-type' content='text/html; charset=UTF-8'/>
     <meta name='robots' content='index, follow'/>
-    <meta name='keywords' content='ผ้าม่าน, รางโชว์, มู่ลี่, ม่านปรับแสง, ม่านม้วน, ม่านพลับ, วอลเปเปอร์, ฉากกั้นห้อง, กั้นแอร์, พรม,
+    <meta name='keywords' content='latendahouse, ผ้าม่าน, รางโชว์, มู่ลี่, ม่านปรับแสง, ม่านม้วน, ม่านพลับ, วอลเปเปอร์, ฉากกั้นห้อง, กั้นแอร์, พรม,
      กระเบื้องยาง, จานดาวเทียม, เครื่องปรับอากาศ, กล้องวงจรปิด, จีพีเอสติดรถยนต์, นครปฐม, เพื่อนช่าง'/>
     <title>ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด</title>
     <meta name='description' content='เอทีมเคอร์เทน'/>
@@ -63,7 +63,8 @@ $baseUrl = base_url();
         <div class="moduletable">
             <p><strong>บริษัท เอ-ทีม เคอร์เทน จำกัด</strong><br>
             A-Team Curtain Co., Ltd.<br>
-            475/15 ถ.ทหารบก ต.บ่อพลับ อ.เมือง จ.นครปฐม 73000</p></div>
+            475/15 ถ.ทหารบก ต.บ่อพลับ อ.เมือง จ.นครปฐม 73000<br>
+            โทร 086-317-2217</p></div>
     </div>
 </div>
 <!--end header-->

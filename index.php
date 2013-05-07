@@ -201,7 +201,7 @@ if (defined('ENVIRONMENT'))
  */
 require_once BASEPATH.'core/CodeIgniter.php';
 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-if ($actual_link == "http://latendahouse.com")
+if ($actual_link == "http://www.latendahouse.com/")
     header("Location: index");
 /* End of file index.php */
 /* Location: ./index.php */
