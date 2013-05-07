@@ -29,7 +29,13 @@ td.rightcol {
     padding: 0;
 }
 
-
+/*icon new*/
+.icon-new {
+    position: absolute;
+    width: 35px;
+    height: 18px;
+    margin-left: 155px;
+}
 
 /* Font family information */
 

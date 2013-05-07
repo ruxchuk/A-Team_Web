@@ -36,7 +36,18 @@ $baseUrl = base_url();
 
 </head>
 <body id="ff-geneva" class="f-default overlay-carbon latch">
+
+<!--include js facebook-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/th_TH/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 <div id="page-bg">
+<!--end include js facebook-->
 
 <!--begin top panel-->
 <div id="top-bar">
@@ -465,6 +476,14 @@ $baseUrl = base_url();
         </div>
     </div>
 </div>
+
+<!--module facebook-->
+<div class="module">
+    <div class="fb-like-box" data-href="https://www.facebook.com/latenda.page" data-width="220"
+         data-show-faces="true" data-colorscheme="dark" data-stream="false" data-header="true">
+    </div>
+</div>
+<!--end module facebook-->
 
 <!--<div class="module">-->
 <!--    <div>-->
