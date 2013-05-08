@@ -12,6 +12,7 @@ class Auth extends CI_Controller
 {
     public function signIn()
     {
+        $message = "";
         $post = $this->input->post();
         if ($post) {
             extract($post);
@@ -31,10 +32,10 @@ class Auth extends CI_Controller
                 $this->session->set_userdata((array)$result[0]);
                 redirect(base_url(). "product/pNew");
             } else {
-                echo 'login fail';
+                $message = 'login fail';
             }
         }
-        $this->load->view('sign-in');
+        $this->load->view('sign-in', array('message' => $message));
     }
 
     public function signOut()

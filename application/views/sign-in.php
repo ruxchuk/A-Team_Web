@@ -29,24 +29,30 @@ $baseUrl = base_url();
     </div>
 
     <div id="login-content">
-<!--        <div class="error">-->
-<!--            Invalid Username-->
-<!--        </div>-->
+        <?php
+        if ($message == "login fail") :
+        ?>
+        <div class="error">
+            ชื่อผู้ใช้หรือ รหัสผ่านผิด
+        </div>
+        <?php
+        endif;
+        ?>
         <form method="post">
             <p>
-                <label>Username</label>
+                <label>ชื่อผู้ใช้</label>
                 <input value="dfd" name="user_name" class="text-input" type="text"/>
             </p>
             <br style="clear: both;"/>
 
             <p>
-                <label>Password</label>
+                <label>รหัสผ่าน</label>
                 <input name="password" class="text-input" type="password"/>
             </p>
             <br style="clear: both;"/>
 
             <p>
-                <input class="button" type="submit" value="Sign In"/>
+                <input class="button" type="submit" value="เข้าระบบ"/>
             </p>
 
         </form>
