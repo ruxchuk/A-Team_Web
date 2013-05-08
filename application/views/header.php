@@ -65,7 +65,7 @@ $baseUrl = base_url();
 
 <!--begin header-->
 <div id="header">
-    <a href="/" class="nounder">
+    <a href="<?php echo $baseUrl; ?>" class="nounder">
         <img src="<?php echo $baseUrl; ?>web/images/web-logo2.png"
              border="0" alt="" id="logo" class="png"/>
     </a>
@@ -88,7 +88,7 @@ $baseUrl = base_url();
     <div id="horiz-menu" class="suckerfish">
         <ul class="menutop">
             <li id="current" class="active item89">
-                <a href="#"><span>หน้าแรก</span></a>
+                <a href="<?php echo $baseUrl; ?>"><span>หน้าแรก</span></a>
             </li>
             <li class="parent item121"><a href="#" class="topdaddy"><span>ผ้าม่าน</span></a>
                 <ul>
@@ -485,25 +485,132 @@ $baseUrl = base_url();
 </div>
 <!--end module facebook-->
 
-<!--<div class="module">-->
-<!--    <div>-->
-<!--        <div>-->
-<!--            <div>-->
-<!--                <div class="jv_facebook-container">-->
-<!--                    <iframe-->
-<!--                        src="http://www.facebook.com/plugins/likebox.php?href=http://www.facebook.com/TheCollegeBaseballBlog&amp;width=200&amp;connections=8&amp;stream=true&amp;height=580"-->
-<!--                        scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px;height:580px;"-->
-<!--                        allowTransparency="true"></iframe>-->
-<!--                    <div style="display: none;"><a title="Joomla Templates" href="http://www.joomlavision.com">Joomla-->
-<!--                            Templates</a> and Joomla Extensions by JoomlaVision.Com-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+</div>
+<!--<style type="text/css" media="Screen">-->
+<!--    #navigation ul {-->
+<!--        list-style-type: none;-->
+<!--        padding: 0;-->
+<!--        margin: 0;-->
+<!--        width: 140px;-->
+<!--    }-->
+<!--    #navigation a {-->
+<!--        text-decoration: none;-->
+<!--        display: block;-->
+<!--        padding: 3px 12px 3px 8px;-->
+<!--        background-color: #666;-->
+<!--        color: #fff;-->
+<!--        border: 1px solid #ddd;-->
+<!--    }-->
+<!--    #navigation a:active {-->
+<!--        padding: 2px 13px 4px 7px;-->
+<!--        background-color: #444;-->
+<!--        color: #eee;-->
+<!--        border: 1px solid #333;-->
+<!--    }-->
+<!---->
+<!--    #navigation li li a {-->
+<!--        text-decoration: none;-->
+<!--        padding: 3px 3px 3px 17px;-->
+<!--        background-color: #999;-->
+<!--        color: #111111;-->
+<!--    }-->
+<!--    #navigation li li a:active {-->
+<!--        padding: 2px 4px 4px 16px;-->
+<!--        background-color: #888;-->
+<!--        color: #000;-->
+<!--    }-->
+<!--</style>-->
+<!--<script type="text/javascript">-->
+<!--    var strCaseSubMenu = "00000";-->
+<!--    function swapMenu(strCase){-->
+<!--        if (strCase[0] == "1") {-->
+<!--            idFadeIn("#sub-menu1");-->
+<!--        }else {-->
+<!--            idFadeOut("#sub-menu1");-->
+<!--        }-->
+<!--        if (strCase[1] == "1") {-->
+<!--            idFadeIn("#sub-menu2");-->
+<!--        }else {-->
+<!--            idFadeOut("#sub-menu2");-->
+<!--        }-->
+<!--        if (strCase[2] == "1") {-->
+<!--            idFadeIn("#sub-menu3");-->
+<!--        }else {-->
+<!--            idFadeOut("#sub-menu3");-->
+<!--        }-->
+<!--        if (strCase[3] == "1") {-->
+<!--            idFadeIn("#sub-menu4");-->
+<!--        }else {-->
+<!--            idFadeOut("#sub-menu4");-->
+<!--        }-->
+<!--        if (strCase[4] == "1") {-->
+<!--            idFadeIn("#sub-menu5");-->
+<!--        }else {-->
+<!--            idFadeOut("#sub-menu5");-->
+<!--        }-->
+<!--    }-->
+<!---->
+<!--    function idFadeIn(id) {-->
+<!--        $(id).fadeIn(1000);-->
+<!--    }-->
+<!---->
+<!--    function idFadeOut(id) {-->
+<!--        $(id).fadeOut(800);-->
+<!--    }-->
+<!--</script>-->
+<!---->
+<!--<div id="navigation">-->
+<!--    <ul>-->
+<!--        <li>-->
+<!--            <a href="#" onclick="swapMenu('10000');return false;">Click me</a>-->
+<!--            <ul id="sub-menu1" style="display: none;">-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--            </ul>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <a href="#" onclick="swapMenu('01000');return false;">Click me</a>-->
+<!--            <ul id="sub-menu2" style="display: none;">-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--            </ul>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <a href="#" onclick="swapMenu('00100');return false;">Click</a>-->
+<!--            <ul id="sub-menu3" style="display: none;">-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--            </ul>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <a href="#" onclick="swapMenu('00010');return false;">Click</a>-->
+<!--            <ul id="sub-menu4" style="display: none;">-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--            </ul>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <a href="#" onclick="swapMenu('00001');return false;">Click</a>-->
+<!--            <ul id="sub-menu5" style="display: none;">-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--                <li><a href="#">A link to a page</a></li>-->
+<!--            </ul>-->
+<!--        </li>-->
+<!--    </ul>-->
 <!--</div>-->
 
-</div>
+
+
 </td>
 <!--end leftcolumn-->
 

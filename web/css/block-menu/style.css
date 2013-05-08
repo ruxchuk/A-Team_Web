@@ -413,12 +413,14 @@ Credit: http://www.templatemo.com
     font-weight: bold;
 }
 
-.product_box h2 {
-    background: #583E51;
+.product_box h3 {
+    background: #E1D1D6;
     padding: 3px 10px;
     margin: 10px 0;
-    color: #aea68c;
-    font-size: 12px;
+    color: #2E202A;
+    font-size: 15px;
+    font-weight: bold;
+    height: 50px;
 }
 
 .product_box .image_wrapper {
