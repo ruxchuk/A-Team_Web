@@ -10,15 +10,9 @@ $baseUrl = base_url();
 //echo "<pre>";
 //var_dump($arrProduct);
 //echo "</pre>";
+$this->load->view('header-backen');
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv='content-type' content='text/html; charset=UTF-8'/>
-</head>
-<p>
-<a href="<?php echo $baseUrl; ?>">หน้าแรก</a></p>
 <p><?php echo $message; ?></p>
 <h3>รายการสินค้า</h3>
 <table border="1">

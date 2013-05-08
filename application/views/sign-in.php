@@ -32,7 +32,7 @@ $baseUrl = base_url();
         <?php
         if ($message == "login fail") :
         ?>
-        <div class="error">
+        <div class="error" id="error">
             ชื่อผู้ใช้หรือ รหัสผ่านผิด
         </div>
         <?php
@@ -41,13 +41,15 @@ $baseUrl = base_url();
         <form method="post">
             <p>
                 <label>ชื่อผู้ใช้</label>
-                <input value="dfd" name="user_name" class="text-input" type="text"/>
+                <input value="dfd" name="user_name" class="text-input" type="text"
+                    onkeydown="document.getElementById('error').style.display = 'none';"/>
             </p>
             <br style="clear: both;"/>
 
             <p>
                 <label>รหัสผ่าน</label>
-                <input name="password" class="text-input" type="password"/>
+                <input name="password" class="text-input" type="password"
+                       onkeydown="document.getElementById('error').style.display = 'none';"/>
             </p>
             <br style="clear: both;"/>
 
