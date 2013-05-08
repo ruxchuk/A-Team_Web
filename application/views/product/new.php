@@ -23,6 +23,7 @@ $baseUrl = base_url();
 <h3>รายการสินค้า</h3>
 <table border="1">
     <tr>
+        <td width="36" align="center">ลำดับ</td>
         <td width="36" align="center">id</td>
         <td width="161" align="center">รหัสสินค้า</td>
         <td width="140" align="center">ประเภทสินค้า</td>
@@ -39,17 +40,18 @@ $baseUrl = base_url();
     foreach ($arrProduct as $key => $value) :
     ?>
     <tr>
+        <td align="center"><?php echo $key+1; ?></td>
         <td align="center"><?php echo $value->id; ?></td>
         <td align="right"><?php echo $value->serial; ?></td>
         <td align="center"><?php echo $value->product_type_name; ?></td>
         <td align="left"><?php echo $value->name_th; ?></td>
-        <td align="right"><?php echo number_format($value->price1, 2); ?></td>
-        <td align="right"><?php echo number_format($value->price2, 2); ?></td>
-        <td align="left"><?php echo $value->value; ?></td>
+        <td align="right"><?php echo number_format($value->price1, 2); ?> บาท</td>
+        <td align="right"><?php echo number_format($value->price2, 2); ?> บาท</td>
+        <td align="center"><?php echo $value->value; ?></td>
         <td align="center"><?php echo $value->priority; ?></td>
         <td align="left"><?php echo $value->date_create; ?></td>
         <td align="left"><?php echo $value->date_stamp; ?></td>
-        <td align="center"><a href="#">แก้ไข</a> | <a href="#">ลบ</a></td>
+        <td align="center"><a href="pEdit/<?php echo $value->id; ?>">แก้ไข</a> | <a href="#">ลบ</a></td>
     </tr>
     <?php
     endforeach;
@@ -60,8 +62,10 @@ $baseUrl = base_url();
 <form id="form1" name="form1" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
     <p>
         <label>รหัสสินค้า
-            <input name="serial" type="text" id="serial" disabled
+            <input name="serialShow" type="text" id="serialShow" disabled
                    value="<?php echo date("YmdHis");?>" />
+            <input  name="serial" type="hidden" id="serial"
+                    value="<?php echo date("YmdHis");?>"/>
         </label>
     </p>
     <p>
@@ -107,6 +111,11 @@ $baseUrl = base_url();
     <p>
         <label>หน่วยสินค้า
             <input name="value" type="text" id="value" />
+        </label>
+    </p>
+    <p>
+        <label>ความสำคัญ
+            <input name="priority" type="text" id="priority" value="999" />
         </label>
     </p>
     <p>

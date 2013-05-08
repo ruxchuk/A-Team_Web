@@ -19,9 +19,9 @@ class Auth extends CI_Controller
             $sql = "
                 SELECT
                   *
-                FROM `employee`
+                FROM `member`
                 WHERE 1
-                AND `username` = '$username'
+                AND `user_name` = '$user_name'
                 AND `password` = '$password'
                 AND publish = 1
             ";
@@ -29,18 +29,17 @@ class Auth extends CI_Controller
             if ($query->num_rows()) {
                 $result = $query->result();
                 $this->session->set_userdata((array)$result[0]);
-                redirect(base_url(). "index.php/member/newEmployee");
+                redirect(base_url(). "product/pNew");
             } else {
                 echo 'login fail';
             }
         }
-
         $this->load->view('sign-in');
     }
 
     public function signOut()
     {
         $this->session->sess_destroy();
-        redirect(base_url().'index.php/auth/signIn');
+        redirect(base_url().'auth/signIn');
     }
 }

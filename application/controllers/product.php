@@ -36,6 +36,7 @@ class Product extends CI_Controller
                       `brand`,
                       `model`,
                       `value`,
+                      `priority`,
                       `description`,
                       `keyword`,
                       `date_create`,
@@ -50,6 +51,7 @@ class Product extends CI_Controller
                         '$brand',
                         '$model',
                         '$value',
+                        $priority,
                         '$description',
                         '$keyword',
                          NOW(),
@@ -91,10 +93,10 @@ class Product extends CI_Controller
                     ";
                     $result = $this->db->query($sql);
                     if ($result) {
-                        $message = "add success";
+                        $message = "<font color='green'>เพิ่มรายการสำเร็จแล้ว</font>";
                     }
                 } else {
-                    $message = "add fail";
+                    $message = "<font color='red'>การเพิ่มรายการผิดพลาด</font>";
                 }
             }
         }
@@ -110,7 +112,64 @@ class Product extends CI_Controller
 
     public function pEdit($id)
     {
+        $message = "";
+        $post = $this->input->post();
+        if ($post) {
+            extract($post);
+            $sql = "
+                UPDATE
+                  `product`
+                SET
+                  `product_type_id` = '$product_type_id',
+                  `name_th` = '$name_th',
+                  `name_en` = '$name_en',
+                  `brand` = '$brand',
+                  `model` = '$model',
+                  `value` = '$value',
+                  `description` = '$description',
+                  `keyword` = '$keyword',
+                  `priority` = '$priority',
+                  `date_stamp` = NOW()
+                WHERE `id` = '$id' ;
+            ";
+            $result = $this->db->query($sql);
 
+            if ($result) {
+                $price1 = empty($price1) ? 0 : $price1;
+                $price2 = empty($price2) ? 0 : $price2;
+                $sql = "
+                        UPDATE
+                          `product_price`
+                        SET
+                          `price` = $price1
+                        WHERE `product_id` = $id
+                          AND `price_type` = 'ขายปลีก';
+                    ";
+                $this->db->query($sql);
+                $sql = "
+                        UPDATE
+                          `product_price`
+                        SET
+                          `price` = $price2
+                        WHERE `product_id` = $id
+                        AND `price_type` = 'ขายส่ง';
+                    ";
+                $result = $this->db->query($sql);
+                if ($result) {
+                    $message = "<font color='green'>แก้ไขสำเร็จแล้ว</font>";
+                }
+            } else {
+                $message = "<font color='red'>การแก้ไขผิดพลาด</font>";
+            }
+        }
+        $arrProduct = $this->getProduct($id);
+        $arrProductType = $this->getProductType();
+        $data = array(
+            'message' => $message,
+            "arrProduct" => $arrProduct[0],
+            "arrProductType" => $arrProductType
+        );
+        $this->load->view('product/edit', $data);
     }
 
     /**
@@ -144,7 +203,7 @@ class Product extends CI_Controller
      */
     public function getProduct($id = 0)
     {
-        $sqlAnd = $id == 0 ? "" : "AND `product`.id=$id";
+        $sqlAnd = $id == 0 ? "" : "AND a.id=$id";
         $sql = "
             SELECT
               a.*,
@@ -169,9 +228,9 @@ class Product extends CI_Controller
             WHERE a.`publish` = 1
               AND d.`id` = a.`product_type_id`
               AND d.`publish` = 1
+              $sqlAnd
             ORDER BY a.`priority`,
               a.`date_create`
-              $sqlAnd
         ";
         $query = $this->db->query($sql);
         $result = array();
