@@ -134,6 +134,7 @@ class Product extends CI_Controller
                   `description` = '$description',
                   `keyword` = '$keyword',
                   `priority` = '$priority',
+                  `image_path` = '$image_path',
                   `date_stamp` = NOW()
                 WHERE `id` = '$id' ;
             ";
