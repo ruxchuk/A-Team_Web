@@ -49,7 +49,7 @@ $pathImage = $baseUrl . "web/images/uploads/products/";
             }, 'onUploadSuccess': function (file, data, response) {
                 var n = data.search("Path fail");
                 if (n > 0) {
-                    alert("Path รูปภาพเกิดข้อผิดพลาด");
+                    alert("Path รูปภาพเกิดข้อผิดพลาด" + data);
                 } else {
                     reloadImgae(idReload, data, idSave);
                 }

@@ -19,11 +19,18 @@ class Upload extends CI_Controller
 
     function do_upload()
     {
-        //check path
+        //check path แล้วสร้าง folder
         $result = $this->createFolder();
+
+        //ตั้งชื่อใหม่
+        $fileParts = pathinfo($_FILES['userfile']['name']);
+        $newName = date("YmdHis") . ".". $fileParts['extension'];
+        $_FILES['userfile']['name'] = $newName;
+
         if (!is_dir("web/images/uploads/products/$result")) {
             echo "Path fail";
         } else {
+
             $config['upload_path'] = "web/images/uploads/products/$result";
             $config['allowed_types'] = 'gif|jpg|png';
             $config['max_size'] = '2048';
