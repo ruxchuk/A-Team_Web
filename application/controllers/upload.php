@@ -24,7 +24,7 @@ class Upload extends CI_Controller
 
         //ตั้งชื่อใหม่
         $fileParts = pathinfo($_FILES['userfile']['name']);
-        $newName = date("YmdHis") . ".". $fileParts['extension'];
+        $newName = 'Latenda House-'.date("YmdHis") . ".". $fileParts['extension'];
         $_FILES['userfile']['name'] = $newName;
 
         if (!is_dir("web/images/uploads/products/$result")) {
