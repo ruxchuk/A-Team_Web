@@ -37,6 +37,7 @@ class Product extends CI_Controller
                       `model`,
                       `value`,
                       `priority`,
+                      `image_path`,
                       `description`,
                       `keyword`,
                       `date_create`,
@@ -52,6 +53,7 @@ class Product extends CI_Controller
                         '$model',
                         '$value',
                         $priority,
+                        '$image_path',
                         '$description',
                         '$keyword',
                          NOW(),
@@ -267,6 +269,20 @@ class Product extends CI_Controller
             return $result;
         } else {
             return (object)$result;
+        }
+    }
+
+    public function createFolder()
+    {
+        $folderName = date("Y-m-d");
+        $pathFolder = base_url(). "web/images/uploads/$folderName";
+        $flgCreate = mkdir("$pathFolder");
+        if ($flgCreate) {
+            //echo "Folder Created.";
+            return $pathFolder;
+        } else {
+            //echo "Folder Not Create.";
+            return "";
         }
     }
 }

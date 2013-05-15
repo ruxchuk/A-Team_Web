@@ -13,6 +13,53 @@ $baseUrl = base_url();
 $this->load->view('header-backen');
 ?>
 
+<link rel="stylesheet" type="text/css"
+      href="<?php echo $baseUrl . "web/js/uploadify/uploadify.css"; ?>">
+<script src="<?php echo $baseUrl . 'web/js/jquery-1.9.1.js'; ?>"></script>
+<!--    <script src="--><?php //echo $baseUrl . 'web/js/uploadify/jquery.uploadify-3.1.js'; ?><!--"></script>-->
+<script type="text/javascript"
+        src="<?php echo $baseUrl; ?>web/js/uploadify/jquery.uploadify-3.2.min.js"></script>
+<script>
+    var swfPath = "<?php echo $baseUrl;?>web/js/uploadify/uploadify.swf";
+    var pathImgUploadTmp = "<?php echo $baseUrl . "web/images/uploads/tmp";?>";
+    var pathUploadify = "<?php echo $baseUrl; ?>index.php/upload/do_upload";
+
+    $(function () {
+        genUpload("#logo_image_path", "#image_show", "#image_path");
+    });
+
+    function genUpload(btnUpload, idReload, idSave) {
+        $(btnUpload).uploadify({
+            'userfile': {
+                'path': pathImgUploadTmp
+            },
+            'swf': swfPath,
+            'uploader': pathUploadify,
+            'fileSizeLimit': '120KB',
+            'fileTypeExts': '*.gif; *.jpg; *.png',
+            'enctype': "multipart/form-data",
+            'fileObjName': 'userfile',
+            'onFallback': function () {
+                alert('Flash was not detected.');// detect flash compatible
+            }, 'onUploadSuccess': function (file, data, response) {
+                alert(data);
+                reloadImgae(idReload, data, idSave);
+            }
+        });
+    }
+
+    function reloadImgae(id, img, idSave) {
+        var path = pathImgUploadTmp + "/" + img;
+        $(idSave).val(img);
+        $(id).fadeOut().html(getTypeImage(path, "")).fadeIn("slow");
+    }
+
+    function getTypeImage(src, id) {
+        return '<img src="' + src + '" style="width: 250px; height: 190px;" class="nopad thumb"/>';
+    }
+</script>
+
+
 <p><?php echo $message; ?></p>
 <h3>รายการสินค้า</h3>
 <table border="1">
@@ -32,21 +79,21 @@ $this->load->view('header-backen');
     </tr>
     <?php
     foreach ($arrProduct as $key => $value) :
-    ?>
-    <tr>
-        <td align="center"><?php echo $key+1; ?></td>
-        <td align="center"><?php echo $value->id; ?></td>
-        <td align="right"><?php echo $value->serial; ?></td>
-        <td align="center"><?php echo $value->product_type_name; ?></td>
-        <td align="left"><?php echo $value->name_th; ?></td>
-        <td align="right"><?php echo number_format($value->price1, 2); ?> บาท</td>
-        <td align="right"><?php echo number_format($value->price2, 2); ?> บาท</td>
-        <td align="center"><?php echo $value->value; ?></td>
-        <td align="center"><?php echo $value->priority; ?></td>
-        <td align="left"><?php echo $value->date_create; ?></td>
-        <td align="left"><?php echo $value->date_stamp; ?></td>
-        <td align="center"><a href="pEdit/<?php echo $value->id; ?>">แก้ไข</a> | <a href="#">ลบ</a></td>
-    </tr>
+        ?>
+        <tr>
+            <td align="center"><?php echo $key + 1; ?></td>
+            <td align="center"><?php echo $value->id; ?></td>
+            <td align="right"><?php echo $value->serial; ?></td>
+            <td align="center"><?php echo $value->product_type_name; ?></td>
+            <td align="left"><?php echo $value->name_th; ?></td>
+            <td align="right"><?php echo number_format($value->price1, 2); ?> บาท</td>
+            <td align="right"><?php echo number_format($value->price2, 2); ?> บาท</td>
+            <td align="center"><?php echo $value->value; ?></td>
+            <td align="center"><?php echo $value->priority; ?></td>
+            <td align="left"><?php echo $value->date_create; ?></td>
+            <td align="left"><?php echo $value->date_stamp; ?></td>
+            <td align="center"><a href="pEdit/<?php echo $value->id; ?>">แก้ไข</a> | <a href="#">ลบ</a></td>
+        </tr>
     <?php
     endforeach;
     ?>
@@ -56,12 +103,10 @@ $this->load->view('header-backen');
 <form id="form1" name="form1" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
     <p>
         <label>รหัสสินค้า
-            <input name="serialShow" type="text" id="serialShow" disabled
-                   value="<?php echo date("YmdHis");?>" />
-            <input  name="serial" type="hidden" id="serial"
-                    value="<?php echo date("YmdHis");?>"/>
+            <input name="serial" type="text" id="serial" value=""/>
         </label>
     </p>
+
     <p>
         <label>ประเภทสินค้า
             <select name="product_type_id" id="product_type_id">
@@ -73,57 +118,76 @@ $this->load->view('header-backen');
             </select>
         </label>
     </p>
+
     <p>
         <label>ชื่อภาษาไทย
-            <input name="name_th" type="text" id="name_th" />
+            <input name="name_th" type="text" id="name_th"/>
         </label>
     </p>
-    <p>  <label>
+
+    <p><label>
             ชื่อภาษาอังกฤษ
-            <input name="name_en" type="text" id="name_en" />
+            <input name="name_en" type="text" id="name_en"/>
         </label></p>
+
     <p>
         <label>ราคาขายปลีก
-            <input name="price1" type="text" id="price1" />
+            <input name="price1" type="text" id="price1"/>
         </label>
     </p>
+
     <p>
         <label>ราคาขายส่ง
-            <input name="price2" type="text" id="price2" />
+            <input name="price2" type="text" id="price2"/>
         </label>
     </p>
+
     <p>
         <label>ยี่ห้อ
-            <input name="brand" type="text" id="brand" />
+            <input name="brand" type="text" id="brand"/>
         </label>
     </p>
+
     <p>
         <label>รุ่น
-            <input name="model" type="text" id="model" />
+            <input name="model" type="text" id="model"/>
         </label>
     </p>
+
     <p>
         <label>หน่วยสินค้า
-            <input name="value" type="text" id="value" />
+            <input name="value" type="text" id="value"/>
         </label>
     </p>
+
     <p>
         <label>ความสำคัญ
-            <input name="priority" type="text" id="priority" value="999" />
+            <input name="priority" type="text" id="priority" value="999"/>
         </label>
     </p>
+
+    <p>รูปภาพ</p>
+
+    <p id="image_show"><img src="" width="263" height="192" alt=""/></p>
+    <label>
+        <input name="userfile" type="file" id="logo_image_path"/>
+        <input name="image_path" type="hidden" id="image_path" value=""/>
+    </label>
+
     <p>
         <label>รายละเอียด
             <textarea name="description" id="description"></textarea>
         </label>
     </p>
+
     <p>
         <label>คำค้นหา
             <textarea name="keyword" id="keyword"></textarea>
         </label>
     </p>
+
     <p>
-        <input type="submit" name="Submit" value="บันทึก" />
+        <input type="submit" name="Submit" value="บันทึก"/>
     </p>
 </form>
 </html>

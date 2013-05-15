@@ -12,6 +12,51 @@ $baseUrl = base_url();
 //echo '</pre>';
 $this->load->view('header-backen');
 ?>
+
+<link rel="stylesheet" type="text/css"
+      href="<?php echo $baseUrl . "web/js/uploadify/uploadify.css"; ?>">
+<script src="<?php echo $baseUrl . 'web/js/jquery-1.9.1.js'; ?>"></script>
+<!--    <script src="--><?php //echo $baseUrl . 'web/js/uploadify/jquery.uploadify-3.1.js'; ?><!--"></script>-->
+<script type="text/javascript"
+        src="<?php echo $baseUrl; ?>web/js/uploadify/jquery.uploadify-3.2.min.js"></script>
+<script>
+    var swfPath = "<?php echo $baseUrl;?>web/js/uploadify/uploadify.swf";
+    var pathImgUploadTmp = "<?php echo $baseUrl . "web/images/uploads/tmp";?>";
+    var pathUploadify = "<?php echo $baseUrl; ?>index.php/upload/do_upload";
+
+    $(function () {
+        genUpload("#logo_image_path", "#image_show", "#image_path");
+    });
+
+    function genUpload(btnUpload, idReload, idSave) {
+        $(btnUpload).uploadify({
+            'userfile': {
+                'path': pathImgUploadTmp
+            },
+            'swf': swfPath,
+            'uploader': pathUploadify,
+            'fileSizeLimit': '120KB',
+            'fileTypeExts': '*.gif; *.jpg; *.png',
+            'enctype': "multipart/form-data",
+            'fileObjName': 'userfile',
+            'onFallback': function () {
+                alert('Flash was not detected.');// detect flash compatible
+            }, 'onUploadSuccess': function (file, data, response) {
+                reloadImgae(idReload, data, idSave);
+            }
+        });
+    }
+
+    function reloadImgae(id, img, idSave) {
+        var path = pathImgUploadTmp + "/" + img;
+        $(idSave).val(img);
+        $(id).fadeOut().html(getTypeImage(path, "")).fadeIn("slow");
+    }
+
+    function getTypeImage(src, id) {
+        return '<img src="' + src + '" style="width: 250px; height: 190px;" class="nopad thumb"/>';
+    }
+</script>
 <p><a href="<?php echo $baseUrl; ?>product/pNew">หน้ารายการสินค้า</a></p>
 
 <p><?php echo $message; ?></p>
@@ -21,7 +66,7 @@ $this->load->view('header-backen');
 <form id="form1" name="form1" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
     <p>
         <label>รหัสสินค้า
-            <input name="serial" type="text" id="serial" disabled
+            <input name="serial" type="text" id="serial"
                    value="<?php echo $arrProduct->serial; ?>"/>
         </label>
     </p>
@@ -95,6 +140,14 @@ $this->load->view('header-backen');
             <input name="priority" type="text" id="priority" value="999"/>
         </label>
     </p>
+
+    <p>รูปภาพ</p>
+
+    <p id="image_show"><img src="<?php echo $baseUrl . "web/images/uploads/tmp/" . $arrProduct->image_path; ?>" width="263" height="192" alt=""/></p>
+    <label>
+        <input name="userfile" type="file" id="logo_image_path"/>
+        <input name="image_path" type="hidden" id="image_path" value="<?php echo $arrProduct->image_path; ?>"/>
+    </label>
 
     <p>
         <label>รายละเอียด

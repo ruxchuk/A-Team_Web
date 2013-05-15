@@ -19,6 +19,9 @@ class Upload extends CI_Controller
 
     function do_upload()
     {
+        //check path
+        $result = $this->createFolder();
+
         $config['upload_path'] = 'web/images/uploads/tmp';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = '2048';
@@ -44,7 +47,20 @@ class Upload extends CI_Controller
             //$result = move_uploaded_file($data['full_path'], $targetFile);
             echo $data['file_name'];
         }
+    }
 
+    public function createFolder()
+    {
+        $folderName = date("Y-m-d");
+        $pathFolder = "web/images/uploads/products/$folderName";
+        if(!is_dir($pathFolder)) //create the folder if it's not already exists
+        {
+            $flgCreate = mkdir($pathFolder, 0777, true);
+            if (!$flgCreate) {
+                return "Create False";
+            }
+        }
+        return $pathFolder;
     }
 }
 
