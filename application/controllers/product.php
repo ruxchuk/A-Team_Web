@@ -19,6 +19,7 @@ class Product extends CI_Controller
 
     public function pNew()
     {
+        var_dump($this->session->userdata['user_name']);
         $post = $this->input->post();
         $message = "";
         if ($post) {
@@ -274,5 +275,11 @@ class Product extends CI_Controller
         } else {
             return (object)$result;
         }
+    }
+
+    public function dataG()
+    {
+        $this->load->library('product');
+//        $this->load->libraries('product');
     }
 }

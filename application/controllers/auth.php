@@ -30,17 +30,25 @@ class Auth extends CI_Controller
             if ($query->num_rows()) {
                 $result = $query->result();
                 $this->session->set_userdata((array)$result[0]);
-                redirect(base_url(). "product/pNew");
+                session_start();
+                $_SESSION['userdata'] = $this->session->userdata;
+                redirect("web/backen/product.php");
             } else {
                 $message = 'login fail';
             }
         }
-        $this->load->view('sign-in', array('message' => $message));
+        if (empty($this->session->userdata['user_name'])){
+            $this->load->view('sign-in', array('message' => $message));
+        } else {
+            redirect(base_url(). "product/pNew");
+        }
     }
 
     public function signOut()
     {
         $this->session->sess_destroy();
+        session_start();
+        unset($_SESSION["userdata"]);
         redirect(base_url().'auth/signIn');
     }
 }
