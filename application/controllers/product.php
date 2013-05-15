@@ -25,7 +25,8 @@ class Product extends CI_Controller
             extract($post);
             $checkAdd = $this->checkAddProduct($serial);
             if (!$checkAdd) {
-                $message = "มีรายการเพิ่มเข้ามาแล้ว";
+                $message = "<span style='background-color: greenyellow;'>
+                <font color='red'>มีรายการเพิ่มเข้ามาแล้ว</font></span>";
             } else {
                 $sql = "
                     INSERT INTO `product` (
@@ -96,6 +97,7 @@ class Product extends CI_Controller
                     $result = $this->db->query($sql);
                     if ($result) {
                         $message = "<font color='green'>เพิ่มรายการสำเร็จแล้ว</font>";
+                        $post = null;
                     }
                 } else {
                     $message = "<font color='red'>การเพิ่มรายการผิดพลาด</font>";
@@ -107,7 +109,8 @@ class Product extends CI_Controller
         $data = array(
             'message' => $message,
             "arrProduct" => $arrProduct,
-            "arrProductType" => $arrProductType
+            "arrProductType" => $arrProductType,
+            "arrayPost" => $post
         );
         $this->load->view('product/new', $data);
     }
@@ -269,20 +272,6 @@ class Product extends CI_Controller
             return $result;
         } else {
             return (object)$result;
-        }
-    }
-
-    public function createFolder()
-    {
-        $folderName = date("Y-m-d");
-        $pathFolder = base_url(). "web/images/uploads/$folderName";
-        $flgCreate = mkdir("$pathFolder");
-        if ($flgCreate) {
-            //echo "Folder Created.";
-            return $pathFolder;
-        } else {
-            //echo "Folder Not Create.";
-            return "";
         }
     }
 }

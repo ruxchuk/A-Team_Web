@@ -11,6 +11,7 @@ $baseUrl = base_url();
 //var_dump($arrProduct);
 //echo '</pre>';
 $this->load->view('header-backen');
+$pathImage = $baseUrl . "web/images/uploads/products/";
 ?>
 
 <link rel="stylesheet" type="text/css"
@@ -21,7 +22,7 @@ $this->load->view('header-backen');
         src="<?php echo $baseUrl; ?>web/js/uploadify/jquery.uploadify-3.2.min.js"></script>
 <script>
     var swfPath = "<?php echo $baseUrl;?>web/js/uploadify/uploadify.swf";
-    var pathImgUploadTmp = "<?php echo $baseUrl . "web/images/uploads/tmp";?>";
+    var pathImgUploadTmp = "<?php echo $pathImage;?>";
     var pathUploadify = "<?php echo $baseUrl; ?>index.php/upload/do_upload";
 
     $(function () {
@@ -143,7 +144,7 @@ $this->load->view('header-backen');
 
     <p>รูปภาพ</p>
 
-    <p id="image_show"><img src="<?php echo $baseUrl . "web/images/uploads/tmp/" . $arrProduct->image_path; ?>" width="263" height="192" alt=""/></p>
+    <p id="image_show"><img src="<?php echo $pathImage . $arrProduct->image_path; ?>" width="263" height="192" alt=""/></p>
     <label>
         <input name="userfile" type="file" id="logo_image_path"/>
         <input name="image_path" type="hidden" id="image_path" value="<?php echo $arrProduct->image_path; ?>"/>

@@ -11,6 +11,11 @@ $baseUrl = base_url();
 //var_dump($arrProduct);
 //echo "</pre>";
 $this->load->view('header-backen');
+if ($arrayPost) {
+    extract($arrayPost);
+    $productValue = $value;
+}
+$pathImage = $baseUrl . "web/images/uploads/products/";
 ?>
 
 <link rel="stylesheet" type="text/css"
@@ -21,7 +26,7 @@ $this->load->view('header-backen');
         src="<?php echo $baseUrl; ?>web/js/uploadify/jquery.uploadify-3.2.min.js"></script>
 <script>
     var swfPath = "<?php echo $baseUrl;?>web/js/uploadify/uploadify.swf";
-    var pathImgUploadTmp = "<?php echo $baseUrl . "web/images/uploads/tmp";?>";
+    var pathImgUploadTmp = "<?php echo $pathImage;?>";
     var pathUploadify = "<?php echo $baseUrl; ?>index.php/upload/do_upload";
 
     $(function () {
@@ -42,14 +47,18 @@ $this->load->view('header-backen');
             'onFallback': function () {
                 alert('Flash was not detected.');// detect flash compatible
             }, 'onUploadSuccess': function (file, data, response) {
-                alert(data);
-                reloadImgae(idReload, data, idSave);
+                var n = data.search("Path fail");
+                if (n > 0) {
+                    alert("Path รูปภาพเกิดข้อผิดพลาด");
+                } else {
+                    reloadImgae(idReload, data, idSave);
+                }
             }
         });
     }
 
     function reloadImgae(id, img, idSave) {
-        var path = pathImgUploadTmp + "/" + img;
+        var path = pathImgUploadTmp + img;
         $(idSave).val(img);
         $(id).fadeOut().html(getTypeImage(path, "")).fadeIn("slow");
     }
@@ -59,8 +68,6 @@ $this->load->view('header-backen');
     }
 </script>
 
-
-<p><?php echo $message; ?></p>
 <h3>รายการสินค้า</h3>
 <table border="1">
     <tr>
@@ -98,12 +105,12 @@ $this->load->view('header-backen');
     endforeach;
     ?>
 </table>
-<br>
+<br><p><?php echo $message; ?></p>
 <h2>เพิ่มรายการสินค้า</h2>
 <form id="form1" name="form1" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
     <p>
         <label>รหัสสินค้า
-            <input name="serial" type="text" id="serial" value=""/>
+            <input name="serial" type="text" id="serial" value="<?php echo empty($serial) ? '' : $serial; ?>"/>
         </label>
     </p>
 
@@ -112,7 +119,11 @@ $this->load->view('header-backen');
             <select name="product_type_id" id="product_type_id">
                 <?php
                 foreach ($arrProductType as $key => $value) {
-                    echo "<option value='$value->id'>$value->name</option>";
+                    if ($product_type_id == $value->id) {
+                        echo "<option value='$value->id' selected>$value->name</option>";
+                    } else {
+                        echo "<option value='$value->id'>$value->name</option>";
+                    }
                 }
                 ?>
             </select>
@@ -121,68 +132,73 @@ $this->load->view('header-backen');
 
     <p>
         <label>ชื่อภาษาไทย
-            <input name="name_th" type="text" id="name_th"/>
+            <input name="name_th" type="text" id="name_th" value="<?php echo empty($name_th) ? '' : $name_th; ?>"/>
         </label>
     </p>
 
     <p><label>
             ชื่อภาษาอังกฤษ
-            <input name="name_en" type="text" id="name_en"/>
+            <input name="name_en" type="text" id="name_en" value="<?php echo empty($name_en) ? '' : $name_en; ?>"/>
         </label></p>
 
     <p>
         <label>ราคาขายปลีก
-            <input name="price1" type="text" id="price1"/>
+            <input name="price1" type="text" id="price1" value="<?php echo empty($price1) ? '' : $price1; ?>"/> บาท
         </label>
     </p>
 
     <p>
         <label>ราคาขายส่ง
-            <input name="price2" type="text" id="price2"/>
+            <input name="price2" type="text" id="price2" value="<?php echo empty($price2) ? '' : $price2; ?>"/> บาท
         </label>
     </p>
 
     <p>
         <label>ยี่ห้อ
-            <input name="brand" type="text" id="brand"/>
+            <input name="brand" type="text" id="brand" value="<?php echo empty($brand) ? '' : $brand; ?>"/>
         </label>
     </p>
 
     <p>
         <label>รุ่น
-            <input name="model" type="text" id="model"/>
+            <input name="model" type="text" id="model" value="<?php echo empty($model) ? '' : $model; ?>"/>
         </label>
     </p>
 
     <p>
         <label>หน่วยสินค้า
-            <input name="value" type="text" id="value"/>
+            <input name="value" type="text" id="value" value="<?php echo empty($productValue) ? '' : $productValue; ?>"/>
         </label>
     </p>
 
     <p>
         <label>ความสำคัญ
-            <input name="priority" type="text" id="priority" value="999"/>
+            <input name="priority" type="text" id="priority"
+                   value="<?php echo empty($priority) ? '999' : $priority; ?>"/>
         </label>
     </p>
 
     <p>รูปภาพ</p>
 
-    <p id="image_show"><img src="" width="263" height="192" alt=""/></p>
+    <p id="image_show"><img src="<?php echo empty($image_path) ? '' : $pathImage . $image_path; ?>"
+                            width="263" height="192" alt=""/>
+    </p>
     <label>
         <input name="userfile" type="file" id="logo_image_path"/>
-        <input name="image_path" type="hidden" id="image_path" value=""/>
+        <input name="image_path" type="hidden" id="image_path"
+               value="<?php echo empty($image_path) ? '' : $image_path; ?>"/>
     </label>
 
     <p>
         <label>รายละเอียด
-            <textarea name="description" id="description"></textarea>
+            <textarea name="description"
+                      id="description"><?php echo empty($description) ? '' : $description; ?></textarea>
         </label>
     </p>
 
     <p>
         <label>คำค้นหา
-            <textarea name="keyword" id="keyword"></textarea>
+            <textarea name="keyword" id="keyword"><?php echo empty($keyword) ? '' : $keyword; ?></textarea>
         </label>
     </p>
 
