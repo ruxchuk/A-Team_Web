@@ -43,13 +43,18 @@ $pathImage = $baseUrl . "web/images/uploads/products/";
             'onFallback': function () {
                 alert('Flash was not detected.');// detect flash compatible
             }, 'onUploadSuccess': function (file, data, response) {
-                reloadImgae(idReload, data, idSave);
+                var n = data.search("Path fail");
+                if (n > 0) {
+                    alert("Path รูปภาพเกิดข้อผิดพลาด");
+                } else {
+                    reloadImgae(idReload, data, idSave);
+                }
             }
         });
     }
 
     function reloadImgae(id, img, idSave) {
-        var path = pathImgUploadTmp + "/" + img;
+        var path = pathImgUploadTmp + img;
         $(idSave).val(img);
         $(id).fadeOut().html(getTypeImage(path, "")).fadeIn("slow");
     }
