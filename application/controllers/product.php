@@ -187,12 +187,12 @@ class Product extends CI_Controller
     public function checkAddProduct($serial)
     {
         $sql = "
-        SELECT
-            *
-        FROM
-          `product`
-        WHERE `product`.`publish` = 1
-        AND `product`.`serial` = '$serial'
+            SELECT
+                *
+            FROM
+              `product`
+            WHERE `product`.`publish` = 1
+            AND `product`.`serial` = '$serial'
         ";
         $query = $this->db->query($sql);
         if ($query->num_rows()) {

@@ -20,11 +20,56 @@ class Index extends CI_Controller
 
     public function index()
     {
-        $this->load->view('index', array('error' => ' '));
+        $data = array(
+            'error' => '',
+            'arrProduct' => $this->getProduct()
+        );
+        $this->load->view('index', $data);
     }
 
-    public function test()
+    /**
+     * get product
+     * @param int $id
+     * @return object
+     */
+    function getProduct($id = 0)
     {
-        $this->load->view('test', array('error' => ' '));
+        $sqlAnd = $id == 0 ? "" : "AND a.id=$id";
+        $sql = "
+            SELECT
+              a.*,
+              d.`name` AS product_type_name,
+              (SELECT
+                b.`price`
+              FROM
+                `product_price` b
+              WHERE b.`product_id` = a.id
+                AND b.`price_type` = 'ขายปลีก'
+                AND b.`publish` = 1) AS price1,
+              (SELECT
+                c.`price`
+              FROM
+                `product_price` c
+              WHERE c.`product_id` = a.id
+                AND c.`price_type` = 'ขายส่ง'
+                AND c.`publish` = 1) AS price2
+            FROM
+              `product` a,
+              `product_type` d
+            WHERE a.`publish` = 1
+              AND d.`id` = a.`product_type_id`
+              AND d.`publish` = 1
+              $sqlAnd
+            ORDER BY a.`priority`,
+              a.`date_create`
+        ";
+        $query = $this->db->query($sql);
+        $result = array();
+        if ($query->num_rows()) {
+            $result = $query->result();
+            return $result;
+        } else {
+            return (object)$result;
+        }
     }
 }
