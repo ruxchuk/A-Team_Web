@@ -15,10 +15,10 @@ $baseUrl = base_url();
     <meta itemprop="image" content="<?php echo $baseUrl; ?>web/images/fiv_icon_128x128.png">
     <meta http-equiv='content-type' content='text/html; charset=UTF-8'/>
     <meta name='robots' content='index, follow'/>
-    <meta name='keywords' content='latendahouse, ผ้าม่าน, รางโชว์, มู่ลี่, ม่านปรับแสง, ม่านม้วน, ม่านพลับ, วอลเปเปอร์, ฉากกั้นห้อง, กั้นแอร์, พรม,
-     กระเบื้องยาง, จานดาวเทียม, เครื่องปรับอากาศ, กล้องวงจรปิด, จีพีเอสติดรถยนต์, นครปฐม, เพื่อนช่าง, CCTV, CCTV นครปฐม,
-     กล้องวงจรปิด นครปฐม, CCTV นครปฐม'/>
-    <title>ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด</title>
+    <meta name='keywords' content='latendahouse, ผ้าม่าน, รางโชว์, มู่ลี่, ม่านปรับแสง, ม่านม้วน, ม่านพลับ, วอลเปเปอร์,
+    ฉากกั้นห้อง, กั้นแอร์, พรม, กระเบื้องยาง, จานดาวเทียม, เครื่องปรับอากาศ, กล้องวงจรปิด, จีพีเอสติดรถยนต์, นครปฐม,
+    เพื่อนช่าง, CCTV, CCTV นครปฐม, กล้องวงจรปิด นครปฐม, CCTV นครปฐม<?php echo $keyword; ?>'/>
+    <title><?php echo $siteTitle; ?></title>
     <meta name='description' content='เอทีมเคอร์เทน'/>
     <meta name='author' content='เอทีมเคอร์เทน'/>
     <meta name='copyright' content='บริษัท เอทีมเคอร์เทน จำกัด'/>

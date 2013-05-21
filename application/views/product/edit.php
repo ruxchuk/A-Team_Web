@@ -10,7 +10,7 @@ $baseUrl = base_url();
 //echo '<pre>';
 //var_dump($arrProduct);
 //echo '</pre>';
-$this->load->view('header-backen');
+$this->load->view('header-backend');
 $pathImage = $baseUrl . "web/images/uploads/products/";
 ?>
 

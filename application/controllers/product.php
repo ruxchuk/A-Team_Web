@@ -12,6 +12,7 @@ class Product extends CI_Controller
 {
 
     private $webUrl = "";
+
     function __construct()
     {
         parent::__construct();
@@ -19,15 +20,28 @@ class Product extends CI_Controller
         $this->webUrl .= strstr($_SERVER['HTTP_HOST'], 'localhost') > -1 ? 'index.php/' : base_url();
     }
 
+    function index()
+    {
+        if (empty($this->session->userdata['username'])) {
+            redirect("web/backend/product.php");
+        } else {
+            redirect($this->baseUrl . "auth/signIn");
+        }
+    }
+
     function view($id)
     {
         $this->load->model('Product_model');
         $arrProduct = $this->Product_model->getProduct(intval($id));
+        $title = $arrProduct[0]->name_th ;
+        $keyword = $arrProduct[0]->keyword != "" ? ", " . $arrProduct[0]->keyword : "";
         $data = array(
             'error' => '',
             'product' => $arrProduct,
             'showSlide' => false,
-            'webUrl' => $this->webUrl
+            'webUrl' => $this->webUrl,
+            'siteTitle' => $title,
+            'keyword' => $keyword
         );
         $this->load->view("product/view", $data);
     }

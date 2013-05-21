@@ -41,7 +41,7 @@ $baseUrl = base_url();
         <form method="post">
             <p>
                 <label>ชื่อผู้ใช้</label>
-                <input value="dfd" name="user_name" class="text-input" type="text"
+                <input value="" name="user_name" class="text-input" type="text"
                     onkeydown="document.getElementById('error').style.display = 'none';"/>
             </p>
             <br style="clear: both;"/>

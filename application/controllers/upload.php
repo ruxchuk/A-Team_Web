@@ -61,6 +61,7 @@ class Upload extends CI_Controller
 
     public function createFolder()
     {
+
         $folderName = date("Y-m-d");
         $pathFolder = "web/images/uploads/products/$folderName";
         if (!is_dir($pathFolder)) //create the folder if it's not already exists

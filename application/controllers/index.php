@@ -23,11 +23,14 @@ class Index extends CI_Controller
     {
         $this->load->model('Product_model');
         $arrProduct = $this->Product_model->getProduct();
+        $keyword = "";
         $data = array(
             'error' => '',
             'arrProduct' => $arrProduct,
             'showSlide' => true,
-            'webUrl' => $this->webUrl
+            'webUrl' => $this->webUrl,
+            'siteTitle' => "ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด",
+            'keyword' => $keyword
         );
         $this->load->view('index', $data);
     }
