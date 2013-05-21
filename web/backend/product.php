@@ -26,7 +26,7 @@ $dgrid = new DataGrid($debug_mode, $messaging, $unique_prefix);
 
 ##  *** set data source with needed options
 ##  *** put a primary key on the first place
-//http://localhost:11001/ateam/web/a-team_web/web/backen/datagrid/styles/pink/images/edit.gif
+//http://localhost:11001/ateam/web/a-team_web/web/backend/datagrid/styles/pink/images/edit.gif
 $sql = "
 SELECT
       `product`.*,
@@ -189,8 +189,9 @@ $vm_columns = array(
     'name_th' => array('header' => ' ชื่อสินค้า', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'brand' => array('header' => ' ยี่ห้อ', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'model' => array('header' => ' รุ่น', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-    'price1' => array('header' => ' ราคาขายปลีก', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-    'price2' => array('header' => ' ราคาขายส่ง', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'price1' => array('header' => ' ราคาปกติ', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'price2' => array('header' => ' ราคาขายปลีก', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'price3' => array('header' => ' ราคาขายส่ง', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'value' => array('header' => ' หน่วยสินค้า', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'priority' => array('header' => ' ความสำคัญ', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'date_create' => array('header' => ' วันที่สร้าง', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
@@ -245,7 +246,7 @@ if ($getMode != 'add' && $getMode != 'edit') {
             $("#rfyimage_path").hide();
             genUpload("#image_add", "#image_show", "#rfyimage_path");
 
-            $("#wysiwygryydescription").height('300');
+            $("#wysiwygryydescription").height('500').width(600);
         });
 
         function genUpload(btnUpload, idReload, idSave) {
@@ -350,7 +351,7 @@ $em_columns = array(
     'serial' => array('header' => ' รหัสสินค้า', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
         'title' => 'รหัสสินค้า', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
     'name_th' => array('header' => ' ชื่อภาษาไทย', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
-        'title' => 'ชื่อภาษาไทย', 'readonly' => 'false', 'maxlength' => '30', 'default' => ''),
+        'title' => 'ชื่อภาษาไทย', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
     'name_en' => array('header' => ' ชื่อภาษาอังกฤษ', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
         'title' => 'ชื่อภาษาอังกฤษ', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
     'price1' => array('header' => ' ราคาปกติ', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
@@ -360,11 +361,11 @@ $em_columns = array(
     'price3' => array('header' => ' ราคาขายส่ง', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
         'title' => 'ราคาขายส่ง', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
     'brand' => array('header' => ' ยี่ห้อ', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
-        'title' => 'ยี่ห้อ', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+        'title' => 'ยี่ห้อ', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
     'model' => array('header' => ' รุ่น', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
-        'title' => 'รุ่น', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+        'title' => 'รุ่น', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
     'value' => array('header' => ' หน่วยสินค้า', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
-        'title' => 'หน่วยสินค้า', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+        'title' => 'หน่วยสินค้า', 'readonly' => 'false', 'maxlength' => '20', 'default' => ''),
     'priority' => array('header' => ' ความสำคัญ', 'type' => 'textbox', 'req_type' => 'rn', 'width' => '210px',
         'title' => 'ความสำคัญ', 'readonly' => 'false', 'maxlength' => '15', 'default' => '999'),
 //    'image_path' => array('header' => ' รูปภาพ', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
@@ -405,7 +406,7 @@ $em_columns = array(
     'description' => array('header' => ' รายละเอียด', 'type' => 'textarea', 'req_type' => 'ry', 'width' => '500px',
         'height' => '600px', 'title' => 'รายละเอียด', 'readonly' => 'false', 'maxlength' => '200', 'default' => '', "edit_type"=>"wysiwyg"),
     'keyword' => array('header' => ' คำค้นหา', 'type' => 'textarea', 'req_type' => 'ry', 'width' => '210px',
-        'title' => 'คำค้นหา', 'readonly' => 'false', 'maxlength' => '400', 'default' => '',
+        'title' => 'คำค้นหา', 'readonly' => 'false', 'maxlength' => '600', 'default' => '',
         'post_addition' =>"<p style='position: absolute;margin-top: -15px;margin-left: 220px;'>
         <strong>ตัวอย่างเช่น :</strong>ผ้าม่าน, กล้องวงจรปิด</p>"),
     'date_create' => array('header' => ' วันที่สร้าง', 'type' => 'hidden', 'req_type' => 'ry', 'width' => '210px',
