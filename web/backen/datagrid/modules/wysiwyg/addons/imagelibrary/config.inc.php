@@ -39,8 +39,8 @@ $dirok = false;
 /*
  * Path to a directory which holds the images.
  */
-//$imagebasedir = '../../../images/uploads';
-$imagebasedir = 'images';
+$imagebasedir = '../../../../../../images/uploads/products/wysiwyg';
+//$imagebasedir = 'images';
 
 /*
  * An absolute or relative URL to the image folder.

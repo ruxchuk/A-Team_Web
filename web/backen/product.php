@@ -244,6 +244,8 @@ if ($getMode != 'add' && $getMode != 'edit') {
         $(function () {
             $("#rfyimage_path").hide();
             genUpload("#image_add", "#image_show", "#rfyimage_path");
+
+            $("#wysiwygryydescription").height('300');
         });
 
         function genUpload(btnUpload, idReload, idSave) {
@@ -351,9 +353,11 @@ $em_columns = array(
         'title' => 'ชื่อภาษาไทย', 'readonly' => 'false', 'maxlength' => '30', 'default' => ''),
     'name_en' => array('header' => ' ชื่อภาษาอังกฤษ', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
         'title' => 'ชื่อภาษาอังกฤษ', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
-    'price1' => array('header' => ' ราคาขายปลีก', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
+    'price1' => array('header' => ' ราคาปกติ', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
+        'title' => 'ราคาปกติ', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+    'price2' => array('header' => ' ราคาขายปลีก', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
         'title' => 'ราคาขายปลีก', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
-    'price2' => array('header' => ' ราคาขายส่ง', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
+    'price3' => array('header' => ' ราคาขายส่ง', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
         'title' => 'ราคาขายส่ง', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
     'brand' => array('header' => ' ยี่ห้อ', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
         'title' => 'ยี่ห้อ', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
@@ -398,10 +402,12 @@ $em_columns = array(
         'host' => 'local|remote',
         'allow_downloading' => 'false',
         'allowed_extensions' => ''),*/
-    'description' => array('header' => ' รายละเอียด', 'type' => 'textarea', 'req_type' => 'ry', 'width' => '210px',
-        'title' => 'รายละเอียด', 'readonly' => 'false', 'maxlength' => '200', 'default' => ''),
+    'description' => array('header' => ' รายละเอียด', 'type' => 'textarea', 'req_type' => 'ry', 'width' => '500px',
+        'height' => '600px', 'title' => 'รายละเอียด', 'readonly' => 'false', 'maxlength' => '200', 'default' => '', "edit_type"=>"wysiwyg"),
     'keyword' => array('header' => ' คำค้นหา', 'type' => 'textarea', 'req_type' => 'ry', 'width' => '210px',
-        'title' => 'คำค้นหา', 'readonly' => 'false', 'maxlength' => '200', 'default' => ''),
+        'title' => 'คำค้นหา', 'readonly' => 'false', 'maxlength' => '400', 'default' => '',
+        'post_addition' =>"<p style='position: absolute;margin-top: -15px;margin-left: 220px;'>
+        <strong>ตัวอย่างเช่น :</strong>ผ้าม่าน, กล้องวงจรปิด</p>"),
     'date_create' => array('header' => ' วันที่สร้าง', 'type' => 'hidden', 'req_type' => 'ry', 'width' => '210px',
         'title' => 'วันที่สร้าง', 'readonly' => 'false', 'maxlength' => '200',
         'default' => date("Y-m-d H:i:s")),

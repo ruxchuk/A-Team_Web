@@ -175,6 +175,7 @@ $baseUrl = base_url();
 <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/slide/slide-scripts.js"></script>
 
+<?php if ($showSlide): ?>
 <!--slide image-->
 <div id="mainmodules1" class="spacer w99">
     <div class="block">
@@ -240,7 +241,7 @@ $baseUrl = base_url();
     </div>
 </div>
 <!--end slide image-->
-
+<?php endif; ?>
 <table class="mainbody" border="0" cellspacing="0" cellpadding="0">
 <tr valign="top">
 <!--begin leftcolumn-->

@@ -11,10 +11,25 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 class Product extends CI_Controller
 {
 
+    private $webUrl = "";
     function __construct()
     {
         parent::__construct();
-        $this->load->helper(array('form', 'url'));
+        //$this->load->helper(array('form', 'url'));
+        $this->webUrl .= strstr($_SERVER['HTTP_HOST'], 'localhost') > -1 ? 'index.php/' : base_url();
+    }
+
+    function view($id)
+    {
+        $this->load->model('Product_model');
+        $arrProduct = $this->Product_model->getProduct(intval($id));
+        $data = array(
+            'error' => '',
+            'product' => $arrProduct,
+            'showSlide' => false,
+            'webUrl' => $this->webUrl
+        );
+        $this->load->view("product/view", $data);
     }
 
     public function pNew()
