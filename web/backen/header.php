@@ -14,15 +14,17 @@ $baseUrl = $actual_link = "http://$_SERVER[HTTP_HOST]/";
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv='content-type' content='text/html; charset=UTF-8'/>
+        <script type="text/javascript" src="http://latendahouse.com/web/js/jquery-1.9.1.js"></script>
     </head>
     <p>
-        <a href="<?php echo $baseUrl; ?>">หน้าแรก</a></p>
+        <a href="<?php echo $baseUrl; ?>" title="หน้าแรก">
+            <img src="http://latendahouse.com/web/images/shot_cut_icon.png"/></a></p>
 <?php
 if (!empty($_SESSION['userdata'])) :
     echo "สวัสดี : " . $_SESSION['userdata']['name'];
     ?>
     &nbsp;&nbsp;&nbsp;<a href="<?php echo $baseUrl; ?>auth/signOut">ออกจากระบบ</a>
 <?php else:
-    header('Location: $baseUrl' . 'auth/signIn');
+    header("Location: $baseUrl" . 'auth/signIn');
 endif;
 ?>

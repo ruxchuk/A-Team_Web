@@ -26,33 +26,26 @@ $dgrid = new DataGrid($debug_mode, $messaging, $unique_prefix);
 
 ##  *** set data source with needed options
 ##  *** put a primary key on the first place
-
+//http://localhost:11001/ateam/web/a-team_web/web/backen/datagrid/styles/pink/images/edit.gif
 $sql = "
-    SELECT
-      a.*,
-      d.`name` AS product_type_name,
-      (SELECT
-        b.`price`
-      FROM
-        `product_price` b
-      WHERE b.`product_id` = a.id
-        AND b.`price_type` = 'ขายปลีก'
-        AND b.`publish` = 1) AS price1,
-      (SELECT
-        c.`price`
-      FROM
-        `product_price` c
-      WHERE c.`product_id` = a.id
-        AND c.`price_type` = 'ขายส่ง'
-        AND c.`publish` = 1) AS price2
+SELECT
+      `product`.*,
+      `product_type`.`name` AS product_type_name,
+       CONCAT('<a title=\"แก้ไขข้อมูล\" href=\"?f_mode=edit&f_rid=', `product`.id, '&f_page_size=50&f_p=1&p_id=',
+       `product_type`.id, '\"><img src=\"datagrid/styles/pink/images/edit.gif\"/></a>', ' | ',
+       '<img title=\"Delete\" style=\"cursor: pointer;\"
+       onclick=\"javascript:f_verifyDelete(',
+       \"'\", `product`.id, \"', '&f_page_size=50&f_p=1');\", '\"',
+       ' src=\"datagrid/styles/pink/images/delete.gif\"/>') AS edit_field,
+       '' AS add_image
     FROM
-      `product` a,
-      `product_type` d
-    WHERE a.`publish` = 1
-      AND d.`id` = a.`product_type_id`
-      AND d.`publish` = 1
+      `product`,
+      `product_type`
+    WHERE `product`.`publish` = 1
+      AND `product_type`.`id` = `product`.`product_type_id`
+      AND `product_type`.`publish` = 1
 ";
-$default_order = array("a.`priority`" => "ASC");
+$default_order = array("`product`.`priority`" => "ASC");
 $dgrid->DataSource("PEAR", "mysql", $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS, $sql, $default_order);
 
 
@@ -106,13 +99,14 @@ $dgrid->SetPostBackMethod($postback_method);
 ##  *** set modes operations ('type' => 'link|button|image')
 ##  *** 'view' - view mode, 'edit' - add/edit/details modes,
 ##  *** 'byFieldValue'=>'fieldName' - make the field to be a link to edit mode page
-/// $modes = array(
-///     'add'	  =>array('view'=>true, 'edit'=>false, 'type'=>'link',  'show_button'=>true, 'show_add_button'=>'inside|outside'),
-///     'edit'	  =>array('view'=>true, 'edit'=>true,  'type'=>'link',  'show_button'=>true, 'byFieldValue'=>''),
-///     'details' =>array('view'=>true, 'edit'=>false, 'type'=>'link',  'show_button'=>true),
-///     'delete'  =>array('view'=>true, 'edit'=>true,  'type'=>'image', 'show_button'=>true)
-/// );
-/// $dgrid->SetModes($modes);
+$modes = array(
+    'add' => array('view' => false, 'edit' => true, 'type' => 'link', 'show_button' => true, 'show_add_button' => 'outside'),
+    'edit' => array('view' => false, 'edit' => true, 'type' => 'link', 'show_button' => true, 'byFieldValue' => ''),
+    'details' => array('view' => false, 'edit' => false, 'type' => 'link', 'show_button' => false),
+    'delete' => array('view' => true, 'edit' => false, 'type' => 'image', 'show_button' => false)
+    //'delete' => array('view' => true, 'edit' => true, 'type' => 'image', 'show_button' => true)
+);
+$dgrid->SetModes($modes);
 ##  *** set CSS class for datagrid
 ##  *** 'default|blue|gray|green|pink|empty|x-blue|x-gray|x-green' or your own css style
 $css_class = 'pink';
@@ -153,7 +147,7 @@ $dgrid->SetCssClass($css_class);
 /// $dgrid->SetAnotherDatagrids($anotherDatagrids);
 
 ##  *** set printing option: true(default) or false
-$multirow_option = true;
+$multirow_option = false;
 $dgrid->AllowMultirowOperations($multirow_option);
 $printing_option = false;
 $dgrid->AllowPrinting($printing_option);
@@ -189,29 +183,24 @@ $dgrid->SetViewModeTableProperties($vm_table_properties);
 ##  *** Ex.: 'on_js_event'=>'onclick="alert(\'Yes!!!\');"'
 ##  ***      'barchart' : number format in SELECT SQL must be equal with number format of max_value
 // $fill_from_array = array('0'=>'Banned', '1'=>'Active', '2'=>'Closed', '3'=>'Removed'); /* as 'value'=>'option' */
-// $vm_columns = array(
-//     'ip_address'=>array('header'=>'TEST', 'type'=>'label',      'align'=>'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-//     'is_enabled'=>array('header'=>'Enable', 'type'=>'label', "0" =>"disable", "1" => "enable"),//      'align'=>'left', 'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>'', 'target_path'=>'uploads/', 'default'=>'', 'image_width'=>'50px', 'image_height'=>'30px', 'linkto'=>'', 'magnify'=>'false', 'magnify_type'=>'popup|magnifier|lightbox', 'magnify_power'=>'2'),
-//     'FieldName_3'=>array('header'=>'Name_C', 'type'=>'linktoview', 'align'=>'left', 'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-//     'FieldName_4'=>array('header'=>'Name_D', 'type'=>'linktoedit', 'align'=>'left', 'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-//     'FieldName_5'=>array('header'=>'Name_E', 'type'=>'linktodelete', 'align'=>'left', 'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-//     'FieldName_6'=>array('header'=>'Name_F', 'type'=>'link',       'align'=>'left', 'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>'', 'field_key'=>'field_name_0', 'field_key_1'=>'field_name_1', 'field_data'=>'field_name_2', 'rel'=>'', 'title'=>'', 'target'=>'_self', 'href'=>'{0}'),
-//     'FieldName_7'=>array('header'=>'Name_G', 'type'=>'link',       'align'=>'left', 'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>'', 'field_key'=>'field_name_0', 'field_key_1'=>'field_name_1', 'field_data'=>'field_name_2', 'rel'=>'', 'title'=>'', 'target'=>'_self', 'href'=>'mailto:{0}'),
-//     'FieldName_8'=>array('header'=>'Name_H', 'type'=>'link',       'align'=>'left', 'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>'', 'field_key'=>'field_name_0', 'field_key_1'=>'field_name_1', 'field_data'=>'field_name_2', 'rel'=>'', 'title'=>'', 'target'=>'_self', 'href'=>'http://mydomain.com?act={0}&act={1}&code=ABC'),
-//     'FieldName_9'=>array('header'=>'Name_I', 'type'=>'linkbutton', 'align'=>'left', 'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>'', 'field_key'=>'field_name_0', 'field_key_1'=>'field_name_1', 'field_data'=>'field_name_2', 'href'=>'{0}'),
-//     'FieldName_10'=>array('header'=>'Name_G', 'type'=>'money',     'align'=>'right','width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>'', 'sign'=>'$', 'sign_place'=>'before|after', 'decimal_places'=>'2', 'dec_separator'=>'.', 'thousands_separator'=>','),
-//     'FieldName_11'=>array('header'=>'Name_K', 'type'=>'password',  'align'=>'left', 'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>'', 'hide'=>'false'),
-//     'FieldName_12'=>array('header'=>'Name_L', 'type'=>'percent',   'align'=>'right','width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>'', 'decimal_places'=>'2', 'dec_separator'=>'.'),
-//     'FieldName_13'=>array('header'=>'Name_M', 'type'=>'barchart',  'align'=>'left', 'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>'', 'field'=>'', 'value_sign'=>'', 'minimum_color'=>'', 'minimum_value'=>'', 'middle_color'=>'', 'middle_value'=>'', 'maximum_color'=>'', 'maximum_value'=>'100', 'display_type'=>'vertical|horizontal'),
-//     'FieldName_14'=>array('header'=>'Name_N', 'type'=>'enum',      'align'=>'left', 'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>'', 'source'=>$fill_from_array, 'multiple'=>'false'),
-//     'FieldName_15'=>array('header'=>'Name_O', 'type'=>'color',     'align'=>'center', 'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>'', 'view_type'=>'text|image'),
-//     'FieldName_16'=>array('header'=>'Name_P', 'type'=>'checkbox',  'align'=>'center', 'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>'', 'true_value'=>1, 'false_value'=>0),
-//     'FieldName_17'=>array('header'=>'Name_Q', 'type'=>'object',    'align'=>'center', 'width'=>'X%|Xpx', 'height'=>'X%|Xpx', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-//     'FieldName_18'=>array('header'=>'Name_R', 'type'=>'blob'),
-//);
-//$dgrid->SetColumnsInViewMode($vm_columns);
+$vm_columns = array(
+    'id' => array('header' => 'ID', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'serial' => array('header' => ' รหัสสินค้า', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'name_th' => array('header' => ' ชื่อสินค้า', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'brand' => array('header' => ' ยี่ห้อ', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'model' => array('header' => ' รุ่น', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'price1' => array('header' => ' ราคาขายปลีก', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'price2' => array('header' => ' ราคาขายส่ง', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'value' => array('header' => ' หน่วยสินค้า', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'priority' => array('header' => ' ความสำคัญ', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'date_create' => array('header' => ' วันที่สร้าง', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'date_stamp' => array('header' => ' วันที่แก้ไข', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'edit_field' => array('header' => ' จัดการข้อมูล', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'delete_field' => array('header' => ' จัดการข้อมูล', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+);
+$dgrid->SetColumnsInViewMode($vm_columns);
 ##  *** set auto-generated columns in view mode
-$auto_column_in_view_mode = true;
+$auto_column_in_view_mode = false;
 $dgrid->SetAutoColumnsInViewMode($auto_column_in_view_mode);
 
 $dgrid->SetDgMessages(array(
@@ -227,7 +216,204 @@ $table_name = "product";
 $primary_key = "id";
 $condition = "";
 $dgrid->SetTableEdit($table_name, $primary_key, $condition);
-$dgrid->SetAutoColumnsInEditMode(true);
+
+$getMode = @$_GET[$unique_prefix . 'mode'];
+if ($getMode != 'add' && $getMode != 'edit') {
+    ?>
+    <br>
+    <div style="width: 100%;">
+        <div align="right"><p><a href="?f_mode=add&f_rid=-1">เพิ่มสินค้า</a></p></div>
+    </div>
+<?php
+} else {//var_dump($_SERVER['HTTP_HOST']);
+    $pathImage = "../images/uploads/products/";
+    $urlUpload = strstr($_SERVER['HTTP_HOST'], 'localhost') > -1
+        ? 'http://localhost:11001/ateam/web/a-team_web/index.php/upload/do_upload'
+        : 'http://latendahouse.com/upload/do_upload';
+?>
+
+    <link rel="stylesheet" type="text/css" href="../js/uploadify/uploadify.css"/>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script type="text/javascript"
+            src="../js/uploadify/jquery.uploadify-3.2.min.js"></script>
+    <script>
+        var swfPath = "../js/uploadify/uploadify.swf";
+        var pathImgUploadTmp = "<?php echo $pathImage;?>";
+        var pathUploadify = "<?php echo $urlUpload; ?>";
+
+        $(function () {
+            $("#rfyimage_path").hide();
+            genUpload("#image_add", "#image_show", "#rfyimage_path");
+        });
+
+        function genUpload(btnUpload, idReload, idSave) {
+            $(btnUpload).uploadify({
+                'userfile': {
+                    'path': pathImgUploadTmp
+                },
+                'swf': swfPath,
+                'uploader': pathUploadify,
+                'fileSizeLimit': '120KB',
+                'fileTypeExts': '*.gif; *.jpg; *.png',
+                'enctype': "multipart/form-data",
+                'fileObjName': 'userfile',
+                'onFallback': function () {
+                    alert('Flash was not detected.');// detect flash compatible
+                }, 'onUploadSuccess': function (file, data, response) {
+                    var n = data.search("Path fail");
+                    if (n > 0) {
+                        alert("Path รูปภาพเกิดข้อผิดพลาด" + data);
+                    } else {
+                        reloadImage(idReload, data, idSave);
+                    }
+                }
+            });
+        }
+
+        function reloadImage(id, img, idSave) {
+            var path = pathImgUploadTmp + img;
+            $(idSave).val(img);
+            $(id).fadeOut().html(getTypeImage(path, "")).fadeIn("slow");
+            //$(id).fadeOut().src(path).fadeIn("slow");
+        }
+
+        function getTypeImage(src, id) {
+            return '<img src="' + src + '" style="width: 250px; height: 190px;"/>';
+        }
+    </script>
+    <?php
+}
+
+if ($getMode == 'edit') {
+    ?>
+    <script>
+        $(document).ready(function () {
+            //set date stamp
+            var d = new Date();
+            var strDate = "" + d.getFullYear() + "-" +
+                d.getMonth() + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() +
+                ":" + d.getSeconds();
+            $("#ryydate_stamp").val(strDate);
+
+            //load image for edit
+            reloadImage("#image_show", $("#rfyimage_path").val(), "#rfyimage_path");
+
+            //delete
+            //$(".pink_dg_a2").remove();
+        });
+    </script>
+<?php
+} else {
+    ?>
+    <script>
+        //rfyimage_path
+        $(document).ready(function () {
+            //$("#rfyimage_path").append('<input type="hidden" id="saveID" />');
+            //$('#rfyimage_path').each(function (i) {
+                //this.name = this.name.replace(/\d+/, i+1);
+                //this.type = "file";
+//            });
+        });
+    </script>
+<?php
+}
+$productID = @$_GET['p_id'];
+$sql = "
+        SELECT
+          id,
+          name
+        FROM `product_type`
+        WHERE 1
+        AND `publish` = 1
+    ";
+$dSet = $dgrid->ExecuteSql($sql);
+$arrProductType = array('' => '');
+while ($row = $dSet->fetchRow()) {
+    $arrProductType[$row[0]] = $row[1];
+}
+$em_columns = array(
+    'product_type_id' => array(
+        'header' => ' ประเภทสินค้า', 'type' => 'enum',
+        'req_type' => 'rt', 'width' => '215px',
+        'title' => 'ประเภทสินค้า', 'readonly' => 'false',
+        'maxlength' => '-1', 'default' => empty($productID) ? "" : $productID,
+        'unique' => 'false', 'unique_condition' => '',
+        'visible' => 'true', 'on_js_event' => '',
+        'source' => $arrProductType,
+        'view_type' => 'dropdownlist(default)|radiobutton|checkbox',
+        'radiobuttons_alignment' => 'horizontal|vertical',
+        'multiple' => 'false',
+        'multiple_size' => '4'
+    ),
+    'serial' => array('header' => ' รหัสสินค้า', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'รหัสสินค้า', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+    'name_th' => array('header' => ' ชื่อภาษาไทย', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'ชื่อภาษาไทย', 'readonly' => 'false', 'maxlength' => '30', 'default' => ''),
+    'name_en' => array('header' => ' ชื่อภาษาอังกฤษ', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'ชื่อภาษาอังกฤษ', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+    'price1' => array('header' => ' ราคาขายปลีก', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
+        'title' => 'ราคาขายปลีก', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+    'price2' => array('header' => ' ราคาขายส่ง', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
+        'title' => 'ราคาขายส่ง', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+    'brand' => array('header' => ' ยี่ห้อ', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'ยี่ห้อ', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+    'model' => array('header' => ' รุ่น', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'รุ่น', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+    'value' => array('header' => ' หน่วยสินค้า', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'หน่วยสินค้า', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+    'priority' => array('header' => ' ความสำคัญ', 'type' => 'textbox', 'req_type' => 'rn', 'width' => '210px',
+        'title' => 'ความสำคัญ', 'readonly' => 'false', 'maxlength' => '15', 'default' => '999'),
+//    'image_path' => array('header' => ' รูปภาพ', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
+//        'title' => 'รูปภาพ', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+    'image_path' => array('header' => ' รูปภาพ', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
+        'title' => 'รูปภาพ', 'readonly' => 'false', 'maxlength' => '15', 'default' => '',
+        'post_addition' => "<div id='image_show'><img style=\"width: 250px; height: 190px;\" /></div>
+        <input type='file' id='image_add' />" ),
+    /*'image_path' => array(
+        'header' => ' รูปภาพ',
+        'type' => 'file',
+        'req_type' => 'st',
+        'width' => '210px',
+        'title' => 'รูปภาพ',
+        'readonly' => 'false',
+        'maxlength' => '-1',
+        'default' => '',
+        'unique' => 'false',
+        'unique_condition' => '',
+        'visible' => 'true',
+        'on_js_event' => '',
+        'target_path' => '../images/uploads/product/'. date("Y-m-d"),
+        'allow_image_updating' => 'false',
+        'max_file_size' => '100000|100K|10M|1G',
+        'image_width' => '120px',
+        'image_height' => '90px',
+        'resize_dir' => 'down|up|both',
+        'resize_image' => 'false',
+        'resize_width' => '',
+        'resize_height' => '',
+        'magnify' => 'false',
+        'magnify_type' => 'popup|magnifier|lightbox',
+        'magnify_power' => '2',
+        'file_name' => '',
+        'host' => 'local|remote',
+        'allow_downloading' => 'false',
+        'allowed_extensions' => ''),*/
+    'description' => array('header' => ' รายละเอียด', 'type' => 'textarea', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'รายละเอียด', 'readonly' => 'false', 'maxlength' => '200', 'default' => ''),
+    'keyword' => array('header' => ' คำค้นหา', 'type' => 'textarea', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'คำค้นหา', 'readonly' => 'false', 'maxlength' => '200', 'default' => ''),
+    'date_create' => array('header' => ' วันที่สร้าง', 'type' => 'hidden', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'วันที่สร้าง', 'readonly' => 'false', 'maxlength' => '200',
+        'default' => date("Y-m-d H:i:s")),
+    'date_stamp' => array(
+        'header' => ' วันที่แก้ไข', 'type' => 'hidden', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'วันที่แก้ไข', 'readonly' => 'false', 'maxlength' => '200',
+        'default' => '0000-00-00 00:00:00')
+
+);
+$dgrid->SetColumnsInEditMode($em_columns);
+$dgrid->SetAutoColumnsInEditMode(false);
+
 ## +---------------------------------------------------------------------------+
 ## | 8. Bind the DataGrid:                                                     |
 ## +---------------------------------------------------------------------------+
