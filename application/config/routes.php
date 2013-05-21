@@ -41,6 +41,7 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 $route[('หน้าแรก')] = "index";
+$route[('สินค้า')] = "product";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
