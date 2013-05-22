@@ -32,15 +32,15 @@ class Auth extends CI_Controller
                 $this->session->set_userdata((array)$result[0]);
                 session_start();
                 $_SESSION['userdata'] = $this->session->userdata;
-                redirect("web/backend/product.php");
+                redirect(base_url() . "web/backend/product.php");
             } else {
                 $message = 'login fail';
             }
         }
-        if (empty($this->session->userdata['user_name'])){
+        if (empty($this->session->userdata['user_name'])) {
             $this->load->view('sign-in', array('message' => $message));
         } else {
-            redirect("web/backend/product.php");
+            redirect(base_url() . "web/backend/product.php");
         }
     }
 
@@ -49,6 +49,6 @@ class Auth extends CI_Controller
         $this->session->sess_destroy();
         session_start();
         unset($_SESSION["userdata"]);
-        redirect(base_url().'auth/signIn');
+        redirect(base_url() . 'auth/signIn');
     }
 }

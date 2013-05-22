@@ -29,11 +29,12 @@ class Product extends CI_Controller
 
     function index()
     {
-        if (empty($this->session->userdata['username'])) {
-            redirect("web/backend/product.php");
-        } else {
-            redirect($this->baseUrl . "auth/signIn");
-        }
+        redirect($this->webUrl . "auth/signIn");
+//        if (empty($this->session->userdata['username'])) {
+//            redirect("web/backend/product.php");
+//        } else {
+//            redirect($this->baseUrl . "auth/signIn");
+//        }
     }
 
     function productType()

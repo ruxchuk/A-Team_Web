@@ -58,7 +58,7 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
                         <?php endif; ?>
                         <br>
                         <a target="_blank"
-                           href="<?php echo $webUrl; ?>product/view/<?php echo $value->id; ?>">รายละเอียด</a><!-- | <a href="#">ซื้อเลย</a>-->
+                           href="<?php echo $urlTarget; ?>">รายละเอียด</a><!-- | <a href="#">ซื้อเลย</a>-->
                 </div>
             <?php
             endforeach;

@@ -28,7 +28,10 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
 
     <div>
         <p>
-        &nbsp;&nbsp;&nbsp;<a href="<?php echo $baseUrl; ?>">หน้าแรก</a> / <span class="link-active">สินค้า</span>
+        &nbsp;&nbsp;&nbsp;<a href="<?php echo $baseUrl; ?>">หน้าแรก</a> /
+            <a href="<?php echo $webUrl; ?>สินค้า/<?php echo $this->uri->segment(2); ?>">
+                <?php echo $this->uri->segment(2); ?></a> /
+            <span class="link-active"><?php echo $product[0]->id; ?></span>
         </p>
     </div>
     <table border="0" cellspacing="0" cellpadding="0" class="tbView">
