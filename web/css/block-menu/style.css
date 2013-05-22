@@ -65,10 +65,11 @@ Credit: http://www.templatemo.com
 }
 
 .product_box h3 {
-    background: #E1D1D6;
+    /*background: #E1D1D6;*/
+    background: #E72222;
     padding: 3px 10px;
     margin: 10px 0;
-    color: #2E202A;
+    color: #ffffff;
     font-size: 15px;
     font-weight: bold;
     height: 50px;

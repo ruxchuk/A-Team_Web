@@ -17,7 +17,14 @@ class Product extends CI_Controller
     {
         parent::__construct();
         //$this->load->helper(array('form', 'url'));
-        $this->webUrl .= strstr($_SERVER['HTTP_HOST'], 'localhost') > -1 ? 'index.php/' : base_url();
+//        $this->webUrl .= strstr($_SERVER['HTTP_HOST'], 'localhost') > -1 ? 'index.php/' :
+//            base_url() == "" ? base_url() : "";
+
+        if (strstr($_SERVER['HTTP_HOST'], 'localhost') > -1) {
+            $this->webUrl .= base_url() . 'index.php/';
+        } else {
+            $this->webUrl = base_url();
+        }
     }
 
     function index()
@@ -29,11 +36,44 @@ class Product extends CI_Controller
         }
     }
 
-    function view($id)
+    function productType()
+    {
+        //สินค้า/ผ้าม่าน/3
+        $productTypeName = $this->uri->segment(2);
+        $productID = $this->uri->segment(3);
+
+        $this->load->model('Product_model');
+        $productTypeID = $this->Product_model->getProductTypeFromName($productTypeName);
+
+        $this->view($productID, $productTypeID);
+    }
+
+    function productAll()
+    {
+        //สินค้า/ผ้าม่าน
+        $productTypeName = $this->uri->segment(2);
+
+        $this->load->model('Product_model');
+        $productTypeID = $this->Product_model->getProductTypeFromName($productTypeName);
+
+        $arrProduct = $this->Product_model->getProduct(0, intval($productTypeID));
+        $keyword = "";
+        $data = array(
+            'error' => '',
+            'arrProduct' => $arrProduct,
+            'showSlide' => false,
+            'webUrl' => $this->webUrl,
+            'siteTitle' => "ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด",
+            'keyword' => $keyword
+        );
+        $this->load->view('index', $data);
+    }
+
+    function view($id, $productTypeID)
     {
         $this->load->model('Product_model');
-        $arrProduct = $this->Product_model->getProduct(intval($id));
-        $title = $arrProduct[0]->name_th ;
+        $arrProduct = $this->Product_model->getProduct(intval($id), intval($productTypeID));
+        $title = $arrProduct[0]->name_th;
         $keyword = $arrProduct[0]->keyword != "" ? ", " . $arrProduct[0]->keyword : "";
         $data = array(
             'error' => '',

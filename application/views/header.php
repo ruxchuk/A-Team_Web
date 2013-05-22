@@ -7,6 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 $baseUrl = base_url();
+//$webUrl = strstr($_SERVER['HTTP_HOST'], 'localhost') > -1 ? 'index.php/' : base_url();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -91,37 +92,37 @@ $baseUrl = base_url();
             <li id="current" class="active item89">
                 <a href="<?php echo $baseUrl; ?>"><span>หน้าแรก</span></a>
             </li>
-            <li class="parent item121"><a href="#" class="topdaddy"><span>ผ้าม่าน</span></a>
-                <ul>
-                    <li class="item140 sub-menu">
-                        <a href="#"><span>ผ้าม่านแบล็คเอ้าท์</span></a>
-                    </li>
-                    <li class="item140">
-                        <a href="#"><span>ผ้าโปร่ง</span></a>
-                    </li>
-                    <li class="item140">
-                        <a href="#"><span>ผ้าไหมโพลีเอสเตอร์</span></a>
-                    </li>
-                    <li class="item140">
-                        <a href="#"><span>ผ้าไหมโพลีเอสเตอร์</span></a>
-                    </li>
-                    <li class="item140">
-                        <a href="#"><span>ผ้ากำมะหยี่</span></a>
-                    </li>
-                    <li class="item140">
-                        <a href="#"><span>ผ้าบุเฟอร์นิเจอร์</span></a>
-                    </li>
-                    <li class="item140">
-                        <a href="#"><span>รูปแบบผ้าม่าน</span></a>
-                    </li>
-                    <li class="item140">
-                        <a href="#"><span>มู่ลี่</span></a>
-                    </li>
-
-                </ul>
+            <li class="parent item121"><a href="<?php echo $webUrl; ?>สินค้า/ผ้าม่าน" class="topdaddy"><span>ผ้าม่าน</span></a>
+<!--                <ul>-->
+<!--                    <li class="item140 sub-menu">-->
+<!--                        <a href="#"><span>ผ้าม่านแบล็คเอ้าท์</span></a>-->
+<!--                    </li>-->
+<!--                    <li class="item140">-->
+<!--                        <a href="#"><span>ผ้าโปร่ง</span></a>-->
+<!--                    </li>-->
+<!--                    <li class="item140">-->
+<!--                        <a href="#"><span>ผ้าไหมโพลีเอสเตอร์</span></a>-->
+<!--                    </li>-->
+<!--                    <li class="item140">-->
+<!--                        <a href="#"><span>ผ้าไหมโพลีเอสเตอร์</span></a>-->
+<!--                    </li>-->
+<!--                    <li class="item140">-->
+<!--                        <a href="#"><span>ผ้ากำมะหยี่</span></a>-->
+<!--                    </li>-->
+<!--                    <li class="item140">-->
+<!--                        <a href="#"><span>ผ้าบุเฟอร์นิเจอร์</span></a>-->
+<!--                    </li>-->
+<!--                    <li class="item140">-->
+<!--                        <a href="#"><span>รูปแบบผ้าม่าน</span></a>-->
+<!--                    </li>-->
+<!--                    <li class="item140">-->
+<!--                        <a href="#"><span>มู่ลี่</span></a>-->
+<!--                    </li>-->
+<!---->
+<!--                </ul>-->
             </li>
             <li class="parent item120">
-                <a href="#" class="topdaddy"><span>จานดาวเทียม</span></a>
+                <a href="<?php echo $webUrl; ?>สินค้า/จานดาวเทียม" class="topdaddy"><span>จานดาวเทียม</span></a>
 <!--                <ul>-->
 <!--                    <li class="item136">-->
 <!--                        <a href="#"><span>จานดาวเทียม 1</span></a>-->
@@ -135,7 +136,7 @@ $baseUrl = base_url();
 <!--                </ul>-->
             </li>
             <li class="item84">
-                <a href="#"> <span>เครื่องปรับอากาศ</span></a>
+                <a href="<?php echo $webUrl; ?>สินค้า/เครื่องปรับอากาศ"> <span>เครื่องปรับอากาศ</span></a>
 <!--                <ul>-->
 <!--                    <li class="item140">-->
 <!--                        <a href="#"><span>เครื่องปรับอากาศ 1</span></a>-->
@@ -149,7 +150,7 @@ $baseUrl = base_url();
 <!--                </ul>-->
             </li>
             <li class="item85">
-                <a href="#"><span>กล้องวงจรปิด</span></a>
+                <a href="<?php echo $webUrl; ?>สินค้า/กล้องวงจรปิด"><span>กล้องวงจรปิด</span></a>
 <!--                <ul>-->
 <!--                    <li class="item140">-->
 <!--                        <a href="#"><span>เครื่องปรับอากาศ 1</span></a>-->
@@ -185,16 +186,16 @@ $baseUrl = base_url();
                     <div class="slide-wrap">
                         <div id="slide-holder">
                             <div id="slide-runner">
-                                <a href=""><img id="slide-img-1"
+                                <a href="<?php echo $webUrl; ?>สินค้า/ผ้าม่าน"><img id="slide-img-1"
                                                 src="<?php echo $baseUrl; ?>web/images/slide/slide_curtain.png"
                                                 class="slide" alt=""/></a>
-                                <a href=""><img id="slide-img-2"
+                                <a href="<?php echo $webUrl; ?>สินค้า/จานดาวเทียม"><img id="slide-img-2"
                                                 src="<?php echo $baseUrl; ?>web/images/slide/slide_dish-aerial.png"
                                                 class="slide" alt=""/></a>
-                                <a href=""><img id="slide-img-3"
+                                <a href="<?php echo $webUrl; ?>สินค้า/เครื่องปรับอากาศ"><img id="slide-img-3"
                                                 src="<?php echo $baseUrl; ?>web/images/slide/slide_air.png"
                                                 class="slide" alt=""/></a>
-                                <a href=""><img id="slide-img-4"
+                                <a href="<?php echo $webUrl; ?>สินค้า/กล้องวงจรปิด"><img id="slide-img-4"
                                                 src="<?php echo $baseUrl; ?>web/images/slide/slide_cctv.png"
                                                 class="slide" alt=""/></a>
 <!--                                <a href=""><img id="slide-img-5"-->
@@ -316,27 +317,27 @@ $baseUrl = base_url();
                     <table cellspacing="0" cellpadding="0" id="swmenu" class="swmenu">
                         <tr>
                             <td>
-                                <a id="menu89" href="#">หน้าแรก</a>
+                                <a id="menu89" href="<?php echo $baseUrl; ?>">หน้าแรก</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a id="menu121" href="#">ผ้าม่าน</a>
+                                <a id="menu121" href="<?php echo $webUrl; ?>สินค้า/ผ้าม่าน">ผ้าม่าน</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a id="menu120" href="#">จานดาวเทียม</a>
+                                <a id="menu120" href="<?php echo $webUrl; ?>สินค้า/จานดาวเทียม">จานดาวเทียม</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a id="menu84" href="#">เครื่องปรับอากาศ</a>
+                                <a id="menu84" href="<?php echo $webUrl; ?>สินค้า/เครื่องปรับอากาศ">เครื่องปรับอากาศ</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a id="menu85" href="#">กล้องวงจรปิด</a>
+                                <a id="menu85" href="<?php echo $webUrl; ?>สินค้า/กล้องวงจรปิด">กล้องวงจรปิด</a>
                             </td>
                         </tr>
                         <!--                        <tr>-->

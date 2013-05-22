@@ -38,10 +38,15 @@
 |
 */
 
-$route['default_controller'] = "welcome";
+$route['default_controller'] = "index";
 $route['404_override'] = '';
 $route[('หน้าแรก')] = "index";
 $route[('สินค้า')] = "product";
+$route[('สินค้า/([ก-เ]+)')] = "product/productAll";
+
+
+$route['สินค้า/([ก-เ]+)/(\d+)'] = "product/productType/$3";
+//$route['สินค้า/([ก-เ]+)'] = "product/productType/$3";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

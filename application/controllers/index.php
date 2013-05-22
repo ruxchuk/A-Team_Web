@@ -16,7 +16,13 @@ class Index extends CI_Controller
     {
         parent::__construct();
         $this->load->helper(array('form', 'url'));
-        $this->webUrl .= strstr($_SERVER['HTTP_HOST'], 'localhost') > -1 ? base_url().  'index.php/' : base_url();
+//        $this->webUrl .= strstr($_SERVER['HTTP_HOST'], 'localhost') > -1 ? 'index.php/' :
+//            base_url() == "" ? base_url() : "";
+        if (strstr($_SERVER['HTTP_HOST'], 'localhost') > -1){
+            $this->webUrl .= base_url(). 'index.php/';
+        } else {
+            $this->webUrl = base_url();
+        }
     }
 
     public function index()

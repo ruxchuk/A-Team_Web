@@ -19,11 +19,13 @@ class Product_model extends CI_Model
     /**
      * get product
      * @param int $id
+     * @param int $productType
      * @return object
      */
-    function getProduct($id = 0)
+    function getProduct($id = 0, $productType = 0)
     {
-        $sqlAnd = $id == 0 ? "" : "AND a.id=$id";
+        $sqlAnd = $id == 0 ? "" : " AND a.id=$id";
+        $sqlAnd .= $productType == 0 ? "" : " AND d.id=$productType";
         $sql = "
             SELECT
               a.*,
@@ -45,6 +47,17 @@ class Product_model extends CI_Model
             return $result;
         } else {
             return (object)$result;
+        }
+    }
+
+    function getProductTypeFromName($name)
+    {
+        $query = $this->db->get_where('product_type', array('name' => $name));
+        if ($query->num_rows()) {
+            $result = $query->result();
+            return $result[0]->id;
+        } else {
+            return 0;
         }
     }
 }

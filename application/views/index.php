@@ -29,9 +29,11 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
                     <div class="cleaner"></div>
                 <?php
                 endif;
+                $urlTarget = $webUrl. "สินค้า/".$value->product_type_name ."/".$value->id;
                 ?>
                 <div class="product_box margin_r35">
-                    <a target="_blank" href="<?php echo $webUrl; ?>product/view/<?php echo $value->id; ?>"
+                    <a target="_blank"
+                       href="<?php echo $urlTarget; ?>"
                        title="<?php echo $value->name_th; ?>">
                         <h3><?php echo $value->name_th; ?></h3>
 
