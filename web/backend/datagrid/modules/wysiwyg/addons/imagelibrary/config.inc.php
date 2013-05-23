@@ -46,7 +46,8 @@ $imagebasedir = '../../../../../../images/uploads/products/wysiwyg';
  * An absolute or relative URL to the image folder.
  * This url is used to generate the source of the image.
  */
-$imagebaseurl = 'images';
+//$imagebaseurl = 'images';
+$imagebaseurl = $imagebasedir;
 
 /*
  * Allow your users to browse the subdir of the defined basedir.
