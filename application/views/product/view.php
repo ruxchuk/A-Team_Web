@@ -34,7 +34,7 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
             <span class="link-active"><?php echo $product[0]->id; ?></span>
         </p>
     </div>
-    <table border="0" cellspacing="0" cellpadding="0" class="tbView">
+    <table border="0" cellspacing="0" cellpadding="0" class="tbView" width="745">
         <tbody>
         <tr valign="top">
             <td style="padding-right: 20px;">
