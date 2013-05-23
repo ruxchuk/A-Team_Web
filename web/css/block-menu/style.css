@@ -53,11 +53,13 @@ Credit: http://www.templatemo.com
     /*font-size: 14px;*/
     font-weight: bold;
 }
+
 .price2 {
     color: #39C75E;
     font-size: 14px;
     font-weight: bold;
 }
+
 .price3 {
     color: #3B37CD;
     font-size: 14px;
@@ -80,6 +82,7 @@ Credit: http://www.templatemo.com
     border: 1px solid #FFFFFF;
     margin-bottom: 10px;
 }
+
 .block-menu-img{
     width: 190px;
     height: 108px;

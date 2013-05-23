@@ -7,6 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 $baseUrl = base_url();
+
 //$webUrl = strstr($_SERVER['HTTP_HOST'], 'localhost') > -1 ? 'index.php/' : base_url();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -18,7 +19,7 @@ $baseUrl = base_url();
     <meta name='robots' content='index, follow'/>
     <meta name='keywords' content='latendahouse, ผ้าม่าน, รางโชว์, มู่ลี่, ม่านปรับแสง, ม่านม้วน, ม่านพลับ, วอลเปเปอร์,
     ฉากกั้นห้อง, กั้นแอร์, พรม, กระเบื้องยาง, จานดาวเทียม, เครื่องปรับอากาศ, กล้องวงจรปิด, จีพีเอสติดรถยนต์, นครปฐม,
-    เพื่อนช่าง, CCTV, CCTV นครปฐม, กล้องวงจรปิด นครปฐม, CCTV นครปฐม<?php echo $keyword; ?>'/>
+    เพื่อนช่าง, จานดาวเทียม นครปฐม, CCTV, CCTV นครปฐม, กล้องวงจรปิด นครปฐม, CCTV นครปฐม<?php echo $keyword; ?>'/>
     <title><?php echo $siteTitle; ?></title>
     <meta name='description' content='เอทีมเคอร์เทน'/>
     <meta name='author' content='เอทีมเคอร์เทน'/>
@@ -30,7 +31,7 @@ $baseUrl = base_url();
     <link rel='shortcut icon' href='<?php echo $baseUrl; ?>web/images/shot_cut_icon.png'/>
     <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>web/css/trans-menu.css"/>
 
-    <link href="<?php echo $baseUrl; ?>web/css/rokmoomenu.css" rel="stylesheet" type="text/css"/>
+<!--    <link href="--><?php //echo $baseUrl; ?><!--web/css/rokmoomenu.css" rel="stylesheet" type="text/css"/>-->
     <link href="<?php echo $baseUrl; ?>web/css/template_css.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo $baseUrl; ?>web/css/template_colors.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/transmenu_Packed.js"></script>
@@ -41,10 +42,11 @@ $baseUrl = base_url();
 
 <!--include js facebook-->
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
+        js = d.createElement(s);
+        js.id = id;
         js.src = "//connect.facebook.net/th_TH/all.js#xfbml=1";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
@@ -75,9 +77,9 @@ $baseUrl = base_url();
     <div id="banner">
         <div class="moduletable">
             <p><strong>บริษัท เอ-ทีม เคอร์เทน จำกัด</strong><br>
-            A-Team Curtain Co., Ltd.<br>
-            475/15 ถ.ทหารบก ต.บ่อพลับ อ.เมือง จ.นครปฐม 73000<br>
-            โทร 086-317-2217</p></div>
+                A-Team Curtain Co., Ltd.<br>
+                475/15 ถ.ทหารบก ต.บ่อพลับ อ.เมือง จ.นครปฐม 73000<br>
+                โทร 086-317-2217</p></div>
     </div>
 </div>
 <!--end header-->
@@ -92,76 +94,77 @@ $baseUrl = base_url();
             <li id="current" class="active item89">
                 <a href="<?php echo $baseUrl; ?>"><span>หน้าแรก</span></a>
             </li>
-            <li class="parent item121"><a href="<?php echo $webUrl; ?>สินค้า/ผ้าม่าน" class="topdaddy"><span>ผ้าม่าน</span></a>
-<!--                <ul>-->
-<!--                    <li class="item140 sub-menu">-->
-<!--                        <a href="#"><span>ผ้าม่านแบล็คเอ้าท์</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="item140">-->
-<!--                        <a href="#"><span>ผ้าโปร่ง</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="item140">-->
-<!--                        <a href="#"><span>ผ้าไหมโพลีเอสเตอร์</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="item140">-->
-<!--                        <a href="#"><span>ผ้าไหมโพลีเอสเตอร์</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="item140">-->
-<!--                        <a href="#"><span>ผ้ากำมะหยี่</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="item140">-->
-<!--                        <a href="#"><span>ผ้าบุเฟอร์นิเจอร์</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="item140">-->
-<!--                        <a href="#"><span>รูปแบบผ้าม่าน</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="item140">-->
-<!--                        <a href="#"><span>มู่ลี่</span></a>-->
-<!--                    </li>-->
-<!---->
-<!--                </ul>-->
+            <li class="parent item121"><a href="<?php echo $webUrl; ?>สินค้า/ผ้าม่าน"
+                                          class="topdaddy"><span>ผ้าม่าน</span></a>
+                <!--                <ul>-->
+                <!--                    <li class="item140 sub-menu">-->
+                <!--                        <a href="#"><span>ผ้าม่านแบล็คเอ้าท์</span></a>-->
+                <!--                    </li>-->
+                <!--                    <li class="item140">-->
+                <!--                        <a href="#"><span>ผ้าโปร่ง</span></a>-->
+                <!--                    </li>-->
+                <!--                    <li class="item140">-->
+                <!--                        <a href="#"><span>ผ้าไหมโพลีเอสเตอร์</span></a>-->
+                <!--                    </li>-->
+                <!--                    <li class="item140">-->
+                <!--                        <a href="#"><span>ผ้าไหมโพลีเอสเตอร์</span></a>-->
+                <!--                    </li>-->
+                <!--                    <li class="item140">-->
+                <!--                        <a href="#"><span>ผ้ากำมะหยี่</span></a>-->
+                <!--                    </li>-->
+                <!--                    <li class="item140">-->
+                <!--                        <a href="#"><span>ผ้าบุเฟอร์นิเจอร์</span></a>-->
+                <!--                    </li>-->
+                <!--                    <li class="item140">-->
+                <!--                        <a href="#"><span>รูปแบบผ้าม่าน</span></a>-->
+                <!--                    </li>-->
+                <!--                    <li class="item140">-->
+                <!--                        <a href="#"><span>มู่ลี่</span></a>-->
+                <!--                    </li>-->
+                <!---->
+                <!--                </ul>-->
             </li>
             <li class="parent item120">
                 <a href="<?php echo $webUrl; ?>สินค้า/จานดาวเทียม" class="topdaddy"><span>จานดาวเทียม</span></a>
-<!--                <ul>-->
-<!--                    <li class="item136">-->
-<!--                        <a href="#"><span>จานดาวเทียม 1</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="item136">-->
-<!--                        <a href="#"><span>จานดาวเทียม 2</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="item136">-->
-<!--                        <a href="#"><span>จานดาวเทียม 3</span></a>-->
-<!--                    </li>-->
-<!--                </ul>-->
+                <!--                <ul>-->
+                <!--                    <li class="item136">-->
+                <!--                        <a href="#"><span>จานดาวเทียม 1</span></a>-->
+                <!--                    </li>-->
+                <!--                    <li class="item136">-->
+                <!--                        <a href="#"><span>จานดาวเทียม 2</span></a>-->
+                <!--                    </li>-->
+                <!--                    <li class="item136">-->
+                <!--                        <a href="#"><span>จานดาวเทียม 3</span></a>-->
+                <!--                    </li>-->
+                <!--                </ul>-->
             </li>
             <li class="item84">
                 <a href="<?php echo $webUrl; ?>สินค้า/เครื่องปรับอากาศ"> <span>เครื่องปรับอากาศ</span></a>
-<!--                <ul>-->
-<!--                    <li class="item140">-->
-<!--                        <a href="#"><span>เครื่องปรับอากาศ 1</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="item140">-->
-<!--                        <a href="#"><span>เครื่องปรับอากาศ 2</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="item140">-->
-<!--                        <a href="#"><span>เครื่องปรับอากาศ 3</span></a>-->
-<!--                    </li>-->
-<!--                </ul>-->
+                <!--                <ul>-->
+                <!--                    <li class="item140">-->
+                <!--                        <a href="#"><span>เครื่องปรับอากาศ 1</span></a>-->
+                <!--                    </li>-->
+                <!--                    <li class="item140">-->
+                <!--                        <a href="#"><span>เครื่องปรับอากาศ 2</span></a>-->
+                <!--                    </li>-->
+                <!--                    <li class="item140">-->
+                <!--                        <a href="#"><span>เครื่องปรับอากาศ 3</span></a>-->
+                <!--                    </li>-->
+                <!--                </ul>-->
             </li>
             <li class="item85">
                 <a href="<?php echo $webUrl; ?>สินค้า/กล้องวงจรปิด"><span>กล้องวงจรปิด</span></a>
-<!--                <ul>-->
-<!--                    <li class="item140">-->
-<!--                        <a href="#"><span>เครื่องปรับอากาศ 1</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="item140">-->
-<!--                        <a href="#"><span>เครื่องปรับอากาศ 2</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="item140">-->
-<!--                        <a href="#"><span>เครื่องปรับอากาศ 3</span></a>-->
-<!--                    </li>-->
-<!--                </ul>-->
+                <!--                <ul>-->
+                <!--                    <li class="item140">-->
+                <!--                        <a href="#"><span>เครื่องปรับอากาศ 1</span></a>-->
+                <!--                    </li>-->
+                <!--                    <li class="item140">-->
+                <!--                        <a href="#"><span>เครื่องปรับอากาศ 2</span></a>-->
+                <!--                    </li>-->
+                <!--                    <li class="item140">-->
+                <!--                        <a href="#"><span>เครื่องปรับอากาศ 3</span></a>-->
+                <!--                    </li>-->
+                <!--                </ul>-->
             </li>
             <li class="item122"><a href="#"><span>เกี่ยวกับเรา</span></a></li>
             <li class="item144"><a href="#"><span>ติดต่อเรา</span></a></li>
@@ -177,71 +180,74 @@ $baseUrl = base_url();
 <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/slide/slide-scripts.js"></script>
 
 <?php if ($showSlide): ?>
-<!--slide image-->
-<div id="mainmodules1" class="spacer w99">
-    <div class="block">
-        <div class="module">
-            <div id="slidewrap">
-                <div id="slide-header">
-                    <div class="slide-wrap">
-                        <div id="slide-holder">
-                            <div id="slide-runner">
-                                <a href="<?php echo $webUrl; ?>สินค้า/ผ้าม่าน"><img id="slide-img-1"
-                                                src="<?php echo $baseUrl; ?>web/images/slide/slide_curtain.png"
-                                                class="slide" alt=""/></a>
-                                <a href="<?php echo $webUrl; ?>สินค้า/จานดาวเทียม"><img id="slide-img-2"
-                                                src="<?php echo $baseUrl; ?>web/images/slide/slide_dish-aerial.png"
-                                                class="slide" alt=""/></a>
-                                <a href="<?php echo $webUrl; ?>สินค้า/เครื่องปรับอากาศ"><img id="slide-img-3"
-                                                src="<?php echo $baseUrl; ?>web/images/slide/slide_air.png"
-                                                class="slide" alt=""/></a>
-                                <a href="<?php echo $webUrl; ?>สินค้า/กล้องวงจรปิด"><img id="slide-img-4"
-                                                src="<?php echo $baseUrl; ?>web/images/slide/slide_cctv.png"
-                                                class="slide" alt=""/></a>
-<!--                                <a href=""><img id="slide-img-5"-->
-<!--                                                src="--><?php //echo $baseUrl; ?><!--web/images/slide/nature-photo4.png"-->
-<!--                                                class="slide" alt=""/></a>-->
-<!--                                <a href=""><img id="slide-img-6"-->
-<!--                                                src="--><?php //echo $baseUrl; ?><!--web/images/slide/nature-photo4.png"-->
-<!--                                                class="slide" alt=""/></a>-->
-<!--                                <a href=""><img id="slide-img-7"-->
-<!--                                                src="--><?php //echo $baseUrl; ?><!--web/images/slide/nature-photo6.png"-->
-<!--                                                class="slide" alt=""/></a>-->
+    <!--slide image-->
+    <div id="mainmodules1" class="spacer w99">
+        <div class="block">
+            <div class="module">
+                <div id="slidewrap">
+                    <div id="slide-header">
+                        <div class="slide-wrap">
+                            <div id="slide-holder">
+                                <div id="slide-runner">
+                                    <a href="<?php echo $webUrl; ?>สินค้า/ผ้าม่าน"><img id="slide-img-1"
+                                                                                        src="<?php echo $baseUrl; ?>web/images/slide/slide_curtain.png"
+                                                                                        class="slide" alt=""/></a>
+                                    <a href="<?php echo $webUrl; ?>สินค้า/จานดาวเทียม"><img id="slide-img-2"
+                                                                                            src="<?php echo $baseUrl; ?>web/images/slide/slide_dish-aerial.png"
+                                                                                            class="slide" alt=""/></a>
+                                    <a href="<?php echo $webUrl; ?>สินค้า/เครื่องปรับอากาศ"><img id="slide-img-3"
+                                                                                                 src="<?php echo $baseUrl; ?>web/images/slide/slide_air.png"
+                                                                                                 class="slide" alt=""/></a>
+                                    <a href="<?php echo $webUrl; ?>สินค้า/กล้องวงจรปิด"><img id="slide-img-4"
+                                                                                             src="<?php echo $baseUrl; ?>web/images/slide/slide_cctv.png"
+                                                                                             class="slide" alt=""/></a>
+                                    <!--                                <a href=""><img id="slide-img-5"-->
+                                    <!--                                                src="-->
+                                    <?php //echo $baseUrl; ?><!--web/images/slide/nature-photo4.png"-->
+                                    <!--                                                class="slide" alt=""/></a>-->
+                                    <!--                                <a href=""><img id="slide-img-6"-->
+                                    <!--                                                src="-->
+                                    <?php //echo $baseUrl; ?><!--web/images/slide/nature-photo4.png"-->
+                                    <!--                                                class="slide" alt=""/></a>-->
+                                    <!--                                <a href=""><img id="slide-img-7"-->
+                                    <!--                                                src="-->
+                                    <?php //echo $baseUrl; ?><!--web/images/slide/nature-photo6.png"-->
+                                    <!--                                                class="slide" alt=""/></a>-->
 
-                                <div id="slide-controls">
-                                    <p id="slide-client" class="text"><strong></strong<span></span>
-                                    </p>
+                                    <div id="slide-controls">
+                                        <p id="slide-client" class="text"><strong></strong<span></span>
+                                        </p>
 
-                                    <p id="slide-desc" class="text"></p>
+                                        <p id="slide-desc" class="text"></p>
 
-                                    <p id="slide-nav"></p>
+                                        <p id="slide-nav"></p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <!--content featured gallery here -->
-                        </div>
-                        <script type="text/javascript">
-                            if (!window.slider) var slider = {};
-                            slider.data = [
-                                {"id": "slide-img-1", "client": "ผ้าม่าน",
-                                    "desc": "ผ้าม่าน, รางโชว์, มู่ลี่, ม่านปรับแสง, ม่านม้วน, ม่านพลับ, วอลเปเปอร์, ฉากกั้นห้อง,"+
-                                        " กั้นแอร์, พรม, กระเบื้องยาง"},
-                                {"id": "slide-img-2", "client": "จานดาวเทียม", "desc": "จำหน่ายอุปกรณ์จานดาวเทียม ในราคาปลีก และส่ง"},
-                                {"id": "slide-img-3", "client": "เครื่องปรับอากาศ", "desc": "จำหน่ายพร้อมติดตั้ง เครืองปรับอากาศ ในราคาปลีก และส่ง"},
-                                {"id": "slide-img-4", "client": "กล้องวงจรปิด", "desc": "จำหน่ายอุปกรณ์ พร้อมติดตั้งกล้องวงจรปิด ในราคาปลีก และส่ง"}
+                                <!--content featured gallery here -->
+                            </div>
+                            <script type="text/javascript">
+                                if (!window.slider) var slider = {};
+                                slider.data = [
+                                    {"id": "slide-img-1", "client": "ผ้าม่าน",
+                                        "desc": "ผ้าม่าน, รางโชว์, มู่ลี่, ม่านปรับแสง, ม่านม้วน, ม่านพลับ, วอลเปเปอร์, ฉากกั้นห้อง," +
+                                            " กั้นแอร์, พรม, กระเบื้องยาง"},
+                                    {"id": "slide-img-2", "client": "จานดาวเทียม", "desc": "จำหน่ายอุปกรณ์จานดาวเทียม ในราคาปลีก และส่ง"},
+                                    {"id": "slide-img-3", "client": "เครื่องปรับอากาศ", "desc": "จำหน่ายพร้อมติดตั้ง เครืองปรับอากาศ ในราคาปลีก และส่ง"},
+                                    {"id": "slide-img-4", "client": "กล้องวงจรปิด", "desc": "จำหน่ายอุปกรณ์ พร้อมติดตั้งกล้องวงจรปิด ในราคาปลีก และส่ง"}
 //                                {"id": "slide-img-5", "client": "nature beauty", "desc": "add your description here"},
 //                                {"id": "slide-img-6", "client": "nature beauty", "desc": "add your description here"},
 //                                {"id": "slide-img-7", "client": "nature beauty", "desc": "add your description here"}
-                            ];
-                        </script>
+                                ];
+                            </script>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
-</div>
-<!--end slide image-->
+    <!--end slide image-->
 <?php endif; ?>
 <table class="mainbody" border="0" cellspacing="0" cellpadding="0">
 <tr valign="top">
@@ -488,6 +494,42 @@ $baseUrl = base_url();
 </div>
 <!--end module facebook-->
 
+<!--module link-->
+<div class="module">
+    <div>
+        <div>
+            <div>
+                <h3>LINK ที่เกี่ยวข้อง</h3>
+                <fieldset class="input">
+                    <ul>
+                        <?php
+                        $strOldGroup = "";
+                        foreach ($linkWebsite as $key => $value) :
+                        $strLink = $webUrl. "index/openWeb/" . $value->id;
+                        if ($value->link_group != $strOldGroup):
+                        $strOldGroup = $value->link_group;
+                        ?>
+                    </ul>
+                    <span class="link-group"><?php echo $value->link_group; ?></span>
+                    <ul class="ul-link">
+                        <li><a target="_blank" href="<?php echo $strLink; ?>">
+                                <?php echo $value->name; ?></a> (<?php echo $value->count_click; ?>)</li>
+                        <?php else: ?>
+                            <li><a target="_blank" href="<?php echo $strLink; ?>">
+                                    <?php echo $value->name; ?></a> (<?php echo $value->count_click; ?>)</li>
+                        <?php
+                        endif;
+                        endforeach;
+                        ?>
+                    </ul>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--end module link-->
+
 </div>
 <!--<style type="text/css" media="Screen">-->
 <!--    #navigation ul {-->
@@ -611,7 +653,6 @@ $baseUrl = base_url();
 <!--        </li>-->
 <!--    </ul>-->
 <!--</div>-->
-
 
 
 </td>

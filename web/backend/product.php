@@ -37,7 +37,11 @@ SELECT
        onclick=\"javascript:f_verifyDelete(',
        \"'\", `product`.id, \"', '&f_page_size=50&f_p=1');\", '\"',
        ' src=\"datagrid/styles/pink/images/delete.gif\"/>') AS edit_field,
-       '' AS add_image
+       '' AS add_image,
+       IF(`product`.new=0,'<div class=\"no\">No</div>', '<div class=\"yes\">Yes</div>') AS p_new,
+       IF(`product`.sellers=0,'<div class=\"no\">No</div>', '<div class=\"yes\">Yes</div>') AS p_sellers,
+       IF(`product`.recommend=0,'<div class=\"no\">No</div>', '<div class=\"yes\">Yes</div>') AS p_recommend,
+       IF(`product`.promotion=0,'<div class=\"no\">No</div>', '<div class=\"yes\">Yes</div>') AS p_promotion
     FROM
       `product`,
       `product_type`
@@ -186,6 +190,7 @@ $dgrid->SetViewModeTableProperties($vm_table_properties);
 $vm_columns = array(
     'id' => array('header' => 'ID', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'serial' => array('header' => ' รหัสสินค้า', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'product_type_name' => array('header' => ' ประเภทสินค้า', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'name_th' => array('header' => ' ชื่อสินค้า', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'brand' => array('header' => ' ยี่ห้อ', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'model' => array('header' => ' รุ่น', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
@@ -194,6 +199,10 @@ $vm_columns = array(
     'price3' => array('header' => ' ราคาขายส่ง', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'value' => array('header' => ' หน่วยสินค้า', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'priority' => array('header' => ' ความสำคัญ', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'p_new' => array('header' => ' มาใหม่', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'p_sellers' => array('header' => ' ขายดี', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'p_recommend' => array('header' => ' แนะนำ', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'p_promotion' => array('header' => ' โปรโมชัน', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'date_create' => array('header' => ' วันที่สร้าง', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'date_stamp' => array('header' => ' วันที่แก้ไข', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'edit_field' => array('header' => ' จัดการข้อมูล', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
@@ -225,6 +234,14 @@ if ($getMode != 'add' && $getMode != 'edit') {
     <div style="width: 100%;">
         <div align="right"><p><a href="?f_mode=add&f_rid=-1">เพิ่มสินค้า</a></p></div>
     </div>
+    <style>
+        .no{
+            background-color: red;
+        }
+        .yes {
+            background-color: #008000;
+        }
+    </style>
 <?php
 } else {//var_dump($_SERVER['HTTP_HOST']);
     $pathImage = "../images/uploads/products/";
@@ -368,6 +385,14 @@ $em_columns = array(
         'title' => 'หน่วยสินค้า', 'readonly' => 'false', 'maxlength' => '20', 'default' => ''),
     'priority' => array('header' => ' ความสำคัญ', 'type' => 'textbox', 'req_type' => 'rn', 'width' => '210px',
         'title' => 'ความสำคัญ', 'readonly' => 'false', 'maxlength' => '15', 'default' => '999'),
+    'new' => array('header' => ' มาใหม่', 'type' => 'checkbox', 'req_type' => 'st', 'width' => '210px',
+        'title' => 'มาใหม่', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '', 'true_value'=>1, 'false_value'=>0),
+    'sellers' => array('header' => ' ขายดี', 'type' => 'checkbox', 'req_type' => 'st', 'width' => '210px',
+        'title' => 'ขายดี', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '', 'true_value'=>1, 'false_value'=>0),
+    'recommend' => array('header' => ' แนะนำ', 'type' => 'checkbox', 'req_type' => 'st', 'width' => '210px',
+        'title' => 'แนะนำ', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '', 'true_value'=>1, 'false_value'=>0),
+    'promotion' => array('header' => ' โปรโมชัน', 'type' => 'checkbox', 'req_type' => 'st', 'width' => '210px',
+        'title' => 'โปรโมชัน', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '', 'true_value'=>1, 'false_value'=>0),
 //    'image_path' => array('header' => ' รูปภาพ', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
 //        'title' => 'รูปภาพ', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
     'image_path' => array('header' => ' รูปภาพ', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',

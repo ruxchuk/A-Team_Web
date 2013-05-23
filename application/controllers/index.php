@@ -29,16 +29,35 @@ class Index extends CI_Controller
     {
         $this->load->model('Product_model');
         $arrProduct = $this->Product_model->getProduct();
+
+        $this->load->model('Link_website_model');
+        $arrLinkWebSite = $this->Link_website_model->getAllLink();
+
         $keyword = "";
         $data = array(
             'error' => '',
             'arrProduct' => $arrProduct,
+            'linkWebsite' => $arrLinkWebSite,
             'showSlide' => true,
             'webUrl' => $this->webUrl,
             'siteTitle' => "ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด",
             'keyword' => $keyword
         );
         $this->load->view('index', $data);
+    }
+
+    function openWeb($id)
+    {
+        $this->load->model('Link_website_model');
+        $strLink = $this->Link_website_model->getLinkByID($id);//get link
+
+        $result = $this->Link_website_model->stampCount($id);//stamp count click
+        if (!$result) {
+            echo "ไม่พบ link";
+        } else {
+            redirect($strLink);
+        }
+
     }
 
 }

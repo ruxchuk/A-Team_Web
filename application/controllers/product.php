@@ -29,11 +29,11 @@ class Product extends CI_Controller
 
     function index()
     {
-        redirect($this->webUrl . "auth/signIn");
+        redirect(base_url() . "auth/signIn");
 //        if (empty($this->session->userdata['username'])) {
 //            redirect("web/backend/product.php");
 //        } else {
-//            redirect($this->baseUrl . "auth/signIn");
+//            redirect($this->webUrl . "auth/signIn");
 //        }
     }
 
@@ -58,10 +58,15 @@ class Product extends CI_Controller
         $productTypeID = $this->Product_model->getProductTypeFromName($productTypeName);
 
         $arrProduct = $this->Product_model->getProduct(0, intval($productTypeID));
+
+        $this->load->model('Link_website_model');
+        $arrLinkWebSite = $this->Link_website_model->getAllLink();
+
         $keyword = "";
         $data = array(
             'error' => '',
             'arrProduct' => $arrProduct,
+            'linkWebsite' => $arrLinkWebSite,
             'showSlide' => false,
             'webUrl' => $this->webUrl,
             'siteTitle' => "ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด",
@@ -75,115 +80,21 @@ class Product extends CI_Controller
         $this->load->model('Product_model');
         $arrProduct = $this->Product_model->getProduct(intval($id), intval($productTypeID));
         $title = $arrProduct[0]->name_th;
+
+        $this->load->model('Link_website_model');
+        $arrLinkWebSite = $this->Link_website_model->getAllLink();
+
         $keyword = $arrProduct[0]->keyword != "" ? ", " . $arrProduct[0]->keyword : "";
         $data = array(
             'error' => '',
             'product' => $arrProduct,
+            'linkWebsite' => $arrLinkWebSite,
             'showSlide' => false,
             'webUrl' => $this->webUrl,
             'siteTitle' => $title,
             'keyword' => $keyword
         );
         $this->load->view("product/view", $data);
-    }
-
-    public function pNew()
-    {
-        var_dump($this->session->userdata['user_name']);
-        $post = $this->input->post();
-        $message = "";
-        if ($post) {
-            extract($post);
-            $checkAdd = $this->checkAddProduct($serial);
-            if (!$checkAdd) {
-                $message = "<span style='background-color: greenyellow;'>
-                <font color='red'>มีรายการเพิ่มเข้ามาแล้ว</font></span>";
-            } else {
-                $sql = "
-                    INSERT INTO `product` (
-                      `product_type_id`,
-                      serial,
-                      `name_th`,
-                      `name_en`,
-                      `brand`,
-                      `model`,
-                      `value`,
-                      `priority`,
-                      `image_path`,
-                      `description`,
-                      `keyword`,
-                      `date_create`,
-                      `date_stamp`
-                    )
-                    VALUES
-                      (
-                        '$product_type_id',
-                        '$serial',
-                        '$name_th',
-                        '$name_en',
-                        '$brand',
-                        '$model',
-                        '$value',
-                        $priority,
-                        '$image_path',
-                        '$description',
-                        '$keyword',
-                         NOW(),
-                        '0000-00-00 00:00:00'
-                      );
-                ";
-                $result = $this->db->query($sql);
-
-                if ($result) {
-                    $id = $this->db->insert_id();
-                    $price1 = empty($price1) ? 0 : $price1;
-                    $price2 = empty($price2) ? 0 : $price2;
-                    $sql = "
-                        INSERT INTO `product_price` (
-                            `price`,
-                            `price_type`,
-                            product_id
-                        )
-                        VALUES
-                        (
-                            $price1,
-                            'ขายปลีก',
-                            $id
-                        ) ;
-                    ";
-                    $this->db->query($sql);
-                    $sql = "
-                        INSERT INTO `product_price` (
-                            `price`,
-                            `price_type`,
-                            product_id
-                        )
-                        VALUES
-                        (
-                            $price2,
-                            'ขายส่ง',
-                            $id
-                        ) ;
-                    ";
-                    $result = $this->db->query($sql);
-                    if ($result) {
-                        $message = "<font color='green'>เพิ่มรายการสำเร็จแล้ว</font>";
-                        $post = null;
-                    }
-                } else {
-                    $message = "<font color='red'>การเพิ่มรายการผิดพลาด</font>";
-                }
-            }
-        }
-        $arrProduct = $this->getProduct();
-        $arrProductType = $this->getProductType();
-        $data = array(
-            'message' => $message,
-            "arrProduct" => $arrProduct,
-            "arrProductType" => $arrProductType,
-            "arrayPost" => $post
-        );
-        $this->load->view('product/new', $data);
     }
 
     public function pEdit($id)
@@ -345,11 +256,5 @@ class Product extends CI_Controller
         } else {
             return (object)$result;
         }
-    }
-
-    public function dataG()
-    {
-        $this->load->library('product');
-//        $this->load->libraries('product');
     }
 }

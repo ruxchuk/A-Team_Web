@@ -50,7 +50,7 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
                         <?php else: ?>
                             <br>
                         <?php endif; ?>
-                        <span class="price2">ราคาขาย: <?php echo number_format($value->price1, 2); ?> บาท</span><br>
+                        <span class="price2">ราคาขาย: <?php echo number_format($value->price2, 2); ?> บาท</span><br>
                         <?php if ($value->price1 - $value->price2 > 0): ?>
                             <span class="price3">ประหยัด: <?php echo number_format($value->price1 - $value->price2, 2); ?> บาท</span><br>
                         <?php else: ?>

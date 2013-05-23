@@ -38,7 +38,7 @@ class Product_model extends CI_Model
               AND d.`publish` = 1
               $sqlAnd
             ORDER BY a.`priority`,
-              a.`date_create`
+              a.`date_create` DESC
         ";
         $query = $this->db->query($sql);
         $result = array();

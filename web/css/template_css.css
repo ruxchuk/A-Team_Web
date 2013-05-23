@@ -21,6 +21,7 @@ div.wrapper {
 
 td.leftcol {
     width: 220px;
+    max-width: 244px;
     padding: 0;
 }
 
@@ -36,6 +37,18 @@ td.rightcol {
     height: 18px;
     margin-left: 155px;
 }
+
+/*link website*/
+.link-group {
+    color: red;
+    font-size: 16px ;
+}
+.ul-link li {
+    width: 160px;
+    margin-right: 10px; !important;
+    bottom: 1px;
+}
+
 
 /* Font family information */
 
