@@ -16,7 +16,12 @@ $baseUrl = base_url();
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>A-Team Curtain</title>
     <link href="<?php echo $baseUrl; ?>web/css/login.css" rel="stylesheet" type="text/css"/>
-
+    <script>
+        //document.getElementById('user_name').value.focus();
+        window.setTimeout(function () {
+            document.getElementById('user_name').select();
+        }, 0);
+    </script>
 </head>
 
 <body id="login">
@@ -24,31 +29,31 @@ $baseUrl = base_url();
 <div id="login-wrapper" class="png_bg">
     <div id="login-top">
         <a href="<?php echo $baseUrl; ?>">
-        <img src="<?php echo $baseUrl; ?>web/images/web-logo2.png" title="A-Team Curtain"/>
+            <img src="<?php echo $baseUrl; ?>web/images/web-logo2.png" title="A-Team Curtain"/>
         </a>
     </div>
 
     <div id="login-content">
         <?php
         if ($message == "login fail") :
-        ?>
-        <div class="error" id="error">
-            ชื่อผู้ใช้หรือ รหัสผ่านผิด
-        </div>
+            ?>
+            <div class="error" id="error">
+                ชื่อผู้ใช้หรือ รหัสผ่านผิด
+            </div>
         <?php
         endif;
         ?>
         <form method="post">
             <p>
-                <label>ชื่อผู้ใช้</label>
-                <input value="" name="user_name" class="text-input" type="text"
-                    onkeydown="document.getElementById('error').style.display = 'none';"/>
+                <label for="user_name">ชื่อผู้ใช้</label>
+                <input value="" name="user_name" id="user_name" class="text-input" type="text"
+                       onkeydown="document.getElementById('error').style.display = 'none';"/>
             </p>
             <br style="clear: both;"/>
 
             <p>
-                <label>รหัสผ่าน</label>
-                <input name="password" class="text-input" type="password"
+                <label for="password">รหัสผ่าน</label>
+                <input name="password" class="text-input" type="password" id="password"
                        onkeydown="document.getElementById('error').style.display = 'none';"/>
             </p>
             <br style="clear: both;"/>

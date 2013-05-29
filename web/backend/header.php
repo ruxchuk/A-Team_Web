@@ -21,14 +21,18 @@ $baseUrl = $actual_link = "http://$_SERVER[HTTP_HOST]/";
         <img src="http://latendahouse.com/web/images/shot_cut_icon.png"/></a></p>
 <?php
 if (!empty($_SESSION['userdata'])) :
-    echo "สวัสดี : " . $_SESSION['userdata']['name'];
-    ?>
-    &nbsp;&nbsp;&nbsp;<a href="<?php echo $baseUrl; ?>auth/signOut">ออกจากระบบ</a>
-<?php else:
+    if ($_SESSION['userdata']['member_type'] == "admin"):
+        echo "สวัสดี : " . $_SESSION['userdata']['name'];
+        ?>
+        &nbsp;&nbsp;&nbsp;<a href="<?php echo $baseUrl; ?>auth/signOut">ออกจากระบบ</a>
+    <?php else:
+        header("Location: $baseUrl" . 'auth/signIn');
+    endif; else:
     header("Location: $baseUrl" . 'auth/signIn');
 endif;
 ?>
 <br>
 <br>
 <a href="product.php">รายการสินค้า</a> |
-<a href="link-website.php">Link Website</a>
+<a href="link-website.php">Link Website</a> |
+<a href="member.php">รายชื่อสมาชิก</a>

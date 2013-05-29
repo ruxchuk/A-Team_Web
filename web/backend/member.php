@@ -2,8 +2,8 @@
 /**
  * Created by JetBrains PhpStorm.
  * User: Rux
- * Date: 22/5/2556
- * Time: 16:33 น.
+ * Date: 23/5/2556
+ * Time: 14:45 น.
  * To change this template use File | Settings | File Templates.
  */
 
@@ -37,16 +37,21 @@ $dgrid = new DataGrid($debug_mode, $messaging, $unique_prefix);
 //http://localhost:11001/ateam/web/a-team_web/web/backend/datagrid/styles/pink/images/edit.gif
 $sql = "
     SELECT
-      *,
-       CONCAT('<a title=\"แก้ไขข้อมูล\" href=\"?f_mode=edit&f_rid=', id, '&f_page_size=50&f_p=1&p_id=',
-       id, '\"><img src=\"datagrid/styles/pink/images/edit.gif\"/></a>', ' | ',
+     `member`.*,
+  `member_type`.`name` as member_type_name,
+       CONCAT('<a title=\"แก้ไขข้อมูล\" href=\"?f_mode=edit&f_rid=', `member`.id, '&f_page_size=50&f_p=1&p_id=',
+       `member`.id, '\"><img src=\"datagrid/styles/pink/images/edit.gif\"/></a>', ' | ',
        '<img title=\"Delete\" style=\"cursor: pointer;\"
        onclick=\"javascript:f_verifyDelete(',
-       \"'\", id, \"', '&f_page_size=50&f_p=1');\", '\"',
+       \"'\", `member`.id, \"', '&f_page_size=50&f_p=1');\", '\"',
        ' src=\"datagrid/styles/pink/images/delete.gif\"/>') AS edit_field
-    FROM `link_website`
+    FROM `member`
+    INNER JOIN `member_type` ON (
+    `member`.`member_type_id` = `member_type`.`id`
+    )
     WHERE 1
-    AND `publish` = 1
+    AND `member`.`publish` = 1
+    AND `member`.id != 1
 ";
 $default_order = array("`id`" => "ASC");
 $dgrid->DataSource("PEAR", "mysql", $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS, $sql, $default_order);
@@ -112,7 +117,7 @@ $modes = array(
 $dgrid->SetModes($modes);
 ##  *** set CSS class for datagrid
 ##  *** 'default|blue|gray|green|pink|empty|x-blue|x-gray|x-green' or your own css style
-$css_class = 'x-blue';
+$css_class = 'x-green';
 $dgrid->SetCssClass($css_class);
 ##  *** set DataGrid caption
 //$dg_caption = 'My Favorite Lovely ApPHP DataGrid';
@@ -188,10 +193,10 @@ $dgrid->SetViewModeTableProperties($vm_table_properties);
 // $fill_from_array = array('0'=>'Banned', '1'=>'Active', '2'=>'Closed', '3'=>'Removed'); /* as 'value'=>'option' */
 $vm_columns = array(
     'id' => array('header' => 'ID', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-    'name' => array('header' => ' ชื่อเรียก Link', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-    'link' => array('header' => ' Link', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-    'link_group' => array('header' => ' ชื่อกลุ่มของ Link', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-    'count_click' => array('header' => ' จำนวน Click', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'name' => array('header' => ' ชื่อ', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'user_name' => array('header' => ' User Name', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'email' => array('header' => ' อีเมล', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'member_type_name' => array('header' => ' ประเภทสมาชิก', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'edit_field' => array('header' => ' จัดการข้อมูล', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
 );
 $dgrid->SetColumnsInViewMode($vm_columns);
@@ -211,7 +216,7 @@ $dgrid->SetDgMessages(array(
 ## | 7. Add/Edit/Details Mode settings:                                        |
 ## +---------------------------------------------------------------------------+
 ##  ***  set settings for edit/details mode
-$table_name = "link_website";
+$table_name = "member";
 $primary_key = "id";
 $condition = "";
 $dgrid->SetTableEdit($table_name, $primary_key, $condition);
@@ -221,35 +226,49 @@ if ($getMode != 'add' && $getMode != 'edit') {
     ?>
     <br>
     <div style="width: 100%;">
-        <div align="right"><p><a href="?f_mode=add&f_rid=-1">เพิ่ม Link Website</a></p></div>
+        <div align="right"><p><a href="?f_mode=add&f_rid=-1">เพิ่ม สมาชิก</a></p></div>
     </div>
     <style>
-        /*.no{*/
-            /*background-color: red;*/
-        /*}*/
-        /*.yes {*/
-            /*background-color: #008000;*/
-        /*}*/
     </style>
-    <?php
+<?php
 }
 
-$arrLinkGroup = array(
-    '' => "",
-    'ผ้าม่าน' => "ผ้าม่าน",
-    'ดาวเทียม' => 'ดาวเทียม',
-    'ช่องรายการ' => "ช่องรายการ",
-    'เครื่องปรับอากาศ' => "เครื่องปรับอากาศ",
-    'กล้องวงจรปิด' => "กล้องวงจรปิด",
-);
+$sql = "
+        SELECT
+          id,
+          name
+        FROM `member_type`
+        WHERE 1
+    ";
+$dSet = $dgrid->ExecuteSql($sql);
+$arrMemberType = array('' => '');
+while ($row = $dSet->fetchRow()) {
+    $arrMemberType[$row[0]] = $row[1];
+}
 $em_columns = array(
-    'name' => array('header' => ' ชื่อ Link', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '250px',
-        'title' => 'ชื่อ Link', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),
-    'link' => array('header' => ' Link', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '250px',
-        'title' => 'Link', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),
-    'link_group' => array('header' => ' ชื่อกลุ่มของ Link', 'type' => 'enum', 'req_type' => 'ry', 'width' => '250px',
-        'title' => 'ชื่อกลุ่มของ Link', 'readonly' => 'false', 'maxlength' => '100', 'default' => '',
-        "source" => $arrLinkGroup)
+    'name' => array('header' => ' ชื่อ', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '250px',
+        'title' => 'ชื่อ', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),
+    'user_name' => array('header' => ' User Name', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '250px',
+        'title' => 'User Name', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),
+    //'password' => array('header' => ' Password', 'type' => 'password', 'req_type' => 'ry', 'width' => '250px',
+    //    'title' => 'Password', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),
+    'password' => array('header' => 'Password', 'type' => 'password', 'req_type' => 'rp', 'width' => '250px',
+        'title' => '', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true', 'on_js_event' => '',
+        'hide' => 'false', 'generate' => 'true', 'cryptography' => 'false', 'cryptography_type' => 'md5',
+        'aes_password' => 'aes_password', "post_addition"=>" <font color=\"#cd0000\">ต้องมี 6 ตัวขึ้นไป</font>"),
+    'email' => array('header' => ' อีเมล', 'type' => 'textbox', 'req_type' => '', 'width' => '250px',
+        'title' => 'อีเมล', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),
+    'phone' => array('header' => ' เบอร์โทร', 'type' => 'textbox', 'req_type' => '', 'width' => '250px',
+        'title' => 'เบอร์โทร', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),
+    'address' => array('header' => ' ที่อยู่', 'type' => 'textbox', 'req_type' => '', 'width' => '250px',
+        'title' => 'ที่อยู่', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),
+    'permission_price' => array('header' => ' สิทธิ์การเห็นราคา', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '250px',
+        'title' => 'สิทธิ์การเห็นราคา', 'readonly' => 'false', 'maxlength' => '100', 'default' => '',
+    "post_addition"=>" ตัวอย่างเช่น \"1|2|3\""),
+    'member_type_id' => array('header' => ' ประเภทสมาชิก', 'type' => 'enum', 'req_type' => 'ry', 'width' => '250px',
+        'title' => 'ประเภทสมาชิก', 'readonly' => 'false', 'maxlength' => '100', 'default' => '',
+        "source" => $arrMemberType)
 );
 $dgrid->SetColumnsInEditMode($em_columns);
 $dgrid->SetAutoColumnsInEditMode(false);

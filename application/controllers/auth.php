@@ -10,6 +10,12 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Auth extends CI_Controller
 {
+    function __construct()
+    {
+        // Call the Model constructor
+        parent::__construct();
+    }
+
     public function signIn()
     {
         $message = "";
@@ -50,5 +56,10 @@ class Auth extends CI_Controller
         session_start();
         unset($_SESSION["userdata"]);
         redirect(base_url() . 'auth/signIn');
+    }
+
+    function memberLogin()
+    {
+
     }
 }

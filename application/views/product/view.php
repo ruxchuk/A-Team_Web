@@ -11,11 +11,6 @@ $this->load->view('header');
 $baseUrl = base_url();
 $pathImageProduct = $baseUrl . "web/images/uploads/products/";
 ?>
-    <link href="<?php echo $baseUrl; ?>web/css/product-view-style.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/jquery-1.4.4.min.js"></script>
-    <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-    <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js//fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-    <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>web/js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
     <script>
         $(document).ready(function(){
             $("a#product-image").fancybox({

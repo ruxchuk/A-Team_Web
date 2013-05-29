@@ -214,9 +214,12 @@ $auto_column_in_view_mode = false;
 $dgrid->SetAutoColumnsInViewMode($auto_column_in_view_mode);
 
 $dgrid->SetDgMessages(array(
-    'add_success' => '', 'add_error' => '',
-    'update_success' => 'การดำเนินการแก้ไขเสร็จเรียบร้อยแล้ว', 'update_error' => '',
-    'delete_success' => '', 'delete_error' => ''
+    'add_success' => 'เพิ่มข้อมูลเรียบร้อยแล้ว',
+    'add_error' => 'คุณได้ทำการ save แล้ว หรือเก็ดข้อผิดพลาดบางประการ',
+    'update_success' => 'แก้ไขเสร็จเรียบร้อยแล้ว',
+    'update_error' => 'คุณได้ทำการ save แล้ว หรือเก็ดข้อผิดพลาดบางประการ',
+    'delete_success' => 'ทำการลบสำเร็จแล้ว',
+    'delete_error' => 'ไม่สามารถลบ ข้อมูลได้'
 ));
 ## +---------------------------------------------------------------------------+
 ## | 7. Add/Edit/Details Mode settings:                                        |

@@ -12,7 +12,6 @@ body {
     line-height: 135%;
 }
 
-
 div.wrapper {
     margin: 0 auto;
     width: 1010px;
@@ -41,14 +40,81 @@ td.rightcol {
 /*link website*/
 .link-group {
     color: red;
-    font-size: 16px ;
+    font-size: 16px;
 }
+
 .ul-link li {
     width: 160px;
-    margin-right: 10px; !important;
+    margin-right: 10px;
+!important;
     bottom: 1px;
 }
 
+/*register*/
+.register {
+    background-color: #fff;
+    font-size: 16px;
+    color: #000;
+}
+
+.h-register {
+    color: #006dcc;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+    color: #fff;
+    background-color: #04c;
+}
+
+.btn-primary {
+    color: #fff;
+    /*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);*/
+    background-color: #006dcc;
+    background-image: -moz-linear-gradient(top, #08c, #04c);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08c), to(#04c));
+    background-image: -webkit-linear-gradient(top, #08c, #04c);
+    background-image: -o-linear-gradient(top, #08c, #04c);
+    background-image: linear-gradient(to bottom, #08c, #04c);
+    background-repeat: repeat-x;
+    border-color: #04c #04c #002a80;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    cursor: pointer;
+}
+
+/*button login*/
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled] {
+    color: #fff;
+    background-color: #bd362f;
+}
+
+.btn:hover, .btn:focus {
+    color: #fff;
+    text-decoration: none;
+    background-position: 0 -15px;
+    -webkit-transition: background-position .1s linear;
+    -moz-transition: background-position .1s linear;
+    -o-transition: background-position .1s linear;
+    transition: background-position .1s linear;
+}
+
+.btn-danger {
+    color: #fff;
+    /*text-shadow: 0 -1px 0 rgba(0,0,0,0.25);*/
+    background-color: #da4f49;
+    background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
+    background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+    background-repeat: repeat-x;
+    border-color: #bd362f #bd362f #802420;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    cursor: pointer;
+}
 
 /* Font family information */
 
@@ -325,8 +391,8 @@ table.blog {
 
 td.maincol {
     background-image: url(../images/maincol-bg-bottom.png);
-    background-position:  0 100%;
-    background-repeat:  repeat-x;
+    background-position: 0 100%;
+    background-repeat: repeat-x;
 }
 
 td.leftcol .padding,
@@ -619,6 +685,7 @@ td.rightcol .module-clean h3,
     padding: 0 30px;
     background: none;
 }
+
 #bottommodules .module div div div div,
 #bottommodules .module-hilite1 div div div div,
 #bottommodules .module-hilite2 div div div div,
@@ -1104,7 +1171,7 @@ a img.album {
 }
 
 .clr {
-    clear:both;
+    clear: both;
 }
 
 fieldset {
@@ -1134,7 +1201,7 @@ img.content-right {
 
 #referencewidth {
     width: 100%;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 body .pollstableborder {
@@ -1348,24 +1415,25 @@ body .pollstableborder {
 }
 
 /*.overlay-basketballstadium #page-bg {*/
-    /*background: url(../images/bg/overlay-basketballstadium.jpg) no-repeat scroll top;*/
+/*background: url(../images/bg/overlay-basketballstadium.jpg) no-repeat scroll top;*/
 /*}*/
 
 /*.overlay-footballstadium #page-bg {*/
-    /*background: url(../images/bg/overlay-footballstadium.jpg) no-repeat fixed top;*/
+/*background: url(../images/bg/overlay-footballstadium.jpg) no-repeat fixed top;*/
 /*}*/
 
 /*.overlay-baseballstadium #page-bg {*/
-    /*background: url(../images/bg/overlay-baseballstadium.jpg) no-repeat scroll top;*/
+/*background: url(../images/bg/overlay-baseballstadium.jpg) no-repeat scroll top;*/
 
 /*}*/
 
 /*.overlay-cricketfield #page-bg {*/
-    /*background: url(../images/bg/overlay-cricketfield.jpg) no-repeat fixed top;*/
+/*background: url(../images/bg/overlay-cricketfield.jpg) no-repeat fixed top;*/
 
 /*}*/
 
-img.jev_help {display:none;
+img.jev_help {
+    display: none;
 
 }
 
@@ -1386,14 +1454,16 @@ img.jev_help {display:none;
     font-size: 0.8em;
 }
 
-div.jevtt_title{
+div.jevtt_title {
     font-weight: bold;
     font-size: 1.2em;
-    padding:2px;
-    width:196px;
+    padding: 2px;
+    width: 196px;
 }
-div.jevtt_text{
-    padding:2px;
-    width:196px;
+
+div.jevtt_text {
+    padding: 2px;
+    width: 196px;
 }
+
 /* @end */

@@ -17,7 +17,7 @@ $baseUrl = base_url();
     <meta itemprop="image" content="<?php echo $baseUrl; ?>web/images/fiv_icon_128x128.png">
     <meta http-equiv='content-type' content='text/html; charset=UTF-8'/>
     <meta name='robots' content='index, follow'/>
-    <meta name='keywords' content='latendahouse, ผ้าม่าน, รางโชว์, มู่ลี่, ม่านปรับแสง, ม่านม้วน, ม่านพลับ, วอลเปเปอร์,
+    <meta name='keywords' content='latendahouse, บริษัท เอ-ทีมเคอร์เทน จำกัด, ผ้าม่าน, รางโชว์, มู่ลี่, ม่านปรับแสง, ม่านม้วน, ม่านพลับ, วอลเปเปอร์,
     ฉากกั้นห้อง, กั้นแอร์, พรม, กระเบื้องยาง, จานดาวเทียม, เครื่องปรับอากาศ, กล้องวงจรปิด, จีพีเอสติดรถยนต์, นครปฐม,
     เพื่อนช่าง, จานดาวเทียม นครปฐม, CCTV, CCTV นครปฐม, กล้องวงจรปิด นครปฐม, CCTV นครปฐม<?php echo $keyword; ?>'/>
     <title><?php echo $siteTitle; ?></title>
@@ -31,12 +31,27 @@ $baseUrl = base_url();
     <link rel='shortcut icon' href='<?php echo $baseUrl; ?>web/images/shot_cut_icon.png'/>
     <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>web/css/trans-menu.css"/>
 
-<!--    <link href="--><?php //echo $baseUrl; ?><!--web/css/rokmoomenu.css" rel="stylesheet" type="text/css"/>-->
+    <!--    <link href="--><?php //echo $baseUrl; ?><!--web/css/rokmoomenu.css" rel="stylesheet" type="text/css"/>-->
     <link href="<?php echo $baseUrl; ?>web/css/template_css.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo $baseUrl; ?>web/css/template_colors.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/transmenu_Packed.js"></script>
     <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/jquery-1.2.6.pack.js"></script>
 
+    <!--    fancybox-->
+    <link href="<?php echo $baseUrl; ?>web/css/product-view-style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript"
+            src="<?php echo $baseUrl; ?>web/js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+    <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js//fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>web/js/fancybox/jquery.fancybox-1.3.4.css"
+          media="screen"/>
+    <!--    end fancy box-->
+
+
+    <link rel="stylesheet" href="<?php echo $baseUrl; ?>web/css/slide/slide-style.css" type="text/css" media="screen"/>
+    <!--<script type="text/javascript">var _siteRoot = 'index.html', _root = 'index.html';</script>-->
+    <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/slide/slide-scripts.js"></script>
 </head>
 <body id="ff-geneva" class="f-default overlay-carbon latch">
 
@@ -57,7 +72,6 @@ $baseUrl = base_url();
 <div id="top-bar">
     <div id="mod-login">
         <div class="wrapper">
-
             <div class="clr"></div>
         </div>
     </div>
@@ -174,11 +188,6 @@ $baseUrl = base_url();
 <div id="main-content">
 <div id="main-content2">
 
-<link rel="stylesheet" href="<?php echo $baseUrl; ?>web/css/slide/slide-style.css" type="text/css" media="screen"/>
-<!--<script type="text/javascript">var _siteRoot = 'index.html', _root = 'index.html';</script>-->
-<script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/slide/slide-scripts.js"></script>
-
 <?php if ($showSlide): ?>
     <!--slide image-->
     <div id="mainmodules1" class="spacer w99">
@@ -268,49 +277,206 @@ $baseUrl = base_url();
 
 
 <!--module login-->
-<!--<div class="module-hilite1">-->
-<!--    <div>-->
-<!--        <div>-->
-<!--            <div>-->
-<!--                <h3>เข้าสู่ระบบ</h3>-->
-<!---->
-<!--                <form action="-->
-<?php //$_SERVER['PHP_SELF']; ?><!--" method="post" name="login" id="form-login">-->
-<!--                    <fieldset class="input">-->
-<!--                        <p id="form-login-username">-->
-<!--                            <label for="modlgn_username">Username</label><br/>-->
-<!--                            <input id="modlgn_username" type="text" name="username" class="inputbox" alt="username"-->
-<!--                                   size="18"/>-->
-<!--                        </p>-->
-<!---->
-<!--                        <p id="form-login-password">-->
-<!--                            <label for="modlgn_passwd">Password</label><br/>-->
-<!--                            <input id="modlgn_passwd" type="password" name="passwd" class="inputbox" size="18"-->
-<!--                                   alt="password"/>-->
-<!--                        </p>-->
-<!---->
-<!--                        <p id="form-login-remember">-->
-<!--                            <label for="modlgn_remember">Remember Me</label>-->
-<!--                            <input id="modlgn_remember" type="checkbox" name="remember" class="inputbox" value="yes"-->
-<!--                                   alt="Remember Me"/>-->
-<!--                        </p>-->
-<!--                        <input type="submit" name="Submit" class="button" value="Login"/>-->
-<!--                    </fieldset>-->
-<!--                    <ul>-->
-<!--                        <li>-->
-<!--                            <a href="#">-->
-<!--                                ลืมรหัสผ่าน?</a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a href="#">-->
-<!--                                สมัครสมาชิก?</a>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </form>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+<?php
+if (empty($this->session->userdata['user_name'])) :
+    ?>
+    <script>
+        var url_login = "<?php echo $webUrl; ?>member/login";
+        function validateLogin(frm) {
+            if (frm.username.value == "") {
+                alert("");
+                frm.username.select();
+                return false;
+            } else if (frm.passwd.value == "") {
+                alert("");
+                frm.passwd.select();
+                return false;
+            }
+            setCookieLogin();//set cookie
+            $.post(url_login, $("#form-login").serialize(),
+                function (result) {
+                    if (result == "login fail") {
+                        alert('ชื่อผู้ใช้ หรือรหัสผ่านผิด\n** กรุณาตรวจสอบ **');
+                        $("#username").select();
+                    } else {
+                        //alert(result)
+                        window.location.reload();
+                    }
+                }
+            );
+            return false;
+        }
+
+        $(document).ready(function () {
+            $("a#register").fancybox({
+                'overlayShow': true,
+                'transitionIn': 'elastic',
+                'transitionOut': 'elastic'
+            });
+
+            $("#remember").change(function () {
+                if (this.checked) {
+                    setCookieLogin();
+                } else {
+                    deleteCookie();
+                }
+            });
+
+            checkRemember();
+        });
+    </script>
+    <script type="text/javascript">
+        var COOKIE_NAME = 'remember_me';
+        //var options = { path: '/main_index.php', expires: 10 };
+
+        function addCookies(value, vdate) {
+            var date = new Date();
+            // var vdate = 30;
+            date.setTime(date.getTime() + (vdate * 24 * 60 * 60 * 1000));
+            var expires = "; expires=" + date.toGMTString();
+            document.cookie = COOKIE_NAME + "=" + value + expires + "; path=/";
+        }
+
+        function getCookie() {
+            var nameEQ = COOKIE_NAME + "=";
+            var getCookies = document.cookie;
+            var strSave = '';
+            // var ca = document.cookie.split(';');alert(getCookies.indexOf(nameEQ));
+            if (getCookies.indexOf(nameEQ) > 0) {
+                var point = getCookies.indexOf(nameEQ);
+                //alert(getCookies.substring(point, getCookies.length))
+                for (var i = point; i < getCookies.length; i++) {
+                    strSave += getCookies.substring(i, i + 1);
+                    if (nameEQ == strSave) {
+                        //alert(strSave)
+                        //return strSave;
+                    }
+                }
+            }
+            return strSave;
+        }
+
+        function deleteCookie() {
+            // This function will attempt to remove a cookie from all paths.
+            var pathBits = location.pathname.split('/');
+            var pathCurrent = ' path=';
+
+            // do a simple pathless delete first.
+            document.cookie = COOKIE_NAME + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+
+            for (var i = 0; i < pathBits.length; i++) {
+                pathCurrent += ((pathCurrent.substr(-1) != '/') ? '/' : '') + pathBits[i];
+                document.cookie = COOKIE_NAME + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;' + pathCurrent + ';';
+            }
+        }
+
+        function checkRemember() {
+            var strCookie = getCookie();
+            if (strCookie == "") {
+                $("#remember").attr('checked', false);
+            } else {
+                $("#remember").attr('checked', true);
+                var arrSp = strCookie.split(";");
+                var arrValue = arrSp[0].split("&");
+                $("#username").val(arrValue[1]);
+                $("#passwd").val(arrValue[2]);
+            }
+        }
+
+        function setCookieLogin() {
+            if ($("#remember").attr('checked')) {
+                var userName = $("#username").val();
+                var pwd = $("#passwd").val();
+                var strCookie = "checked&" + userName + "&" + pwd;
+                addCookies(strCookie, 30);
+            }
+        }
+    </script>
+    <div class="module-hilite1">
+        <div>
+            <div>
+                <div>
+                    <h3>เข้าสู่ระบบ</h3>
+
+                    <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="login" id="form-login"
+                          onsubmit="return validateLogin(this);">
+                        <fieldset class="input">
+                            <p id="form-login-username">
+                                <label for="username">ชื่อผู้ใช้</label><br/>
+                                <input id="username" type="text" name="username" class="inputbox" alt="username"
+                                       size="18"/>
+                            </p>
+
+                            <p id="form-login-password">
+                                <label for="passwd">รหัสผ่าน</label><br/>
+                                <input id="passwd" type="password" name="passwd" class="inputbox" size="18"
+                                       alt="password"/>
+                            </p>
+
+                            <p id="form-login-remember">
+                                <label for="remember">Remember Me</label>
+                                <input id="remember" type="checkbox" name="remember" class="inputbox" value="yes"
+                                       alt="Remember Me"/>
+                            </p>
+                            <!--                        <input type="submit" name="Submit" class="button" value="เข้าสู่ระบบ"/>-->
+                            <button class="button btn btn-danger">เข้าสู่ระบบ</button>
+
+                        </fieldset>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    ลืมรหัสผ่าน?</a>
+                            </li>
+                            <li>
+                                <a id="register" href="<?php echo $webUrl; ?>member/register">
+                                    สมัครสมาชิก?</a>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php else: ?>
+    <script>
+        var url_logout = "<?php echo $webUrl; ?>member/logout";
+        function logout() {
+            $.post(url_logout,
+                function (result) {
+                    if (result == "logout fail") {
+                        alert('เกิดการผิดพลาด\n** กรุณาตรวจสอบ **');
+                    } else {
+                        //alert(result)
+                        window.location.reload();
+                    }
+                }
+            );
+            return false;
+        }
+    </script>
+    <div class="module-hilite1">
+        <div>
+            <div>
+                <div>
+                    <h3>สมาชิก</h3>
+                    <fieldset class="input">
+                        <p><font color="#E72222">สวัสดี</font> <?php echo $this->session->userdata['name']; ?></p>
+
+                        <p><font
+                                color="#E72222">ประเภทสมาชิก</font> <?php echo $this->session->userdata['member_type']; ?>
+                        </p>
+                        <ul>
+                            <li>
+                                <a href="#" onclick="return logout();">
+                                    ออกจากระบบ?</a>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
 
 <!--module เมนูย่อย-->
 <div class="module">
@@ -505,7 +671,7 @@ $baseUrl = base_url();
                         <?php
                         $strOldGroup = "";
                         foreach ($linkWebsite as $key => $value) :
-                        $strLink = $webUrl. "index/openWeb/" . $value->id;
+                        $strLink = $webUrl . "index/openWeb/" . $value->id;
                         if ($value->link_group != $strOldGroup):
                         $strOldGroup = $value->link_group;
                         ?>
@@ -513,10 +679,12 @@ $baseUrl = base_url();
                     <span class="link-group"><?php echo $value->link_group; ?></span>
                     <ul class="ul-link">
                         <li><a target="_blank" href="<?php echo $strLink; ?>">
-                                <?php echo $value->name; ?></a> (<?php echo $value->count_click; ?>)</li>
+                                <?php echo $value->name; ?></a> (<?php echo $value->count_click; ?>)
+                        </li>
                         <?php else: ?>
                             <li><a target="_blank" href="<?php echo $strLink; ?>">
-                                    <?php echo $value->name; ?></a> (<?php echo $value->count_click; ?>)</li>
+                                    <?php echo $value->name; ?></a> (<?php echo $value->count_click; ?>)
+                            </li>
                         <?php
                         endif;
                         endforeach;
