@@ -8,14 +8,19 @@
  */
 $baseUrl = base_url();
 
+$arrLinkWebSite = $this->Link_website_model->getAllLink();
+
+
 //$webUrl = strstr($_SERVER['HTTP_HOST'], 'localhost') > -1 ? 'index.php/' : base_url();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-    <meta itemprop="image" content="<?php echo $baseUrl; ?>web/images/fiv_icon_128x128.png">
-    <meta http-equiv='content-type' content='text/html; charset=UTF-8'/>
+    <!--<meta itemprop="image" content="<?php echo $baseUrl; ?>web/images/fiv_icon_128x128.png">-->
+    <meta itemprop="image" content="http://www.latendahouse.com/web/images/logo.jpg">
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html;">
     <meta name='robots' content='index, follow'/>
     <meta name='keywords' content='latendahouse, บริษัท เอ-ทีมเคอร์เทน จำกัด, ผ้าม่าน, รางโชว์, มู่ลี่, ม่านปรับแสง, ม่านม้วน, ม่านพลับ, วอลเปเปอร์,
     ฉากกั้นห้อง, กั้นแอร์, พรม, กระเบื้องยาง, จานดาวเทียม, เครื่องปรับอากาศ, กล้องวงจรปิด, จีพีเอสติดรถยนต์, นครปฐม,
@@ -27,6 +32,11 @@ $baseUrl = base_url();
     <meta http-equiv='content-language' content='th'/>
     <meta name='revisit-after' content='1 days'/>
     <meta name='Distribution' content='Global'/>
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:title" content="<?php echo $siteTitle; ?>">
+    <meta property="og:image" content="http://www.latendahouse.com/web/images/logo.jpg">
+    <meta property="og:site_name" content="บริษัท เอ-ทีมเคอร์เทน จำกัด">
 
     <link rel='shortcut icon' href='<?php echo $baseUrl; ?>web/images/shot_cut_icon.png'/>
     <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>web/css/trans-menu.css"/>
@@ -52,6 +62,23 @@ $baseUrl = base_url();
     <!--<script type="text/javascript">var _siteRoot = 'index.html', _root = 'index.html';</script>-->
     <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="<?php echo $baseUrl; ?>web/js/slide/slide-scripts.js"></script>
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41368108-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
 </head>
 <body id="ff-geneva" class="f-default overlay-carbon latch">
 
@@ -84,16 +111,20 @@ $baseUrl = base_url();
 <!--begin header-->
 <div id="header">
     <a href="<?php echo $baseUrl; ?>" class="nounder">
-        <img src="<?php echo $baseUrl; ?>web/images/web-logo2.png"
+        <img src="<?php echo $baseUrl; ?>web/images/logo.png"
              border="0" alt="" id="logo" class="png"/>
     </a>
 
     <div id="banner">
         <div class="moduletable">
-            <p><strong>บริษัท เอ-ทีม เคอร์เทน จำกัด</strong><br>
-                A-Team Curtain Co., Ltd.<br>
-                475/15 ถ.ทหารบก ต.บ่อพลับ อ.เมือง จ.นครปฐม 73000<br>
-                โทร 086-317-2217</p></div>
+            <p style="font-size: 22px;color: #E72222;"><strong>บริษัท เอ-ทีม เคอร์เทน จำกัด</strong></p>
+
+            <p style="font-size: 18px;color:#39C75E;">A-Team Curtain Co., Ltd.</p>
+
+            <p style="font-size: 18px;">475/15 ถ.ทหารบก ต.บ่อพลับ อ.เมือง จ.นครปฐม 73000</p>
+
+            <p style="font-size: 20px;color:#F07641;">โทร 086-317-2217</p>
+        </div>
     </div>
 </div>
 <!--end header-->
@@ -105,11 +136,11 @@ $baseUrl = base_url();
 <div id="iefix">
     <div id="horiz-menu" class="suckerfish">
         <ul class="menutop">
-            <li id="current" class="active item89">
+            <li id="current" class="<?php echo $selectBar == "index" ? 'active ' : "" ?>item89">
                 <a href="<?php echo $baseUrl; ?>"><span>หน้าแรก</span></a>
             </li>
-            <li class="parent item121"><a href="<?php echo $webUrl; ?>สินค้า/ผ้าม่าน"
-                                          class="topdaddy"><span>ผ้าม่าน</span></a>
+            <li class="<?php echo $selectBar == "ผ้าม่าน" ? 'active ' : "" ?>item121">
+                <a href="<?php echo $webUrl; ?>ผ้าม่าน" class="topdaddy"><span>ผ้าม่าน</span></a>
                 <!--                <ul>-->
                 <!--                    <li class="item140 sub-menu">-->
                 <!--                        <a href="#"><span>ผ้าม่านแบล็คเอ้าท์</span></a>-->
@@ -138,8 +169,8 @@ $baseUrl = base_url();
                 <!---->
                 <!--                </ul>-->
             </li>
-            <li class="parent item120">
-                <a href="<?php echo $webUrl; ?>สินค้า/จานดาวเทียม" class="topdaddy"><span>จานดาวเทียม</span></a>
+            <li class="<?php echo $selectBar == "จานดาวเทียม" ? 'active ' : "" ?>item120">
+                <a href="<?php echo $webUrl; ?>จานดาวเทียม" class="topdaddy"><span>จานดาวเทียม</span></a>
                 <!--                <ul>-->
                 <!--                    <li class="item136">-->
                 <!--                        <a href="#"><span>จานดาวเทียม 1</span></a>-->
@@ -152,8 +183,8 @@ $baseUrl = base_url();
                 <!--                    </li>-->
                 <!--                </ul>-->
             </li>
-            <li class="item84">
-                <a href="<?php echo $webUrl; ?>สินค้า/เครื่องปรับอากาศ"> <span>เครื่องปรับอากาศ</span></a>
+            <li class="<?php echo $selectBar == "เครื่องปรับอากาศ" ? 'active ' : "" ?>item84">
+                <a href="<?php echo $webUrl; ?>เครื่องปรับอากาศ"> <span>เครื่องปรับอากาศ</span></a>
                 <!--                <ul>-->
                 <!--                    <li class="item140">-->
                 <!--                        <a href="#"><span>เครื่องปรับอากาศ 1</span></a>-->
@@ -166,8 +197,8 @@ $baseUrl = base_url();
                 <!--                    </li>-->
                 <!--                </ul>-->
             </li>
-            <li class="item85">
-                <a href="<?php echo $webUrl; ?>สินค้า/กล้องวงจรปิด"><span>กล้องวงจรปิด</span></a>
+            <li class="<?php echo $selectBar == "กล้องวงจรปิด" ? 'active ' : "" ?>item85">
+                <a href="<?php echo $webUrl; ?>กล้องวงจรปิด"><span>กล้องวงจรปิด</span></a>
                 <!--                <ul>-->
                 <!--                    <li class="item140">-->
                 <!--                        <a href="#"><span>เครื่องปรับอากาศ 1</span></a>-->
@@ -180,8 +211,9 @@ $baseUrl = base_url();
                 <!--                    </li>-->
                 <!--                </ul>-->
             </li>
-            <li class="item122"><a href="#"><span>เกี่ยวกับเรา</span></a></li>
-            <li class="item144"><a href="#"><span>ติดต่อเรา</span></a></li>
+            <!--            <li class="item122"><a href="#"><span>เกี่ยวกับเรา</span></a></li>-->
+            <li class="<?php echo $selectBar == "contactus" ? 'active ' : "" ?>item144">
+                <a href="<?php echo $webUrl; ?>ติดต่อเรา"><span>ติดต่อเรา</span></a></li>
         </ul>
     </div>
 </div>
@@ -198,16 +230,16 @@ $baseUrl = base_url();
                         <div class="slide-wrap">
                             <div id="slide-holder">
                                 <div id="slide-runner">
-                                    <a href="<?php echo $webUrl; ?>สินค้า/ผ้าม่าน"><img id="slide-img-1"
+                                    <a href="<?php echo $webUrl; ?>ผ้าม่าน"><img id="slide-img-1"
                                                                                         src="<?php echo $baseUrl; ?>web/images/slide/slide_curtain.png"
                                                                                         class="slide" alt=""/></a>
-                                    <a href="<?php echo $webUrl; ?>สินค้า/จานดาวเทียม"><img id="slide-img-2"
+                                    <a href="<?php echo $webUrl; ?>จานดาวเทียม"><img id="slide-img-2"
                                                                                             src="<?php echo $baseUrl; ?>web/images/slide/slide_dish-aerial.png"
                                                                                             class="slide" alt=""/></a>
-                                    <a href="<?php echo $webUrl; ?>สินค้า/เครื่องปรับอากาศ"><img id="slide-img-3"
+                                    <a href="<?php echo $webUrl; ?>เครื่องปรับอากาศ"><img id="slide-img-3"
                                                                                                  src="<?php echo $baseUrl; ?>web/images/slide/slide_air.png"
                                                                                                  class="slide" alt=""/></a>
-                                    <a href="<?php echo $webUrl; ?>สินค้า/กล้องวงจรปิด"><img id="slide-img-4"
+                                    <a href="<?php echo $webUrl; ?>กล้องวงจรปิด"><img id="slide-img-4"
                                                                                              src="<?php echo $baseUrl; ?>web/images/slide/slide_cctv.png"
                                                                                              class="slide" alt=""/></a>
                                     <!--                                <a href=""><img id="slide-img-5"-->
@@ -284,11 +316,11 @@ if (empty($this->session->userdata['user_name'])) :
         var url_login = "<?php echo $webUrl; ?>member/login";
         function validateLogin(frm) {
             if (frm.username.value == "") {
-                alert("");
+                alert("กรุณากรอก ชื่อผู้ใช้");
                 frm.username.select();
                 return false;
             } else if (frm.passwd.value == "") {
-                alert("");
+                alert("กรุณากรอก รหัสผ่าน");
                 frm.passwd.select();
                 return false;
             }
@@ -308,7 +340,7 @@ if (empty($this->session->userdata['user_name'])) :
         }
 
         $(document).ready(function () {
-            $("a#register").fancybox({
+            $("a#register").fancybox({//, a#forget-password
                 'overlayShow': true,
                 'transitionIn': 'elastic',
                 'transitionOut': 'elastic'
@@ -424,7 +456,7 @@ if (empty($this->session->userdata['user_name'])) :
                         </fieldset>
                         <ul>
                             <li>
-                                <a href="#">
+                                <a id="forget-password" href="<?php echo $webUrl; ?>member/forgetPassword">
                                     ลืมรหัสผ่าน?</a>
                             </li>
                             <li>
@@ -494,22 +526,22 @@ if (empty($this->session->userdata['user_name'])) :
                         </tr>
                         <tr>
                             <td>
-                                <a id="menu121" href="<?php echo $webUrl; ?>สินค้า/ผ้าม่าน">ผ้าม่าน</a>
+                                <a id="menu121" href="<?php echo $webUrl; ?>ผ้าม่าน">ผ้าม่าน</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a id="menu120" href="<?php echo $webUrl; ?>สินค้า/จานดาวเทียม">จานดาวเทียม</a>
+                                <a id="menu120" href="<?php echo $webUrl; ?>จานดาวเทียม">จานดาวเทียม</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a id="menu84" href="<?php echo $webUrl; ?>สินค้า/เครื่องปรับอากาศ">เครื่องปรับอากาศ</a>
+                                <a id="menu84" href="<?php echo $webUrl; ?>เครื่องปรับอากาศ">เครื่องปรับอากาศ</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a id="menu85" href="<?php echo $webUrl; ?>สินค้า/กล้องวงจรปิด">กล้องวงจรปิด</a>
+                                <a id="menu85" href="<?php echo $webUrl; ?>กล้องวงจรปิด">กล้องวงจรปิด</a>
                             </td>
                         </tr>
                         <!--                        <tr>-->
@@ -651,6 +683,20 @@ if (empty($this->session->userdata['user_name'])) :
         </div>
     </div>
 </div>
+<!--module เพื่อนช่าง-->
+
+<div class="module">
+    <div>
+        <div>
+            <div>
+                <a href="http://www.เพื่อนช่าง.com" title="www.เพื่อนช่าง.com" target="_blank">
+                    <h3>www.เพื่อนช่าง.com</h3>
+                    <img src="<?php echo $baseUrl; ?>web/images/logo_peuanchang_150x150.png" width="188"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!--module facebook-->
 <div class="module">
@@ -670,7 +716,7 @@ if (empty($this->session->userdata['user_name'])) :
                     <ul>
                         <?php
                         $strOldGroup = "";
-                        foreach ($linkWebsite as $key => $value) :
+                        foreach ($arrLinkWebSite as $key => $value) :
                         $strLink = $webUrl . "index/openWeb/" . $value->id;
                         if ($value->link_group != $strOldGroup):
                         $strOldGroup = $value->link_group;

@@ -29,7 +29,7 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
                     <div class="cleaner"></div>
                 <?php
                 endif;
-                $urlTarget = $webUrl. "สินค้า/".$value->product_type_name ."/".$value->id;
+                $urlTarget = $webUrl . $value->product_type_name . "/" . $value->id;
                 ?>
                 <div class="product_box margin_r35">
                     <a target="_blank"
@@ -46,13 +46,17 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
 
                     <p>
                         <?php if ($value->price1 - $value->price2 > 0): ?>
-                            <span class="price1">ราคาปกติ: <strike><?php echo number_format($value->price1, 2); ?></strike> บาท</span><br>
+                            <span
+                                class="price1">ราคาปกติ: <strike><?php echo number_format($value->price1, 2); ?></strike> บาท</span>
+                            <br>
                         <?php else: ?>
                             <br>
                         <?php endif; ?>
                         <span class="price2">ราคาขาย: <?php echo number_format($value->price2, 2); ?> บาท</span><br>
                         <?php if ($value->price1 - $value->price2 > 0): ?>
-                            <span class="price3">ประหยัด: <?php echo number_format($value->price1 - $value->price2, 2); ?> บาท</span><br>
+                            <span
+                                class="price3">ประหยัด: <?php echo number_format($value->price1 - $value->price2, 2); ?>
+                                บาท</span><br>
                         <?php else: ?>
                             <br>
                         <?php endif; ?>

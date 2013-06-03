@@ -24,9 +24,13 @@ class Auth extends CI_Controller
             extract($post);
             $password = md5($password);
             $sql = "
-                SELECT
-                  *
-                FROM `member`
+              SELECT
+                  a.*,
+                  b.`name` as member_type
+                FROM `member` a
+                INNER JOIN `member_type` b ON (
+                  a.`member_type_id` = b.`id`
+                )
                 WHERE 1
                 AND `user_name` = '$user_name'
                 AND `password` = '$password'

@@ -24,8 +24,8 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
     <div>
         <p>
         &nbsp;&nbsp;&nbsp;<a href="<?php echo $baseUrl; ?>">หน้าแรก</a> /
-            <a href="<?php echo $webUrl; ?>สินค้า/<?php echo $this->uri->segment(2); ?>">
-                <?php echo $this->uri->segment(2); ?></a> /
+            <a href="<?php echo $webUrl; ?><?php echo $this->uri->segment(1); ?>">
+                <?php echo $this->uri->segment(1); ?></a> /
             <span class="link-active"><?php echo $product[0]->id; ?></span>
         </p>
     </div>
@@ -87,7 +87,7 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
                             <font color="#39C75E">ราคาขาย
                                 <?php echo number_format($product[0]->price2, 2); ?> บาท</font><br>
                             <?php if ($product[0]->price1 - $product[0]->price2 > 0): ?>
-                            <font color="#3B37CD">ประหยัด
+                            <font color="#6A67E0">ประหยัด
                                 <?php echo number_format($product[0]->price1 - $product[0]->price2, 2); ?>
                                 บาท</font></b>
                         <?php endif; ?>

@@ -40,13 +40,15 @@
 
 $route['default_controller'] = "index";
 $route['404_override'] = '';
-$route[('หน้าแรก')] = "index";
+//$route[('หน้าแรก')] = "index";
 $route[('สินค้า')] = "auth/signIn";
-$route[('สินค้า/([ก-เ]+)')] = "product/productAll";
+$route[('([ก-เ]+)')] = "product/productAll";
 
 
-$route['สินค้า/([ก-เ]+)/(\d+)'] = "product/productType/$3";
+$route['([ก-เ]+)/(\d+)'] = "product/productType/$3";
 //$route['สินค้า/([ก-เ]+)'] = "product/productType/$3";
+
+$route['ติดต่อเรา'] = "index/contactus";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

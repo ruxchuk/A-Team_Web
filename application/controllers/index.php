@@ -31,13 +31,12 @@ class Index extends CI_Controller
         $arrProduct = $this->Product_model->getProduct();
 
         $this->load->model('Link_website_model');
-        $arrLinkWebSite = $this->Link_website_model->getAllLink();
-
+        $strSelectBar = "index";
         $keyword = "";
         $data = array(
+            'selectBar' => $strSelectBar,
             'error' => '',
             'arrProduct' => $arrProduct,
-            'linkWebsite' => $arrLinkWebSite,
             'showSlide' => true,
             'webUrl' => $this->webUrl,
             'siteTitle' => "ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด",
@@ -58,6 +57,20 @@ class Index extends CI_Controller
             redirect($strLink);
         }
 
+    }
+
+    function contactus()
+    {
+        $strSelectBar = 'contactus';
+        $message = "";
+        $data = array(
+            'webUrl' => $this->webUrl,
+            'message' => $message,
+            'selectBar' => $strSelectBar,
+            'showSlide' => false,
+            'siteTitle' => "ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด",
+        );echo
+        $this->load->view('contactus', $data);
     }
 
 }

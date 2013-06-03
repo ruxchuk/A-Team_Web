@@ -40,8 +40,8 @@ class Product extends CI_Controller
     function productType()
     {
         //สินค้า/ผ้าม่าน/3
-        $productTypeName = $this->uri->segment(2);
-        $productID = $this->uri->segment(3);
+        $productTypeName = $this->uri->segment(1);
+        $productID = $this->uri->segment(2);
 
         $this->load->model('Product_model');
         $productTypeID = $this->Product_model->getProductTypeFromName($productTypeName);
@@ -52,7 +52,7 @@ class Product extends CI_Controller
     function productAll()
     {
         //สินค้า/ผ้าม่าน
-        $productTypeName = $this->uri->segment(2);
+        $productTypeName = $this->uri->segment(1);
 
         $this->load->model('Product_model');
         $productTypeID = $this->Product_model->getProductTypeFromName($productTypeName);
@@ -64,6 +64,7 @@ class Product extends CI_Controller
 
         $keyword = "";
         $data = array(
+            'selectBar' => $productTypeName,
             'error' => '',
             'arrProduct' => $arrProduct,
             'linkWebsite' => $arrLinkWebSite,
@@ -77,6 +78,7 @@ class Product extends CI_Controller
 
     function view($id, $productTypeID)
     {
+        $productTypeName = $this->uri->segment(1);
         $this->load->model('Product_model');
         $arrProduct = $this->Product_model->getProduct(intval($id), intval($productTypeID));
         $title = $arrProduct[0]->name_th;
@@ -89,6 +91,7 @@ class Product extends CI_Controller
             'error' => '',
             'product' => $arrProduct,
             'linkWebsite' => $arrLinkWebSite,
+            'selectBar' => $productTypeName,
             'showSlide' => false,
             'webUrl' => $this->webUrl,
             'siteTitle' => $title,

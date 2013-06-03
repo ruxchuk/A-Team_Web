@@ -89,4 +89,25 @@ class Member extends CI_Controller
         $this->load->view("member/register", $data);
     }
 
+    function forgetPassword()
+    {
+        $post = $this->input->post();
+        if ($post) {
+            extract($post);
+            $result = $this->Member_model->checkEmailRegister($email);
+            if (!$result) {
+                echo $resultSendEmail = $this->Send_email_model->sendForgetPassword($email);
+                echo "send success";
+            } else {
+                echo "ไม่พบ Email: $email ในระบบ";
+            }
+            exit();
+        }
+
+        $data = array(
+            'webUrl' => $this->webUrl,
+        );
+        $this->load->view("member/forget_password", $data);
+    }
+
 }

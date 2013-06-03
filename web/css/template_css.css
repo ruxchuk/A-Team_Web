@@ -83,6 +83,12 @@ td.rightcol {
     cursor: pointer;
 }
 
+/*forget password*/
+
+.h-forget {
+    color: #FF8042;
+}
+
 /*button login*/
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled] {
     color: #fff;
