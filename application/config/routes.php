@@ -42,6 +42,7 @@ $route['default_controller'] = "index";
 $route['404_override'] = '';
 //$route[('หน้าแรก')] = "index";
 $route[('สินค้า')] = "auth/signIn";
+$route['ค้นหา/([ก-เ a-z 0-9]+)'] = "index/search";
 $route[('([ก-เ]+)')] = "product/productAll";
 
 

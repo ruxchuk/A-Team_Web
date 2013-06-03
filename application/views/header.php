@@ -215,6 +215,78 @@ $arrLinkWebSite = $this->Link_website_model->getAllLink();
             <li class="<?php echo $selectBar == "contactus" ? 'active ' : "" ?>item144">
                 <a href="<?php echo $webUrl; ?>ติดต่อเรา"><span>ติดต่อเรา</span></a></li>
         </ul>
+        <style>
+                /*[class*="column"] + [class*="column"]:last-child {*/
+                /*float: right;*/
+                /*}*/
+
+            #magnify {
+                float: left;
+                position: absolute;
+                margin: 6px 0 0 5px;
+                margin: 0 0 0 5 pxurl(0/IE8 +9);
+            }
+
+            .searchform .s {
+                margin: 0;
+                border: none;
+                margin: 3px 2px 2px 20px;
+                font-size: 16px;
+                height: 17px;
+                width: 150px;
+                color: #333;
+                overflow: hidden;
+            }
+
+            .searchform {
+                -moz-border-radius: 15px;
+                -webkit-border-radius: 15px;
+                border-radius: 15px;
+                width: 180px;
+                padding: 0;
+                margin: 7px 5px 5px 10px;
+                height: 25px;
+                box-shadow: inset 0 0 1px #222;
+                background: #fff;
+                float: right;
+                margin-right: 10px;
+            }
+
+            .searchform .searchsubmit {
+                display: none;
+            }
+
+            input[type=submit] {
+                font-size: 12px;
+                padding: 2px;
+                margin-top: 5px;
+                border: 1px solid #999;
+                border-radius: 3px;
+                -moz-border-radius: 3px;
+            }
+        </style>
+        <script>
+            function search(frm) {
+                //alert(frm.searchsubmit.value)
+                if (frm.searchsubmit.value != "") {
+                    window.location.href = "<?php echo $webUrl; ?>ค้นหา/" +
+                        frm.searchsubmit.value;
+                }
+                return false;
+            }
+        </script>
+        <div class="three columns hide-on-phones">
+            <form method="post" id="frmPost" class="searchform" action=""
+                  onsubmit="return search(this);">
+                <div id="magnify">
+                    <img src="<?php echo $baseUrl; ?>web/images/magnify.png"
+                         alt="magnify">
+                </div>
+                <div><input type="text" name="s" class="s" value="<?php echo empty($searchWord)?'ค้นหา':$searchWord; ?>" placeholder="ค้นหา" id="searchsubmit"
+                            onfocus="if (this.value == 'ค้นหา') this.value = '';">
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 <div id="main-content">
@@ -231,17 +303,17 @@ $arrLinkWebSite = $this->Link_website_model->getAllLink();
                             <div id="slide-holder">
                                 <div id="slide-runner">
                                     <a href="<?php echo $webUrl; ?>ผ้าม่าน"><img id="slide-img-1"
-                                                                                        src="<?php echo $baseUrl; ?>web/images/slide/slide_curtain.png"
-                                                                                        class="slide" alt=""/></a>
+                                                                                 src="<?php echo $baseUrl; ?>web/images/slide/slide_curtain.png"
+                                                                                 class="slide" alt=""/></a>
                                     <a href="<?php echo $webUrl; ?>จานดาวเทียม"><img id="slide-img-2"
-                                                                                            src="<?php echo $baseUrl; ?>web/images/slide/slide_dish-aerial.png"
-                                                                                            class="slide" alt=""/></a>
+                                                                                     src="<?php echo $baseUrl; ?>web/images/slide/slide_dish-aerial.png"
+                                                                                     class="slide" alt=""/></a>
                                     <a href="<?php echo $webUrl; ?>เครื่องปรับอากาศ"><img id="slide-img-3"
-                                                                                                 src="<?php echo $baseUrl; ?>web/images/slide/slide_air.png"
-                                                                                                 class="slide" alt=""/></a>
+                                                                                          src="<?php echo $baseUrl; ?>web/images/slide/slide_air.png"
+                                                                                          class="slide" alt=""/></a>
                                     <a href="<?php echo $webUrl; ?>กล้องวงจรปิด"><img id="slide-img-4"
-                                                                                             src="<?php echo $baseUrl; ?>web/images/slide/slide_cctv.png"
-                                                                                             class="slide" alt=""/></a>
+                                                                                      src="<?php echo $baseUrl; ?>web/images/slide/slide_cctv.png"
+                                                                                      class="slide" alt=""/></a>
                                     <!--                                <a href=""><img id="slide-img-5"-->
                                     <!--                                                src="-->
                                     <?php //echo $baseUrl; ?><!--web/images/slide/nature-photo4.png"-->

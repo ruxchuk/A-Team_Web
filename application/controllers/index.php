@@ -73,4 +73,25 @@ class Index extends CI_Controller
         $this->load->view('contactus', $data);
     }
 
+    function search()
+    {
+        $searchWord = $this->uri->segment(2);
+        $arrProduct = $this->Product_model->searchProduct($searchWord);
+
+        $this->load->model('Link_website_model');
+        $strSelectBar = "index";
+        $keyword = "";
+        $data = array(
+            'selectBar' => $strSelectBar,
+            'error' => '',
+            'arrProduct' => $arrProduct,
+            'showSlide' => true,
+            'webUrl' => $this->webUrl,
+            'siteTitle' => "ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด",
+            'keyword' => $keyword,
+            'searchWord' => $searchWord
+        );
+        $this->load->view('index', $data);
+    }
+
 }
