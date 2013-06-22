@@ -238,20 +238,21 @@ if ($getMode != 'add' && $getMode != 'edit') {
         <div align="right"><p><a href="?f_mode=add&f_rid=-1">เพิ่มสินค้า</a></p></div>
     </div>
     <style>
-        .no{
+        .no {
             background-color: red;
         }
+
         .yes {
             background-color: #008000;
         }
     </style>
 <?php
-} else {//var_dump($_SERVER['HTTP_HOST']);
+} else { //var_dump($_SERVER['HTTP_HOST']);
     $pathImage = "../images/uploads/products/";
     $urlUpload = strstr($_SERVER['HTTP_HOST'], 'localhost') > -1
         ? 'http://localhost:11001/ateam/web/a-team_web/index.php/upload/do_upload'
         : 'http://latendahouse.com/upload/do_upload';
-?>
+    ?>
 
     <link rel="stylesheet" type="text/css" href="../js/uploadify/uploadify.css"/>
     <script src="../js/jquery-1.9.1.js"></script>
@@ -276,7 +277,7 @@ if ($getMode != 'add' && $getMode != 'edit') {
                 },
                 'swf': swfPath,
                 'uploader': pathUploadify,
-                'fileSizeLimit': '120KB',
+                'fileSizeLimit': '500KB',
                 'fileTypeExts': '*.gif; *.jpg; *.png',
                 'enctype': "multipart/form-data",
                 'fileObjName': 'userfile',
@@ -304,7 +305,7 @@ if ($getMode != 'add' && $getMode != 'edit') {
             return '<img src="' + src + '" style="width: 250px; height: 190px;"/>';
         }
     </script>
-    <?php
+<?php
 }
 
 if ($getMode == 'edit') {
@@ -333,8 +334,8 @@ if ($getMode == 'edit') {
         $(document).ready(function () {
             //$("#rfyimage_path").append('<input type="hidden" id="saveID" />');
             //$('#rfyimage_path').each(function (i) {
-                //this.name = this.name.replace(/\d+/, i+1);
-                //this.type = "file";
+            //this.name = this.name.replace(/\d+/, i+1);
+            //this.type = "file";
 //            });
         });
     </script>
@@ -354,6 +355,21 @@ $arrProductType = array('' => '');
 while ($row = $dSet->fetchRow()) {
     $arrProductType[$row[0]] = $row[1];
 }
+
+//get last serial
+$sql = "
+    SELECT `serial` FROM `product`
+    ORDER BY `id` DESC
+    LIMIT 1;
+";
+$dSet = $dgrid->ExecuteSql($sql);
+$serialID = "0";
+while ($row = $dSet->fetchRow()) {
+    $serialID = $row[0];
+}
+$format = '%1$06d';
+$serialID = sprintf($format, intval($serialID) + 1);
+
 $em_columns = array(
     'product_type_id' => array(
         'header' => ' ประเภทสินค้า', 'type' => 'enum',
@@ -369,11 +385,11 @@ $em_columns = array(
         'multiple_size' => '4'
     ),
     'serial' => array('header' => ' รหัสสินค้า', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
-        'title' => 'รหัสสินค้า', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+        'title' => 'รหัสสินค้า', 'readonly' => 'false', 'maxlength' => '15', 'default' => $serialID),
     'name_th' => array('header' => ' ชื่อภาษาไทย', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
         'title' => 'ชื่อภาษาไทย', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
     'name_en' => array('header' => ' ชื่อภาษาอังกฤษ', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
-        'title' => 'ชื่อภาษาอังกฤษ', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
+        'title' => 'ชื่อภาษาอังกฤษ', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
     'price1' => array('header' => ' ราคาปกติ', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
         'title' => 'ราคาปกติ', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
     'price2' => array('header' => ' ราคาขายปลีก', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
@@ -389,19 +405,19 @@ $em_columns = array(
     'priority' => array('header' => ' ความสำคัญ', 'type' => 'textbox', 'req_type' => 'rn', 'width' => '210px',
         'title' => 'ความสำคัญ', 'readonly' => 'false', 'maxlength' => '15', 'default' => '999'),
     'new' => array('header' => ' มาใหม่', 'type' => 'checkbox', 'req_type' => 'st', 'width' => '210px',
-        'title' => 'มาใหม่', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '', 'true_value'=>1, 'false_value'=>0),
+        'title' => 'มาใหม่', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '', 'true_value' => 1, 'false_value' => 0),
     'sellers' => array('header' => ' ขายดี', 'type' => 'checkbox', 'req_type' => 'st', 'width' => '210px',
-        'title' => 'ขายดี', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '', 'true_value'=>1, 'false_value'=>0),
+        'title' => 'ขายดี', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '', 'true_value' => 1, 'false_value' => 0),
     'recommend' => array('header' => ' แนะนำ', 'type' => 'checkbox', 'req_type' => 'st', 'width' => '210px',
-        'title' => 'แนะนำ', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '', 'true_value'=>1, 'false_value'=>0),
+        'title' => 'แนะนำ', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '', 'true_value' => 1, 'false_value' => 0),
     'promotion' => array('header' => ' โปรโมชัน', 'type' => 'checkbox', 'req_type' => 'st', 'width' => '210px',
-        'title' => 'โปรโมชัน', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '', 'true_value'=>1, 'false_value'=>0),
+        'title' => 'โปรโมชัน', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '', 'true_value' => 1, 'false_value' => 0),
 //    'image_path' => array('header' => ' รูปภาพ', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
 //        'title' => 'รูปภาพ', 'readonly' => 'false', 'maxlength' => '15', 'default' => ''),
     'image_path' => array('header' => ' รูปภาพ', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '210px',
         'title' => 'รูปภาพ', 'readonly' => 'false', 'maxlength' => '15', 'default' => '',
         'post_addition' => "<div id='image_show'><img style=\"width: 250px; height: 190px;\" /></div>
-        <input type='file' id='image_add' />" ),
+        <input type='file' id='image_add' />"),
     /*'image_path' => array(
         'header' => ' รูปภาพ',
         'type' => 'file',
@@ -432,10 +448,10 @@ $em_columns = array(
         'allow_downloading' => 'false',
         'allowed_extensions' => ''),*/
     'description' => array('header' => ' รายละเอียด', 'type' => 'textarea', 'req_type' => 'ry', 'width' => '500px',
-        'height' => '600px', 'title' => 'รายละเอียด', 'readonly' => 'false', 'maxlength' => '200', 'default' => '', "edit_type"=>"wysiwyg"),
+        'height' => '600px', 'title' => 'รายละเอียด', 'readonly' => 'false', 'maxlength' => '200', 'default' => '', "edit_type" => "wysiwyg"),
     'keyword' => array('header' => ' คำค้นหา', 'type' => 'textarea', 'req_type' => 'ry', 'width' => '210px',
         'title' => 'คำค้นหา', 'readonly' => 'false', 'maxlength' => '600', 'default' => '',
-        'post_addition' =>"<p style='position: absolute;margin-top: -15px;margin-left: 220px;'>
+        'post_addition' => "<p style='position: absolute;margin-top: -15px;margin-left: 220px;'>
         <strong>ตัวอย่างเช่น :</strong>ผ้าม่าน, กล้องวงจรปิด</p>"),
     'date_create' => array('header' => ' วันที่สร้าง', 'type' => 'hidden', 'req_type' => 'ry', 'width' => '210px',
         'title' => 'วันที่สร้าง', 'readonly' => 'false', 'maxlength' => '200',

@@ -79,7 +79,7 @@ $baseUrl = base_url();
             </script>
 
             <div align="center">
-                <p style="font-size: 20px;">แผนที่ Google</p>
+                <p style="font-size: 20px;">แผนที่</p>
                 <p>พิกัดร้าน 13.82691, 100.068465</p>
             <div id="googleMap"  style="width:500px;height:300px; margin: 10px 0 10px 0; border: 1px #CCC solid;">
             </div></div>

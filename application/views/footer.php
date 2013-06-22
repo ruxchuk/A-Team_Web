@@ -9,7 +9,6 @@
 $baseUrl = base_url();
 
 ?>
-</td>
 </tr>
 </table>
 </div>
@@ -18,11 +17,92 @@ $baseUrl = base_url();
 </div>
 </div>
 </div>
+
+<!--ปุ่มกลับสู่ด้านบน-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        // hide #back-top first
+        $("#back-top").hide();
+
+        // fade in #back-top
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $('#back-top').fadeIn();
+                } else {
+                    $('#back-top').fadeOut();
+                }
+            });
+
+            // scroll body to 0px on click
+            $('#back-top').click(function () {
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 500);
+                return false;
+            });
+        });
+
+    });
+</script>
+<style>
+    #back-top {
+        position: fixed;
+        bottom: 30px;
+        margin-right: 15px;
+        right: 5px;
+    }
+
+    #back-top a {
+        width: 108px;
+        display: block;
+        text-align: center;
+        font: 11px/100% Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #bbb;
+
+        /* transition */
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        transition: 1s;
+    }
+    #back-top a:hover {
+        color: #000;
+    }
+
+        /* arrow icon (span tag) */
+    #back-top span {
+        width: 75px;
+        height: 75px;
+        display: block;
+        margin-bottom: 7px;
+        background: #FF6B6B url(<?php echo $baseUrl; ?>web/images/up-arrow.png) no-repeat center center;
+
+        /* rounded corners */
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+
+        /* transition */
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        transition: 1s;
+    }
+    #back-top a:hover span {
+        background-color: #FF2929;
+    }
+</style>
+<a id="back-top" href="#top">
+    <p style="display: block;">
+        <span></span>กลับสู่ด้านบน
+    </p>
+</a>
 <!--begin bottom section-->
 <div id="bottom">
     <div id="bottom-shadow1">
         <div id="bottom-shadow2">
-            <div class="padding">
+<!--            <div class="padding">-->
                 <div id="bottommodules" class="spacer w99">
                     <div class="block">
                         <div class="module">
@@ -37,7 +117,7 @@ $baseUrl = base_url();
 
                     </div>
                 </div>
-            </div>
+<!--            </div>-->
         </div>
     </div>
 </div>

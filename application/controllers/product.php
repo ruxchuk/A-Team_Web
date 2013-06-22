@@ -39,7 +39,7 @@ class Product extends CI_Controller
 
     function productType()
     {
-        //สินค้า/ผ้าม่าน/3
+        //ผ้าม่าน/3
         $productTypeName = $this->uri->segment(1);
         $productID = $this->uri->segment(2);
 
@@ -51,7 +51,7 @@ class Product extends CI_Controller
 
     function productAll()
     {
-        //สินค้า/ผ้าม่าน
+        //ผ้าม่าน
         $productTypeName = $this->uri->segment(1);
 
         $this->load->model('Product_model');
@@ -60,14 +60,12 @@ class Product extends CI_Controller
         $arrProduct = $this->Product_model->getProduct(0, intval($productTypeID));
 
         $this->load->model('Link_website_model');
-        $arrLinkWebSite = $this->Link_website_model->getAllLink();
 
         $keyword = "";
         $data = array(
             'selectBar' => $productTypeName,
             'error' => '',
             'arrProduct' => $arrProduct,
-            'linkWebsite' => $arrLinkWebSite,
             'showSlide' => false,
             'webUrl' => $this->webUrl,
             'siteTitle' => "ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด",
@@ -84,13 +82,11 @@ class Product extends CI_Controller
         $title = $arrProduct[0]->name_th;
 
         $this->load->model('Link_website_model');
-        $arrLinkWebSite = $this->Link_website_model->getAllLink();
 
         $keyword = $arrProduct[0]->keyword != "" ? ", " . $arrProduct[0]->keyword : "";
         $data = array(
             'error' => '',
             'product' => $arrProduct,
-            'linkWebsite' => $arrLinkWebSite,
             'selectBar' => $productTypeName,
             'showSlide' => false,
             'webUrl' => $this->webUrl,
@@ -99,7 +95,7 @@ class Product extends CI_Controller
         );
         $this->load->view("product/view", $data);
     }
-
+/*
     public function pEdit($id)
     {
         $message = "";
@@ -162,6 +158,7 @@ class Product extends CI_Controller
         );
         $this->load->view('product/edit', $data);
     }
+*/
 
     /**
      * check add product
@@ -259,5 +256,94 @@ class Product extends CI_Controller
         } else {
             return (object)$result;
         }
+    }
+
+    function showProduct($id)
+    {
+        $arrProduct = array();
+        $keyword = "";
+        switch ($id){
+            case"1":
+                $arrProduct = $this->Product_model->getProduct(0, 0, " AND a.new = 1");
+                break;
+            case"2":
+                $arrProduct = $this->Product_model->getProduct(0, 0, " AND a.sellers = 1");
+                break;
+            case"3":
+                $arrProduct = $this->Product_model->getProduct(0, 0, " AND a.recommend = 1");
+                break;
+            case"4":
+                $arrProduct = $this->Product_model->getProduct(0, 0, " AND a.promotion = 1");
+                break;
+        }
+        $data = array(
+            'selectBar' => "index",
+            'error' => '',
+            'arrProduct' => $arrProduct,
+            'showSlide' => false,
+            'webUrl' => $this->webUrl,
+            'siteTitle' => "ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด",
+            'keyword' => $keyword
+        );
+        $this->load->view('index', $data);
+    }
+
+    function viewProductCart()
+    {
+        $this->load->helper('cookie');
+        $strCart = $this->input->cookie('product_cart', false);
+        $arrProduct = array();
+        $arrValue = array();
+        if ($strCart != "") {
+            $exStr = explode('|', $strCart);
+            $arrID = array();
+            foreach ($exStr as $key => $value) {
+                if ($value != "") {
+                    $exVal = explode('&', $value);
+                    $arrID[] = $exVal[0];
+                    $arrValue[] = $exVal[1];
+                }
+            }
+            $strID = implode(', ', $arrID);
+            $arrProduct = $this->Product_model->getProduct(
+                0,
+                0,
+                " AND a.id IN ($strID)",
+                " ORDER BY FIELD (a.id, $strID)"
+            );
+        }
+        $title = "ตะกล้าสินค้า";
+        $data = array(
+            "arrData" => $arrProduct,
+            "arrValue" => $arrValue,
+            'selectBar' => 'index',
+            'showSlide' => false,
+            'webUrl' => $this->webUrl,
+            'siteTitle' => $title,
+            'keyword' => ""
+        );
+        $this->load->view('product/view_cart', $data);
+    }
+
+    function viewForAddToCart($id)
+    {
+        $arrProduct = $this->Product_model->getProduct(intval($id), 0);
+        $data = array(
+          "arrData" => $arrProduct[0]
+        );
+        $this->load->view('product/add_cart', $data);
+    }
+
+    function buyProductView()
+    {
+        $data = array(
+            'selectBar' => '',
+            'error' => '',
+            'showSlide' => false,
+            'webUrl' => $this->webUrl,
+            'siteTitle' => "ตะกร้าสินค้า",
+            'keyword' => 'ตะกร้าสินค้า'
+        );
+        $this->load->view('product/view_cal_price', $data);
     }
 }

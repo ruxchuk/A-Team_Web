@@ -19,9 +19,14 @@ div.wrapper {
 }
 
 td.leftcol {
+    /*width: 244px;*/
     width: 220px;
-    max-width: 244px;
+    /*max-width: 244px;*/
     padding: 0;
+}
+
+.padding {
+    width: 220px;
 }
 
 td.rightcol {
@@ -29,12 +34,41 @@ td.rightcol {
     padding: 0;
 }
 
+.link-menu {
+    margin-left: 15px;
+}
+.link-menu a:hover {
+    color: red;
+}
+
+#content-logo img {
+    margin-top: -15px;
+}
+
+#content-call {
+    margin-top: -10px;
+}
+
+#contact-facebook iframe {
+    border: none;
+    overflow: hidden;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+}
+
+/*#contact-facebook img {*/
+/*position: absolute;*/
+/*left: 50%;*/
+/*margin-top: -20px;*/
+/*}*/
+
 /*icon new*/
 .icon-new {
     position: absolute;
     width: 35px;
-    height: 18px;
-    margin-left: 155px;
+    height: 12px;
+    /*margin-left: 155px;*/
 }
 
 /*link website*/
@@ -310,12 +344,19 @@ table.blog {
 /* @group Structure */
 
 #banner {
-    float: right;
-    margin-top: 32px;
-    width: 468px;
+    /*float: right;*/
+    /*margin-top: 32px;*/
+    width: 600px;
     /*height: 60px;*/
-    overflow: hidden;
+    /*overflow: hidden;*/
     color: #fff;
+    /*right: 0px;*/
+    position: absolute;
+    /*top: 5%;*/
+    /*height: 300px;*/
+    margin-top: 20px;
+    margin-left: 500px;
+    /*bottom: 0px;*/
 }
 
 #color-chooser {
@@ -343,7 +384,7 @@ table.blog {
 }
 
 #header {
-    height: 195px;
+    height: 130px;
 }
 
 #main-shadow {
@@ -404,7 +445,8 @@ td.maincol {
 td.leftcol .padding,
 td.rightcol .padding,
 td.maincol .padding {
-    padding: 20px 12px 20px 12px;
+    /*padding: 20px 12px 20px 12px;*/
+    padding: 0px 12px 20px 12px;
 }
 
 #content-padding {
@@ -434,13 +476,13 @@ td.maincol .padding {
     margin: 5px 0 12px 5px;
 }
 
-img#logo {
-    /*width: 500px;*/
-    /*height: 100px;*/
+#logo {
+    width: 1010px;
+    height: 115px;
     /*background: url(../../../images/stories/logo/logo.png) 0 0 no-repeat;*/
-    margin-top: -3px;
-    margin-left: 19px;
-    float: left;
+    /*margin-top: -3px;*/
+    /*margin-left: 19px;*/
+    /*float: inherit;*/
 }
 
 #mainbody-padding {
@@ -1325,7 +1367,8 @@ body .pollstableborder {
 
 .overlay-carbon #page-bg {
     /*background: url(../images/overlay-carbon.png) 0 0;*/
-    background: url(../images/overlay-thai3.png) 0 0;
+    /*background: url(../images/overlay-thai3.png) 0 0;*/
+    background: url(../images/bg.png);
 }
 
 .overlay-cracked #page-bg {

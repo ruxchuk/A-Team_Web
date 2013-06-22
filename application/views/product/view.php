@@ -13,7 +13,7 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
 ?>
     <script>
         $(document).ready(function(){
-            $("a#product-image").fancybox({
+            $("a#product-image, .add-cart").fancybox({
                 'overlayShow'	: true,
                 'transitionIn'	: 'elastic',
                 'transitionOut'	: 'elastic'
@@ -32,43 +32,18 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
     <table border="0" cellspacing="0" cellpadding="0" class="tbView" width="745">
         <tbody>
         <tr valign="top">
-            <td style="padding-right: 20px;">
-                <table border="0" cellspacing="0" cellpadding="0" width="150" height="150">
-                    <tbody>
-                    <tr>
-                        <td align="center">
+            <td style="padding-right: 20px;" width="190">
+
                             <a id="product-image" title="<?php echo $product[0]->name_th; ?>" href="<?php echo $pathImageProduct . $product[0]->image_path; ?>">
                                 <img title="คลิกเพื่อดูภาพขนาดใหญ่" src="<?php echo $pathImageProduct . $product[0]->image_path; ?>" border="0"
                                      width="190" height="130">
-                            </a>
+                            </a><br><br>
+                            <div align="right">
+                                <a href="<?php echo $webUrl; ?>product/viewForAddToCart/<?php echo $product[0]->id; ?>" class="add-cart">
+                                    <img title="หยิบใส่ตะกร้า" src="<?php echo $baseUrl; ?>web/images/add-to-cart-icon.png"/>
+                                </a></div>
 <!--                            <a id="example2" href="./example/2_b.jpg"><img alt="example2" src="./example/2_s.jpg" /></a>-->
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div align="center" style="padding-top: 10px; padding-bottom: 5px;">
-                    <table border="0" cellspacing="0" cellpadding="0">
-                        <form method="post" action="../cart/cgi-bin/cart.php"></form>
-                        <input type="hidden" name="lang" value="th">
-                        <input type="hidden" name="cat" value="49.556">
-                        <input type="hidden" name="id" value="1183">
-                        <tbody>
-                        <tr>
-                            <td>
-                                <!--<input type="image" src="../images/cart_big.gif" title="หยิบใส่รถเข็น">--></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div align="center" style="padding-top: 8px;">
-                </div>
-                <div style="padding-top: 8px;"></div>
-                <div class="product-status" align="center">
-                    <!--                    <b>สถานะสินค้า :</b> <img src="../images/icon/icon_inventory_11.gif"-->
-                    <!--                                              style="vertical-align: middle;">&nbsp;<b-->
-                    <!--                        style="color: #0000FF;">ส่งทันที</b>-->
-                </div>
-                <div style="padding-top: 10px;"></div>
+
             </td>
             <td>
                 <div class="product-title">

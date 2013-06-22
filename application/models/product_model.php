@@ -20,12 +20,19 @@ class Product_model extends CI_Model
      * get product
      * @param int $id
      * @param int $productType
+     * @param string $and
+     * @param string $order
      * @return object
      */
-    function getProduct($id = 0, $productType = 0)
+    function getProduct($id = 0, $productType = 0, $and = "", $order = "")
     {
         $sqlAnd = $id == 0 ? "" : " AND a.id=$id";
         $sqlAnd .= $productType == 0 ? "" : " AND d.id=$productType";
+        $sqlAnd .= $and;
+        $sqlAnd .= $order == "" ? "
+            ORDER BY a.`priority`,
+              a.`date_create` DESC
+        " : $order;
         $sql = "
             SELECT
               a.*,
@@ -37,8 +44,6 @@ class Product_model extends CI_Model
               AND d.`id` = a.`product_type_id`
               AND d.`publish` = 1
               $sqlAnd
-            ORDER BY a.`priority`,
-              a.`date_create` DESC
         ";
         $query = $this->db->query($sql);
         $result = array();
