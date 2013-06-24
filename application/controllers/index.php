@@ -12,14 +12,15 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 class Index extends CI_Controller
 {
     private $webUrl = "";
+
     function __construct()
     {
         parent::__construct();
         $this->load->helper(array('form', 'url'));
 //        $this->webUrl .= strstr($_SERVER['HTTP_HOST'], 'localhost') > -1 ? 'index.php/' :
 //            base_url() == "" ? base_url() : "";
-        if (strstr($_SERVER['HTTP_HOST'], 'localhost') > -1){
-            $this->webUrl .= base_url(). 'index.php/';
+        if (strstr($_SERVER['HTTP_HOST'], 'localhost') > -1) {
+            $this->webUrl .= base_url() . 'index.php/';
         } else {
             $this->webUrl = base_url();
         }
@@ -49,15 +50,22 @@ class Index extends CI_Controller
     function openWeb($id)
     {
         $this->load->model('Link_website_model');
-        $strLink = $this->Link_website_model->getLinkByID($id);//get link
+        $strLink = $this->Link_website_model->getLinkByID($id); //get link
 
-        $result = $this->Link_website_model->stampCount($id);//stamp count click
+        $result = $this->Link_website_model->stampCount($id); //stamp count click
+
         if (!$result) {
             echo "ไม่พบ link";
         } else {
-            redirect($strLink);
-        }
+            $detail = $this->Link_website_model->getDetailClick();
 
+            $result = $this->Link_website_model->stampLogs($id, $detail); //stamp logs
+            if (!$result) {
+                echo "error save logs";
+            } else {
+                redirect($strLink);
+            }
+        }
     }
 
     function contactus()
