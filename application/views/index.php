@@ -9,8 +9,8 @@
 
 
 $this->load->view('header');
-$this->load->view("slide-index");
-$this->load->view("sidebar");
+//$this->load->view("slide-index");
+//$this->load->view("sidebar");
 
 $baseUrl = base_url();
 $webUrl = $this->Constant_model->webUrl();
@@ -28,22 +28,22 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
 
 
 <td class="maincol">
-
     <div style="margin-left: 15px;">
         <br>
         <div>
             <a href="<?php echo $webUrl; ?>ผ้าม่าน">
-            <img src="<?php echo $pathImage; ?>logo-curtain.png"
-                width="735" height="150"/>
+            <img class="img-opacity" src="<?php echo $pathImage; ?>logo-curtain.png"
+                width="978" height="200"/>
             </a>
         </div>
         <br>
         <div>
-            <a href="<?php echo $webUrl; ?>จากดาวเทียม">
-            <img src="<?php echo $pathImage; ?>logo-cctv.png"
-                width="735" height="150"/>
+            <a href="<?php echo $webUrl; ?>สินค้า">
+            <img class="img-opacity" src="<?php echo $pathImage; ?>logo-cctv.png"
+                width="978" height="200"/>
             </a>
         </div>
+        <div>&nbsp;</div>
     </div>
 
 </td>

@@ -18,18 +18,16 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
 ?>
 
 <?php $getHot = $this->uri->segment(1); ?>
-
-
     <td class="maincol">
-
-        <div style="margin-left: 15px;">
-            <br>
-            <table style="width: 100%;">
-                <tr>
-                    <td></td>
-                </tr>
-            </table>
+        <div>
+            <p>
+                &nbsp;&nbsp;&nbsp;<a class="link-page" href="<?php echo $baseUrl; ?>">หน้าแรก</a> /
+                <a href="<?php echo $webUrl; ?>ผ้าม่าน"/>ผ้าม่าน</a> /
+                <span class="active-page">Roller Blind</span>
+            </p>
         </div>
+
+        <?php $this->load->view("curtain/content-curtain");?>
     </td>
 <?php
 $this->load->view('footer');

@@ -28,16 +28,14 @@ class Index extends CI_Controller
 
     public function index()
     {
-        $this->load->model('Product_model');
-        $arrProduct = $this->Product_model->getProduct();
-
-        $this->load->model('Link_website_model');
+//        $this->load->model('Product_model');
+//        $arrProduct = $this->Product_model->getProduct();
         $strSelectBar = "index";
         $keyword = "";
         $data = array(
             'selectBar' => $strSelectBar,
             'error' => '',
-            'arrProduct' => $arrProduct,
+//            'arrProduct' => $arrProduct,
             'showSlide' => true,
             'webUrl' => $this->webUrl,
             'siteTitle' => "ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด",
@@ -78,6 +76,7 @@ class Index extends CI_Controller
             'selectBar' => $strSelectBar,
             'showSlide' => false,
             'siteTitle' => "ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด",
+            "setImageHeader" => 1
         );
         $this->load->view('contactus', $data);
     }
@@ -99,95 +98,9 @@ class Index extends CI_Controller
             'webUrl' => $this->webUrl,
             'siteTitle' => "ตัวแทนจำหน่าย ผ้าม่าน จานดาวเทียม แอร์ กล้องวงจรปิด",
             'keyword' => $keyword,
-            'searchWord' => $searchWord
+            'searchWord' => $searchWord,
+            "setImageHeader" => 1
         );
         $this->load->view('index', $data);
     }
-
-//-----------------------------------------------Curtain-------------------------------------//
-    function curtain()
-    {
-        $data = array(
-            'error' => '',
-            'showSlide' => true,
-            'webUrl' => $this->webUrl,
-            'siteTitle' => "ผ้าม่าน",
-            'keyword' => "",
-            'searchWord' => "",
-            "setImageHeader" => 'curtain'
-        );
-        $this->load->view('curtain/index', $data);
-    }
-
-    function curtainFabric()
-    {
-        $data = array(
-            'error' => '',
-            'showSlide' => true,
-            'webUrl' => $this->webUrl,
-            'siteTitle' => "Curtain Fabric",
-            'keyword' => "",
-            'searchWord' => "",
-            "setImageHeader" => 'curtain-fabric'
-        );
-        $this->load->view('curtain/curtain-fabric', $data);
-    }
-
-    function wallPaper()
-    {
-        $data = array(
-            'error' => '',
-            'showSlide' => true,
-            'webUrl' => $this->webUrl,
-            'siteTitle' => "Wall Paper",
-            'keyword' => "",
-            'searchWord' => "",
-            "setImageHeader" => 'wall-paper'
-        );
-        $this->load->view('curtain/curtain-fabric', $data);
-    }
-
-    function rollerBlind()
-    {
-        $data = array(
-            'error' => '',
-            'showSlide' => true,
-            'webUrl' => $this->webUrl,
-            'siteTitle' => "Roller Blind",
-            'keyword' => "",
-            'searchWord' => "",
-            "setImageHeader" => 'roller-blind'
-        );
-        $this->load->view('curtain/roller-blind', $data);
-    }
-
-    function venetianBlind()
-    {
-        $data = array(
-            'error' => '',
-            'showSlide' => true,
-            'webUrl' => $this->webUrl,
-            'siteTitle' => "Venetian Blind",
-            'keyword' => "",
-            'searchWord' => "",
-            "setImageHeader" => 'venetian-blind'
-        );
-        $this->load->view('curtain/venetian-blind', $data);
-    }
-
-    function furnitureBuiltIn()
-    {
-        $data = array(
-            'error' => '',
-            'showSlide' => true,
-            'webUrl' => $this->webUrl,
-            'siteTitle' => "Furniture Built In",
-            'keyword' => "",
-            'searchWord' => "",
-            "setImageHeader" => 'furniture-built-in'
-        );
-        $this->load->view('curtain/furniture-built-in', $data);
-    }
-
-//-----------------------------------------------Sat-------------------------------------//
 }

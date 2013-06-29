@@ -60,9 +60,14 @@ body {
 /* Link Color */
 
 a,
-#banner a,
-#main-content a {
+#banner a {
     color: #CCCCCC;
+}
+a:link {
+    text-decoration: none;
+}
+a:hover {
+    color: red;
 }
 
 /* Bottom Module Text Color */
@@ -70,6 +75,8 @@ a,
 #bottom,
 #bottom a {
     color: #fff;
+}#bottom a:hover {
+    color: red;
 }
 
 #bottommodules .module-clean h3 {
@@ -159,7 +166,7 @@ ul.menu li.active a:hover {
 
 /* Typography Heading Colors */
 
-h4,
+
 .contentheading,
 .componentheading {
     color: #ffffff;
@@ -170,9 +177,30 @@ h2 {
 }
 
 h4 {
-    color: #CCCCCC;
+    /*color: #CCCCCC;*/
 }
 
+#footer {
+    font-size: 15px;
+    text-align: left;
+    text-shadow: 1px 1px 1px;
+}
+
+#footer_widget1 {
+    /*width: 200px;*/
+    margin-left: 30px;
+}
+
+#footer_widget1, #footer_widget2 {
+    width: 300px;
+}
+
+.footer_widget {
+    float: left;
+}
+.widget ul li {
+    height: 20px;
+}
 /* Side Columns Background Color */
 
 #main-content {

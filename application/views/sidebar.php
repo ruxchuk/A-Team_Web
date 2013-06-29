@@ -409,7 +409,7 @@ if (empty($this->session->userdata['user_name'])) :
     <div>
         <div>
             <div>
-                <a href="http://www.เพื่อนช่าง.com" title="www.เพื่อนช่าง.com" target="_blank">
+                <a href="http://latendahouse.com/index/openWeb/48" title="www.เพื่อนช่าง.com" target="_blank">
                     <h3>www.เพื่อนช่าง.com</h3>
                     <img src="<?php echo $baseUrl; ?>web/images/logo_peuanchang_150x150.png" width="188"/>
                 </a>
@@ -423,14 +423,14 @@ if (empty($this->session->userdata['user_name'])) :
     <div>
         <div>
             <div>
-    <iframe
-        src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Flatenda.page&amp;width=194&amp;height=310&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=true&amp;header=false"
-        scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:194px; height:310px;"
-        allowTransparency="true">
-    </iframe>
-                </div>
-                    </div>
-                        </div>
+                <iframe
+                    src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Flatenda.page&amp;width=194&amp;height=310&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=true&amp;header=false"
+                    scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:194px; height:310px;"
+                    allowTransparency="true">
+                </iframe>
+            </div>
+        </div>
+    </div>
 </div>
 
 

@@ -41,22 +41,26 @@
 $route['default_controller'] = "index";
 $route['404_override'] = '';
 //$route[('หน้าแรก')] = "index";
-$route[('สินค้า')] = "auth/signIn";
+$route['รายการ'] = "auth/signIn";
 //$route[('ค้นหา/([ก-เ a-z 0-9]+)')] = "index/search";
 $route[('ค้นหา')] = "index/search";
 
 
-$route['ผ้าม่าน'] = "index/curtain";
-$route['Curtain&Fabric'] = "index/curtainFabric";
-$route['WallPaper'] = "index/wallPaper";
-$route['RollerBlind'] = "index/rollerBlind";
-$route['VenetianBlind'] = "index/venetianBlind";
-$route['FurnitureBuiltIn'] = "index/furnitureBuiltIn";
+$route['ผ้าม่าน'] = "product/curtain";
+$route['ผ้าม่าน/Curtain&Fabric'] = "product/curtainFabric";
+$route['ผ้าม่าน/WallPaper'] = "product/wallPaper";
+$route['ผ้าม่าน/RollerBlind'] = "product/rollerBlind";
+$route['ผ้าม่าน/VenetianBlind'] = "product/venetianBlind";
+$route['ผ้าม่าน/FurnitureBuiltIn'] = "product/furnitureBuiltIn";
+$route['สินค้า'] = "product";
+$route['สินค้า/([ก-เ]+)/(\d+)'] = "product/productType/$3";
+$route['สินค้า/([ก-เ]+)'] = "product/productType";
 
 
 
 
-$route[('([ก-เ]+)')] = "product/productAll";
+
+//$route[('([ก-เ]+)')] = "product/productAll";
 
 $route['สินค้าโปรโมชั่น'] = "product/showProduct/4";
 $route['สินค้าแนะนำ'] = "product/showProduct/3";
@@ -68,8 +72,7 @@ $route[('([ก-เ]+)')] = "product/productAll";
 //$route['ตะกร้าสินค้า'] = "product/viewProductCart";
 $route['ตะกร้าสินค้า'] = "product/buyProductView";
 
-
-$route['([ก-เ]+)/(\d+)'] = "product/productType/$3";
+;
 //$route['สินค้า/([ก-เ]+)'] = "product/productType/$3";
 
 $route['ติดต่อเรา'] = "index/contactus";

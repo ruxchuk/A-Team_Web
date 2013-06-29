@@ -21,6 +21,12 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
 
 
     <td class="maincol">
+        <div>
+            <p>
+                &nbsp;&nbsp;&nbsp;<a class="link-page" href="<?php echo $baseUrl; ?>">หน้าแรก</a> /
+                <span class="active-page">ผ้าม่าน</span>
+            </p>
+        </div>
 
         <div style="margin-left: 15px;">
             <br>
@@ -60,36 +66,36 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
             </div>
             <br>
             <div>
-                <a href="<?php echo $webUrl; ?>Curtain&Fabric">
+                <a class="img-opacity" href="<?php echo $webUrl; ?>ผ้าม่าน/Curtain&Fabric">
                     <img src="<?php echo $pathImage; ?>logo-curtain-fabric.png"
                          width="735" height="80"/>
                 </a>
             </div>
             <br>
             <div>
-                <a href="<?php echo $webUrl; ?>WallPaper">
-                    <img src="<?php echo $pathImage; ?>logo-wall paper.png"
+                <a class="img-opacity" href="<?php echo $webUrl; ?>ผ้าม่าน/WallPaper">
+                    <img src="<?php echo $pathImage; ?>logo-wall-paper.png"
                          width="735" height="80"/>
                 </a>
             </div>
             <br>
             <div>
-                <a href="<?php echo $webUrl; ?>RollerBlind">
-                    <img src="<?php echo $pathImage; ?>logo-roller blind.png"
+                <a class="img-opacity" href="<?php echo $webUrl; ?>ผ้าม่าน/RollerBlind">
+                    <img src="<?php echo $pathImage; ?>logo-roller-blind.png"
                          width="735" height="80"/>
                 </a>
             </div>
             <br>
             <div>
-                <a href="<?php echo $webUrl; ?>VenetianBlind">
-                    <img src="<?php echo $pathImage; ?>logo venetain blind.png"
+                <a class="img-opacity" href="<?php echo $webUrl; ?>ผ้าม่าน/VenetianBlind">
+                    <img src="<?php echo $pathImage; ?>logo-venetain-blind.png"
                          width="735" height="80"/>
                 </a>
             </div>
             <br>
             <div>
-                <a href="<?php echo $webUrl; ?>FurnitureBuiltIn">
-                    <img src="<?php echo $pathImage; ?>logo furniture built in.png"
+                <a class="img-opacity" href="<?php echo $webUrl; ?>ผ้าม่าน/FurnitureBuiltIn">
+                    <img src="<?php echo $pathImage; ?>logo-furniture-built-in.png"
                          width="735" height="80"/>
                 </a>
             </div>

@@ -76,6 +76,9 @@ Credit: http://www.templatemo.com
     font-weight: bold;
     height: 50px;
 }
+.product_box h3:hover {
+    color: #93FF63;
+}
 
 .product_box .image_wrapper {
     padding: 4px;

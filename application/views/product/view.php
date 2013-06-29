@@ -8,9 +8,11 @@
  */
 
 $this->load->view('header');
+$this->load->view("sidebar");
 $baseUrl = base_url();
 $pathImageProduct = $baseUrl . "web/images/uploads/products/";
 ?>
+    <td class="maincol">
     <script>
         $(document).ready(function(){
             $("a#product-image, .add-cart").fancybox({
@@ -86,7 +88,7 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
         </tr>
         </tbody>
     </table>
-
+    </td>
 
 
 <?php

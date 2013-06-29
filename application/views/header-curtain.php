@@ -31,26 +31,23 @@ switch ($setImageHeader) {
         $urlImageHeader = $baseUrl . "web/images/header-curtain-fabric.png";
         break;
     case 'wall-paper':
-        $urlImageHeader = $baseUrl . "web/images/header-wall paper.png";
+        $urlImageHeader = $baseUrl . "web/images/header-wall-paper.png";
         break;
     case 'roller-blind':
-        $urlImageHeader = $baseUrl . "web/images/header-roller blind.png";
+        $urlImageHeader = $baseUrl . "web/images/header-roller-blind.png";
         break;
     case 'venetian-blind':
         $urlImageHeader = $baseUrl . "web/images/header-venetian-blind.png";
         break;
     case 'furniture-built-in':
-        $urlImageHeader = $baseUrl . "web/images/header furniture built in.png";
+        $urlImageHeader = $baseUrl . "web/images/header-furniture-built-in.png";
         break;
-
     default:
         $urlImageHeader = $baseUrl . "web/images/header-index.png";
 }
 
 ?>
-<div id="header">
-    <img src="<?php echo $urlImageHeader; ?>"
-         border="0" alt="" id="logo" class="png"/>
+<!--<div id="header">-->
 
     <!--    <div id="banner">-->
     <!--        <div class="moduletable">-->
@@ -79,7 +76,7 @@ switch ($setImageHeader) {
             <p>จำนวนสินค้า 3 รายการ</p>
         </a>
     </div>-->
-</div>
+<!--</div>-->
 <!--end header-->
 
 <div id="main-shadow">
@@ -88,21 +85,29 @@ switch ($setImageHeader) {
             <div class="side-shadow2">
                 <div id="iefix">
                     <table height="50">
+                        <tr>
+                            <td colspan="4">
+                                <img src="<?php echo $urlImageHeader; ?>"
+                                     border="0" alt="" id="logo" class="png"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">&nbsp;</td>
+                        </tr>
                         <tr valign="top">
                             <td width="620">
                                 <div class="link-menu">
-                                    <a href="<?php echo $baseUrl; ?>">Home</a> |
-                                    <a href="#">Product</a> |
-                                    <a href="#">Service</a> |
-                                    <a href="#">Contact Us</a> |
-                                    <a href="#">About Us</a>
+                                    <a class="<?php echo $selectBar == 'index'?'link-active':''; ?>" href="<?php echo $baseUrl; ?>">Home</a> |
+                                    <a class="<?php echo $selectBar == 'ผ้าม่าน'?'link-active':''; ?>" href="<?php echo $webUrl; ?>ผ้าม่าน">Curtain</a> |
+                                    <a class="<?php echo $selectBar == 'สินค้า'?'link-active':''; ?>" href="<?php echo $webUrl; ?>สินค้า">Product</a> |
+                                    <a class="<?php echo $selectBar == 'contactus'?'link-active':''; ?>" href="<?php echo $webUrl; ?>ติดต่อเรา">Contact Us</a> |
+                                    <a class="<?php echo $selectBar == 'เกี่ยวกับเรา'?'link-active':''; ?>" href="#">About Us</a>
                                 </div>
                             </td>
                             <td>
                                 <div id="content-logo">
-                                    <a href="http://latendahouse.com/index/openWeb/47" target="_blank">
+                                    <a class="img-opacity" href="http://latendahouse.com/index/openWeb/47" target="_blank">
                                         <img src="<?php echo $baseUrl; ?>web/images/logo-facebook.png"
-                                             alt="ไปยังหน้าแฟนเพจ"
+                                             title="ไปยังหน้าแฟนเพจ"
                                              width="90" height="50"/>
                                     </a>
                                 </div>

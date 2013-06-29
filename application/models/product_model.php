@@ -30,7 +30,7 @@ class Product_model extends CI_Model
         $sqlAnd .= $productType == 0 ? "" : " AND d.id=$productType";
         $sqlAnd .= $and;
         $sqlAnd .= $order == "" ? "
-            ORDER BY a.`priority`,
+            ORDER BY d.id, a.`priority`,
               a.`date_create` DESC
         " : $order;
         $sql = "
@@ -103,7 +103,7 @@ class Product_model extends CI_Model
             $result = $query->result();
             return $result[0]->id;
         } else {
-            return 0;
+            return -1;
         }
     }
 }

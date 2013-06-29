@@ -29,6 +29,13 @@ td.leftcol {
     width: 220px;
 }
 
+.img-opacity {
+    opacity: 0.8;
+}
+.img-opacity:hover{
+    opacity: 1.2;
+}
+
 td.rightcol {
     width: 0px;
     padding: 0;
@@ -36,8 +43,14 @@ td.rightcol {
 
 .link-menu {
     margin-left: 15px;
+    font-weight: bold;
 }
-.link-menu a:hover {
+
+.link-menu a:link, .link-page:link {
+    text-decoration: none;
+}
+
+.link-active, .link-page:hover, .link-menu a:hover {
     color: red;
 }
 
@@ -229,8 +242,8 @@ body#ff-georgia.f-larger {
 
 p {
     /* setup some more readable paragraph spacing */
-    margin-top: 10px;
-    margin-bottom: 15px;
+    /*margin-top: 10px;*/
+    /*margin-bottom: 15px;*/
 }
 
 h1, h2, h3, h4 {

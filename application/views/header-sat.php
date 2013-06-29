@@ -40,6 +40,9 @@ $urlImageHeader = $baseUrl . "web/images/header-sat.png";
     }
 
     .link-menu a, .link-menu, #contact-sat, #contact-sat a {
+        /*color: #1780CD;*/
+    }
+    .link, .link-menu, #contact-sat, #contact-sat a {
         color: #1780CD;
     }
 </style>
@@ -54,22 +57,22 @@ $urlImageHeader = $baseUrl . "web/images/header-sat.png";
                         <tr valign="top">
                             <td width="620">
                                 <div class="link-menu">
-                                    <a href="<?php echo $baseUrl; ?>">Home</a> |
-                                    <a href="#">Product</a> |
-                                    <a href="#">Service</a> |
-                                    <a href="#">Contact Us</a> |
-                                    <a href="#">About Us</a>
+                                    <a class="<?php echo $selectBar == 'index'?'link-active':'link'; ?>" href="<?php echo $baseUrl; ?>">Home</a> |
+                                    <a class="<?php echo $selectBar == 'ผ้าม่าน'?'link-active':'link'; ?>" href="<?php echo $webUrl; ?>ผ้าม่าน">Curtain</a> |
+                                    <a class="<?php echo $selectBar == 'สินค้า'?'link-active':'link'; ?>" href="<?php echo $webUrl; ?>สินค้า">Product</a> |
+                                    <a class="<?php echo $selectBar == 'contactus'?'link-active':'link'; ?>" href="<?php echo $webUrl; ?>ติดต่อเรา">Contact Us</a> |
+                                    <a class="<?php echo $selectBar == 'เกี่ยวกับเรา'?'link-active':'link'; ?>" href="#">About Us</a>
                                 </div>
                             </td>
                             <td width="80">
-                                <!--                                <div id="content-logo">-->
-                                <!--                                    <a href="http://latendahouse.com/index/openWeb/47" target="_blank">-->
-                                <!--                                        <img src="-->
-                                <?php //echo $baseUrl; ?><!--web/images/logo-facebook.png"-->
-                                <!--                                             alt="ไปยังหน้าแฟนเพจ"-->
-                                <!--                                             width="90" height="50"/>-->
-                                <!--                                    </a>-->
-                                <!--                                </div>-->
+                                <div id="content-logo">
+                                    <a class="img-opacity" href="http://latendahouse.com/index/openWeb/47" target="_blank">
+                                        <img src="
+                                <?php echo $baseUrl; ?>web/images/logo-facebook.png"
+                                             title="ไปยังหน้าแฟนเพจ"
+                                             width="90" height="50"/>
+                                    </a>
+                                </div>
                             </td>
                             <td width="100">
                                 <div id="contact-facebook">

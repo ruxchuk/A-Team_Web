@@ -29,24 +29,72 @@ class Product extends CI_Controller
 
     function index()
     {
-        redirect(base_url() . "auth/signIn");
-//        if (empty($this->session->userdata['username'])) {
-//            redirect("web/backend/product.php");
-//        } else {
-//            redirect($this->webUrl . "auth/signIn");
-//        }
+        $this->load->model('Product_model');
+        $arrProduct = $this->Product_model->getProduct();
+
+//        $this->load->model('Link_website_model');
+        $strSelectBar = "สินค้า";
+        $keyword = "";
+        $data = array(
+            'selectBar' => $strSelectBar,
+            'error' => '',
+            'arrProduct' => $arrProduct,
+            'showSlide' => true,
+            'webUrl' => $this->webUrl,
+            'siteTitle' => "จานดาวเทียม เครื่องปรับอากาศ กล้องวงจรปิด",
+            'keyword' => $keyword,
+            "setImageHeader" => 'sat',
+        );
+        $this->load->view('product/index', $data);
     }
 
     function productType()
     {
-        //ผ้าม่าน/3
+        $productTypeName = $this->uri->segment(2);
+        $productID = $this->uri->segment(3);
+
+        if (empty($productID)) {//Ex. สินค้า/จานดาวเทียม
+            $productTypeID = $this->Product_model->getProductTypeFromName($productTypeName);
+            $arrProduct = $this->Product_model->getProduct(0, intval($productTypeID));
+            $data = array(
+                'error' => '',
+                'arrProduct' => $arrProduct,
+                'selectBar' => 'สินค้า',
+                'setImageHeader' => 'sat',
+                'showSlide' => false,
+                'webUrl' => $this->webUrl,
+                'siteTitle' => $productTypeName,
+                'keyword' => ''
+            );
+            $this->load->view("product/list-content", $data);
+        } else {//Ex. สินค้า/จานดาวเทียม/3
+            $this->load->model('Product_model');
+            $productTypeID = $this->Product_model->getProductTypeFromName($productTypeName);
+            $this->view($productID, $productTypeID);
+        }
+    }
+
+    function view($id, $productTypeID)
+    {
         $productTypeName = $this->uri->segment(1);
-        $productID = $this->uri->segment(2);
-
         $this->load->model('Product_model');
-        $productTypeID = $this->Product_model->getProductTypeFromName($productTypeName);
+        $arrProduct = $this->Product_model->getProduct(intval($id), intval($productTypeID));
+        $title = $arrProduct[0]->name_th;
 
-        $this->view($productID, $productTypeID);
+        $this->load->model('Link_website_model');
+
+        $keyword = $arrProduct[0]->keyword != "" ? ", " . $arrProduct[0]->keyword : "";
+        $data = array(
+            'error' => '',
+            'product' => $arrProduct,
+            'selectBar' => $productTypeName,
+            'setImageHeader' => 'sat',
+            'showSlide' => false,
+            'webUrl' => $this->webUrl,
+            'siteTitle' => $title,
+            'keyword' => $keyword
+        );
+        $this->load->view("product/view", $data);
     }
 
     function productAll()
@@ -74,91 +122,70 @@ class Product extends CI_Controller
         $this->load->view('index', $data);
     }
 
-    function view($id, $productTypeID)
-    {
-        $productTypeName = $this->uri->segment(1);
-        $this->load->model('Product_model');
-        $arrProduct = $this->Product_model->getProduct(intval($id), intval($productTypeID));
-        $title = $arrProduct[0]->name_th;
-
-        $this->load->model('Link_website_model');
-
-        $keyword = $arrProduct[0]->keyword != "" ? ", " . $arrProduct[0]->keyword : "";
-        $data = array(
-            'error' => '',
-            'product' => $arrProduct,
-            'selectBar' => $productTypeName,
-            'showSlide' => false,
-            'webUrl' => $this->webUrl,
-            'siteTitle' => $title,
-            'keyword' => $keyword
-        );
-        $this->load->view("product/view", $data);
-    }
-/*
-    public function pEdit($id)
-    {
-        $message = "";
-        $post = $this->input->post();
-        if ($post) {
-            extract($post);
-            $sql = "
-                UPDATE
-                  `product`
-                SET
-                  `product_type_id` = '$product_type_id',
-                  `name_th` = '$name_th',
-                  `name_en` = '$name_en',
-                  `brand` = '$brand',
-                  `model` = '$model',
-                  `value` = '$value',
-                  `description` = '$description',
-                  `keyword` = '$keyword',
-                  `priority` = '$priority',
-                  `image_path` = '$image_path',
-                  `date_stamp` = NOW()
-                WHERE `id` = '$id' ;
-            ";
-            $result = $this->db->query($sql);
-
-            if ($result) {
-                $price1 = empty($price1) ? 0 : $price1;
-                $price2 = empty($price2) ? 0 : $price2;
+    /*
+        public function pEdit($id)
+        {
+            $message = "";
+            $post = $this->input->post();
+            if ($post) {
+                extract($post);
                 $sql = "
-                        UPDATE
-                          `product_price`
-                        SET
-                          `price` = $price1
-                        WHERE `product_id` = $id
-                          AND `price_type` = 'ขายปลีก';
-                    ";
-                $this->db->query($sql);
-                $sql = "
-                        UPDATE
-                          `product_price`
-                        SET
-                          `price` = $price2
-                        WHERE `product_id` = $id
-                        AND `price_type` = 'ขายส่ง';
-                    ";
+                    UPDATE
+                      `product`
+                    SET
+                      `product_type_id` = '$product_type_id',
+                      `name_th` = '$name_th',
+                      `name_en` = '$name_en',
+                      `brand` = '$brand',
+                      `model` = '$model',
+                      `value` = '$value',
+                      `description` = '$description',
+                      `keyword` = '$keyword',
+                      `priority` = '$priority',
+                      `image_path` = '$image_path',
+                      `date_stamp` = NOW()
+                    WHERE `id` = '$id' ;
+                ";
                 $result = $this->db->query($sql);
+
                 if ($result) {
-                    $message = "<font color='green'>แก้ไขสำเร็จแล้ว</font>";
+                    $price1 = empty($price1) ? 0 : $price1;
+                    $price2 = empty($price2) ? 0 : $price2;
+                    $sql = "
+                            UPDATE
+                              `product_price`
+                            SET
+                              `price` = $price1
+                            WHERE `product_id` = $id
+                              AND `price_type` = 'ขายปลีก';
+                        ";
+                    $this->db->query($sql);
+                    $sql = "
+                            UPDATE
+                              `product_price`
+                            SET
+                              `price` = $price2
+                            WHERE `product_id` = $id
+                            AND `price_type` = 'ขายส่ง';
+                        ";
+                    $result = $this->db->query($sql);
+                    if ($result) {
+                        $message = "<font color='green'>แก้ไขสำเร็จแล้ว</font>";
+                    }
+                } else {
+                    $message = "<font color='red'>การแก้ไขผิดพลาด</font>";
                 }
-            } else {
-                $message = "<font color='red'>การแก้ไขผิดพลาด</font>";
             }
+            $arrProduct = $this->getProduct($id);
+            $arrProductType = $this->getProductType();
+            $data = array(
+                'message' => $message,
+                "arrProduct" => $arrProduct[0],
+                "arrProductType" => $arrProductType
+            );
+            $this->load->view('product/edit', $data);
         }
-        $arrProduct = $this->getProduct($id);
-        $arrProductType = $this->getProductType();
-        $data = array(
-            'message' => $message,
-            "arrProduct" => $arrProduct[0],
-            "arrProductType" => $arrProductType
-        );
-        $this->load->view('product/edit', $data);
-    }
-*/
+    */
 
     /**
      * check add product
@@ -262,7 +289,7 @@ class Product extends CI_Controller
     {
         $arrProduct = array();
         $keyword = "";
-        switch ($id){
+        switch ($id) {
             case"1":
                 $arrProduct = $this->Product_model->getProduct(0, 0, " AND a.new = 1");
                 break;
@@ -329,7 +356,7 @@ class Product extends CI_Controller
     {
         $arrProduct = $this->Product_model->getProduct(intval($id), 0);
         $data = array(
-          "arrData" => $arrProduct[0]
+            "arrData" => $arrProduct[0]
         );
         $this->load->view('product/add_cart', $data);
     }
@@ -345,5 +372,96 @@ class Product extends CI_Controller
             'keyword' => 'ตะกร้าสินค้า'
         );
         $this->load->view('product/view_cal_price', $data);
+    }
+
+//-----------------------------------------------Curtain-------------------------------------//
+    function curtain()
+    {
+        $data = array(
+            'selectBar' => 'ผ้าม่าน',
+            'error' => '',
+            'showSlide' => true,
+            'webUrl' => $this->webUrl,
+            'siteTitle' => "ผ้าม่าน",
+            'keyword' => "",
+            'searchWord' => "",
+            "setImageHeader" => 'curtain'
+        );
+        $this->load->view('curtain/index', $data);
+    }
+
+    function curtainFabric()
+    {
+        $data = array(
+            'selectBar' => 'ผ้าม่าน',
+            'error' => '',
+            'showSlide' => true,
+            'webUrl' => $this->webUrl,
+            'siteTitle' => "Curtain Fabric",
+            'keyword' => "",
+            'searchWord' => "",
+            "setImageHeader" => 'curtain-fabric'
+        );
+        $this->load->view('curtain/curtain-fabric', $data);
+    }
+
+    function wallPaper()
+    {
+        $data = array(
+            'selectBar' => 'ผ้าม่าน',
+            'error' => '',
+            'showSlide' => true,
+            'webUrl' => $this->webUrl,
+            'siteTitle' => "Wall Paper",
+            'keyword' => "",
+            'searchWord' => "",
+            "setImageHeader" => 'wall-paper'
+        );
+        $this->load->view('curtain/wall-paper', $data);
+    }
+
+    function rollerBlind()
+    {
+        $data = array(
+            'selectBar' => 'ผ้าม่าน',
+            'error' => '',
+            'showSlide' => true,
+            'webUrl' => $this->webUrl,
+            'siteTitle' => "Roller Blind",
+            'keyword' => "",
+            'searchWord' => "",
+            "setImageHeader" => 'roller-blind'
+        );
+        $this->load->view('curtain/roller-blind', $data);
+    }
+
+    function venetianBlind()
+    {
+        $data = array(
+            'selectBar' => 'ผ้าม่าน',
+            'error' => '',
+            'showSlide' => true,
+            'webUrl' => $this->webUrl,
+            'siteTitle' => "Venetian Blind",
+            'keyword' => "",
+            'searchWord' => "",
+            "setImageHeader" => 'venetian-blind'
+        );
+        $this->load->view('curtain/venetian-blind', $data);
+    }
+
+    function furnitureBuiltIn()
+    {
+        $data = array(
+            'selectBar' => 'ผ้าม่าน',
+            'error' => '',
+            'showSlide' => true,
+            'webUrl' => $this->webUrl,
+            'siteTitle' => "Furniture Built In",
+            'keyword' => "",
+            'searchWord' => "",
+            "setImageHeader" => 'furniture-built-in'
+        );
+        $this->load->view('curtain/furniture-built-in', $data);
     }
 }

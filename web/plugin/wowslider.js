@@ -14,12 +14,29 @@ jQuery.fn.wowSlider = function (y) {
     var E = jQuery.noConflict();
     var l = this;
     var i = l.get(0);
-    y = E.extend({effect: function () {
-        this.go = function (c, d) {
-            b(c);
-            return c
-        }
-    }, prev: "", next: "", duration: 1000, delay: 20 * 100, captionDuration: 1000, captionEffect: 0, width: 960, height: 360, caption: true, controls: true, autoPlay: true, bullets: true, stopOnHover: 0, preventCopy: 1}, y);
+    y = E.extend(
+        {effect: function () {
+            this.go = function (c, d) {
+                b(c);
+                return c
+            }
+        }, prev: "",
+            next: "",
+            duration: 1000,
+            delay: 20 * 100,
+            captionDuration: 1000,
+            captionEffect: 0,
+            width: 960,
+            height: 360,
+            caption: true,
+            controls: false,
+//            autoPlay: true,
+            autoPlay: false,
+            bullets: true,
+            stopOnHover: 0,
+            preventCopy: 1
+        }, y
+    );
     var a = E(".ws_images", l);
     var J = a.find("ul");
 
@@ -201,11 +218,12 @@ jQuery.fn.wowSlider = function (y) {
 
     function D(c) {
         p();
-        if (y.autoPlay) {
+        //ปิด auto play
+        /*if (y.autoPlay) {
             o = setTimeout(function () {
                 k()
             }, y.delay + (c ? 0 : y.duration))
-        }
+        }*/
     }
 
     function p() {
@@ -263,7 +281,13 @@ jQuery.fn.wowSlider = function (y) {
 
     function g() {
         l.find(".ws_bullets a,.ws_thumbs a").click(function (ah) {
-            X(ah, E(this).index())
+            //X(ah, E(this).index());
+            return false;
+        });
+
+        //เปลี่ยนเป็น mouse ชี้
+        l.find(".ws_bullets a,.ws_thumbs a").hover(function (ah) {
+            X(ah, E(this).index());
         });
         if (M.length) {
             M.hover(function () {
@@ -2465,15 +2489,15 @@ if (!jQuery.fn.coinslider) {
                     g.transition(r, "prev");
                     g.transitionCall(r)
                 }).mouseover(function () {
-                    g("#cs-navigation-" + r.id).show()
-                });
+                        g("#cs-navigation-" + r.id).show()
+                    });
                 g("#cs-next-" + r.id).css({position: "absolute", top: f[r.id].height / 2 - 15, right: 0, "z-index": 1001, "line-height": "30px", opacity: f[r.id].opacity}).click(function (s) {
                     s.preventDefault();
                     g.transition(r);
                     g.transitionCall(r)
                 }).mouseover(function () {
-                    g("#cs-navigation-" + r.id).show()
-                });
+                        g("#cs-navigation-" + r.id).show()
+                    });
                 g("<div id='cs-buttons-" + r.id + "' class='cs-buttons'></div>").appendTo(g("#coin-slider-" + r.id));
                 for (k = 1; k < n[r.id].length + 1; k++) {
                     g("#cs-buttons-" + r.id).append("<a href='#' class='cs-button-" + r.id + "' id='cs-button-" + r.id + "-" + k + "'>" + k + "</a>")

@@ -110,7 +110,11 @@ class Link_website_model extends CI_Model
         //date time
         $dateTime = date("Y-m-d H:i:s");
 
-        return "Browser: $browser | Version: $version | OS: $os| IP Address: $ip | Date Click: $dateTime";
+        //refer
+        $httpRefer = @$_SERVER['HTTP_REFERER'];
+
+
+        return "Browser: $browser | Version: $version | OS: $os| IP Address: $ip | Refer: $httpRefer | Date Click: $dateTime";
     }
 
     /**
