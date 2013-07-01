@@ -8,6 +8,9 @@
  */
 
 $baseUrl = base_url();
+$pathImage = $baseUrl . "web/images/";
+$pathImageProduct = $baseUrl . "web/images/uploads/products/";
+$arrSlide = $this->Product_model->getListSlideProduct();
 ?>
 <script src="<?php echo $baseUrl; ?>web/plugin/jsor-jcarousel/js/jquery.jcarousel.min.js"></script>
 <link rel="stylesheet" href="<?php echo $baseUrl; ?>web/plugin/jsor-jcarousel/css/skin.css"
@@ -50,75 +53,15 @@ $baseUrl = base_url();
     });
 </script>
 <ul id="mycarousel" class="jcarousel-skin-tango">
-    <li> <a href="#" class="link-product img-opacity">
-            <p class="product-head">Test Header</p>
-            <img class="img-slide-product" src="http://static.flickr.com/66/199481236_dc98b5abb3_s.jpg"
+    <?php foreach ($arrSlide as $key => $value) :?>
+    <li>
+        <a target="_blank" href="<?php echo $webUrl; ?>สินค้า/<?php echo $value->product_type_name . "/$value->id"; ?>"
+           class="link-product img-opacity">
+            <p class="product-head"><?php echo $value->name_th; ?></p>
+            <img class="img-slide-product" src="<?php echo $pathImageProduct . $value->image_path; ?>"
                  width="75" height="75" alt=""/>
-
-            <p class="slide-price">999</p></a>
-    </li>
-    <li> <a href="#" class="link-product img-opacity">
-            <p class="product-head">Test Header</p>
-            <img class="img-slide-product" src="http://static.flickr.com/75/199481072_b4a0d09597_s.jpg"
-                 width="75" height="75" alt=""/>
-
-            <p class="slide-price">999</p></a>
-    </li>
-    <li> <a href="#" class="link-product img-opacity">
-            <p class="product-head">Test Header</p>
-            <img class="img-slide-product" src="http://static.flickr.com/57/199481087_33ae73a8de_s.jpg"
-                 width="75" height="75" alt=""/>
-
-            <p class="slide-price">999</p></a>
-    </li>
-    <li> <a href="#" class="link-product img-opacity">
-            <p class="product-head">Test Header</p>
-            <img class="img-slide-product" src="http://static.flickr.com/77/199481108_4359e6b971_s.jpg"
-                 width="75" height="75" alt=""/>
-
-            <p class="slide-price">999</p></a>
-    </li>
-    <li> <a href="#" class="link-product img-opacity">
-            <p class="product-head">Test Header</p>
-            <img class="img-slide-product" src="http://static.flickr.com/58/199481143_3c148d9dd3_s.jpg"
-                 width="75" height="75" alt=""/>
-
-            <p class="slide-price">999</p></a>
-    </li>
-    <li> <a href="#" class="link-product img-opacity">
-            <p class="product-head">Test Header</p>
-            <img class="img-slide-product" src="http://static.flickr.com/72/199481203_ad4cdcf109_s.jpg"
-                 width="75" height="75" alt=""/>
-
-            <p class="slide-price">999</p></a>
-    </li>
-    <li> <a href="#" class="link-product img-opacity">
-            <p class="product-head">Test Header</p>
-            <img class="img-slide-product" src="http://static.flickr.com/58/199481218_264ce20da0_s.jpg"
-                 width="75" height="75" alt=""/>
-
-            <p class="slide-price">999</p></a>
-    </li>
-    <li> <a href="#" class="link-product img-opacity">
-            <p class="product-head">Testasdf asdfd Header asdfsd</p>
-            <img class="img-slide-product" src="http://static.flickr.com/69/199481255_fdfe885f87_s.jpg"
-                 width="75" height="75" alt=""/>
-
-            <p class="slide-price">999</p></a>
-    </li>
-    <li> <a href="#" class="link-product img-opacity">
-            <p class="product-head">Test Header</p>
-            <img class="img-slide-product" src="http://static.flickr.com/60/199480111_87d4cb3e38_s.jpg"
-                 width="75" height="75" alt=""/>
-
-            <p class="slide-price">999</p>
+            <p class="slide-price"><?php echo number_format($value->price2, 2)?></p>
         </a>
     </li>
-    <li> <a href="#" class="link-product img-opacity">
-            <p class="product-head">Test Header</p>
-            <img class="img-slide-product" src="http://static.flickr.com/70/229228324_08223b70fa_s.jpg"
-                 width="75" height="75" alt=""/>
-
-            <p class="slide-price">999</p></a>
-    </li>
+    <?php endforeach; ?>
 </ul>

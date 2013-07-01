@@ -375,13 +375,38 @@ class Product extends CI_Controller
     }
 
 //-----------------------------------------------Curtain-------------------------------------//
+
+    function curtainView()
+    {
+        $cate = $this->uri->segment(2);
+        $id = $this->uri->segment(3);
+        $arrData = $this->Product_model->getListCurtain($id, "");
+        $arrLink = array(
+            'Curtain&Fabric' => "curtain-fabric",
+            'WallPaper' => "wall-paper",
+            'RollerBlind' => "roller-blind",
+            'VenetianBlind' => "venetian-blind",
+            'FurnitureBuiltIn' => "furniture-built-in",
+        );
+        $data = array(
+            'selectBar' => 'ผ้าม่าน',
+            'error' => '',
+            'showSlide' => true,
+            'siteTitle' => $arrData[0]->name_th,
+            'keyword' => "",
+            'searchWord' => "",
+            "setImageHeader" => $arrLink[$cate],
+            'arrData' => $arrData[0]
+        );
+        $this->load->view('curtain/view', $data);
+    }
+
     function curtain()
     {
         $data = array(
             'selectBar' => 'ผ้าม่าน',
             'error' => '',
             'showSlide' => true,
-            'webUrl' => $this->webUrl,
             'siteTitle' => "ผ้าม่าน",
             'keyword' => "",
             'searchWord' => "",

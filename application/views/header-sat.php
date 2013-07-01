@@ -88,7 +88,7 @@ $urlImageHeader = $baseUrl . "web/images/header-sat.png";
                                                  height="30"/></td>
                                         <td>
                             <span id="contact-sat">089 645 7911, 02 567 8910<br>
-                                <a href="mailto:latendahouse@gmail.com">latendahouse@gmail.com</a>
+                                <a href="mailto:latendahouse@gmail.com">info@latendahouse.com</a>
                             </span>
                                         </td>
                                     </tr>

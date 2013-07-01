@@ -16,6 +16,9 @@ class Product_model extends CI_Model
         parent::__construct();
     }
 
+
+//-----------------------------------------------Product-------------------------------------//
+
     /**
      * get product
      * @param int $id
@@ -104,6 +107,76 @@ class Product_model extends CI_Model
             return $result[0]->id;
         } else {
             return -1;
+        }
+    }
+
+    function getListSlideProduct()
+    {
+        $sql = "
+            SELECT
+              a.*,
+              d.`name` AS product_type_name
+            FROM
+              `product` a,
+              `product_type` d
+            WHERE a.`publish` = 1
+              AND d.`id` = a.`product_type_id`
+              AND d.`publish` = 1
+              and d.id != 1
+              and `slide_main` = 1
+              group by a.id
+            ORDER BY a.`priority`,
+            a.`date_create` DESC
+        ";
+        $query = $this->db->query($sql);
+        if ($query->num_rows()) {
+            $result = $query->result();
+            return $result;
+        } else {
+            return (object)array();
+        }
+    }
+
+//-----------------------------------------------Curtain-------------------------------------//
+
+    /**
+     * list slide ผ้าม่าน
+     *
+     * @return object
+     */
+    function getListSlideCurtain()
+    {
+        $query = $this->db->get_where('product', array('product_type_id' => 1, 'slide_main' => 1));
+        if ($query->num_rows()) {
+            $result = $query->result();
+            return $result;
+        } else {
+            return (object)array();
+        }
+    }
+
+    function getListCurtain($id = 0, $type = "")
+    {
+        $strAnd = $id != 0 ? " AND id=$id" : "";
+        $strAnd .= $type != '' ? " AND name_en='$type'" : "";
+        $sql = "
+            select
+              *
+            from `product`
+            where 1
+            and `product_type_id` = 1
+            AND `publish` = 1
+            $strAnd
+            ORDER BY `priority`,
+            `date_create`,
+             date_stamp DESC
+        ";
+        $query = $this->db->query($sql);
+        if ($query->num_rows()) {
+            $result = $query->result();
+            return $result;
+        } else {
+            return (object)array();
         }
     }
 }

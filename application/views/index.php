@@ -22,12 +22,26 @@ $pathImage = $baseUrl . "web/images/";
 
 $pathImageProduct = $baseUrl . "web/images/uploads/products/";
 ?>
-
-
-<?php $getHot = $this->uri->segment(1); ?>
-
-
+<script>
+    var jq = jQuery.noConflict();
+</script>
+<script>
+    $(document).ready(function(){
+        $.fancybox({
+            'titlePosition'	: 'inside',
+            'padding'		: 0,
+            'opacity'		: true,
+            'overlayShow'	: true,
+            'transitionIn'	: 'elastic',
+            'transitionOut'	: 'elastic',
+            'hideOnOverlayClick' : false,
+            'scrolling'		: 'no',
+            'href'			: 'http://www.latendahouse.com/web/images/Banner CTH.png'
+        });
+    });
+</script>
 <td class="maincol">
+<!--    <a class="add-cart"></a>-->
     <div style="margin-left: 15px;">
         <br>
         <div>

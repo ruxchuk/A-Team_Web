@@ -24,7 +24,7 @@ if (!empty($_SESSION['userdata'])) :
     if ($_SESSION['userdata']['member_type'] == "admin"):
         echo "สวัสดี : " . $_SESSION['userdata']['name'];
         ?>
-        &nbsp;&nbsp;&nbsp;<a href="<?php echo $baseUrl; ?>auth/signOut">ออกจากระบบ</a>
+        &nbsp;&nbsp;&nbsp;<a class="link-menu" href="<?php echo $baseUrl; ?>auth/signOut">ออกจากระบบ</a>
     <?php else:
         header("Location: $baseUrl" . 'auth/signIn');
     endif; else:
@@ -33,6 +33,26 @@ endif;
 ?>
 <br>
 <br>
-<a href="product.php">รายการสินค้า</a> |
-<a href="link-website.php">Link Website</a> |
-<a href="member.php">รายชื่อสมาชิก</a>
+<style>
+    .link-menu {
+        color: blue;
+    }
+    .link-menu:link, .menu-active:link{
+        text-decoration: none;
+    }
+    .link-menu:hover {
+        color: red;
+    }
+    .menu-active {
+        color: red;
+    }
+</style>
+<?php
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+?>
+<div class="menu" valign="center">
+    <a class="<?php echo strpos($actual_link, 'curtain.php') ? 'menu-active': 'link-menu'; ?>" href="curtain.php">ผ้าม่าน</a> |
+    <a class="<?php echo strpos($actual_link, 'product.php') ? 'menu-active': 'link-menu'; ?>" href="product.php">รายการสินค้า</a> |
+    <a class="<?php echo strpos($actual_link, 'link-website.php') ? 'menu-active': 'link-menu'; ?>" href="link-website.php">Link Website</a> |
+    <a class="<?php echo strpos($actual_link, 'member.php') ? 'menu-active': 'link-menu'; ?>" href="member.php">รายชื่อสมาชิก</a>
+</div>

@@ -8,13 +8,24 @@
  */
 $baseUrl = base_url();
 $pathImage = $baseUrl . "web/images/";
+$pathImageProduct = $baseUrl . "web/images/uploads/products/";
+
+$arrCurtain = $this->Product_model->getListCurtain(0, $setImageHeader);
+
+$arrLink = array(
+    'curtain-fabric' => "Curtain&Fabric",
+    'wall-paper' => "WallPaper",
+    'roller-blind' => "RollerBlind",
+    'venetian-blind' => "VenetianBlind",
+    'furniture-built-in' => "FurnitureBuiltIn",
+);
 ?>
 <script>
     $(document).ready(function () {
         $(".click-show").click(function () {
             if (oldSrc != this.src) {
                 oldSrc = this.src;
-                showImage(this.src);
+                showImage(this.src, this.alt);
             }
             return false;
         });
@@ -22,8 +33,10 @@ $pathImage = $baseUrl . "web/images/";
 
     var oldImageID = 1;
     var oldSrc = "";
-    function showImage(src) {
-        var html = '<img src="' + src + '" style="width: 100%;height:350px;box-shadow: 0px 0px 25px #888888;"/>';
+    function showImage(src, url) {
+        var html = '<a target="_blank" href="' + url + '">' +
+            '<img src="' + src + '" style="width: 100%;height:350px;box-shadow: 0px 0px 25px #888888;"/>' +
+            '</a>';
         if (oldImageID == 1) {
             oldImageID = 2;
             $("#show-img1").fadeOut().html(html).fadeIn("slow");
@@ -44,18 +57,16 @@ $pathImage = $baseUrl . "web/images/";
               type="text/css" media="screen"/>
         <script src="<?php echo $baseUrl; ?>web/plugin/elasti-slide/js/modernizr.custom.17475.js"></script>
         <ul id="carousel" class="elastislide-list">
-            <li><a href="#">
-                    <img src="http://wowslider.com/images/demo/numeric-basic/data1/tooltips/apple_tree.jpg"
-                         class="click-show" alt="image01"/></a></li>
-            <li><a href="#">
-                    <img src="http://localhost:11001/ateam/web/a-team_web/web/images/logo_peuanchang_150x150.png"
-                         class="click-show" alt="image02"/></a></li>
-            <li><a href="#">
-                    <img src="http://localhost:11001/ateam/web/a-team_web/web/images/logo_peuanchang_150x150.png"
-                         class="click-show" alt="image03"/></a></li>
-<!--            <li><a href="#">-->
-<!--                    <img src="http://wowslider.com/images/demo/numeric-basic/data1/tooltips/apple_tree.jpg"-->
-<!--                         class="click-show" alt="image04"/></a></li>-->
+
+            <?php foreach ($arrCurtain as $key => $value): ?>
+            <li>
+                <a href="#">
+                    <img src="<?php echo $pathImageProduct . $value->image_path; ?>"
+                         alt="<?php echo $webUrl; ?>ผ้าม่าน/<?php echo $arrLink[$value->name_en]. '/'. $value->id; ?>"
+                         class="click-show"/>
+                </a>
+            </li>
+            <?php endforeach; ?>
 
         </ul>
         <script type="text/javascript" src="<?php echo $baseUrl; ?>web/plugin/elasti-slide/js/jquery.min.js"></script>

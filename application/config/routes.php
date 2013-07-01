@@ -52,6 +52,14 @@ $route['ผ้าม่าน/WallPaper'] = "product/wallPaper";
 $route['ผ้าม่าน/RollerBlind'] = "product/rollerBlind";
 $route['ผ้าม่าน/VenetianBlind'] = "product/venetianBlind";
 $route['ผ้าม่าน/FurnitureBuiltIn'] = "product/furnitureBuiltIn";
+
+$route['ผ้าม่าน/Curtain&Fabric/(\d+)'] = "product/curtainView/$3";
+$route['ผ้าม่าน/WallPaper/(\d+)'] = "product/curtainView/$3";
+$route['ผ้าม่าน/RollerBlind/(\d+)'] = "product/curtainView/$3";
+$route['ผ้าม่าน/VenetianBlind/(\d+)'] = "product/curtainView/$3";
+$route['ผ้าม่าน/FurnitureBuiltIn/(\d+)'] = "product/curtainView/$3";
+
+
 $route['สินค้า'] = "product";
 $route['สินค้า/([ก-เ]+)/(\d+)'] = "product/productType/$3";
 $route['สินค้า/([ก-เ]+)'] = "product/productType";

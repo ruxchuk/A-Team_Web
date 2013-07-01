@@ -15,6 +15,7 @@ $baseUrl = base_url();
 $webUrl = $this->Constant_model->webUrl();
 $pathImage = $baseUrl . "web/images/";
 $pathImageProduct = $baseUrl . "web/images/uploads/products/";
+
 ?>
 
 <?php $getHot = $this->uri->segment(1); ?>

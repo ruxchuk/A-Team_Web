@@ -16,8 +16,8 @@ $pathSellers = $baseUrl . "web/images/icon_hot.gif";
 $pathRecommend = $baseUrl . "web/images/icon_recommence.gif";
 $pathPromotion = $baseUrl . "web/images/icon_promotion.gif";
 $pathImage = $baseUrl . "web/images/";
-
 $pathImageProduct = $baseUrl . "web/images/uploads/products/";
+
 ?>
     <td class="maincol">
     <link rel="stylesheet" href="<?php echo $baseUrl; ?>web/css/block-menu/style.css" type="text/css"/>
@@ -51,14 +51,16 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
         <img src="<?php echo $pathImage; ?>category-sat.png" width="100%"/>
     </div>
     <?php
+    $count = 0;
     foreach ($arrProduct as $key => $value):
-        if ($value->product_type_name == "จานดาวเทียม"):
+        if ($value->product_type_name == "จานดาวเทียม" && $count < 6):
             $point = 155;
-            if ($key % 3 == 0):
+            if ($count % 3 == 0):
                 ?>
                 <div class="cleaner"></div>
             <?php
             endif;
+            $count++;
             $urlTarget = $webUrl . "สินค้า/" . $value->product_type_name . "/" . $value->id;
             ?>
             <div class="product_box margin_r35">
@@ -142,14 +144,16 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
         <img src="<?php echo $pathImage; ?>category-air.png" width="100%"/>
     </div>
     <?php
+    $count = 0;
     foreach ($arrProduct as $key => $value):
-        if ($value->product_type_name == "เครื่องปรับอากาศ"):
+        if ($value->product_type_name == "เครื่องปรับอากาศ" && $count < 6):
             $point = 155;
-            if ($key % 3 == 0):
+            if ($count % 3 == 0):
                 ?>
                 <div class="cleaner"></div>
             <?php
             endif;
+            $count++;
             $urlTarget = $webUrl . "สินค้า/" . $value->product_type_name . "/" . $value->id;
             ?>
             <div class="product_box margin_r35">
@@ -233,14 +237,16 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
         <img src="<?php echo $pathImage; ?>category-cctv.png" width="100%"/>
     </div>
     <?php
+    $count = 0;
     foreach ($arrProduct as $key => $value):
-        if ($value->product_type_name == "กล้องวงจรปิด"):
+        if ($value->product_type_name == "กล้องวงจรปิด" && $count < 6):
             $point = 155;
-            if ($key % 3 == 0):
+            if ($count % 3 == 0):
                 ?>
                 <div class="cleaner"></div>
             <?php
             endif;
+            $count++;
             $urlTarget = $webUrl . "สินค้า/" . $value->product_type_name . "/" . $value->id;
             ?>
             <div class="product_box margin_r35">

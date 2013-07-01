@@ -13,8 +13,16 @@ $baseUrl = base_url();
 ?>
 
     <td class="maincol">
+        <script>
+            $(document).ready(function(){
+                $("a#map1, a#map2").fancybox({
+                    'overlayShow'	: true,
+                    'transitionIn'	: 'elastic',
+                    'transitionOut'	: 'elastic'
+                });
+            });
+        </script>
         <br>
-
         <p style="font-size: 22px">&nbsp;&nbsp;&nbsp;&nbsp;ติดต่อเรา</p>
 
         <div style="margin-left: 45px;">
@@ -29,7 +37,7 @@ $baseUrl = base_url();
                     086-317-2217</p>
 
                 <p style="font-size: 20px;color:#8781FF;">Email:
-                    <a href="mailto:a-teamcurtain@hotmail.com">a-teamcurtain@hotmail.com</a>
+                    <a href="mailto:a-teamcurtain@hotmail.com">info@latendahouse.com</a>
                 </p>
                 <br>
                 <!--            <div style="background-color: #fff;width:670px;">-->
@@ -84,17 +92,46 @@ $baseUrl = base_url();
                     }
                 </script>
 
-                <div align="center">
-                    <p style="font-size: 20px;">แผนที่</p>
 
-                    <p>พิกัดร้าน 13.82691, 100.068465</p>
+            </div>
+        </div><div align="center">
+            <p style="font-size: 20px;">แผนที่</p>
 
-                    <div id="googleMap"
-                         style="width:500px;height:300px; margin: 10px 0 10px 0; border: 1px #CCC solid;">
-                    </div>
-                </div>
+            <p>พิกัดร้าน 13.82691, 100.068465</p>
+
+            <div id="googleMap"
+                 style="width:500px;height:300px; margin: 10px 0 10px 0; border: 1px #CCC solid;">
+            </div>
+
+            <div class="cleaner"></div>
+            <p style="font-size: 20px;">สาขาจังหวัดนครปฐม</p>
+            <div style="background-color: #fff;width: 500px;">
+                <a id="map1" class="gallerypic" href="<?php echo $baseUrl; ?>web/images/a-team_map_nakornpathom.png">
+                    <img class="pic" width="100%"
+                         src="<?php echo $baseUrl; ?>web/images/a-team_map_nakornpathom.png"
+                        title="คลิกเพื่อดูภาพใหญ่"/>
+                    <span class="zoom-icon">
+                        <img src="<?php echo $baseUrl; ?>web/images/icon-zoom.png"
+                             width="64" height="64">
+                    </span>
+                </a>
+            </div>
+                <div class="cleaner"></div>
+            <p style="font-size: 20px;">สาขาจังหวัดราชบุรี</p>
+            <div style="background-color: #fff;width: 500px;">
+                <a id="map2" class="gallerypic" href="<?php echo $baseUrl; ?>web/images/a-team_map_ratchaburi.png">
+                    <img class="pic" width="100%" src="<?php echo $baseUrl; ?>web/images/a-team_map_ratchaburi.png"
+                         title="คลิกเพื่อดูภาพใหญ่"/>
+                    <span class="zoom-icon">
+                        <img src="<?php echo $baseUrl; ?>web/images/icon-zoom.png"
+                             width="64" height="64" >
+                    </span>
+                </a>
             </div>
         </div>
+        <br>
+        <br>
+        <br>
     </td>
 <?php
 $this->load->view('footer');

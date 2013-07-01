@@ -7,6 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 $baseUrl = base_url();
+$webUrl = $this->Constant_model->webUrl();
 
 ?>
 </tr>

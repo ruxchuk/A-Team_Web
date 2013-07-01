@@ -83,6 +83,51 @@ a:hover {
     color: #ffffff;
 }
 
+/*icon zoom*/
+.icon-zoom:hover {
+    /*z-index: 999;*/
+    /*background-image: url('../images/zoom-img.png');*/
+    /*left:50%;*/
+    /*top:50%;*/
+}
+a.gallerypic{
+    width:100%;
+    text-decoration:none;
+    position:relative;
+    display:block;
+    /*border:1px solid #666;*/
+    padding:3px;
+    margin-right:5px;
+    /*float:left;*/
+}
+
+span.zoom-icon{
+    visibility:hidden;
+    position:absolute;
+    left:85%;
+    top:80%;
+    /*filter:alpha(opacity=50);*/
+    /*-moz-opacity:0.5;*/
+    /*-khtml-opacity: 0.5;*/
+    /*opacity: 0.5;*/
+}
+
+a.gallerypic:hover span.zoom-icon{
+    visibility:visible;
+}
+
+span.p-zoom-icon{
+    visibility:hidden;
+    position:absolute;
+    left:78%;
+    top:75%;
+}
+a.gallerypic:hover span.p-zoom-icon{
+    visibility:visible;
+}
+
+
+
 /* Default Module Header Text Color */
 
 .module h3,
