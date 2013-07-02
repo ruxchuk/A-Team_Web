@@ -14,7 +14,7 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
 ?>
     <td class="maincol">
         <script>
-            $(document).ready(function () {
+            jQuery.noConflict()(document).ready(function () {
                 $(".gallerypic, .add-cart").fancybox({
                     'overlayShow': true,
                     'transitionIn': 'elastic',

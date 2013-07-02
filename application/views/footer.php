@@ -178,7 +178,7 @@ $webUrl = $this->Constant_model->webUrl();
                                             <div class="widget">
                                                 <a href="<?php echo $webUrl; ?>"><h4> Home</h4></a>
                                                 <a href="<?php echo $webUrl; ?>ติดต่อเรา"><h4> Contact Us</h4></a>
-                                                <a href="#"><h4> About Us</h4></a>
+<!--                                                <a href="#"><h4> About Us</h4></a>-->
                                             </div>
                                         </div>
                                     </div>

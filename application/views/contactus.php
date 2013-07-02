@@ -14,15 +14,17 @@ $baseUrl = base_url();
 
     <td class="maincol">
         <script>
-            $(document).ready(function(){
-                $("a#map1, a#map2").fancybox({
-                    'overlayShow'	: true,
-                    'transitionIn'	: 'elastic',
-                    'transitionOut'	: 'elastic'
+            jQuery.noConflict()(document).ready(function () {
+                $('a#map1, a#map2').fancybox({
+                    'overlayShow': true,
+                    'transitionIn': 'elastic',
+                    'transitionOut': 'elastic'
                 });
             });
+            //jQuery.noConflict();
         </script>
         <br>
+
         <p style="font-size: 22px">&nbsp;&nbsp;&nbsp;&nbsp;ติดต่อเรา</p>
 
         <div style="margin-left: 45px;">
@@ -30,40 +32,32 @@ $baseUrl = base_url();
                 <p style="font-size: 22px;color: #E72222;"><strong>บริษัท เอ-ทีม เคอร์เทน จำกัด</strong></p>
 
                 <p style="font-size: 18px;color:#39C75E;">A-Team Curtain Co., Ltd.</p>
-
-                <p style="font-size: 18px;">475/15 ถ.ทหารบก ต.บ่อพลับ อ.เมือง จ.นครปฐม 73000</p>
-
-                <p style="font-size: 20px;color:#F07641;">สอบถามข้อมูลเพิ่มเติม สามารถติดต่อได้ที่หมายเลข
-                    086-317-2217</p>
-
-                <p style="font-size: 20px;color:#8781FF;">Email:
-                    <a href="mailto:a-teamcurtain@hotmail.com">info@latendahouse.com</a>
-                </p>
                 <br>
                 <!--            <div style="background-color: #fff;width:670px;">-->
                 <!--            <img src="-->
                 <?php //echo $baseUrl; ?><!--web/images/a-team_map.png" width="670" height=""/>-->
                 <!--            </div>-->
-                <br>
+
 
                 <!--            <script type="text/javascript"-->
                 <!--                    src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>-->
                 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
                 <script type="text/javascript">
-                    $(document).ready(function () {
-                        load();
+                    jQuery.noConflict()(document).ready(function () {
+                        load("googleMap1", 13.82691, 100.068465);
+                        load("googleMap2", 13.536859, 99.82086);
                     });
 
-                    function load() {
-                        var gLat = 13.82691;
-                        var gLng = 100.068465;
+                    function load(id, lat, long) {
+                        var gLat = lat;
+                        var gLng = long;
                         var point = new google.maps.LatLng(gLat, gLng);
                         var myMapOptions = {
                             zoom: 15,
                             center: point,
                             mapTypeId: google.maps.MapTypeId.TERRAIN
                         };
-                        var map = new google.maps.Map(document.getElementById("googleMap"), myMapOptions);
+                        var map = new google.maps.Map(document.getElementById(id), myMapOptions);
                         var image = new google.maps.MarkerImage(
                             'http://www.tursai.com/wp-content/uploads/2012/07/pin_icon.png',
                             new google.maps.Size(32, 32),
@@ -92,39 +86,61 @@ $baseUrl = base_url();
                     }
                 </script>
 
-
             </div>
-        </div><div align="center">
-            <p style="font-size: 20px;">แผนที่</p>
+        </div>
+        <div align="center">
+
+            <div class="cleaner"></div>
+            <p style="font-size: 20px; color: yellow;">สาขาจังหวัดนครปฐม</p>
+
+            <p style="font-size: 18px;">475/15 ถ.ทหารบก ต.บ่อพลับ อ.เมือง จ.นครปฐม 73000</p>
+
+            <p style="font-size: 20px;color:#F07641;">สอบถามข้อมูลเพิ่มเติม ติดต่อได้ที่หมายเลข 086 317 2217
+            </p>
+
+            <p style="font-size: 20px;color:#8781FF;">Email:
+                <a href="mailto:a-teamcurtain@hotmail.com">info@latendahouse.com</a>
+            </p>
 
             <p>พิกัดร้าน 13.82691, 100.068465</p>
 
-            <div id="googleMap"
+            <div id="googleMap1"
                  style="width:500px;height:300px; margin: 10px 0 10px 0; border: 1px #CCC solid;">
             </div>
-
-            <div class="cleaner"></div>
-            <p style="font-size: 20px;">สาขาจังหวัดนครปฐม</p>
             <div style="background-color: #fff;width: 500px;">
                 <a id="map1" class="gallerypic" href="<?php echo $baseUrl; ?>web/images/a-team_map_nakornpathom.png">
                     <img class="pic" width="100%"
                          src="<?php echo $baseUrl; ?>web/images/a-team_map_nakornpathom.png"
-                        title="คลิกเพื่อดูภาพใหญ่"/>
+                         title="คลิกเพื่อดูภาพใหญ่"/>
                     <span class="zoom-icon">
                         <img src="<?php echo $baseUrl; ?>web/images/icon-zoom.png"
                              width="64" height="64">
                     </span>
                 </a>
             </div>
-                <div class="cleaner"></div>
-            <p style="font-size: 20px;">สาขาจังหวัดราชบุรี</p>
+
+            <div class="cleaner"></div>
+
+            <p style="font-size: 20px; color: yellow;">สาขาจังหวัดราชบุรี</p>
+            <p style="font-size: 18px;">89/23 ถ.ราษฎรยินดี ต.หน้าเมือง อ.เมือง จ.ราชบุรี 70000</p>
+            <p style="font-size: 20px;color:#F07641;">สอบถามข้อมูลเพิ่มเติม ติดต่อได้ที่หมายเลข</p>
+            <p style="font-size: 20px;color:#F07641;">089 645 7911, 02 567 8910</p>
+            <p style="font-size: 20px;color:#8781FF;">Email:
+                <a href="mailto:a-teamcurtain@hotmail.com">info@latendahouse.com</a>
+            </p>
+
+            <p>พิกัดร้าน 13.536859, 99.82086</p>
+
+            <div id="googleMap2"
+                 style="width:500px;height:300px; margin: 10px 0 10px 0; border: 1px #CCC solid;">
+            </div>
             <div style="background-color: #fff;width: 500px;">
                 <a id="map2" class="gallerypic" href="<?php echo $baseUrl; ?>web/images/a-team_map_ratchaburi.png">
                     <img class="pic" width="100%" src="<?php echo $baseUrl; ?>web/images/a-team_map_ratchaburi.png"
                          title="คลิกเพื่อดูภาพใหญ่"/>
                     <span class="zoom-icon">
                         <img src="<?php echo $baseUrl; ?>web/images/icon-zoom.png"
-                             width="64" height="64" >
+                             width="64" height="64">
                     </span>
                 </a>
             </div>

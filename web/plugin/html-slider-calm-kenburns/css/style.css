@@ -105,7 +105,7 @@
 	z-index:60;
 	height: 54px;
 	width: 53px;
-	background-image: url(./arrows.png);
+	background-image: url(./curtain-slide-arrow.png);
 }
 #wowslider-container1 a.ws_next{
 	background-position: 100% 0;

@@ -42,6 +42,9 @@ $pathPromotion = $baseUrl . "web/images/icon_promotion.gif";
         <meta property="og:site_name" content="บริษัท เอ-ทีมเคอร์เทน จำกัด">
 
         <link rel='shortcut icon' href='<?php echo $baseUrl; ?>web/images/shot_cut_icon.png'/>
+        <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
         <link rel="stylesheet" type="text/css" href="<?php echo $baseUrl; ?>web/css/trans-menu.css"/>
 
         <!--    <link href="-->

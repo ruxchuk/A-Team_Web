@@ -68,7 +68,7 @@ if (empty($this->session->userdata['user_name'])) :
             return false;
         }
 
-        $(document).ready(function () {
+        jQuery.noConflict()(document).ready(function () {
             $("a#register").fancybox({//, a#forget-password
                 'overlayShow': true,
                 'transitionIn': 'elastic',
@@ -244,168 +244,215 @@ if (empty($this->session->userdata['user_name'])) :
 <?php endif; ?>
 
 <!--module เมนูย่อย-->
+<link rel="stylesheet" href="<?php echo $baseUrl; ?>web/plugin/titan-menu/style.css"/>
+<script src="<?php echo $baseUrl; ?>web/plugin/titan-menu/titan-menu.js"></script>
+<!-- Icons -->
+<!--    <link rel="stylesheet" href="css/fatcow_icons.css" />-->
 <div class="module">
-    <div>
-        <div>
-            <div>
+    <section id="lightgrey">
+        <!-- start menu -->
+        <nav class="titanmenu">
+            <ul id="demo-2">
+                <li><a href="<?php echo $baseUrl; ?>">Home</a></li>
+                <li><a href="<?php echo $webUrl; ?>ผ้าม่าน">Curtain</a>
+                    <!-- start -->
+                    <div>
+                        <span><span><!-- arrow --></span></span>
 
-                <!--swMenuFree6.0 transmenu by http://www.swmenupro.com-->
-                <div id="sw-wrap" class="swmenu" align="left">
-                    <table cellspacing="0" cellpadding="0" id="swmenu" class="swmenu">
-                        <tr>
-                            <td>
-                                <a id="menu89" href="<?php echo $webUrl; ?>สินค้ามาใหม่">สินค้ามาใหม่
-                                    <img width="35" height="12" src="<?php echo $pathIconNew; ?>"/></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a id="menu121" href="<?php echo $webUrl; ?>สินค้าขายดี">สินค้าขายดี
-                                    <img src="<?php echo $pathSellers; ?>"/></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a id="menu120" href="<?php echo $webUrl; ?>สินค้าแนะนำ">สินค้าแนะนำ
-                                    <img src="<?php echo $pathRecommend; ?>"/></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a id="menu84" href="<?php echo $webUrl; ?>สินค้าโปรโมชั่น">สินค้าโปรโมชั่น
-                                    <img src="<?php echo $pathPromotion; ?>"/></a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div id="subwrap">
-                    <script type="text/javascript">
+                        <!-- lvl 1 -->
+                        <ul>
+                            <li><a href="<?php echo $webUrl; ?>ผ้าม่าน/Curtain&Fabric">Curtain & Fabric</a></li>
+                            <li><a href="<?php echo $webUrl; ?>ผ้าม่าน/WallPaper">Wall Paper</a></li>
+                            <li><a href="<?php echo $webUrl; ?>ผ้าม่าน/Roller Blind">Roller Blind</a></li>
+                            <li><a href="<?php echo $webUrl; ?>ผ้าม่าน/VenetianBlind">Venetian Blind</a></li>
+                            <li><a href="<?php echo $webUrl; ?>ผ้าม่าน/FurnitureBuiltIn">Furniture Built In</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="<?php echo $webUrl; ?>สินค้า">Product</a>
+                    <!-- start -->
+                    <div>
+                        <span><span><!-- arrow --></span></span>
 
-                        if (TransMenu.isSupported()) {
-                            var ms = new TransMenuSet(TransMenu.direction.right, 3, 0, TransMenu.reference.topRight);
-                            var menu121 = ms.addMenu(document.getElementById("menu121"));
-                            /*menu121.addItem("ผ้าม่าน 1", "#", "0");
-                             menu121.addItem("ผ้าม่าน 2", "#", "0");
-                             menu121.addItem("ผ้าม่าน 3", "#", "0");*/
-                            var menu120 = ms.addMenu(document.getElementById("menu120"));
-                            /*menu120.addItem("จานดาวเทียม 1", "#", "0");
-                             menu120.addItem("จานดาวเทียม 2", "#", "0");
-                             menu120.addItem("จานดาวเทียม 3", "#", "0");*/
-                            var menu84 = ms.addMenu(document.getElementById("menu84"));
-                            /*menu84.addItem("เครื่องปรับอากาศ 1", "#", "0");
-                             menu84.addItem("เครื่องปรับอากาศ 2", "#", "0");
-                             menu84.addItem("เครื่องปรับอากาศ 3", "#", "0");*/
-                            function init() {
-                                if (TransMenu.isSupported()) {
-                                    TransMenu.initialize();
-                                    document.getElementById("menu89").onmouseover = function () {
-                                        ms.hideCurrent();
-                                        this.className = "hover";
-                                    }
-                                    document.getElementById("menu89").onmouseout = function () {
-                                        this.className = "";
-                                    }
-                                    menu121.onactivate = function () {
-                                        document.getElementById("menu121").className = "hover";
-                                    };
-                                    menu121.ondeactivate = function () {
-                                        document.getElementById("menu121").className = "";
-                                    };
-                                    menu120.onactivate = function () {
-                                        document.getElementById("menu120").className = "hover";
-                                    };
-                                    menu120.ondeactivate = function () {
-                                        document.getElementById("menu120").className = "";
-                                    };
-                                    menu84.onactivate = function () {
-                                        document.getElementById("menu84").className = "hover";
-                                    };
-                                    menu84.ondeactivate = function () {
-                                        document.getElementById("menu84").className = "";
-                                    };
-//                                    document.getElementById("menu84").onmouseover = function () {
-//                                        ms.hideCurrent();
-//                                        this.className = "hover";
-//                                    }
-//                                    document.getElementById("menu84").onmouseout = function () {
-//                                        this.className = "";
-//                                    }
-//                                    document.getElementById("menu85").onmouseover = function () {
-//                                        ms.hideCurrent();
-//                                        this.className = "hover";
-//                                    }
-//                                    document.getElementById("menu85").onmouseout = function () {
-//                                        this.className = "";
-//                                    };
-//                                    document.getElementById("menu122").onmouseover = function () {
-//                                        ms.hideCurrent();
-//                                        this.className = "hover";
-//                                    }
-//                                    document.getElementById("menu122").onmouseout = function () {
-//                                        this.className = "";
-//                                    }
-//                                    document.getElementById("menu144").onmouseover = function () {
-//                                        ms.hideCurrent();
-//                                        this.className = "hover";
-//                                    }
-//                                    document.getElementById("menu144").onmouseout = function () {
-//                                        this.className = "";
-//                                    }
-                                }
-                            }
+                        <!-- lvl 1 -->
+                        <ul>
+                            <li><a href="<?php echo $webUrl; ?>สินค้า/จานดาวเทียม">จานดาวเทียม</a></li>
+                            <li><a href="<?php echo $webUrl; ?>สินค้า/เครื่องปรับอากาศ">เครื่องปรับอากาศ</a></li>
+                            <li><a href="<?php echo $webUrl; ?>สินค้า/กล้องวงจรปิด">กล้องวงจรปิด</a></li>
+                        </ul>
+                    </div>
+                </li>
 
-                            TransMenu.spacerGif = "http://athlete.teamwebsitehosting.com/modules/mod_swmenufree/images/transmenu/x.gif";
-                            TransMenu.dingbatOn = "http://athlete.teamwebsitehosting.com/modules/mod_swmenufree/images/transmenu/whiteleft-on.gif";
-                            TransMenu.dingbatOff = "http://athlete.teamwebsitehosting.com/modules/mod_swmenufree/images/transmenu/whiteleft-off.gif";
-                            TransMenu.sub_indicator = true;
-                            TransMenu.menuPadding = 0;
-                            TransMenu.itemPadding = 0;
-                            TransMenu.shadowSize = 2;
-                            TransMenu.shadowOffset = 3;
-                            TransMenu.shadowColor = "#888";
-                            TransMenu.shadowPng = "http://athlete.teamwebsitehosting.com/modules/mod_swmenufree/images/transmenu/grey-40.png";
-                            TransMenu.backgroundColor = "#333333";
-                            TransMenu.backgroundPng = "http://athlete.teamwebsitehosting.com/modules/mod_swmenufree/images/transmenu/white-90.png";
-                            TransMenu.hideDelay = 600;
-                            TransMenu.slideTime = 300;
-                            TransMenu.selecthack = 0;
-                            TransMenu.autoposition = 1;
-                            TransMenu.renderAll();
-                            if (typeof window.addEventListener != "undefined")
-                                window.addEventListener("load", init, false);
-                            else if (typeof window.attachEvent != "undefined") {
-                                window.attachEvent("onload", init);
-                            } else {
-                                if (window.onload != null) {
-                                    var oldOnload = window.onload;
-                                    window.onload = function (e) {
-                                        oldOnload(e);
-                                        init();
-                                    }
-                                } else
-                                    window.onload = init();
-                            }
-                        }
-                    </script>
-                </div>
-                <script type="text/javascript">
-                    <!--
-                    jQuery.noConflict();
-                    jQuery(document).ready(function ($) {
-                        $('#sw-wrap').parents().css('position', 'static');
-                        $('#sw-wrap').parents().css('z-index', '100');
-                        $('#sw-wrap').css('z-index', '101');
-                    });
-                    //-->
-                </script>
-
-                <!--End swMenuFree menu module-->
-            </div>
-        </div>
-    </div>
+                <li><a href="<?php echo $webUrl; ?>ติดต่อเรา">Contact Us</a></li>
+            </ul>
+        </nav>
+        <!-- end menu -->
+    </section>
 </div>
-<!--module เพื่อนช่าง-->
+<br>
+<div class="cleaner">&nbsp;</div>
+<!--    <div>-->
+<!--        <div>-->
+<!--            <div>-->
+<!---->
+<!--                <!--swMenuFree6.0 transmenu by http://www.swmenupro.com-->
+<!--                <div id="sw-wrap" class="swmenu" align="left">-->
+<!--                    <table cellspacing="0" cellpadding="0" id="swmenu" class="swmenu">-->
+<!--                        <tr>-->
+<!--                            <td>-->
+<!--                                <a id="menu89" href="--><?php //echo $webUrl; ?><!--สินค้ามาใหม่">สินค้ามาใหม่-->
+<!--                                    <img width="35" height="12" src="--><?php //echo $pathIconNew; ?><!--"/></a>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>-->
+<!--                                <a id="menu121" href="--><?php //echo $webUrl; ?><!--สินค้าขายดี">สินค้าขายดี-->
+<!--                                    <img src="--><?php //echo $pathSellers; ?><!--"/></a>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>-->
+<!--                                <a id="menu120" href="--><?php //echo $webUrl; ?><!--สินค้าแนะนำ">สินค้าแนะนำ-->
+<!--                                    <img src="--><?php //echo $pathRecommend; ?><!--"/></a>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>-->
+<!--                                <a id="menu84" href="-->
+<?php //echo $webUrl; ?><!--สินค้าโปรโมชั่น">สินค้าโปรโมชั่น-->
+<!--                                    <img src="--><?php //echo $pathPromotion; ?><!--"/></a>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                    </table>-->
+<!--                </div>-->
+<!--                <div id="subwrap">-->
+<!--                    <script type="text/javascript">-->
+<!---->
+<!--                        if (TransMenu.isSupported()) {-->
+<!--                            var ms = new TransMenuSet(TransMenu.direction.right, 3, 0, TransMenu.reference.topRight);-->
+<!--                            var menu121 = ms.addMenu(document.getElementById("menu121"));-->
+<!--                            /*menu121.addItem("ผ้าม่าน 1", "#", "0");-->
+<!--                             menu121.addItem("ผ้าม่าน 2", "#", "0");-->
+<!--                             menu121.addItem("ผ้าม่าน 3", "#", "0");*/-->
+<!--                            var menu120 = ms.addMenu(document.getElementById("menu120"));-->
+<!--                            /*menu120.addItem("จานดาวเทียม 1", "#", "0");-->
+<!--                             menu120.addItem("จานดาวเทียม 2", "#", "0");-->
+<!--                             menu120.addItem("จานดาวเทียม 3", "#", "0");*/-->
+<!--                            var menu84 = ms.addMenu(document.getElementById("menu84"));-->
+<!--                            /*menu84.addItem("เครื่องปรับอากาศ 1", "#", "0");-->
+<!--                             menu84.addItem("เครื่องปรับอากาศ 2", "#", "0");-->
+<!--                             menu84.addItem("เครื่องปรับอากาศ 3", "#", "0");*/-->
+<!--                            function init() {-->
+<!--                                if (TransMenu.isSupported()) {-->
+<!--                                    TransMenu.initialize();-->
+<!--                                    document.getElementById("menu89").onmouseover = function () {-->
+<!--                                        ms.hideCurrent();-->
+<!--                                        this.className = "hover";-->
+<!--                                    }-->
+<!--                                    document.getElementById("menu89").onmouseout = function () {-->
+<!--                                        this.className = "";-->
+<!--                                    }-->
+<!--                                    menu121.onactivate = function () {-->
+<!--                                        document.getElementById("menu121").className = "hover";-->
+<!--                                    };-->
+<!--                                    menu121.ondeactivate = function () {-->
+<!--                                        document.getElementById("menu121").className = "";-->
+<!--                                    };-->
+<!--                                    menu120.onactivate = function () {-->
+<!--                                        document.getElementById("menu120").className = "hover";-->
+<!--                                    };-->
+<!--                                    menu120.ondeactivate = function () {-->
+<!--                                        document.getElementById("menu120").className = "";-->
+<!--                                    };-->
+<!--                                    menu84.onactivate = function () {-->
+<!--                                        document.getElementById("menu84").className = "hover";-->
+<!--                                    };-->
+<!--                                    menu84.ondeactivate = function () {-->
+<!--                                        document.getElementById("menu84").className = "";-->
+<!--                                    };-->
+<!--//                                    document.getElementById("menu84").onmouseover = function () {-->
+<!--//                                        ms.hideCurrent();-->
+<!--//                                        this.className = "hover";-->
+<!--//                                    }-->
+<!--//                                    document.getElementById("menu84").onmouseout = function () {-->
+<!--//                                        this.className = "";-->
+<!--//                                    }-->
+<!--//                                    document.getElementById("menu85").onmouseover = function () {-->
+<!--//                                        ms.hideCurrent();-->
+<!--//                                        this.className = "hover";-->
+<!--//                                    }-->
+<!--//                                    document.getElementById("menu85").onmouseout = function () {-->
+<!--//                                        this.className = "";-->
+<!--//                                    };-->
+<!--//                                    document.getElementById("menu122").onmouseover = function () {-->
+<!--//                                        ms.hideCurrent();-->
+<!--//                                        this.className = "hover";-->
+<!--//                                    }-->
+<!--//                                    document.getElementById("menu122").onmouseout = function () {-->
+<!--//                                        this.className = "";-->
+<!--//                                    }-->
+<!--//                                    document.getElementById("menu144").onmouseover = function () {-->
+<!--//                                        ms.hideCurrent();-->
+<!--//                                        this.className = "hover";-->
+<!--//                                    }-->
+<!--//                                    document.getElementById("menu144").onmouseout = function () {-->
+<!--//                                        this.className = "";-->
+<!--//                                    }-->
+<!--                                }-->
+<!--                            }-->
+<!---->
+<!--                            TransMenu.spacerGif = "http://athlete.teamwebsitehosting.com/modules/mod_swmenufree/images/transmenu/x.gif";-->
+<!--                            TransMenu.dingbatOn = "http://athlete.teamwebsitehosting.com/modules/mod_swmenufree/images/transmenu/whiteleft-on.gif";-->
+<!--                            TransMenu.dingbatOff = "http://athlete.teamwebsitehosting.com/modules/mod_swmenufree/images/transmenu/whiteleft-off.gif";-->
+<!--                            TransMenu.sub_indicator = true;-->
+<!--                            TransMenu.menuPadding = 0;-->
+<!--                            TransMenu.itemPadding = 0;-->
+<!--                            TransMenu.shadowSize = 2;-->
+<!--                            TransMenu.shadowOffset = 3;-->
+<!--                            TransMenu.shadowColor = "#888";-->
+<!--                            TransMenu.shadowPng = "http://athlete.teamwebsitehosting.com/modules/mod_swmenufree/images/transmenu/grey-40.png";-->
+<!--                            TransMenu.backgroundColor = "#333333";-->
+<!--                            TransMenu.backgroundPng = "http://athlete.teamwebsitehosting.com/modules/mod_swmenufree/images/transmenu/white-90.png";-->
+<!--                            TransMenu.hideDelay = 600;-->
+<!--                            TransMenu.slideTime = 300;-->
+<!--                            TransMenu.selecthack = 0;-->
+<!--                            TransMenu.autoposition = 1;-->
+<!--                            TransMenu.renderAll();-->
+<!--                            if (typeof window.addEventListener != "undefined")-->
+<!--                                window.addEventListener("load", init, false);-->
+<!--                            else if (typeof window.attachEvent != "undefined") {-->
+<!--                                window.attachEvent("onload", init);-->
+<!--                            } else {-->
+<!--                                if (window.onload != null) {-->
+<!--                                    var oldOnload = window.onload;-->
+<!--                                    window.onload = function (e) {-->
+<!--                                        oldOnload(e);-->
+<!--                                        init();-->
+<!--                                    }-->
+<!--                                } else-->
+<!--                                    window.onload = init();-->
+<!--                            }-->
+<!--                        }-->
+<!--                    </script>-->
+<!--                </div>-->
+<!--                <script type="text/javascript">-->
+<!--                    <!---->
+<!--                    jQuery.noConflict();-->
+<!--                    jQuery(document).ready(function ($) {-->
+<!--                        $('#sw-wrap').parents().css('position', 'static');-->
+<!--                        $('#sw-wrap').parents().css('z-index', '100');-->
+<!--                        $('#sw-wrap').css('z-index', '101');-->
+<!--                    });-->
+<!--                    //-->
+<!--                </script>-->
+<!---->
+<!--                <!--End swMenuFree menu module-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
+<!--module เพื่อนช่าง-->
 <div class="module">
     <div>
         <div>
@@ -424,14 +471,14 @@ if (empty($this->session->userdata['user_name'])) :
     <div>
         <div>
             <div>
-    <iframe
-        src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Flatenda.page&amp;width=194&amp;height=310&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=true&amp;header=false"
-        scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:194px; height:310px;"
-        allowTransparency="true">
-    </iframe>
-                </div>
-                    </div>
-                        </div>
+                <iframe
+                    src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Flatenda.page&amp;width=194&amp;height=310&amp;show_faces=true&amp;colorscheme=dark&amp;stream=false&amp;show_border=true&amp;header=false"
+                    scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:194px; height:310px;"
+                    allowTransparency="true">
+                </iframe>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -469,128 +516,9 @@ if (empty($this->session->userdata['user_name'])) :
             </div>
         </div>
     </div>
-
 </div>
-<!--
-<div class="module">
-    <style type="text/css" media="Screen">
-        #navigation ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            width: 220px;
-        }
-
-        #navigation a {
-            text-decoration: none;
-            display: block;
-            padding: 3px 12px 3px 8px;
-            background-color: #666;
-            color: #fff;
-            border: 1px solid #ddd;
-        }
-
-        #navigation a:active {
-            padding: 2px 13px 4px 7px;
-            background-color: #444;
-            color: #eee;
-            border: 1px solid #333;
-        }
-
-        #navigation li li a {
-            text-decoration: none;
-            padding: 3px 3px 3px 17px;
-            background-color: #999;
-            color: #111111;
-        }
-        #navigation li li a:hover {
-            background-color: #6a6767;
-        }
-
-        #navigation li li a:active {
-            padding: 2px 4px 4px 16px;
-            background-color: #888;
-            color: #000;
-        }
-    </style>
-    <script type="text/javascript">
-        function swapMenu(strCase) {
-            if (strCase[0] == "1") {
-                idFadeIn("#sub-menu1");
-            } else {
-                idFadeOut("#sub-menu1");
-            }
-            if (strCase[1] == "1") {
-                idFadeIn("#sub-menu2");
-            } else {
-                idFadeOut("#sub-menu2");
-            }
-            if (strCase[2] == "1") {
-                idFadeIn("#sub-menu3");
-            } else {
-                idFadeOut("#sub-menu3");
-            }
-            if (strCase[3] == "1") {
-                idFadeIn("#sub-menu4");
-            } else {
-                idFadeOut("#sub-menu4");
-            }
-            if (strCase[4] == "1") {
-                idFadeIn("#sub-menu5");
-            } else {
-                idFadeOut("#sub-menu5");
-            }
-        }
-
-        function idFadeIn(id) {
-            $(id).fadeIn(1000);
-        }
-
-        function idFadeOut(id) {
-            $(id).fadeOut(800);
-        }
-        var oldClickID = "";
-        $(function(){
-            $(".menu-sidebar").click(function(){
-                if (oldClickID == this.id) {
-                    swapMenu("00000");
-                    oldClickID = "";
-                } else {
-                    swapMenu(this.id);
-                    oldClickID = this.id
-                }
-                return false;
-            });
-        })
-    </script>
-    <div id="navigation">
-        <ul>
-            <li>
-                <a href="#" id="10000" class="menu-sidebar">ผ้าม่าน</a>
-                <ul id="sub-menu1" style="display: none;">
-                    <li><a href="#">Curtain & Fabric</a></li>
-                    <li><a href="#">Wall Paper</a></li>
-                    <li><a href="#">Roller Blind</a></li>
-                    <li><a href="#">Venetian Blind</a></li>
-                    <li><a href="#">Furniture Built In</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#" id="01000" class="menu-sidebar">จานดาวเทียม</a>
-                <ul id="sub-menu2" style="display: none;">
-                    <li><a href="#">A link to a page</a></li>
-                    <li><a href="#">A link to a page</a></li>
-                    <li><a href="#">A link to a page</a></li>
-                    <li><a href="#">A link to a page</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>
--->
 
 
 </div>
-<!--end module link-->
 </td>
 <!--end leftcolumn-->
