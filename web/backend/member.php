@@ -228,8 +228,14 @@ if ($getMode != 'add' && $getMode != 'edit') {
     <div style="width: 100%;">
         <div align="right"><p><a href="?f_mode=add&f_rid=-1">เพิ่ม สมาชิก</a></p></div>
     </div>
-    <style>
-    </style>
+    <script>
+        $(document).ready(function(){
+            $("#f_frmEditRow").submit(function(){
+                alert(55);
+                return false;
+            });
+        })
+    </script>
 <?php
 }
 
@@ -255,7 +261,7 @@ $em_columns = array(
     'password' => array('header' => 'Password', 'type' => 'password', 'req_type' => 'rp', 'width' => '250px',
         'title' => '', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
         'unique' => 'false', 'unique_condition' => '', 'visible' => 'true', 'on_js_event' => '',
-        'hide' => 'false', 'generate' => 'true', 'cryptography' => 'false', 'cryptography_type' => 'md5',
+        'hide' => 'false', 'generate' => 'true', 'cryptography' => 'true', 'cryptography_type' => 'md5',
         'aes_password' => 'aes_password', "post_addition"=>" <font color=\"#cd0000\">ต้องมี 6 ตัวขึ้นไป</font>"),
     'email' => array('header' => ' อีเมล', 'type' => 'textbox', 'req_type' => '', 'width' => '250px',
         'title' => 'อีเมล', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),
