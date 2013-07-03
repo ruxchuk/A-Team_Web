@@ -190,7 +190,7 @@ $dgrid->SetViewModeTableProperties($vm_table_properties);
 // $fill_from_array = array('0'=>'Banned', '1'=>'Active', '2'=>'Closed', '3'=>'Removed'); /* as 'value'=>'option' */
 $vm_columns = array(
     'id' => array('header' => 'ID', 'type' => 'label', 'align' => 'center'),
-    'serial' => array('header' => ' Serial', 'type' => 'label', 'align' => 'left'),
+    'serial' => array('header' => ' Serial No', 'type' => 'label', 'align' => 'left'),
     //'product_type_name' => array('header' => ' Type', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'name_th' => array('header' => ' Name', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'brand' => array('header' => ' Type', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
@@ -267,12 +267,12 @@ if ($getMode != 'add' && $getMode != 'edit') {
 
         $(function () {
             $("#rfyimage_path").hide();
-            genUpload("#image_add", "#image_show", "#rfyimage_path");
+            //genUpload("#image_add", "#image_show", "#rfyimage_path");
 
             $("#wysiwygryydescription").height('500').width(600);
         });
 
-        function genUpload(btnUpload, idReload, idSave) {
+        /*function genUpload(btnUpload, idReload, idSave) {
             $(btnUpload).uploadify({
                 'userfile': {
                     'path': pathImgUploadTmp
@@ -305,7 +305,7 @@ if ($getMode != 'add' && $getMode != 'edit') {
 
         function getTypeImage(src, id) {
             return '<img src="' + src + '" style="width: 250px; height: 190px;"/>';
-        }
+        }*/
     </script>
 <?php
 }
@@ -404,8 +404,8 @@ $em_columns = array(
         'multiple' => 'false',
         'multiple_size' => '4'
     ),
-    'serial' => array('header' => ' Serial', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
-        'title' => 'Serial', 'readonly' => 'false', 'maxlength' => '15', 'default' => $serialID),
+    'serial' => array('header' => ' Serial No', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
+        'title' => 'Serial No', 'readonly' => 'false', 'maxlength' => '15', 'default' => $serialID),
     'name_th' => array('header' => ' Name', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
         'title' => 'Name', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
 //    'name_en' => array('header' => ' Name EN', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',

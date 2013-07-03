@@ -35,6 +35,7 @@ $dgrid = new DataGrid($debug_mode, $messaging, $unique_prefix);
 ##  *** set data source with needed options
 ##  *** put a primary key on the first place
 //http://localhost:11001/ateam/web/a-team_web/web/backend/datagrid/styles/pink/images/edit.gif
+
 $sql = "
     SELECT
      `member`.*,
@@ -44,7 +45,8 @@ $sql = "
        '<img title=\"Delete\" style=\"cursor: pointer;\"
        onclick=\"javascript:f_verifyDelete(',
        \"'\", `member`.id, \"', '&f_page_size=50&f_p=1');\", '\"',
-       ' src=\"datagrid/styles/pink/images/delete.gif\"/>') AS edit_field
+       ' src=\"datagrid/styles/pink/images/delete.gif\"/>' , ' | ', '<a href=\"?edit_pass=1&f_mode=edit&f_rid=', `member`.id, '\">Edit Password</a>'
+       ) AS edit_field
     FROM `member`
     INNER JOIN `member_type` ON (
     `member`.`member_type_id` = `member_type`.`id`
@@ -222,6 +224,7 @@ $condition = "";
 $dgrid->SetTableEdit($table_name, $primary_key, $condition);
 
 $getMode = @$_GET[$unique_prefix . 'mode'];
+$getEditPass = @$_GET['edit_pass'];
 if ($getMode != 'add' && $getMode != 'edit') {
     ?>
     <br>
@@ -235,6 +238,19 @@ if ($getMode != 'add' && $getMode != 'edit') {
                 return false;
             });
         })
+    </script>
+<?php
+} else if($getMode == "edit") {
+    ?>
+    <script>
+        $(document).ready(function () {
+            //set date stamp
+            var d = new Date();
+            var strDate = "" + d.getFullYear() + "-" +
+                d.getMonth() + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() +
+                ":" + d.getSeconds();
+            $("#ryydate_update").val(strDate);
+        });
     </script>
 <?php
 }
@@ -251,18 +267,20 @@ $arrMemberType = array('' => '');
 while ($row = $dSet->fetchRow()) {
     $arrMemberType[$row[0]] = $row[1];
 }
-$em_columns = array(
+$em_columns = $getEditPass == '1' ? array('password' => array('header' => 'Password', 'type' => 'password', 'req_type' => 'rp', 'width' => '250px',
+    'title' => '', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+    'unique' => 'false', 'unique_condition' => '', 'visible' => 'true', 'on_js_event' => '',
+    'hide' => 'false', 'generate' => 'true', 'cryptography' => 'true', 'cryptography_type' => 'md5',
+    'aes_password' => 'aes_password', "post_addition"=>" <font color=\"#cd0000\">ต้องมี 6 ตัวขึ้นไป</font>")
+):
+    array(
     'name' => array('header' => ' ชื่อ', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '250px',
         'title' => 'ชื่อ', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),
     'user_name' => array('header' => ' User Name', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '250px',
         'title' => 'User Name', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),
     //'password' => array('header' => ' Password', 'type' => 'password', 'req_type' => 'ry', 'width' => '250px',
     //    'title' => 'Password', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),
-    'password' => array('header' => 'Password', 'type' => 'password', 'req_type' => 'rp', 'width' => '250px',
-        'title' => '', 'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
-        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true', 'on_js_event' => '',
-        'hide' => 'false', 'generate' => 'true', 'cryptography' => 'true', 'cryptography_type' => 'md5',
-        'aes_password' => 'aes_password', "post_addition"=>" <font color=\"#cd0000\">ต้องมี 6 ตัวขึ้นไป</font>"),
+
     'email' => array('header' => ' อีเมล', 'type' => 'textbox', 'req_type' => '', 'width' => '250px',
         'title' => 'อีเมล', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),
     'phone' => array('header' => ' เบอร์โทร', 'type' => 'textbox', 'req_type' => '', 'width' => '250px',
@@ -274,7 +292,14 @@ $em_columns = array(
     "post_addition"=>" ตัวอย่างเช่น \"1|2|3\""),
     'member_type_id' => array('header' => ' ประเภทสมาชิก', 'type' => 'enum', 'req_type' => 'ry', 'width' => '250px',
         'title' => 'ประเภทสมาชิก', 'readonly' => 'false', 'maxlength' => '100', 'default' => '',
-        "source" => $arrMemberType)
+        "source" => $arrMemberType),
+    'date_create' => array('header' => ' วันที่สร้าง', 'type' => 'hidden', 'req_type' => 'ry', 'width' => '210px',
+    'title' => 'วันที่สร้าง', 'readonly' => 'false', 'maxlength' => '200',
+    'default' => $getMode == 'edit' ? '' : date("Y-m-d H:i:s")),
+    'date_update' => array(
+    'header' => ' วันที่แก้ไข', 'type' => 'hidden', 'req_type' => 'ry', 'width' => '210px',
+    'title' => 'วันที่แก้ไข', 'readonly' => 'false', 'maxlength' => '200',
+    'default' => '0000-00-00 00:00:00'),
 );
 $dgrid->SetColumnsInEditMode($em_columns);
 $dgrid->SetAutoColumnsInEditMode(false);

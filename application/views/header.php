@@ -126,9 +126,9 @@ $pathPromotion = $baseUrl . "web/images/icon_promotion.gif";
 
 <?php
 if ($setImageHeader != 'sat') {
-    $this->load->view('header-curtain');
+    $this->load->view('curtain/header');
 } else {
-    $this->load->view('header-sat');
+    $this->load->view('product/header');
 }
 ?>
 

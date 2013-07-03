@@ -44,7 +44,7 @@ $arrSlide = $this->Product_model->getListSlideProduct();
     //            initCallback: mycarousel_initCallback
     //        });
     //    });
-    jQuery(document).ready(function () {
+    jQuery.noConflict()(document).ready(function () {
         jQuery('#mycarousel').jcarousel({
             auto: 6,
             wrap: 'last',

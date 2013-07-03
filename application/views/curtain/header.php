@@ -87,7 +87,7 @@ switch ($setImageHeader) {
                     <table height="50">
                         <tr>
                             <td colspan="4">
-                                <img src="<?php echo $urlImageHeader; ?>"
+                                <img style="margin-left: 12px;" src="<?php echo $urlImageHeader; ?>"
                                      border="0" alt="" id="logo" class="png"/></td>
                         </tr>
                         <tr>

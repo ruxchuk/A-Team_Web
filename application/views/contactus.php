@@ -13,16 +13,6 @@ $baseUrl = base_url();
 ?>
 
     <td class="maincol">
-        <script>
-            jQuery.noConflict()(document).ready(function () {
-                $('a#map1, a#map2').fancybox({
-                    'overlayShow': true,
-                    'transitionIn': 'elastic',
-                    'transitionOut': 'elastic'
-                });
-            });
-            //jQuery.noConflict();
-        </script>
         <br>
 
         <p style="font-size: 22px">&nbsp;&nbsp;&nbsp;&nbsp;ติดต่อเรา</p>
@@ -59,13 +49,13 @@ $baseUrl = base_url();
                         };
                         var map = new google.maps.Map(document.getElementById(id), myMapOptions);
                         var image = new google.maps.MarkerImage(
-                            'http://www.tursai.com/wp-content/uploads/2012/07/pin_icon.png',
+                            'http://www.latendahouse.com/web/images/map-pin.png',
                             new google.maps.Size(32, 32),
                             new google.maps.Point(0, 0),
                             new google.maps.Point(16, 32)
                         );
                         var shadow = new google.maps.MarkerImage(
-                            'http://www.tursai.com/wp-content/uploads/2012/07/pin_icon.png',
+                            'http://www.latendahouse.com/web/images/map-pin.png',
                             new google.maps.Size(52, 32),
                             new google.maps.Point(0, 0),
                             new google.maps.Point(16, 32)

@@ -14,13 +14,13 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
 ?>
     <td class="maincol">
         <script>
-            jQuery.noConflict()(document).ready(function () {
-                $(".gallerypic, .add-cart").fancybox({
-                    'overlayShow': true,
-                    'transitionIn': 'elastic',
-                    'transitionOut': 'elastic'
-                });
-            });
+//            jQuery.noConflict()(document).ready(function () {
+//                $(".gallerypic, .add-cart").fancybox({
+//                    'overlayShow': true,
+//                    'transitionIn': 'elastic',
+//                    'transitionOut': 'elastic'
+//                });
+//            });
         </script>
 
         <div>

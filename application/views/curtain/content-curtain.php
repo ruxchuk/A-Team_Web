@@ -25,7 +25,7 @@ $arrLink = array(
         $(".click-show").click(function () {
             if (oldSrc != this.src) {
                 oldSrc = this.src;
-                showImage(this.src, this.alt);
+                showImage(this.src, this.alt, this.title);
             }
             return false;
         });
@@ -33,9 +33,10 @@ $arrLink = array(
 
     var oldImageID = 1;
     var oldSrc = "";
-    function showImage(src, url) {
+    function showImage(src, url, title) {
         var html = '<a target="_blank" href="' + url + '">' +
-            '<img src="' + src + '" style="width: 100%;height:350px;box-shadow: 0px 0px 25px #888888;"/>' +
+            '<img title="' + title + '" ' +
+            'src="' + src + '" style="width: 100%;height:350px;box-shadow: 0px 0px 25px #888888;"/>' +
             '</a>';
         if (oldImageID == 1) {
             oldImageID = 2;
@@ -61,7 +62,7 @@ $arrLink = array(
             <?php foreach ($arrCurtain as $key => $value): ?>
             <li>
                 <a href="#">
-                    <img src="<?php echo $pathImageProduct . $value->image_path; ?>"
+                    <img title="<?php echo $value->name_th; ?>" src="<?php echo $pathImageProduct . $value->image_path; ?>"
                          alt="<?php echo $webUrl; ?>ผ้าม่าน/<?php echo $arrLink[$value->name_en]. '/'. $value->id; ?>"
                          class="click-show"/>
                 </a>

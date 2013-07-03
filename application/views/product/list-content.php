@@ -20,7 +20,7 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
     <td class="maincol">
         <link rel="stylesheet" href="<?php echo $baseUrl; ?>web/css/block-menu/style.css" type="text/css"/>
         <script>
-            $(document).ready(function () {
+            jQuery.noConflict()(document).ready(function () {
                 $(".add-cart").fancybox({//, a#forget-password
                     'overlayShow': true,
                     'transitionIn': 'elastic',
