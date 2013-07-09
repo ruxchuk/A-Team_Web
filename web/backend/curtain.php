@@ -176,6 +176,14 @@ $default_page_size = 50;
 $paging_arrows = array('first' => '|&lt;&lt;', 'previous' => '&lt;&lt;', 'next' => '&gt;&gt;', 'last' => '&gt;&gt;|');
 $dgrid->SetPagingSettings($bottom_paging, $top_paging, $pages_array, $default_page_size, $paging_arrows);
 
+$arrCurtainType = array(
+    '' => '',
+    'curtain-fabric' => "Curtain & Fabric",
+    'wall-paper' => "Wall Paper",
+    'roller-blind' => "Roller Blind",
+    'venetian-blind' => "Venetian Blind",
+    'furniture-built-in' => "Furniture Built In",
+);
 
 ## +---------------------------------------------------------------------------+
 ## | 5. Filter Settings:                                                       |
@@ -196,6 +204,18 @@ $filtering_fields = array(
         "comparison_type" => "string",
         "width" => "150px",
         "on_js_event" => ""
+    ),
+    "ประเภทผ้าม่าน" => array(
+        "type" => "enum",
+        "table" => "product",
+        "field" => "name_en",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => "",
+        'source'=> $arrCurtainType
     ),
     "Name" => array(
         "type" => "textbox",
@@ -448,14 +468,6 @@ $serialID = sprintf($format, intval($serialID) + 1);
 
 $imageName = 'La_Tenda_House-' . date('YmdHis');
 $imagePathUpload = '../images/uploads/products/';
-$arrCurtainType = array(
-    '' => '',
-    'curtain-fabric' => "Curtain & Fabric",
-    'wall-paper' => "Wall Paper",
-    'roller-blind' => "Roller Blind",
-    'venetian-blind' => "Venetian Blind",
-    'furniture-built-in' => "Furniture Built In",
-);
 $em_columns = array(
     'product_type_id' => array(
         'header' => 'product_type_id', 'type' => 'hidden', 'req_type' => 'ry',
