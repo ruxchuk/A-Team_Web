@@ -40,10 +40,8 @@ $sql = "
       *,
        CONCAT('<a title=\"แก้ไขข้อมูล\" href=\"?f_mode=edit&f_rid=', id, '&f_page_size=50&f_p=1&p_id=',
        id, '\"><img src=\"datagrid/styles/pink/images/edit.gif\"/></a>', ' | ',
-       '<img title=\"Delete\" style=\"cursor: pointer;\"
-       onclick=\"javascript:f_verifyDelete(',
-       \"'\", id, \"', '&f_page_size=50&f_p=1');\", '\"',
-       ' src=\"datagrid/styles/pink/images/delete.gif\"/>') AS edit_field
+       '<img title=\"Delete\" style=\"cursor: pointer;\" class=\"img-delete\" alt=\"', id, '\"
+       src=\"datagrid/styles/pink/images/delete.gif\"/>') AS edit_field
     FROM `link_website`
     WHERE 1
     AND `publish` = 1
@@ -176,6 +174,64 @@ $default_page_size = 50;
 $paging_arrows = array('first' => '|&lt;&lt;', 'previous' => '&lt;&lt;', 'next' => '&gt;&gt;', 'last' => '&gt;&gt;|');
 $dgrid->SetPagingSettings($bottom_paging, $top_paging, $pages_array, $default_page_size, $paging_arrows);
 
+
+$arrLinkGroup = array(
+    '' => "",
+    'ผ้าม่าน' => "ผ้าม่าน",
+    'ดาวเทียม' => 'ดาวเทียม',
+    'ช่องรายการ' => "ช่องรายการ",
+    'เครื่องปรับอากาศ' => "เครื่องปรับอากาศ",
+    'กล้องวงจรปิด' => "กล้องวงจรปิด",
+    'อื่นๆ' => "อื่นๆ",
+);
+
+## +---------------------------------------------------------------------------+
+## | 5. Filter Settings:                                                       |
+## +---------------------------------------------------------------------------+
+##  *** set filtering option: true or false(default)
+$filtering_option = true;
+$show_search_type = false;
+$dgrid->AllowFiltering($filtering_option, $show_search_type);
+##  *** set additional filtering settings
+$filtering_fields = array(
+    "ชื่อเรียก Link" => array(
+        "type" => "textbox",
+        "table" => "link_website",
+        "field" => "name",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => ""
+    ),
+    "Link" => array(
+        "type" => "textbox",
+        "table" => "link_website",
+        "field" => "link",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => ""
+    ),
+    "ประเภท Link" => array(
+        "type" => "enum",
+        "table" => "link_website",
+        "field" => "link_group",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => "",
+        'source'=> $arrLinkGroup
+    ),
+
+);
+$dgrid->SetFieldsFiltering($filtering_fields);
+
 ## +---------------------------------------------------------------------------+
 ## | 6. View Mode Settings:                                                    |
 ## +---------------------------------------------------------------------------+
@@ -190,7 +246,7 @@ $vm_columns = array(
     'id' => array('header' => 'ID', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'name' => array('header' => ' ชื่อเรียก Link', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'link' => array('header' => ' Link', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-    'link_group' => array('header' => ' ชื่อกลุ่มของ Link', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'link_group' => array('header' => ' ประเภท Link', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'count_click' => array('header' => ' จำนวน Click', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'edit_field' => array('header' => ' จัดการข้อมูล', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
 );
@@ -233,16 +289,6 @@ if ($getMode != 'add' && $getMode != 'edit') {
     </style>
     <?php
 }
-
-$arrLinkGroup = array(
-    '' => "",
-    'ผ้าม่าน' => "ผ้าม่าน",
-    'ดาวเทียม' => 'ดาวเทียม',
-    'ช่องรายการ' => "ช่องรายการ",
-    'เครื่องปรับอากาศ' => "เครื่องปรับอากาศ",
-    'กล้องวงจรปิด' => "กล้องวงจรปิด",
-    'อื่นๆ' => "อื่นๆ",
-);
 $em_columns = array(
     'name' => array('header' => ' ชื่อ Link', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '250px',
         'title' => 'ชื่อ Link', 'readonly' => 'false', 'maxlength' => '100', 'default' => ''),

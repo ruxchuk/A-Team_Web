@@ -33,10 +33,8 @@ SELECT
       `product_type`.`name` AS product_type_name,
        CONCAT('<a title=\"แก้ไขข้อมูล\" href=\"?f_mode=edit&f_rid=', `product`.id, '&f_page_size=50&f_p=1&p_id=',
        `product_type`.id, '\"><img src=\"datagrid/styles/pink/images/edit.gif\"/></a>', ' | ',
-       '<img title=\"Delete\" style=\"cursor: pointer;\"
-       onclick=\"javascript:f_verifyDelete(',
-       \"'\", `product`.id, \"', '&f_page_size=50&f_p=1');\", '\"',
-       ' src=\"datagrid/styles/pink/images/delete.gif\"/>') AS edit_field,
+       '<img title=\"Delete\" style=\"cursor: pointer;\" class=\"img-delete\" alt=\"', product.id, '\"
+       src=\"datagrid/styles/pink/images/delete.gif\"/>') AS edit_field,
        '' AS add_image,
        IF(`product`.new=0,'<div class=\"no\">No</div>', '<div class=\"yes\">Yes</div>') AS p_new,
        IF(`product`.sellers=0,'<div class=\"no\">No</div>', '<div class=\"yes\">Yes</div>') AS p_sellers,
@@ -177,6 +175,63 @@ $pages_array = array('10' => '10', '25' => '25', '50' => '50', '100' => '100', '
 $default_page_size = 50;
 $paging_arrows = array('first' => '|&lt;&lt;', 'previous' => '&lt;&lt;', 'next' => '&gt;&gt;', 'last' => '&gt;&gt;|');
 $dgrid->SetPagingSettings($bottom_paging, $top_paging, $pages_array, $default_page_size, $paging_arrows);
+
+## +---------------------------------------------------------------------------+
+## | 5. Filter Settings:                                                       |
+## +---------------------------------------------------------------------------+
+##  *** set filtering option: true or false(default)
+$filtering_option = true;
+$show_search_type = false;
+$dgrid->AllowFiltering($filtering_option, $show_search_type);
+##  *** set additional filtering settings
+$filtering_fields = array(
+    "รหัสสินค้า" => array(
+        "type" => "textbox",
+        "table" => "product",
+        "field" => "serial",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => ""
+    ),
+    "ชื่อสินค้า" => array(
+        "type" => "textbox",
+        "table" => "product",
+        "field" => "name_th",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => ""
+    ),
+    "ราคาขายปลีก" => array(
+        "type" => "textbox",
+        "table" => "product",
+        "field" => "price2",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => ""
+    ),
+    "ความสำคัญ" => array(
+        "type" => "textbox",
+        "table" => "product",
+        "field" => "priority",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => ""
+    ),
+
+);
+$dgrid->SetFieldsFiltering($filtering_fields);
 
 ## +---------------------------------------------------------------------------+
 ## | 6. View Mode Settings:                                                    |
@@ -521,3 +576,4 @@ $dgrid->SetAutoColumnsInEditMode(false);
 ##  *** set debug mode & messaging options
 $dgrid->Bind();
 ob_end_flush();
+//023283444

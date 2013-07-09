@@ -33,10 +33,8 @@ SELECT
       `product_type`.`name` AS product_type_name,
        CONCAT('<a title=\"แก้ไขข้อมูล\" href=\"?f_mode=edit&f_rid=', `product`.id, '&f_page_size=50&f_p=1&p_id=',
        `product_type`.id, '\"><img src=\"datagrid/styles/pink/images/edit.gif\"/></a>', ' | ',
-       '<img title=\"Delete\" style=\"cursor: pointer;\"
-       onclick=\"javascript:f_verifyDelete(',
-       \"'\", `product`.id, \"', '&f_page_size=50&f_p=1');\", '\"',
-       ' src=\"datagrid/styles/pink/images/delete.gif\"/>') AS edit_field,
+       '<img title=\"Delete\" style=\"cursor: pointer;\" class=\"img-delete\" alt=\"', product.id, '\"
+       src=\"datagrid/styles/pink/images/delete.gif\"/>') AS edit_field,
        '' AS add_image,
        IF(`product`.new=0,'<div class=\"no\">No</div>', '<div class=\"yes\">Yes</div>') AS p_new,
        IF(`product`.sellers=0,'<div class=\"no\">No</div>', '<div class=\"yes\">Yes</div>') AS p_sellers,
@@ -178,11 +176,82 @@ $default_page_size = 50;
 $paging_arrows = array('first' => '|&lt;&lt;', 'previous' => '&lt;&lt;', 'next' => '&gt;&gt;', 'last' => '&gt;&gt;|');
 $dgrid->SetPagingSettings($bottom_paging, $top_paging, $pages_array, $default_page_size, $paging_arrows);
 
+
+## +---------------------------------------------------------------------------+
+## | 5. Filter Settings:                                                       |
+## +---------------------------------------------------------------------------+
+##  *** set filtering option: true or false(default)
+$filtering_option = true;
+$show_search_type = false;
+$dgrid->AllowFiltering($filtering_option, $show_search_type);
+##  *** set additional filtering settings
+$filtering_fields = array(
+    "Serial No" => array(
+        "type" => "textbox",
+        "table" => "product",
+        "field" => "serial",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => ""
+    ),
+    "Name" => array(
+        "type" => "textbox",
+        "table" => "product",
+        "field" => "name_th",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => ""
+    ),
+    "Type" => array(
+        "type" => "textbox",
+        "table" => "product",
+        "field" => "brand",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => ""
+    ),
+    "Design" => array(
+        "type" => "textbox",
+        "table" => "product",
+        "field" => "model",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => ""
+    ),
+    "Location" => array(
+        "type" => "textbox",
+        "table" => "product",
+        "field" => "value",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => ""
+    ),
+
+);
+$dgrid->SetFieldsFiltering($filtering_fields);
+
+
 ## +---------------------------------------------------------------------------+
 ## | 6. View Mode Settings:                                                    |
 ## +---------------------------------------------------------------------------+
 ##  *** set view mode table properties
-$vm_table_properties = array('width' => '100%');
+//$vm_table_properties = array('width' => '100%');
+$vm_table_properties = array("width" => "85%");
 $dgrid->SetViewModeTableProperties($vm_table_properties);
 ##  *** set columns in view mode
 ##  *** Ex.: 'on_js_event'=>'onclick="alert(\'Yes!!!\');"'
@@ -273,39 +342,39 @@ if ($getMode != 'add' && $getMode != 'edit') {
         });
 
         /*function genUpload(btnUpload, idReload, idSave) {
-            $(btnUpload).uploadify({
-                'userfile': {
-                    'path': pathImgUploadTmp
-                },
-                'swf': swfPath,
-                'uploader': pathUploadify,
-                'fileSizeLimit': '500KB',
-                'fileTypeExts': '*.gif; *.jpg; *.png',
-                'enctype': "multipart/form-data",
-                'fileObjName': 'userfile',
-                'onFallback': function () {
-                    alert('Flash was not detected.');// detect flash compatible
-                }, 'onUploadSuccess': function (file, data, response) {
-                    var n = data.search("Path fail");
-                    if (n > 0) {
-                        alert("Path รูปภาพเกิดข้อผิดพลาด" + data);
-                    } else {
-                        reloadImage(idReload, data, idSave);
-                    }
-                }
-            });
-        }
+         $(btnUpload).uploadify({
+         'userfile': {
+         'path': pathImgUploadTmp
+         },
+         'swf': swfPath,
+         'uploader': pathUploadify,
+         'fileSizeLimit': '500KB',
+         'fileTypeExts': '*.gif; *.jpg; *.png',
+         'enctype': "multipart/form-data",
+         'fileObjName': 'userfile',
+         'onFallback': function () {
+         alert('Flash was not detected.');// detect flash compatible
+         }, 'onUploadSuccess': function (file, data, response) {
+         var n = data.search("Path fail");
+         if (n > 0) {
+         alert("Path รูปภาพเกิดข้อผิดพลาด" + data);
+         } else {
+         reloadImage(idReload, data, idSave);
+         }
+         }
+         });
+         }
 
-        function reloadImage(id, img, idSave) {
-            var path = pathImgUploadTmp + img;
-            $(idSave).val(img);
-            $(id).fadeOut().html(getTypeImage(path, "")).fadeIn("slow");
-            //$(id).fadeOut().src(path).fadeIn("slow");
-        }
+         function reloadImage(id, img, idSave) {
+         var path = pathImgUploadTmp + img;
+         $(idSave).val(img);
+         $(id).fadeOut().html(getTypeImage(path, "")).fadeIn("slow");
+         //$(id).fadeOut().src(path).fadeIn("slow");
+         }
 
-        function getTypeImage(src, id) {
-            return '<img src="' + src + '" style="width: 250px; height: 190px;"/>';
-        }*/
+         function getTypeImage(src, id) {
+         return '<img src="' + src + '" style="width: 250px; height: 190px;"/>';
+         }*/
     </script>
 <?php
 }
@@ -425,101 +494,101 @@ $em_columns = array(
 //        'post_addition' => "<div id='image_show'><img style=\"width: 250px; height: 190px;\" /></div>
 //        <input type='file' id='image_add' />"),
 
-    'image_path'  => array(
-        'header'=>'รูปภาพ 1', 'type'=>'image',
-        'req_type'=>'rt', 'width'=>'210px', 'title'=>'',
-        'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
-        'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
-        'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
-        'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=> $imageName,
-        'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
+    'image_path' => array(
+        'header' => 'รูปภาพ 1', 'type' => 'image',
+        'req_type' => 'rt', 'width' => '210px', 'title' => '',
+        'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true',
+        'on_js_event' => '', 'target_path' => $imagePathUpload,
+        'allow_image_updating' => 'false', 'max_file_size' => '500k', 'image_width' => '120px',
+        'image_height' => '90px', 'resize_dir' => 'down|up|both', 'resize_image' => 'false',
+        'resize_width' => '', 'resize_height' => '', 'magnify' => 'true', 'magnify_type' => 'magnifier',
+        'magnify_power' => '2', 'file_name' => $imageName,
+        'host' => 'local|remote', 'allow_downloading' => 'false', 'allowed_extensions' => ''
     ),
-    'image_path2'  => array(
-        'header'=>'รูปภาพ 2', 'type'=>'image',
-        'req_type'=>'st', 'width'=>'210px', 'title'=>'',
-        'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
-        'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
-        'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
-        'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=> $imageName,
-        'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
+    'image_path2' => array(
+        'header' => 'รูปภาพ 2', 'type' => 'image',
+        'req_type' => 'st', 'width' => '210px', 'title' => '',
+        'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true',
+        'on_js_event' => '', 'target_path' => $imagePathUpload,
+        'allow_image_updating' => 'false', 'max_file_size' => '500k', 'image_width' => '120px',
+        'image_height' => '90px', 'resize_dir' => 'down|up|both', 'resize_image' => 'false',
+        'resize_width' => '', 'resize_height' => '', 'magnify' => 'true', 'magnify_type' => 'magnifier',
+        'magnify_power' => '2', 'file_name' => $imageName,
+        'host' => 'local|remote', 'allow_downloading' => 'false', 'allowed_extensions' => ''
     ),
-    'image_path3'  => array(
-        'header'=>'รูปภาพ 3', 'type'=>'image',
-        'req_type'=>'st', 'width'=>'210px', 'title'=>'',
-        'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
-        'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
-        'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
-        'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=> $imageName,
-        'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
+    'image_path3' => array(
+        'header' => 'รูปภาพ 3', 'type' => 'image',
+        'req_type' => 'st', 'width' => '210px', 'title' => '',
+        'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true',
+        'on_js_event' => '', 'target_path' => $imagePathUpload,
+        'allow_image_updating' => 'false', 'max_file_size' => '500k', 'image_width' => '120px',
+        'image_height' => '90px', 'resize_dir' => 'down|up|both', 'resize_image' => 'false',
+        'resize_width' => '', 'resize_height' => '', 'magnify' => 'true', 'magnify_type' => 'magnifier',
+        'magnify_power' => '2', 'file_name' => $imageName,
+        'host' => 'local|remote', 'allow_downloading' => 'false', 'allowed_extensions' => ''
     ),
-    'image_path4'  => array(
-        'header'=>'รูปภาพ 4', 'type'=>'image',
-        'req_type'=>'st', 'width'=>'210px', 'title'=>'',
-        'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
-        'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
-        'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
-        'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=> $imageName,
-        'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
+    'image_path4' => array(
+        'header' => 'รูปภาพ 4', 'type' => 'image',
+        'req_type' => 'st', 'width' => '210px', 'title' => '',
+        'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true',
+        'on_js_event' => '', 'target_path' => $imagePathUpload,
+        'allow_image_updating' => 'false', 'max_file_size' => '500k', 'image_width' => '120px',
+        'image_height' => '90px', 'resize_dir' => 'down|up|both', 'resize_image' => 'false',
+        'resize_width' => '', 'resize_height' => '', 'magnify' => 'true', 'magnify_type' => 'magnifier',
+        'magnify_power' => '2', 'file_name' => $imageName,
+        'host' => 'local|remote', 'allow_downloading' => 'false', 'allowed_extensions' => ''
     ),
-    'image_path5'  => array(
-        'header'=>'รูปภาพ 5', 'type'=>'image',
-        'req_type'=>'st', 'width'=>'210px', 'title'=>'',
-        'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
-        'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
-        'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
-        'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=> $imageName,
-        'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
+    'image_path5' => array(
+        'header' => 'รูปภาพ 5', 'type' => 'image',
+        'req_type' => 'st', 'width' => '210px', 'title' => '',
+        'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true',
+        'on_js_event' => '', 'target_path' => $imagePathUpload,
+        'allow_image_updating' => 'false', 'max_file_size' => '500k', 'image_width' => '120px',
+        'image_height' => '90px', 'resize_dir' => 'down|up|both', 'resize_image' => 'false',
+        'resize_width' => '', 'resize_height' => '', 'magnify' => 'true', 'magnify_type' => 'magnifier',
+        'magnify_power' => '2', 'file_name' => $imageName,
+        'host' => 'local|remote', 'allow_downloading' => 'false', 'allowed_extensions' => ''
     ),
-    'image_path6'  => array(
-        'header'=>'รูปภาพ 6', 'type'=>'image',
-        'req_type'=>'st', 'width'=>'210px', 'title'=>'',
-        'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
-        'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
-        'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
-        'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=> $imageName,
-        'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
+    'image_path6' => array(
+        'header' => 'รูปภาพ 6', 'type' => 'image',
+        'req_type' => 'st', 'width' => '210px', 'title' => '',
+        'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true',
+        'on_js_event' => '', 'target_path' => $imagePathUpload,
+        'allow_image_updating' => 'false', 'max_file_size' => '500k', 'image_width' => '120px',
+        'image_height' => '90px', 'resize_dir' => 'down|up|both', 'resize_image' => 'false',
+        'resize_width' => '', 'resize_height' => '', 'magnify' => 'true', 'magnify_type' => 'magnifier',
+        'magnify_power' => '2', 'file_name' => $imageName,
+        'host' => 'local|remote', 'allow_downloading' => 'false', 'allowed_extensions' => ''
     ),
-    'image_path7'  => array(
-        'header'=>'รูปภาพ 7', 'type'=>'image',
-        'req_type'=>'st', 'width'=>'210px', 'title'=>'',
-        'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
-        'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
-        'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
-        'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=> $imageName,
-        'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
+    'image_path7' => array(
+        'header' => 'รูปภาพ 7', 'type' => 'image',
+        'req_type' => 'st', 'width' => '210px', 'title' => '',
+        'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true',
+        'on_js_event' => '', 'target_path' => $imagePathUpload,
+        'allow_image_updating' => 'false', 'max_file_size' => '500k', 'image_width' => '120px',
+        'image_height' => '90px', 'resize_dir' => 'down|up|both', 'resize_image' => 'false',
+        'resize_width' => '', 'resize_height' => '', 'magnify' => 'true', 'magnify_type' => 'magnifier',
+        'magnify_power' => '2', 'file_name' => $imageName,
+        'host' => 'local|remote', 'allow_downloading' => 'false', 'allowed_extensions' => ''
     ),
-    'image_path8'  => array(
-        'header'=>'รูปภาพ 8', 'type'=>'image',
-        'req_type'=>'st', 'width'=>'210px', 'title'=>'',
-        'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
-        'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
-        'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
-        'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=> $imageName,
-        'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
+    'image_path8' => array(
+        'header' => 'รูปภาพ 8', 'type' => 'image',
+        'req_type' => 'st', 'width' => '210px', 'title' => '',
+        'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true',
+        'on_js_event' => '', 'target_path' => $imagePathUpload,
+        'allow_image_updating' => 'false', 'max_file_size' => '500k', 'image_width' => '120px',
+        'image_height' => '90px', 'resize_dir' => 'down|up|both', 'resize_image' => 'false',
+        'resize_width' => '', 'resize_height' => '', 'magnify' => 'true', 'magnify_type' => 'magnifier',
+        'magnify_power' => '2', 'file_name' => $imageName,
+        'host' => 'local|remote', 'allow_downloading' => 'false', 'allowed_extensions' => ''
     ),
 
     'description' => array('header' => ' รายละเอียด', 'type' => 'textarea', 'req_type' => 'ry', 'width' => '500px',

@@ -15,6 +15,20 @@ $baseUrl = $actual_link = "http://$_SERVER[HTTP_HOST]/";
 <head>
     <meta http-equiv='content-type' content='text/html; charset=UTF-8'/>
     <script type="text/javascript" src="http://latendahouse.com/web/js/jquery-1.9.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.img-delete').click(function () {
+                //f_verifyDelete(this.id, '&f_page_size=50&f_p=1');
+                if (confirm("คุณต้องการลบข้อมูล ID: " + this.alt + " ใช่หรือไม่?")) {
+                    f__doPostBack("toggle_status",  this.alt,
+                        "&f_page_size=50&f_p=1&f_toggle_status=1&f_toggle_field=publish&f_toggle_field_value=0");
+                } else {
+                    _dgStopPropagation(event);
+                }
+                return false;
+            });
+        });
+    </script>
 </head>
 <p>
     <a href="<?php echo $baseUrl; ?>" title="หน้าแรก">
