@@ -179,7 +179,7 @@ $webUrl = $this->Constant_model->webUrl();
                                                 <a href="<?php echo $webUrl; ?>"><h4> Home</h4></a>
                                                 <a href="<?php echo $webUrl; ?>ติดต่อเรา"><h4> Contact Us</h4></a>
 <!--                                                <a href="#"><h4> About Us</h4></a>-->
-                                                <br><a href="http://www.reliablecounter.com" target="_blank">
+                                                <br><a href="http://www.latendahouse.com" target="_blank">
                                                     <img width="120"
                                                          src="http://goo.gl/q01yh"
                                                          alt="www.latendahouse.com"
