@@ -16,7 +16,7 @@ class Auth extends CI_Controller
         parent::__construct();
     }
 
-    public function signIn()
+    function signIn()
     {
         $message = "";
         $post = $this->input->post();
@@ -42,6 +42,7 @@ class Auth extends CI_Controller
                 $this->session->set_userdata((array)$result[0]);
                 session_start();
                 $_SESSION['userdata'] = $this->session->userdata;
+                $_SESSION['webUrl'] = $this->Constant_model->webUrl();
                 redirect(base_url() . "web/backend/product.php");
             } else {
                 $message = 'login fail';
@@ -54,16 +55,27 @@ class Auth extends CI_Controller
         }
     }
 
-    public function signOut()
+    function signOut()
     {
         $this->session->sess_destroy();
         session_start();
         unset($_SESSION["userdata"]);
-        redirect(base_url() . 'auth/signIn');
+        redirect($this->Constant_model->webUrl() . 'auth/signIn');
     }
 
-    function memberLogin()
+    function stampLogs()
     {
-
+        $post = $this->input->post();
+        if ($post) {
+            extract($post);
+            $data = array(
+                'table' => $table,
+                'table_id' => $id,
+                'detail' => $detail,
+                'date_stamp' => date("Y-m-d H:i:s"),
+            );
+            $this->db->insert('logs', $data);
+            return $id = $this->db->insert_id('logs');
+        }
     }
 }

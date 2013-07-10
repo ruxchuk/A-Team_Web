@@ -14,4 +14,29 @@ class Constant_model extends CI_Model
         parent::__construct();
     }
 
+    function webUrl()
+    {
+        $webUrl = "";
+        if (strstr($_SERVER['HTTP_HOST'], 'localhost') > -1) {
+            $webUrl .= base_url() . 'index.php/';
+        } else {
+            $webUrl = base_url();
+        }
+        return $webUrl;
+    }
+
+    function saveLogs($post)
+    {
+//        extract($post);
+//        $data = array(
+//            'table' => $table,
+//            'table_id' => $id,
+//            'detail' => $detail,
+//            'date_stamp' => date("Y-m-d H:i:s"),
+//        );
+//        var_dump($data);exit();
+//        $this->db->insert('logs', $data);
+//        return $id = $this->db->insert_id('logs');
+    }
+
 }

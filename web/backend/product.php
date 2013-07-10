@@ -287,7 +287,6 @@ $condition = "";
 $dgrid->SetTableEdit($table_name, $primary_key, $condition);
 
 $getMode = @$_GET[$unique_prefix . 'mode'];
-$userID = @$_SESSION['userdata']['id'];
 
 if ($getMode != 'add' && $getMode != 'edit') {
     ?>
@@ -383,19 +382,6 @@ if ($getMode == 'edit') {
 
             //delete
             //$(".pink_dg_a2").remove();
-        });
-    </script>
-<?php
-} else {
-    ?>
-    <script>
-        //rfyimage_path
-        $(document).ready(function () {
-            //$("#rfyimage_path").append('<input type="hidden" id="saveID" />');
-            //$('#rfyimage_path').each(function (i) {
-            //this.name = this.name.replace(/\d+/, i+1);
-            //this.type = "file";
-//            });
         });
     </script>
 <?php

@@ -345,7 +345,7 @@ if ($getMode != 'add' && $getMode != 'edit') {
 ?>
 <script>
     $(document).ready(function () {
-        $('.x-green_dg_a').each(function(){
+        $('a').each(function(){
             if (this.title == 'Update record' || this.title == 'Create new record') {
                 $(this).attr('id', 'button-submit');
             }
@@ -358,10 +358,19 @@ if ($getMode != 'add' && $getMode != 'edit') {
                         password: $("#rpypassword").val(),
                         type_post: "md5"
                     },
-                    function(result){
-                        $("#rpypassword").hide();
-                        $("#rpypassword").val(result);
-                        f_sendEditFields();
+                    function(result1){
+                        $.post(webLogsUrl, {
+                                table: table,
+                                id: '<?php echo @$_GET['f_rid']; ?>',
+                                detail: "edit_data;user_name=" + userName + ";" +
+                                    "user_id=" + userID
+                            },
+                            function(result2){
+                                $("#rpypassword").hide();
+                                $("#rpypassword").val(result1);
+                                f_sendEditFields();
+                            }
+                        );
                     }
                 );
             }
