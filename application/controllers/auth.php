@@ -43,7 +43,7 @@ class Auth extends CI_Controller
                 session_start();
                 $_SESSION['userdata'] = $this->session->userdata;
                 $_SESSION['webUrl'] = $this->Constant_model->webUrl();
-                redirect(base_url() . "web/backend/product.php");
+                redirect(base_url() . "web/backend/curtain.php");
             } else {
                 $message = 'login fail';
             }
@@ -51,7 +51,7 @@ class Auth extends CI_Controller
         if (empty($this->session->userdata['user_name'])) {
             $this->load->view('sign-in', array('message' => $message));
         } else {
-            redirect(base_url() . "web/backend/product.php");
+            redirect(base_url() . "web/backend/curtain.php");
         }
     }
 
