@@ -48,6 +48,7 @@ $baseUrl = base_url();
 
     $(document).ready(function(){
        $("#submit").click(function(){
+           $("#submit").attr("disabled", "disabled");
            if (validateRegister()) {
                $.ajax({
                    type        : "POST",
@@ -64,7 +65,9 @@ $baseUrl = base_url();
                    },
                    success: function(data) {
                        if (data == "register success") {
-                           $.post(url_login, {
+                           alert("สวัดดีคุณ " + $("#name").val());
+                           window.location.reload();
+                           /*$.post(url_login, {
                                    username: $("#user_name").val(),
                                    passwd: $("#passwd").val()
                                },
@@ -76,13 +79,16 @@ $baseUrl = base_url();
                                        window.location.reload();
                                    }
                                }
-                           );
+                           );*/
                        } else {
                            alert(data)
                            //window.location.reload();
                        }
+                       $("#submit").attr("disabled", "");
                    }
                });
+           } else {
+               $("#submit").attr("disabled", "");
            }
            return false;
        });
@@ -102,35 +108,41 @@ $baseUrl = base_url();
             <!--        <input type='hidden' name='submitted' id='submitted' value='1'/>-->
             <table>
                 <tr>
-                    <td><label for='name'>ชื่อ-นามสกุล</label><font color="#E72222">*</font>:</td>
+                    <td valign="top"><label for='name'>ชื่อ-นามสกุล</label><font color="#E72222">*</font></td>
                     <td>
-                        <input type='text' name='name' id='name' maxlength="50"/></td>
+                        <input type='text' name='name' id='name' maxlength="50" size="20"/></td>
                 </tr>
                 <tr>
-                    <td><label for='email'>Email Address</label><font color="#E72222">*</font>:</td>
+                    <td valign="top"><label for='email'>Email</label><font color="#E72222">*</font></td>
                     <td>
-                        <input type='text' name='email' id='email' maxlength="50"/></td>
+                        <input type='text' name='email' id='email' maxlength="50" size="20"/></td>
                 </tr>
                 <tr>
-                    <td><label for='phone'>เบอร์โทร</label><font color="#E72222">*</font>:</td>
+                    <td valign="top"><label for='phone'>เบอร์โทร</label><font color="#E72222">*</font></td>
                     <td>
-                        <input type='text' name='phone' id='phone' maxlength="20"/></td>
+                        <input type='text' name='phone' id='phone' maxlength="20" size="20"/></td>
                 </tr>
                 <tr>
-                    <td><label for='address'>ที่อยู่</label><font color="#E72222">*</font>:</td>
+                    <td valign="top"><label for='address'>ที่อยู่</label><font color="#E72222">*</font></td>
                     <td>
                         <textarea name="address" id="address" style="resize: none; margin: 2px;
-                        width: 146px; height: 44px;"></textarea></td>
+                        width: 146px; height: 80px;"></textarea></td>
                 </tr>
                 <tr>
-                    <td><label for='user_name'>ชื่อผู้ใช้</label><font color="#E72222">*</font>:</td>
-                    <td><input type='text' name='user_name' id='user_name' maxlength="20"
-                            title="ชื่อผู้ใช้ ใช้ในการ login เข้าสู่ระบบ"/></td>
+                    <td valign="top"><label for='user_name'>ชื่อผู้ใช้</label><font color="#E72222">*</font></td>
+                    <td><input type='text' name='user_name' id='user_name' maxlength="20" size="20"
+                            title="ชื่อผู้ใช้ ใช้ในการ login เข้าสู่ระบบ"/>
+                        <p style="height:10px;margin-top:-5px;color: #F07641;font-size: 10px">ชื่อผู้ใช้ต้องมีอย่างน้อย 4 ตัว</p>
+                    </td>
                 </tr>
                 <tr>
-                    <td><label for='password'>รหัสผ่าน</label><font color="#E72222">*</font>:</td>
-                    <td><input type='password' name='password' id='password' maxlength="20"
-                            title="รหัสผ่าน ใช้ในการ login เข้าสู้ระบบ"/></td>
+                    <td valign="top">
+                        <label for='password'>รหัสผ่าน</label><font color="#E72222">*</font>
+                    </td>
+                    <td><input type='password' name='password' id='password' maxlength="20" size="20"
+                            title="รหัสผ่าน ใช้ในการ login เข้าสู้ระบบ"/>
+                        <p style="height:10px;margin-top:-5px;color: #F07641;font-size: 10px">รหัสผ่านต้องมีอย่างน้อย 6 ตัว</p>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2">

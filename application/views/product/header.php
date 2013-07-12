@@ -60,6 +60,9 @@ $urlImageHeader = $baseUrl . "web/images/header-sat.png";
                                     <a class="<?php echo $selectBar == 'index'?'link-active':'link'; ?>" href="<?php echo $baseUrl; ?>">Home</a> |
                                     <a class="<?php echo $selectBar == 'ผ้าม่าน'?'link-active':'link'; ?>" href="<?php echo $webUrl; ?>ผ้าม่าน">Curtain</a> |
                                     <a class="<?php echo $selectBar == 'สินค้า'?'link-active':'link'; ?>" href="<?php echo $webUrl; ?>สินค้า">Product</a> |
+                                    <?php //if (!empty($this->session->userdata['user_name'])) : ?>
+                                        <a class="<?php echo $selectBar == 'สมาชิก'?'link-active':'link'; ?>" href="<?php echo $webUrl; ?>สมาชิก">Member</a> |
+                                    <?php //endif; ?>
                                     <a class="<?php echo $selectBar == 'contactus'?'link-active':'link'; ?>" href="<?php echo $webUrl; ?>ติดต่อเรา">Contact Us</a>
 <!--                                    <a class="--><?php //echo $selectBar == 'เกี่ยวกับเรา'?'link-active':'link'; ?><!--" href="#">About Us</a>-->
                                 </div>

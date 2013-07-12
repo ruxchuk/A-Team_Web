@@ -87,4 +87,46 @@ class Send_email_model extends CI_Model
         $this->email->send();
         return $this->email->print_debugger();
     }
+
+    /**
+     * @param $to
+     * @param $subject
+     * @param $message
+     * @param $name
+     * @param $email
+     * @return bool
+     */
+    function sendEmail($to, $subject, $message, $name, $email)
+    {
+        $config = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'mail.latendahouse.com',
+            'smtp_port' => 25,
+            'smtp_user' => 'mailing@latendahouse.com',
+            'smtp_pass' => 'vpjkglnvd',
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'wordwrap' => TRUE
+        );
+        try {
+            $this->load->library('email', $config);
+            $this->email->from($email, $name);
+//        $this->email->to($arrData[0]->contact_email);
+            $this->email->to($to);
+//        $this->email->cc('another@another-example.com');
+//        $this->email->bcc('them@their-example.com');
+
+            $this->email->subject($subject);
+            $this->email->message($message);
+            $result = $this->email->send();
+        } catch (Exception $e) {
+            return false;
+        }
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+        //echo $this->email->print_debugger();
+    }
 }

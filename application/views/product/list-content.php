@@ -9,7 +9,6 @@
 $this->load->view('header');
 $this->load->view("sidebar");
 $baseUrl = base_url();
-$baseUrl = base_url();
 $pathIconNew = $baseUrl . "web/images/icon_new.gif";
 $pathSellers = $baseUrl . "web/images/icon_hot.gif";
 $pathRecommend = $baseUrl . "web/images/icon_recommence.gif";

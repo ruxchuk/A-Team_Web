@@ -132,6 +132,14 @@ $webUrl = $this->Constant_model->webUrl();
                                     </style>
                                     <div id="footer">
                                         <div id="footer_widget1" class="footer_widget">
+                                            <div class="widget">
+                                                <a href="<?php echo $webUrl; ?>"><h4> Home</h4></a>
+                                                <a href="<?php echo $webUrl; ?>สมาชิก"><h4> Member</h4></a>
+                                                <a href="<?php echo $webUrl; ?>ติดต่อเรา"><h4> Contact Us</h4></a>
+                                                <!--<a href="#"><h4> About Us</h4></a>-->
+                                            </div>
+                                        </div>
+                                        <div id="footer_widget2" class="footer_widget">
                                             <div id="menubar-3" class="widget">
                                                 <a href="<?php echo $webUrl; ?>ผ้าม่าน"><h4>Curtain</h4></a>
                                                 <ul>
@@ -158,7 +166,7 @@ $webUrl = $this->Constant_model->webUrl();
                                                 <div class="Suckerfish_4-after"></div>
                                             </div>
                                         </div>
-                                        <div id="footer_widget2" class="footer_widget">
+                                        <div id="footer_widget3" class="footer_widget">
                                             <div class="widget">
                                                 <a href="<?php echo $webUrl; ?>สินค้า"><h4>สินค้า</h4></a>
                                                 <ul>
@@ -172,20 +180,15 @@ $webUrl = $this->Constant_model->webUrl();
                                                         <a href="<?php echo $webUrl; ?>สินค้า/กล้องวงจรปิด">กล้องวงจรปิด</a>
                                                     </li>
                                                 </ul>
-                                            </div>
-                                        </div>
-                                        <div id="footer_widget3" class="footer_widget">
-                                            <div class="widget">
-                                                <a href="<?php echo $webUrl; ?>"><h4> Home</h4></a>
-                                                <a href="<?php echo $webUrl; ?>ติดต่อเรา"><h4> Contact Us</h4></a>
-<!--                                                <a href="#"><h4> About Us</h4></a>-->
-                                                <br><a href="http://www.latendahouse.com" target="_blank">
+                                                <div align="right">
+                                                <a href="http://www.latendahouse.com" target="_blank">
                                                     <img width="120"
                                                          src="http://goo.gl/q01yh"
                                                          alt="www.latendahouse.com"
                                                          title="www.latendahouse.com"
                                                          border="0">
                                                 </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

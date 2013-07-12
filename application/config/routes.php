@@ -65,7 +65,8 @@ $route['สินค้า/([ก-เ]+)/(\d+)'] = "product/productType/$3";
 $route['สินค้า/([ก-เ]+)'] = "product/productType";
 
 
-
+$route['สมาชิก'] = "member/profile";
+$route['เปลี่ยนรหัสผ่าน'] = "member/resetPassword";
 
 
 //$route[('([ก-เ]+)')] = "product/productAll";

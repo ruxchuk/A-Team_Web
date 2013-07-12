@@ -137,18 +137,24 @@ $pathPromotion = $baseUrl . "web/images/icon_promotion.gif";
             frm.passwd.select();
             return false;
         }
-        setCookieLogin();//set cookie
-        $.post(url_login, $("#form-login").serialize(),
-            function (result) {
-                if (result == "login fail") {
-                    alert('ชื่อผู้ใช้ หรือรหัสผ่านผิด\n** กรุณาตรวจสอบ **');
-                    $("#username").select();
-                } else {
-                    //alert(result)
-                    window.location.reload();
+        return true;
+    }
+
+    function submitLogin(frm) {
+        if (validateLogin(frm)) {
+            setCookieLogin();//set cookie
+            $.post(url_login, $("#form-login").serialize(),
+                function (result) {
+                    if (result == "login fail") {
+                        alert('ชื่อผู้ใช้ หรือรหัสผ่านผิด\n** กรุณาตรวจสอบ **');
+                        $("#username").select();
+                    } else {
+                        //alert(result)
+                        window.location.reload();
+                    }
                 }
-            }
-        );
+            );
+        }
         return false;
     }
 </script>
@@ -162,7 +168,7 @@ if (empty($this->session->userdata['user_name'])) :
                     <h3>เข้าสู่ระบบ</h3>
 
                     <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="login" id="form-login"
-                          onsubmit="return validateLogin(this);">
+                          onsubmit="return submitLogin(this);">
                         <fieldset class="input">
                             <p id="form-login-username">
                                 <label for="username">ชื่อผู้ใช้</label><br/>
@@ -223,8 +229,8 @@ if (empty($this->session->userdata['user_name'])) :
                 <div>
                     <h3>สมาชิก</h3>
                     <fieldset class="input">
-                        <p><font color="#E72222">สวัสดี</font> <?php echo $this->session->userdata['name']; ?></p>
-
+                        <p><font color="#E72222">สวัสดี</font><a href="<?php echo $webUrl; ?>สมาชิก">
+                            <?php echo $this->session->userdata['name']; ?></a></p>
                         <p><font
                                 color="#E72222">ประเภทสมาชิก</font> <?php echo $this->session->userdata['member_type']; ?>
                         </p>
@@ -281,6 +287,7 @@ if (empty($this->session->userdata['user_name'])) :
                     </div>
                 </li>
 
+                <li><a href="<?php echo $webUrl; ?>สมาชิก">Member</a></li>
                 <li><a href="<?php echo $webUrl; ?>ติดต่อเรา">Contact Us</a></li>
             </ul>
         </nav>

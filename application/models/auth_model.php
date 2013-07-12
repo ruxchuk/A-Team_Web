@@ -39,6 +39,7 @@ class Auth_model extends CI_Model
             $this->session->set_userdata((array)$result[0]);
             session_start();
             $_SESSION['userdata'] = $this->session->userdata;
+            $_SESSION['webUrl'] = $this->Constant_model->webUrl();
             //redirect(base_url() . "web/backend/product.php");
             return true;
         } else {
@@ -52,6 +53,7 @@ class Auth_model extends CI_Model
         $this->session->sess_destroy();
         session_start();
         unset($_SESSION["userdata"]);
+        $_SESSION['webUrl'] = $this->Constant_model->webUrl();
         return true;
     }
 }

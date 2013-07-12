@@ -125,7 +125,7 @@ $pathPromotion = $baseUrl . "web/images/icon_promotion.gif";
     <div id="mainbody" class="wrapper">
 
 <?php
-if ($setImageHeader != 'sat') {
+if (@$setImageHeader != 'sat') {
     $this->load->view('curtain/header');
 } else {
     $this->load->view('product/header');
@@ -136,7 +136,7 @@ if ($setImageHeader != 'sat') {
     <div id="main-content">
     <div id="main-content2">
 
-<?php if ($showSlide): ?>
+<?php if (@$showSlide): ?>
     <!--slide image-->
     <!--end slide image-->
 <?php endif; ?>

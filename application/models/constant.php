@@ -25,18 +25,4 @@ class Constant_model extends CI_Model
         return $webUrl;
     }
 
-    function saveLogs($post)
-    {
-//        extract($post);
-//        $data = array(
-//            'table' => $table,
-//            'table_id' => $id,
-//            'detail' => $detail,
-//            'date_stamp' => date("Y-m-d H:i:s"),
-//        );
-//        var_dump($data);exit();
-//        $this->db->insert('logs', $data);
-//        return $id = $this->db->insert_id('logs');
-    }
-
 }

@@ -22,34 +22,15 @@ class Auth extends CI_Controller
         $post = $this->input->post();
         if ($post) {
             extract($post);
-            $password = md5($password);
-            $sql = "
-              SELECT
-                  a.*,
-                  b.`name` as member_type
-                FROM `member` a
-                INNER JOIN `member_type` b ON (
-                  a.`member_type_id` = b.`id`
-                )
-                WHERE 1
-                AND `user_name` = '$user_name'
-                AND `password` = '$password'
-                AND publish = 1
-            ";
-            $query = $this->db->query($sql);
-            if ($query->num_rows()) {
-                $result = $query->result();
-                $this->session->set_userdata((array)$result[0]);
-                session_start();
-                $_SESSION['userdata'] = $this->session->userdata;
-                $_SESSION['webUrl'] = $this->Constant_model->webUrl();
+            $resultLogin = $this->Auth_model->memberLogin($user_name, $password);
+            if ($resultLogin) {
                 redirect(base_url() . "web/backend/curtain.php");
             } else {
                 $message = 'login fail';
             }
         }
         if (empty($this->session->userdata['user_name'])) {
-            $this->load->view('sign-in', array('message' => $message));
+            $this->load->view('backend/sign-in', array('message' => $message));
         } else {
             redirect(base_url() . "web/backend/curtain.php");
         }
@@ -57,10 +38,10 @@ class Auth extends CI_Controller
 
     function signOut()
     {
-        $this->session->sess_destroy();
-        session_start();
-        unset($_SESSION["userdata"]);
-        redirect($this->Constant_model->webUrl() . 'auth/signIn');
+        $resultLogout = $this->Auth_model->memberLogout();
+        if ($resultLogout) {
+            redirect($this->Constant_model->webUrl() . 'รายการ');
+        }
     }
 
     function stampLogs()

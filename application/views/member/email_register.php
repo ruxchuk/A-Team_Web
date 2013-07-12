@@ -7,19 +7,21 @@
  * To change this template use File | Settings | File Templates.
  */
 $baseUrl = base_url();
+$webUrl = $this->Constant_model->webUrl();
 ?>
 <div id=":4d" style="overflow: hidden;">
     <p style="margin:1em 0">
-        <b>ยินดีต้อนรับสู่ latendahouse.com!</b> คุณสามารถเข้าสู่ระบบบัญชีของคุณได้ที่
-        <a href="http://latendahouse.com/" target="_blank">http://latendahouse.com/</a>
+        <b>ยินดีต้อนรับสู่ www.latendahouse.com!</b><br>
+        คุณสามารถเข้าสู่ระบบบัญชีของคุณได้โดย
+        <a href="<?php echo $webUrl; ?>สมาชิก" target="_blank">คลิก</a>
     </p>
     <p style="margin:1em 0">
-        <img src="<?php echo $baseUrl; ?>web/images/logo.png" width="100" height="100"/>
+        <a href="<?php echo $webUrl; ?>" target="_blank">
+            <img src="<?php echo $baseUrl; ?>web/images/logo.png" width="160" height="100"/>
+        </a>
     </p>
-    <br>
     <hr>
-    <p><strong>บริษัท เอ-ทีม เคอร์เทน จำกัด</strong><br>
-        A-Team Curtain Co., Ltd.<br>
-        475/15 ถ.ทหารบก ต.บ่อพลับ อ.เมือง จ.นครปฐม 73000<br>
-        โทร 086-317-2217</p>
+    <strong style="font-size: 22px;color: #E72222;">บริษัท เอ-ทีม เคอร์เทน จำกัด</strong>
+    <p style="font-size: 18px;color:#39C75E;">A-Team Curtain Co., Ltd.</p>
+    <a href="<?php echo $webUrl; ?>">www.latendahouse.com</a>
 </div>

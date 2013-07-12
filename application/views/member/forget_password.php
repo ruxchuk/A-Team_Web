@@ -12,22 +12,28 @@ $baseUrl = base_url();
 <script>
     var url_forget_password = "<?php echo $webUrl; ?>member/forgetPassword";
     function validateForm() {
+        $("#submit").attr("disabled", "disabled");
         if ($("#email").val() == "") {
             alert("กรุณากรอก Email");
             $("#email").select();
+            $("#submit").attr("disabled", "");
         } else if (!validateEmail($("#email").val())) {
             alert("Email ไม่ถูกต้อง");
             $("#email").select();
+            $("#submit").attr("disabled", "");
         } else{
             $.post(url_forget_password, {
                     email: $("#email").val()
                 },
                 function (result) {
                     if (result == "send success") {
-                        window.location.reload();
+                        //window.location.reload();
+                        alert("ระบบได้ทำการส่ง Email ให้ท่านแล้ว ขอบคุณค่ะ");
+                        $.fancybox.close();
                     } else {
                         alert(result);
                     }
+                    $("#submit").attr("disabled", "");
                 }
             );
         }
