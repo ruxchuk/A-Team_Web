@@ -467,7 +467,9 @@ $format = 'DC%1$06d';
 $serialID = sprintf($format, intval($serialID) + 1);
 
 $imageName = 'La_Tenda_House-' . date('YmdHis');
-$imagePathUpload = '../images/uploads/products/';
+$date = date('Y-m-d');
+$imagePathUpload = "../images/uploads/curtain/$date/";
+//$imagePathUpload = "../images/uploads/curtain/";
 $em_columns = array(
     'product_type_id' => array(
         'header' => 'product_type_id', 'type' => 'hidden', 'req_type' => 'ry',
