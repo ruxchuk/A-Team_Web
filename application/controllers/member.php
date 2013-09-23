@@ -170,7 +170,7 @@ class Member extends CI_Controller
             $new_password = trim($new_password);
             $name = trim($name);
             $old_password = trim($old_password);
-            $email = trinm($email);
+            $email = trim($email);
             $phone = trim($phone);
             $address = trim($address);
             $checkOldPass = $this->Member_model->checkPass($memberID, $old_password);
