@@ -11,6 +11,7 @@ session_start();
 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $webUrl = @$_SESSION['webUrl'];
 $userID = @$_SESSION['userdata']['id'];
+
 //$file = basename($actual_link);
 if ($actual_link == "curtain.php" || strpos($actual_link, 'product.php')) {
     $table = "product";
@@ -79,7 +80,9 @@ if ($actual_link == "curtain.php" || strpos($actual_link, 'product.php')) {
 </head>
 <p>
     <a href="<?php echo $webUrl; ?>" title="หน้าแรก">
-        <img src="http://latendahouse.com/web/images/shot_cut_icon.png"/></a></p>
+        <img src="http://latendahouse.com/web/images/shot_cut_icon.png"/>
+    </a>
+</p>
 <?php
 if (!empty($_SESSION['userdata'])) :
     if ($_SESSION['userdata']['member_type'] == "admin"):
@@ -88,7 +91,8 @@ if (!empty($_SESSION['userdata'])) :
         &nbsp;&nbsp;&nbsp;<a class="link-menu" href="<?php echo $webUrl; ?>auth/signOut">ออกจากระบบ</a>
     <?php else:
         header("Location: $webUrl" . 'auth/signIn');
-    endif; else:
+    endif;
+else:
     header("Location: $webUrl" . 'auth/signIn');
 endif;
 ?>
