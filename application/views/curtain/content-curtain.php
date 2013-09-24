@@ -8,7 +8,7 @@
  */
 $baseUrl = base_url();
 $pathImage = $baseUrl . "web/images/";
-$pathImageProduct = $baseUrl . "web/images/uploads/products/";
+$pathImageProduct = $baseUrl . "web/images/uploads/curtain/";
 
 $arrCurtain = $this->Product_model->getListCurtain(0, $setImageHeader);
 
