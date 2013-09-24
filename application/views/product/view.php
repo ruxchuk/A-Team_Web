@@ -31,7 +31,7 @@ $pathImageProduct = $baseUrl . "web/images/uploads/products/";
                 <a class="link-page"
                    href="<?php echo $webUrl; ?><?php echo $this->uri->segment(1) . '/' . $this->uri->segment(2); ?>">
                     <?php echo $this->uri->segment(2); ?></a> /
-                <span class="active-page"><?php echo $product[0]->id; ?></span>
+                <span class="active-page"><?php echo $product[0]->name_th; ?></span>
             </p>
         </div>
         <table border="0" cellspacing="0" cellpadding="0" class="tbView" width="745">
