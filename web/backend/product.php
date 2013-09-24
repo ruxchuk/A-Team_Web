@@ -478,7 +478,7 @@ $em_columns = array(
         'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
         'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
         'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=>$imageName,
+        'magnify_power'=>'2', 'file_name'=>$imageName . "_1",
         'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
     ),
     'image_path2'  => array(
@@ -490,7 +490,7 @@ $em_columns = array(
         'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
         'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
         'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=>$imageName,
+        'magnify_power'=>'2', 'file_name'=>$imageName . "_2",
         'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
     ),
     'image_path3'  => array(
@@ -502,7 +502,7 @@ $em_columns = array(
         'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
         'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
         'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=>$imageName,
+        'magnify_power'=>'2', 'file_name'=>$imageName . "_3",
         'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
     ),
     'image_path4'  => array(
@@ -514,7 +514,7 @@ $em_columns = array(
         'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
         'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
         'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=>$imageName,
+        'magnify_power'=>'2', 'file_name'=>$imageName . "_4",
         'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
     ),
     'image_path5'  => array(
@@ -526,7 +526,7 @@ $em_columns = array(
         'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
         'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
         'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name' => $imageName,
+        'magnify_power'=>'2', 'file_name' => $imageName . "_5",
         'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
     ),
     'description' => array('header' => ' รายละเอียด', 'type' => 'textarea', 'req_type' => 'ry', 'width' => '500px',
