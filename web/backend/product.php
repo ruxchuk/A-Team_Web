@@ -418,7 +418,7 @@ $serialID = sprintf($format, intval($serialID) + 1);
 
 $imageName = 'La_Tenda_House-' . date('YmdHis');
 $date = date('Y-m-d');
-$imagePathUpload = "../images/uploads/products/$date/";
+$imagePathUpload = "../images/uploads/products/";
 
 $em_columns = array(
     'product_type_id' => array(
