@@ -419,6 +419,10 @@ $serialID = sprintf($format, intval($serialID) + 1);
 $imageName = 'La_Tenda_House-' . date('YmdHis');
 $date = date('Y-m-d');
 $imagePathUpload = "../images/uploads/products/";
+$imgWidth = "800px";
+$imgHeight = "600px";
+$imgMaxSize = "3072k";
+$resizeImage = 'true';
 
 $em_columns = array(
     'product_type_id' => array(
@@ -475,9 +479,9 @@ $em_columns = array(
         'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
         'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
         'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
-        'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
+        'allow_image_updating'=>'false', 'max_file_size' => $imgMaxSize, 'image_width'=>'120px',
+        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image' => $resizeImage,
+        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify'=>'true', 'magnify_type'=>'magnifier',
         'magnify_power'=>'2', 'file_name'=>$imageName . "_1",
         'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
     ),
@@ -487,9 +491,9 @@ $em_columns = array(
         'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
         'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
         'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
-        'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
+        'allow_image_updating'=>'false', 'max_file_size' => $imgMaxSize, 'image_width'=>'120px',
+        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image' => $resizeImage,
+        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify'=>'true', 'magnify_type'=>'magnifier',
         'magnify_power'=>'2', 'file_name'=>$imageName . "_2",
         'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
     ),
@@ -499,9 +503,9 @@ $em_columns = array(
         'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
         'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
         'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
-        'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
+        'allow_image_updating'=>'false', 'max_file_size' => $imgMaxSize, 'image_width'=>'120px',
+        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image' => $resizeImage,
+        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify'=>'true', 'magnify_type'=>'magnifier',
         'magnify_power'=>'2', 'file_name'=>$imageName . "_3",
         'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
     ),
@@ -511,9 +515,9 @@ $em_columns = array(
         'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
         'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
         'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
-        'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
+        'allow_image_updating'=>'false', 'max_file_size' => $imgMaxSize, 'image_width'=>'120px',
+        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image' => $resizeImage,
+        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify'=>'true', 'magnify_type'=>'magnifier',
         'magnify_power'=>'2', 'file_name'=>$imageName . "_4",
         'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
     ),
@@ -523,9 +527,9 @@ $em_columns = array(
         'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
         'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
         'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size'=>'500k', 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image'=>'false',
-        'resize_width'=>'', 'resize_height'=>'', 'magnify'=>'true', 'magnify_type'=>'magnifier',
+        'allow_image_updating'=>'false', 'max_file_size' => $imgMaxSize, 'image_width'=>'120px',
+        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image' => $resizeImage,
+        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify'=>'true', 'magnify_type'=>'magnifier',
         'magnify_power'=>'2', 'file_name' => $imageName . "_5",
         'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
     ),
