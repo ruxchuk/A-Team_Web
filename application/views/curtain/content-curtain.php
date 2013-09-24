@@ -36,7 +36,7 @@ $arrLink = array(
     function showImage(src, url, title) {
         var html = '<a target="_blank" href="' + url + '">' +
             '<img title="' + title + '" ' +
-            'src="' + src + '" style="width: 100%;height:350px;box-shadow: 0px 0px 25px #888888;"/>' +
+            'src="' + src + '" class="boxBlur" />' +
             '</a>';
         if (oldImageID == 1) {
             oldImageID = 2;
@@ -47,6 +47,13 @@ $arrLink = array(
         }
     }
 </script>
+<style>
+    .boxBlur {
+        width: 100%;
+        height:350px;
+        box-shadow: 0px 0px 25px #888888;
+    }
+</style>
 <div style="margin-left: 15px;">
     <br>
 
