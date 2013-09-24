@@ -27,7 +27,7 @@ $pathImageProduct = $baseUrl . "web/images/uploads/curtain/";
                 <a class="link-page"
                    href="<?php echo $webUrl; ?><?php echo $this->uri->segment(1) . '/' . $this->uri->segment(2); ?>">
                     <?php echo $this->uri->segment(2); ?></a> /
-                <span class="active-page"><?php echo $arrData->id; ?></span>
+                <span class="active-page"><?php echo $arrData->name_th; ?></span>
             </p>
         </div>
         <div style="width: 735px; margin-left: 15px;">
