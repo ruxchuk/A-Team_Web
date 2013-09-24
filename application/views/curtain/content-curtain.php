@@ -63,7 +63,7 @@ $arrLink = array(
             <li>
                 <a href="#">
                     <img title="<?php echo $value->name_th; ?>" src="<?php echo $pathImageProduct . $value->image_path; ?>"
-                         alt="<?php echo $webUrl; ?>ผ้าม่าน/<?php echo $arrLink[$value->name_en]. '/'. $value->name_th; ?>"
+                         alt="<?php echo $webUrl; ?>ผ้าม่าน/<?php echo $arrLink[$value->name_en]. '/'. $value->id; ?>"
                          class="click-show"/>
                 </a>
             </li>
