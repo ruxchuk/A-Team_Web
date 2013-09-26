@@ -90,10 +90,12 @@ if (!empty($_SESSION['userdata'])) :
         ?>
         &nbsp;&nbsp;&nbsp;<a class="link-menu" href="<?php echo $webUrl; ?>auth/signOut">ออกจากระบบ</a>
     <?php else:
-        header("Location: $webUrl" . 'รายการ');
+        header("Location: http://latendahouse.com/รายการ");
+//        header("Location: http://localhost:11001/ateam/web/a-team_web/index.php/รายการ");
     endif;
 else:
-    header("Location: $webUrl" . 'รายการ');
+    header("Location: http://latendahouse.com/รายการ");
+//    header("Location: http://localhost:11001/ateam/web/a-team_web/index.php/รายการ");
 endif;
 ?>
 <br>
