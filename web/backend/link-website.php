@@ -10,6 +10,9 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 include "header.php";
+?>
+    <title>Link Website</title>
+<?php
 ################################################################################
 ## +---------------------------------------------------------------------------+
 ## | 1. Creating & Calling:                                                    |
