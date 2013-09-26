@@ -9,7 +9,7 @@
 
 session_start();
 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-$webUrl = @$_SESSION['webUrl'];
+//$webUrl = @$_SESSION['webUrl'];
 $userID = @$_SESSION['userdata']['id'];
 
 //$file = basename($actual_link);
@@ -22,6 +22,9 @@ if ($actual_link == "curtain.php" || strpos($actual_link, 'product.php')) {
 } else {
     $table = "";
 }
+$webUrl = "http://latendahouse.com/";
+//$webUrl = "http://localhost:11001/ateam/web/a-team_web/index.php/";
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -90,12 +93,10 @@ if (!empty($_SESSION['userdata'])) :
         ?>
         &nbsp;&nbsp;&nbsp;<a class="link-menu" href="<?php echo $webUrl; ?>auth/signOut">ออกจากระบบ</a>
     <?php else:
-        header("Location: http://latendahouse.com/รายการ");
-//        header("Location: http://localhost:11001/ateam/web/a-team_web/index.php/รายการ");
+        header("Location: $webUrl". "รายการ");
     endif;
 else:
-    header("Location: http://latendahouse.com/รายการ");
-//    header("Location: http://localhost:11001/ateam/web/a-team_web/index.php/รายการ");
+    header("Location: $webUrl". "รายการ");
 endif;
 ?>
 <br>
