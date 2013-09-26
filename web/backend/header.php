@@ -90,10 +90,10 @@ if (!empty($_SESSION['userdata'])) :
         ?>
         &nbsp;&nbsp;&nbsp;<a class="link-menu" href="<?php echo $webUrl; ?>auth/signOut">ออกจากระบบ</a>
     <?php else:
-        header("Location: $webUrl" . 'auth/signIn');
+        header("Location: $webUrl" . 'รายการ');
     endif;
 else:
-    header("Location: $webUrl" . 'auth/signIn');
+    header("Location: $webUrl" . 'รายการ');
 endif;
 ?>
 <br>

@@ -29,7 +29,7 @@ class Auth extends CI_Controller
                 $message = 'login fail';
             }
         }
-        if (empty($this->session->userdata['user_name'])) {
+        if (empty($this->session->userdata['user_name']) || empty($_SESSION['userdata']['member_type'])) {
             $this->load->view('backend/sign-in', array('message' => $message));
         } else {
             redirect(base_url() . "web/backend/curtain.php");
