@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 $this->load->view('header');
-$this->load->view("sidebar");
+$this->load->view("slidebar/content");
 $baseUrl = base_url();
 $pathIconNew = $baseUrl . "web/images/icon_new.gif";
 $pathSellers = $baseUrl . "web/images/icon_hot.gif";

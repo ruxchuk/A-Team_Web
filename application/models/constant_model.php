@@ -16,12 +16,45 @@ class Constant_model extends CI_Model
 
     function webUrl()
     {
-        if (strstr($_SERVER['HTTP_HOST'], 'localhost') > -1){
-            $webUrl = base_url(). 'index.php/';
+        if (strstr($_SERVER['HTTP_HOST'], 'localhost') > -1) {
+            $webUrl = base_url() . 'index.php/';
         } else {
             $webUrl = base_url();
         }
         return $webUrl;
+    }
+
+    function loadSlideBar($value)
+    {
+        $arrSet = array();
+        switch ($value) {
+            case "product" :
+                $arrSet = array(
+                    1, 1, 0, 1, 1, 1, 1 // member, menu, curtain, sat, facebook, puenchang, link_web
+                );
+                break;
+            case "product-content" :
+                $arrSet = array(
+                    1, 0, 0, 1, 1, 1, 1 // member, menu, curtain, sat, facebook, puenchang, link_web
+                );
+                break;
+            case "curtain" :
+                $arrSet = array(
+                    1, 1, 1, 0, 1, 1, 1 // member, menu, curtain, sat, facebook, puenchang, link_web
+                );
+                break;
+            case "curtain-content" :
+                $arrSet = array(
+                    1, 0, 1, 0, 1, 1, 1 // member, menu, curtain, sat, facebook, puenchang, link_web
+                );
+                break;
+            default:
+                $arrSet = array(
+                    1, 0, 0, 0, 0, 0, 0 // member, menu, curtain, sat, facebook, puenchang, link_web
+                );
+                break;
+        }
+        return $arrSet;
     }
 
 }

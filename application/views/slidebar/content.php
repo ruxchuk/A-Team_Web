@@ -9,6 +9,9 @@
 $baseUrl = base_url();
 
 $webUrl = $this->Constant_model->webUrl();
+$sidebar = empty($sidebar) ? "" : $sidebar;
+$arrSlideBar = $this->Constant_model->loadSlideBar($sidebar);
+
 $pathIconNew = $baseUrl . "web/images/icon_new.gif";
 $pathSellers = $baseUrl . "web/images/icon_hot.gif";
 $pathRecommend = $baseUrl . "web/images/icon_recommence.gif";
@@ -22,11 +25,20 @@ $pathPromotion = $baseUrl . "web/images/icon_promotion.gif";
         <td class="leftcol">
             <div class="padding">
                 <?php
-                $this->load->view("slidebar/member");
-                $this->load->view("slidebar/menu");
-                $this->load->view("slidebar/facebook");
-                $this->load->view("slidebar/puenchang");
-                $this->load->view("slidebar/link_web");
+                if ($arrSlideBar[0] == 1)
+                    $this->load->view("slidebar/member");
+                if ($arrSlideBar[1] == 1)
+                    $this->load->view("slidebar/menu");
+                if ($arrSlideBar[2] == 1)
+                    $this->load->view("slidebar/curtain");
+                if ($arrSlideBar[3] == 1)
+                    $this->load->view("slidebar/sat");
+                if ($arrSlideBar[4] == 1)
+                    $this->load->view("slidebar/facebook");
+                if ($arrSlideBar[5] == 1)
+                    $this->load->view("slidebar/puenchang");
+                if ($arrSlideBar[6] == 1)
+                    $this->load->view("slidebar/link_web");
                 ?>
             </div>
         </td>

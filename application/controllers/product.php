@@ -29,10 +29,7 @@ class Product extends CI_Controller
 
     function index()
     {
-        $this->load->model('Product_model');
         $arrProduct = $this->Product_model->getProduct();
-
-//        $this->load->model('Link_website_model');
         $strSelectBar = "สินค้า";
         $keyword = "";
         $data = array(
@@ -44,6 +41,7 @@ class Product extends CI_Controller
             'siteTitle' => "จานดาวเทียม เครื่องปรับอากาศ กล้องวงจรปิด",
             'keyword' => $keyword,
             "setImageHeader" => 'sat',
+            'sidebar' => "product"
         );
         $this->load->view('product/index', $data);
     }
@@ -64,11 +62,11 @@ class Product extends CI_Controller
                 'showSlide' => false,
                 'webUrl' => $this->webUrl,
                 'siteTitle' => $productTypeName,
-                'keyword' => ''
+                'keyword' => '',
+                'sidebar' => "product-content"
             );
             $this->load->view("product/list-content", $data);
         } else {//Ex. สินค้า/จานดาวเทียม/3
-            $this->load->model('Product_model');
             $productTypeID = $this->Product_model->getProductTypeFromName($productTypeName);
             $this->view($productID, $productTypeID);
         }
@@ -77,11 +75,8 @@ class Product extends CI_Controller
     function view($id, $productTypeID)
     {
         $productTypeName = $this->uri->segment(1);
-        $this->load->model('Product_model');
         $arrProduct = $this->Product_model->getProduct(intval($id), intval($productTypeID));
         $title = $arrProduct[0]->name_th;
-
-        $this->load->model('Link_website_model');
 
         $keyword = $arrProduct[0]->keyword != "" ? ", " . $arrProduct[0]->keyword : "";
         $data = array(
@@ -92,7 +87,8 @@ class Product extends CI_Controller
             'showSlide' => false,
             'webUrl' => $this->webUrl,
             'siteTitle' => $title,
-            'keyword' => $keyword
+            'keyword' => $keyword,
+            'sidebar' => "product-content"
         );
         $this->load->view("product/view", $data);
     }
@@ -101,14 +97,9 @@ class Product extends CI_Controller
     {
         //ผ้าม่าน
         $productTypeName = $this->uri->segment(1);
-
-        $this->load->model('Product_model');
         $productTypeID = $this->Product_model->getProductTypeFromName($productTypeName);
 
         $arrProduct = $this->Product_model->getProduct(0, intval($productTypeID));
-
-        $this->load->model('Link_website_model');
-
         $keyword = "";
         $data = array(
             'selectBar' => $productTypeName,
