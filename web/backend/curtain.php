@@ -29,26 +29,17 @@ $dgrid = new DataGrid($debug_mode, $messaging, $unique_prefix);
 //http://localhost:11001/ateam/web/a-team_web/web/backend/datagrid/styles/pink/images/edit.gif
 $sql = "
 SELECT
-      `product`.*,
-      `product_type`.`name` AS product_type_name,
-       CONCAT('<a title=\"แก้ไขข้อมูล\" href=\"?f_mode=edit&f_rid=', `product`.id, '&f_page_size=50&f_p=1&p_id=',
-       `product_type`.id, '\"><img src=\"datagrid/styles/pink/images/edit.gif\"/></a>', ' | ',
-       '<img title=\"Delete\" style=\"cursor: pointer;\" class=\"img-delete\" alt=\"', product.id, '\"
+      `curtain`.*,
+       CONCAT('<a title=\"แก้ไขข้อมูล\" href=\"?f_mode=edit&f_rid=', `curtain`.id, '&f_page_size=50&f_p=1&p_id=',
+       0, '\"><img src=\"datagrid/styles/pink/images/edit.gif\"/></a>', ' | ',
+       '<img title=\"Delete\" style=\"cursor: pointer;\" class=\"img-delete\" alt=\"', curtain.id, '\"
        src=\"datagrid/styles/pink/images/delete.gif\"/>') AS edit_field,
-       '' AS add_image,
-       IF(`product`.new=0,'<div class=\"no\">No</div>', '<div class=\"yes\">Yes</div>') AS p_new,
-       IF(`product`.sellers=0,'<div class=\"no\">No</div>', '<div class=\"yes\">Yes</div>') AS p_sellers,
-       IF(`product`.recommend=0,'<div class=\"no\">No</div>', '<div class=\"yes\">Yes</div>') AS p_recommend,
-       IF(`product`.promotion=0,'<div class=\"no\">No</div>', '<div class=\"yes\">Yes</div>') AS p_promotion
+       '' AS add_image
     FROM
-      `product`,
-      `product_type`
-    WHERE `product`.`publish` = 1
-      AND `product_type`.`id` = `product`.`product_type_id`
-      AND `product_type`.`id` = 1
-      AND `product_type`.`publish` = 1
+      `curtain`
+    WHERE `curtain`.`deleted` = 1
 ";
-$default_order = array("`product`.`priority`" => "ASC");
+$default_order = array("`curtain`.`priority`" => "ASC");
 $dgrid->DataSource("PEAR", "mysql", $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS, $sql, $default_order);
 
 
@@ -196,7 +187,7 @@ $dgrid->AllowFiltering($filtering_option, $show_search_type);
 $filtering_fields = array(
     "Serial No" => array(
         "type" => "textbox",
-        "table" => "product",
+        "table" => "curtain",
         "field" => "serial",
         "show_operator" => "false",
         "default_operator" => "%like%",
@@ -207,7 +198,7 @@ $filtering_fields = array(
     ),
     "ประเภทผ้าม่าน" => array(
         "type" => "enum",
-        "table" => "product",
+        "table" => "curtain",
         "field" => "name_en",
         "show_operator" => "false",
         "default_operator" => "%like%",
@@ -219,7 +210,7 @@ $filtering_fields = array(
     ),
     "Name" => array(
         "type" => "textbox",
-        "table" => "product",
+        "table" => "curtain",
         "field" => "name_th",
         "show_operator" => "false",
         "default_operator" => "%like%",
@@ -230,7 +221,7 @@ $filtering_fields = array(
     ),
     "Type" => array(
         "type" => "textbox",
-        "table" => "product",
+        "table" => "curtain",
         "field" => "brand",
         "show_operator" => "false",
         "default_operator" => "%like%",
@@ -241,7 +232,7 @@ $filtering_fields = array(
     ),
     "Design" => array(
         "type" => "textbox",
-        "table" => "product",
+        "table" => "curtain",
         "field" => "model",
         "show_operator" => "false",
         "default_operator" => "%like%",
@@ -252,7 +243,7 @@ $filtering_fields = array(
     ),
     "Location" => array(
         "type" => "textbox",
-        "table" => "product",
+        "table" => "curtain",
         "field" => "value",
         "show_operator" => "false",
         "default_operator" => "%like%",
@@ -280,11 +271,12 @@ $dgrid->SetViewModeTableProperties($vm_table_properties);
 $vm_columns = array(
     'id' => array('header' => 'ID', 'type' => 'label', 'align' => 'center'),
     'serial' => array('header' => ' Serial No', 'type' => 'label', 'align' => 'left'),
-    //'product_type_name' => array('header' => ' Type', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-    'name_th' => array('header' => ' Name', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-    'brand' => array('header' => ' Type', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-    'model' => array('header' => ' Design', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-    'value' => array('header' => ' Location', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'curtain_type' => array('header' => ' หมวดผ้าม่าน', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'name_th' => array('header' => ' Name TH', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'name_en' => array('header' => ' Name EN', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'type' => array('header' => ' Type', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'design' => array('header' => ' Design', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'location' => array('header' => ' Location', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
 //    'price1' => array('header' => ' ราคาปกติ', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
 //    'price2' => array('header' => ' ราคาขายปลีก', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
 //    'price3' => array('header' => ' ราคาขายส่ง', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
@@ -315,7 +307,7 @@ $dgrid->SetDgMessages(array(
 ## | 7. Add/Edit/Details Mode settings:                                        |
 ## +---------------------------------------------------------------------------+
 ##  ***  set settings for edit/details mode
-$table_name = "product";
+$table_name = "curtain";
 $primary_key = "id";
 $condition = "";
 $dgrid->SetTableEdit($table_name, $primary_key, $condition);
@@ -361,40 +353,6 @@ if ($getMode != 'add' && $getMode != 'edit') {
             $("#wysiwygryydescription").height('500').width(600);
         });
 
-        /*function genUpload(btnUpload, idReload, idSave) {
-         $(btnUpload).uploadify({
-         'userfile': {
-         'path': pathImgUploadTmp
-         },
-         'swf': swfPath,
-         'uploader': pathUploadify,
-         'fileSizeLimit': '500KB',
-         'fileTypeExts': '*.gif; *.jpg; *.png',
-         'enctype': "multipart/form-data",
-         'fileObjName': 'userfile',
-         'onFallback': function () {
-         alert('Flash was not detected.');// detect flash compatible
-         }, 'onUploadSuccess': function (file, data, response) {
-         var n = data.search("Path fail");
-         if (n > 0) {
-         alert("Path รูปภาพเกิดข้อผิดพลาด" + data);
-         } else {
-         reloadImage(idReload, data, idSave);
-         }
-         }
-         });
-         }
-
-         function reloadImage(id, img, idSave) {
-         var path = pathImgUploadTmp + img;
-         $(idSave).val(img);
-         $(id).fadeOut().html(getTypeImage(path, "")).fadeIn("slow");
-         //$(id).fadeOut().src(path).fadeIn("slow");
-         }
-
-         function getTypeImage(src, id) {
-         return '<img src="' + src + '" style="width: 250px; height: 190px;"/>';
-         }*/
     </script>
 <?php
 }
@@ -421,37 +379,15 @@ if ($getMode == 'edit') {
 <?php
 } else {
     ?>
-    <script>
-        //rfyimage_path
-        $(document).ready(function () {
-            //$("#rfyimage_path").append('<input type="hidden" id="saveID" />');
-            //$('#rfyimage_path').each(function (i) {
-            //this.name = this.name.replace(/\d+/, i+1);
-            //this.type = "file";
-//            });
-        });
-    </script>
+
 <?php
 }
 $productID = @$_GET['p_id'];
-//$sql = "
-//        SELECT
-//          id,
-//          name
-//        FROM `product_type`
-//        WHERE 1
-//        AND `publish` = 1
-//    ";
-//$dSet = $dgrid->ExecuteSql($sql);
-//$arrProductType = array('' => '');
-//while ($row = $dSet->fetchRow()) {
-//    $arrProductType[$row[0]] = $row[1];
-//}
 
 //get last serial
 $sql = "
-    SELECT `serial` FROM `product`
-    WHERE product_type_id = 1
+    SELECT `serial` FROM `curtain`
+    WHERE deleted = 1
     ORDER BY `id` DESC
     LIMIT 1;
 ";
@@ -476,13 +412,10 @@ $resizeImage = 'true';
 
 //$imagePathUpload = "../images/uploads/curtain/";
 $em_columns = array(
-    'product_type_id' => array(
-        'header' => 'product_type_id', 'type' => 'hidden', 'req_type' => 'ry',
-        'readonly' => 'false', 'default' => "1"),
-    'name_en' => array(
-        'header' => ' ประเภทผ้าม่าน', 'type' => 'enum',
+    'curtain_type' => array(
+        'header' => ' หมวดผ้าม่าน', 'type' => 'enum',
         'req_type' => 'rt', 'width' => '300px',
-        'title' => 'ประเภทผ้าม่าน', 'readonly' => 'false',
+        'title' => ' หมวดผ้าม่าน', 'readonly' => 'false',
         'maxlength' => '-1', 'default' => '',
         'unique' => 'false', 'unique_condition' => '',
         'visible' => 'true', 'on_js_event' => '',
@@ -494,16 +427,18 @@ $em_columns = array(
     ),
     'serial' => array('header' => ' Serial No', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
         'title' => 'Serial No', 'readonly' => 'false', 'maxlength' => '15', 'default' => $serialID),
-    'name_th' => array('header' => ' Name', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
-        'title' => 'Name', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
-//    'name_en' => array('header' => ' Name EN', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
-//        'title' => 'Name EN', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
-    'brand' => array('header' => ' Type', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
+    'name_th' => array('header' => ' Name TH', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
+        'title' => 'Name TH', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
+    'name_en' => array('header' => ' Name EN', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
+        'title' => 'Name EN', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
+    'type' => array('header' => ' Type', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
         'title' => 'Type', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
-    'model' => array('header' => ' Design', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
+    'design' => array('header' => ' Design', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
         'title' => 'Design', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
-    'value' => array('header' => ' Location', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
+    'location' => array('header' => ' Location', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '300px',
         'title' => 'Location', 'readonly' => 'false', 'maxlength' => '20', 'default' => ''),
+    'price' => array('header' => ' Price', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '300px',
+        'title' => 'Location', 'readonly' => 'false', 'maxlength' => '20', 'default' => '0'),
     'priority' => array('header' => ' ความสำคัญ', 'type' => 'textbox', 'req_type' => 'rn', 'width' => '300px',
         'title' => 'ความสำคัญ', 'readonly' => 'false', 'maxlength' => '15', 'default' => '999'),
 //    'image_path' => array('header' => ' รูปภาพ', 'type' => 'textbox', 'req_type' => 'rf', 'width' => '300px',

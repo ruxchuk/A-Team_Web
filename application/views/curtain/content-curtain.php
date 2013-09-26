@@ -10,7 +10,7 @@ $baseUrl = base_url();
 $pathImage = $baseUrl . "web/images/";
 $pathImageProduct = $baseUrl . "web/images/uploads/curtain/";
 
-$arrCurtain = $this->Product_model->getListCurtain(0, $setImageHeader);
+$arrCurtain = $this->Curtain_model->getListCurtain(0, $setImageHeader);
 
 $arrLink = array(
     'curtain-fabric' => "Curtain&Fabric",
@@ -65,12 +65,11 @@ $arrLink = array(
               type="text/css" media="screen"/>
         <script src="<?php echo $baseUrl; ?>web/plugin/elasti-slide/js/modernizr.custom.17475.js"></script>
         <ul id="carousel" class="elastislide-list">
-
             <?php foreach ($arrCurtain as $key => $value): ?>
             <li>
                 <a href="#">
                     <img title="<?php echo $value->name_th; ?>" src="<?php echo $pathImageProduct . $value->image_path; ?>"
-                         alt="<?php echo $webUrl; ?>ผ้าม่าน/<?php echo $arrLink[$value->name_en]. '/'. $value->id; ?>"
+                         alt="<?php echo $webUrl; ?><?php echo $arrLink[$value->curtain_type]. '/'. $value->id; ?>"
                          class="click-show"/>
                 </a>
             </li>

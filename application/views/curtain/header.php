@@ -128,7 +128,7 @@ switch ($setImageHeader) {
                                         <td><img src="<?php echo $baseUrl; ?>web/images/call.png" width="30"
                                                  height="30"/></td>
                                         <td>
-                            <span>089 645 7911, 02 567 8910<br>
+                            <span>086 317 2217, 089 645 7911<br>
                                 <a href="mailto:latendahouse@gmail.com">info@latendahouse.com</a>
                             </span>
                                         </td>

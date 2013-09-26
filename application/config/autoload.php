@@ -117,6 +117,7 @@ $autoload['model'] = array(
     "Send_email_model",
     "Constant_model",
     "Logs_model",
+    "Curtain_model",
 );
 
 

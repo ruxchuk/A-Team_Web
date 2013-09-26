@@ -16,10 +16,11 @@ $webUrl = $this->Constant_model->webUrl();
 $pathImage = $baseUrl . "web/images/";
 $pathImageProduct = $baseUrl . "web/images/uploads/curtain/";
 
-$arrCurtain = $this->Product_model->getListSlideCurtain();
-?>
+$arrCurtain = $this->Curtain_model->getListSlideCurtain();
 
-<?php $getHot = $this->uri->segment(1); ?>
+$getHot = $this->uri->segment(1);
+
+?>
 
 
     <td class="maincol">

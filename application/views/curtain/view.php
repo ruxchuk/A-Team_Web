@@ -14,7 +14,7 @@ $this->load->view("sidebar");
 $baseUrl = base_url();
 $webUrl = $this->Constant_model->webUrl();
 $pathImage = $baseUrl . "web/images/";
-$pathImageProduct = $baseUrl . "web/images/uploads/curtain/";
+$pathImageCurtain = $baseUrl . "web/images/uploads/curtain/";
 ?>
 
     <td class="maincol">
@@ -32,18 +32,19 @@ $pathImageProduct = $baseUrl . "web/images/uploads/curtain/";
         </div>
         <div style="width: 735px; margin-left: 15px;">
 
-            <div><font color="f6448b" size="3">Name: </font><span><?php echo $arrData->name_th; ?></span></div><p>
-            <div><font color="39C75E" size="3">Serial No: </font><span><?php echo $arrData->serial; ?></span></div><p>
-            <div><font color="6A67E0" size="3">Type: </font><span><?php echo $arrData->brand; ?></span></div><p>
-            <div><font color="ffeb44" size="3">Design: </font><span><?php echo $arrData->model; ?></span></div><p>
-            <div><font color="f04eff" size="3">Location: </font><span><?php echo $arrData->value; ?></span></div><p>
+            <div><font color="f6448b" size="3">Name TH: </font><span><?php echo $arrData->name_th; ?></span></div><p>
+            <div><font color="39C75E" size="3">Name EN: </font><span><?php echo $arrData->name_en; ?></span></div><p>
+            <div><font color="red" size="3">Serial No: </font><span><?php echo $arrData->serial; ?></span></div><p>
+            <div><font color="6A67E0" size="3">Type: </font><span><?php echo $arrData->type; ?></span></div><p>
+            <div><font color="ffeb44" size="3">Design: </font><span><?php echo $arrData->design; ?></span></div><p>
+            <div><font color="f04eff" size="3">Location: </font><span><?php echo $arrData->location; ?></span></div><p>
             <table style="width:100%;">
                 <tr>
                     <td style="width: 49%">
                         <?php if(!empty($arrData->image_path)):?>
-                            <a class="fancybox-click" href="<?php echo $pathImageProduct. $arrData->image_path; ?>">
+                            <a class="fancybox-click" href="<?php echo $pathImageCurtain. $arrData->image_path; ?>">
                                 <img width="100%" title=""
-                                     src="<?php echo $pathImageProduct. $arrData->image_path; ?>"/>
+                                     src="<?php echo $pathImageCurtain. $arrData->image_path; ?>"/>
                             </a>
                         <?php else: ?>
                             &nbsp;
@@ -52,9 +53,9 @@ $pathImageProduct = $baseUrl . "web/images/uploads/curtain/";
                     <td style="width: 2%">&nbsp;</td>
                     <td style="width: 49%">
                         <?php if(!empty($arrData->image_path2)):?>
-                            <a class="fancybox-click" href="<?php echo $pathImageProduct. $arrData->image_path2; ?>">
+                            <a class="fancybox-click" href="<?php echo $pathImageCurtain. $arrData->image_path2; ?>">
                                 <img width="100%" title=""
-                                     src="<?php echo $pathImageProduct. $arrData->image_path2; ?>"/>
+                                     src="<?php echo $pathImageCurtain. $arrData->image_path2; ?>"/>
                             </a>
                         <?php else: ?>
                             &nbsp;

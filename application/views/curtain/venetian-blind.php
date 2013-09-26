@@ -14,10 +14,9 @@ $this->load->view("sidebar");
 $baseUrl = base_url();
 $webUrl = $this->Constant_model->webUrl();
 $pathImage = $baseUrl . "web/images/";
-$pathImageProduct = $baseUrl . "web/images/uploads/products/";
-?>
+$getHot = $this->uri->segment(1);
 
-<?php $getHot = $this->uri->segment(1); ?>
+?>
     <td class="maincol">
         <div>
             <p>

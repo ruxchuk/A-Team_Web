@@ -46,18 +46,18 @@ $route['รายการ'] = "auth/signIn";
 $route[('ค้นหา')] = "index/search";
 
 
-$route['ผ้าม่าน'] = "product/curtain";
-$route['ผ้าม่าน/Curtain&Fabric'] = "product/curtainFabric";
-$route['ผ้าม่าน/WallPaper'] = "product/wallPaper";
-$route['ผ้าม่าน/RollerBlind'] = "product/rollerBlind";
-$route['ผ้าม่าน/VenetianBlind'] = "product/venetianBlind";
-$route['ผ้าม่าน/FurnitureBuiltIn'] = "product/furnitureBuiltIn";
+$route['ผ้าม่าน'] = "curtain";
+$route['ผ้าม่าน/Curtain&Fabric'] = "curtain/curtainFabric";
+$route['ผ้าม่าน/WallPaper'] = "curtain/wallPaper";
+$route['ผ้าม่าน/RollerBlind'] = "curtain/rollerBlind";
+$route['ผ้าม่าน/VenetianBlind'] = "curtain/venetianBlind";
+$route['ผ้าม่าน/FurnitureBuiltIn'] = "curtain/furnitureBuiltIn";
 
-$route['ผ้าม่าน/Curtain&Fabric/(\d+)'] = "product/curtainView/$3";
-$route['ผ้าม่าน/WallPaper/(\d+)'] = "product/curtainView/$3";
-$route['ผ้าม่าน/RollerBlind/(\d+)'] = "product/curtainView/$3";
-$route['ผ้าม่าน/VenetianBlind/(\d+)'] = "product/curtainView/$3";
-$route['ผ้าม่าน/FurnitureBuiltIn/(\d+)'] = "product/curtainView/$3";
+$route['ผ้าม่าน/Curtain&Fabric/(\d+)'] = "curtain/curtainView/$3";
+$route['ผ้าม่าน/WallPaper/(\d+)'] = "curtain/curtainView/$3";
+$route['ผ้าม่าน/RollerBlind/(\d+)'] = "curtain/curtainView/$3";
+$route['ผ้าม่าน/VenetianBlind/(\d+)'] = "curtain/curtainView/$3";
+$route['ผ้าม่าน/FurnitureBuiltIn/(\d+)'] = "curtain/curtainView/$3";
 
 
 $route['สินค้า'] = "product";
