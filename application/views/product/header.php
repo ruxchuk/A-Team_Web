@@ -90,7 +90,7 @@ $urlImageHeader = $baseUrl . "web/images/header-sat.png";
                                         <td><img src="<?php echo $baseUrl; ?>web/images/call.png" width="30"
                                                  height="30"/></td>
                                         <td>
-                            <span id="contact-sat">089 645 7911, 02 567 8910<br>
+                            <span id="contact-sat">086 317 2217, 089 645 7911<br>
                                 <a href="mailto:latendahouse@gmail.com">info@latendahouse.com</a>
                             </span>
                                         </td>

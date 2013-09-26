@@ -9,7 +9,7 @@
 
 $this->load->view('header');
 //$this->load->view("slide-index");
-$this->load->view("sidebar");
+$this->load->view("curtain/sidebar");
 
 $baseUrl = base_url();
 $webUrl = $this->Constant_model->webUrl();
