@@ -19,6 +19,8 @@ if ($actual_link == "curtain.php" || strpos($actual_link, 'product.php')) {
     $table = "link_website";
 } else if (strpos($actual_link, 'member.php')) {
     $table = "member";
+}  else if (strpos($actual_link, 'category.php')) {
+    $table = "category";
 } else {
     $table = "";
 }
@@ -118,10 +120,18 @@ endif;
 <?php
 ?>
 <div class="menu" valign="center">
-    <a class="<?php echo strpos($actual_link, 'curtain.php') ? 'menu-active': 'link-menu'; ?>" href="curtain.php">ผ้าม่าน</a> |
+    <a class="<?php echo strpos($actual_link, 'curtain.php') ? 'menu-active': 'link-menu'; ?>" href="curtain.php">ผ้าม่าน</a>
+    <br>
+
     <a class="<?php echo strpos($actual_link, 'product.php') ? 'menu-active': 'link-menu'; ?>" href="product.php">รายการสินค้า</a> |
-    <a class="<?php echo strpos($actual_link, 'link-website.php') ? 'menu-active': 'link-menu'; ?>" href="link-website.php">Link Website</a> |
+    <a class="<?php echo strpos($actual_link, 'category.php') ? 'menu-active': 'link-menu'; ?>" href="category.php">จัดการหมวดหมู่</a>
+    <br>
+
+    <a class="<?php echo strpos($actual_link, 'link-website.php') ? 'menu-active': 'link-menu'; ?>" href="link-website.php">Link Website</a>
+    <br>
+
     <?php if ($_SESSION['userdata']['member_type'] == "admin"):?>
-    <a class="<?php echo strpos($actual_link, 'member.php') ? 'menu-active': 'link-menu'; ?>" href="member.php">รายชื่อสมาชิก</a>
+        <a class="<?php echo strpos($actual_link, 'member.php') ? 'menu-active': 'link-menu'; ?>" href="member.php">รายชื่อสมาชิก</a>
     <?php endif; ?>
+
 </div>
