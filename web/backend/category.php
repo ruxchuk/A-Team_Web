@@ -42,7 +42,7 @@ $sql = "
     WHERE 1
       AND `publish` = 1
 ";
-$default_order = array("`category`.`level`" => "ASC");
+$default_order = array("`category`.`id`" => "ASC");
 $dgrid->DataSource("PEAR", "mysql", $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS, $sql, $default_order);
 
 
@@ -206,24 +206,35 @@ $filtering_fields = array(
         "width" => "150px",
         "on_js_event" => ""
     ),
+    "Parent id" => array(
+        "type" => "textbox",
+        "table" => "category",
+        "field" => "parent_id",
+        "show_operator" => "false",
+        "default_operator" => "%like%",
+        "case_sensitive" => "false",
+        "comparison_type" => "string",
+        "width" => "150px",
+        "on_js_event" => ""
+    ),
 
-    'Level' => array(
-        'type' => 'enum',
-        'table' => 'category',
-        'field' => 'level',
-        'filter_condition' => '',
-        'show_operator' => 'false',
-        'default_operator' => '=',
-        'case_sensitive' => 'false',
-        'comparison_type' => 'string|numeric|binary',
-        'width' => '155px', 'on_js_event' => '',
-        'default' => '', 'source' => $arrCatOrder,
-        'view_type' => 'dropdownlist(default)|radiobutton',
-        'field_view' => 'fieldName_2',
-        'order_by_field' => '',
-        'order_type' => 'ASC|DESC',
-        'condition' => '',
-        'show_count' => false, 'multiple' => 'false', 'multiple_size' => '4'),
+//    'Parent id' => array(
+//        'type' => 'enum',
+//        'table' => 'category',
+//        'field' => 'parent_id',
+//        'filter_condition' => '',
+//        'show_operator' => 'false',
+//        'default_operator' => '=',
+//        'case_sensitive' => 'false',
+//        'comparison_type' => 'string|numeric|binary',
+//        'width' => '155px', 'on_js_event' => '',
+//        'default' => '', 'source' => $arrCatOrder,
+//        'view_type' => 'dropdownlist(default)|radiobutton',
+//        'field_view' => 'fieldName_2',
+//        'order_by_field' => '',
+//        'order_type' => 'ASC|DESC',
+//        'condition' => '',
+//        'show_count' => false, 'multiple' => 'false', 'multiple_size' => '4'),
 );
 $dgrid->SetFieldsFiltering($filtering_fields);
 
@@ -239,8 +250,9 @@ $dgrid->SetViewModeTableProperties($vm_table_properties);
 // $fill_from_array = array('0'=>'Banned', '1'=>'Active', '2'=>'Closed', '3'=>'Removed'); /* as 'value'=>'option' */
 $vm_columns = array(
     'id' => array('header' => 'ID', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-    'name' => array('header' => ' Name', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
-    'level' => array('header' => ' Level', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'title' => array('header' => ' Name', 'type' => 'label', 'align' => 'left'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'parent_id' => array('header' => ' Parent id', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
+    'position' => array('header' => ' Position', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     //'order' => array('header' => ' ลำดับหมวดหมู่', 'type' => 'label', 'align' => 'right'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'date_add' => array('header' => ' Date Add', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
     'date_update' => array('header' => ' Date Update', 'type' => 'label', 'align' => 'center'), //'width'=>'X%|Xpx', 'wrap'=>'wrap|nowrap', 'text_length'=>'-1', 'tooltip'=>'false', 'tooltip_type'=>'floating|simple', 'case'=>'normal|upper|lower|camel', 'summarize'=>'false', 'summarize_sign'=>'', 'sort_type'=>'string|numeric', 'sort_by'=>'', 'visible'=>'true', 'on_js_event'=>''),
@@ -277,15 +289,6 @@ if ($getMode != 'add' && $getMode != 'edit') {
     <div style="width: 100%;">
         <div align="right"><p><a href="?f_mode=add&f_rid=-1">เพิ่มหมวดหมู่</a></p></div>
     </div>
-    <style>
-        .no {
-            background-color: red;
-        }
-
-        .yes {
-            background-color: #008000;
-        }
-    </style>
 <?php
 }
 
@@ -304,56 +307,118 @@ if ($getMode == 'edit') {
 <?php
 }
 $catID = @$_GET['p_id'];
-//$sql = "
-//    SELECT
-//      id,
-//      name
-//    FROM `product_type`
-//    WHERE 1
-//    AND id != 1
-//    AND `publish` = 1
-//";
-//$dSet = $dgrid->ExecuteSql($sql);
-//$arrProductType = array('' => '');
-//while ($row = $dSet->fetchRow()) {
-//    $arrProductType[$row[0]] = $row[1];
-//}
 
-/*
-//get last order
+//get parent
 $sql = "
-    SELECT `serial` FROM `product`
-    ORDER BY `id` DESC
-    LIMIT 1;
+    SELECT
+        `id`,
+        `title`,
+        `parent_id`,
+        `position`
+    FROM `category`
+    WHERE `publish` = 1
+    ORDER BY `id`
 ";
 $dSet = $dgrid->ExecuteSql($sql);
-$serialID = "0";
-while ($row = $dSet->fetchRow()) {
-    $serialID = $row[0];
-}
-$format = '%1$06d';
-$serialID = sprintf($format, intval($serialID) + 1);
 
-$imageName = 'La_Tenda_House-' . date('YmdHis');
-$date = date('Y-m-d');
-*/
+function has_children($rows, $id)
+{
+    foreach ($rows as $row) {
+        if ($row['parent_id'] == $id)
+            return true;
+    }
+    return false;
+}
+
+function build_menu($rows, $parent = 0)
+{
+    $result = "<ul>";
+    foreach ($rows as $row) {
+        if ($row['parent_id'] == $parent) {
+            $result .= "
+            <li id='$row[id]' data='$row[title]' class='jstree-open'>
+            <a href='#'>$row[title]($row[id])</a>
+            ";
+            if (has_children($rows, $row['id']))
+                $result .= build_menu($rows, $row['id']);
+            $result .= "</li>";
+        }
+    }
+    $result .= "</ul>";
+    return $result;
+}
+$arrDataCat = array();
+while ($row = $dSet->fetchRow()) {
+    $arrDataCat[] = array(
+      'id' => intval($row[0]),
+      'title' => $row[1],
+      'parent_id' => intval($row[2]),
+      'position' => intval($row[3]),
+    );
+}
+$strCat = build_menu($arrDataCat);
+$strCat = "
+	<!--<script type=\"text/javascript\" src=\"../plugin/jstree-v.pre1.0/_lib/jquery.js\"></script>
+	<script type=\"text/javascript\" src=\"../plugin/jstree-v.pre1.0/_lib/jquery.cookie.js\"></script>
+	<script type=\"text/javascript\" src=\"../plugin/jstree-v.pre1.0/_lib/jquery.hotkeys.js\"></script>-->
+	<script type=\"text/javascript\" src=\"../plugin/jstree-v.pre1.0/jquery.jstree.js\"></script>
+	<link type=\"text/css\" rel=\"stylesheet\" href=\"../plugin/jstree-v.pre1.0/_docs/syntax/!style.css\"/>
+	<!--<link type=\"text/css\" rel=\"stylesheet\" href=\"../plugin/jstree-v.pre1.0/_docs/!style.css\"/>
+	<script type=\"text/javascript\" src=\"../plugin/jstree-v.pre1.0/_docs/syntax/!script.js\"></script>-->
+    <div id=\"cat\" class=\"demo\" style=\"height:200px;\">
+    $strCat </div>
+    <br>เป็นหมวดหมู่หลัก<input type='checkbox' id='noParent'/>";
+$strCat  .= '
+<script type="text/javascript">
+$(function () {
+	$("#cat")
+		.jstree({ "plugins" : ["themes","html_data","ui"] })
+		// 1) if using the UI plugin bind to select_node
+		.bind("select_node.jstree", function (event, data) {
+			// `data.rslt.obj` is the jquery extended node that was clicked
+			//alert(data.rslt.obj.attr("id"));
+                $("#ryyparent_id").val(data.rslt.obj.attr("id"));
+                $("#noParent").attr("checked", false);
+                //$("#catShow").val(data.rslt.obj.attr("data"));
+		})
+		// 2) if not using the UI plugin - the Anchor tags work as expected
+		//    so if the anchor has a HREF attirbute - the page will be changed
+		//    you can actually prevent the default, etc (normal jquery usage)
+		.delegate("a", "click", function (event, data) { event.preventDefault(); })
+});
+$("#noParent").click(function(){
+    if ($(this).is(":checked")) {
+        $("#ryyparent_id").val(0);
+    } else {
+        $("#ryyparent_id").val("");
+    }
+});
+</script>
+';
+
 $em_columns = array(
-    'level' => array(
-        'header' => ' Level', 'type' => 'enum',
-        'req_type' => 'rt', 'width' => '215px',
-        'title' => ' Level', 'readonly' => 'false',
-        'maxlength' => '-1', 'default' => empty($catID) ? "" : $catID,
-        'unique' => 'false', 'unique_condition' => '',
-        'visible' => 'true',
-        'on_js_event' => "onchange=",
-        'source' => $arrCatOrder,
-        'view_type' => 'dropdownlist(default)|radiobutton|checkbox',
-        'radiobuttons_alignment' => 'horizontal|vertical',
-        'multiple' => 'false',
-        'multiple_size' => '4'
-    ),
-    'name' => array('header' => ' Name', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
-        'title' => 'Name', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
+//    'level' => array(
+//        'header' => ' Level', 'type' => 'enum',
+//        'req_type' => 'rt', 'width' => '215px',
+//        'title' => ' Level', 'readonly' => 'false',
+//        'maxlength' => '-1', 'default' => empty($catID) ? "" : $catID,
+//        'unique' => 'false', 'unique_condition' => '',
+//        'visible' => 'true',
+//        'on_js_event' => "onchange=",
+//        'source' => $arrCatOrder,
+//        'view_type' => 'dropdownlist(default)|radiobutton|checkbox',
+//        'radiobuttons_alignment' => 'horizontal|vertical',
+//        'multiple' => 'false',
+//        'multiple_size' => '4',
+//        'post_addition' => $strCat
+//    ),
+    'parent_id' => array('header' => ' Parent id', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'Parent id', 'readonly' => 'true', 'maxlength' => '50', 'default' => '',
+        'post_addition' => $strCat),
+    'position' => array('header' => ' Position', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'Position', 'readonly' => 'false', 'maxlength' => '50', 'default' => '999'),
+    'title' => array('header' => ' Title', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'Title', 'readonly' => 'false', 'maxlength' => '50', 'default' => ''),
     'description' => array('header' => ' Description', 'type' => 'textarea', 'req_type' => 's', 'width' => '500px',
         'height' => '600px', 'title' => 'Description', 'readonly' => 'false', 'maxlength' => '200', 'default' => '',
         "edit_type" => ""),

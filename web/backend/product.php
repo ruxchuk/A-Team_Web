@@ -297,15 +297,6 @@ if ($getMode != 'add' && $getMode != 'edit') {
     <div style="width: 100%;">
         <div align="right"><p><a href="?f_mode=add&f_rid=-1">เพิ่มสินค้า</a></p></div>
     </div>
-    <style>
-        .no {
-            background-color: red;
-        }
-
-        .yes {
-            background-color: #008000;
-        }
-    </style>
 <?php
 } else { //var_dump($_SERVER['HTTP_HOST']);
     $pathImage = "../images/uploads/products/";
@@ -427,6 +418,86 @@ $imgHeight = "600px";
 $imgMaxSize = "3072k";
 $resizeImage = 'true';
 
+
+//get parent
+$sql = "
+    SELECT
+        `id`,
+        `title`,
+        `parent_id`,
+        `position`
+    FROM `category`
+    WHERE `publish` = 1
+    ORDER BY `id`
+";
+$dSet = $dgrid->ExecuteSql($sql);
+
+function has_children($rows, $id)
+{
+    foreach ($rows as $row) {
+        if ($row['parent_id'] == $id)
+            return true;
+    }
+    return false;
+}
+
+function build_menu($rows, $parent = 0)
+{
+    $result = "<ul>";
+    foreach ($rows as $row) {
+        if ($row['parent_id'] == $parent) {
+            $result .= "
+            <li id='$row[id]' data='$row[title]' class='jstree-open'>
+            <a href='#'>$row[title]($row[id])</a>
+            ";
+            if (has_children($rows, $row['id']))
+                $result .= build_menu($rows, $row['id']);
+            $result .= "</li>";
+        }
+    }
+    $result .= "</ul>";
+    return $result;
+}
+$arrDataCat = array();
+while ($row = $dSet->fetchRow()) {
+    $arrDataCat[] = array(
+        'id' => intval($row[0]),
+        'title' => $row[1],
+        'parent_id' => intval($row[2]),
+        'position' => intval($row[3]),
+    );
+}
+$strCat = build_menu($arrDataCat);
+$strCat = "
+	<!--<script type=\"text/javascript\" src=\"../plugin/jstree-v.pre1.0/_lib/jquery.js\"></script>
+	<script type=\"text/javascript\" src=\"../plugin/jstree-v.pre1.0/_lib/jquery.cookie.js\"></script>
+	<script type=\"text/javascript\" src=\"../plugin/jstree-v.pre1.0/_lib/jquery.hotkeys.js\"></script>-->
+	<script type=\"text/javascript\" src=\"../plugin/jstree-v.pre1.0/jquery.jstree.js\"></script>
+	<link type=\"text/css\" rel=\"stylesheet\" href=\"../plugin/jstree-v.pre1.0/_docs/syntax/!style.css\"/>
+	<!--<link type=\"text/css\" rel=\"stylesheet\" href=\"../plugin/jstree-v.pre1.0/_docs/!style.css\"/>
+	<script type=\"text/javascript\" src=\"../plugin/jstree-v.pre1.0/_docs/syntax/!script.js\"></script>-->
+    <div id=\"cat\" class=\"demo\" style=\"height:200px;\">
+    $strCat </div>
+    ";
+$strCat  .= '
+<script type="text/javascript">
+$(function () {
+	$("#cat")
+		.jstree({ "plugins" : ["themes","html_data","ui"] })
+		// 1) if using the UI plugin bind to select_node
+		.bind("select_node.jstree", function (event, data) {
+			// `data.rslt.obj` is the jquery extended node that was clicked
+			//alert(data.rslt.obj.attr("id"));
+                $("#ryyparent_id").val(data.rslt.obj.attr("id"));
+		})
+		// 2) if not using the UI plugin - the Anchor tags work as expected
+		//    so if the anchor has a HREF attirbute - the page will be changed
+		//    you can actually prevent the default, etc (normal jquery usage)
+		.delegate("a", "click", function (event, data) { event.preventDefault(); })
+});
+</script>
+';
+
 $em_columns = array(
     'product_type_id' => array(
         'header' => ' ประเภทสินค้า', 'type' => 'enum',
@@ -476,66 +547,69 @@ $em_columns = array(
 //        'post_addition' => "<div id='image_show'><img style=\"width: 250px; height: 190px;\" /></div>
 //        <input type='file' id='image_add' />"),
 
-    'image_path'  => array(
-        'header'=>'รูปภาพ 1', 'type'=>'image',
-        'req_type'=>'rt', 'width'=>'210px', 'title'=>'',
-        'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
-        'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
-        'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size' => $imgMaxSize, 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image' => $resizeImage,
-        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=>$imageName . "_1",
-        'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
+    'image_path' => array(
+        'header' => 'รูปภาพ 1', 'type' => 'image',
+        'req_type' => 'rt', 'width' => '210px', 'title' => '',
+        'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true',
+        'on_js_event' => '', 'target_path' => $imagePathUpload,
+        'allow_image_updating' => 'false', 'max_file_size' => $imgMaxSize, 'image_width' => '120px',
+        'image_height' => '90px', 'resize_dir' => 'down|up|both', 'resize_image' => $resizeImage,
+        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify' => 'true', 'magnify_type' => 'magnifier',
+        'magnify_power' => '2', 'file_name' => $imageName . "_1",
+        'host' => 'local|remote', 'allow_downloading' => 'false', 'allowed_extensions' => ''
     ),
-    'image_path2'  => array(
-        'header'=>'รูปภาพ 2', 'type'=>'image',
-        'req_type'=>'st', 'width'=>'210px', 'title'=>'',
-        'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
-        'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
-        'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size' => $imgMaxSize, 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image' => $resizeImage,
-        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=>$imageName . "_2",
-        'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
+    'image_path2' => array(
+        'header' => 'รูปภาพ 2', 'type' => 'image',
+        'req_type' => 'st', 'width' => '210px', 'title' => '',
+        'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true',
+        'on_js_event' => '', 'target_path' => $imagePathUpload,
+        'allow_image_updating' => 'false', 'max_file_size' => $imgMaxSize, 'image_width' => '120px',
+        'image_height' => '90px', 'resize_dir' => 'down|up|both', 'resize_image' => $resizeImage,
+        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify' => 'true', 'magnify_type' => 'magnifier',
+        'magnify_power' => '2', 'file_name' => $imageName . "_2",
+        'host' => 'local|remote', 'allow_downloading' => 'false', 'allowed_extensions' => ''
     ),
-    'image_path3'  => array(
-        'header'=>'รูปภาพ 3', 'type'=>'image',
-        'req_type'=>'st', 'width'=>'210px', 'title'=>'',
-        'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
-        'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
-        'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size' => $imgMaxSize, 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image' => $resizeImage,
-        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=>$imageName . "_3",
-        'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
+    'image_path3' => array(
+        'header' => 'รูปภาพ 3', 'type' => 'image',
+        'req_type' => 'st', 'width' => '210px', 'title' => '',
+        'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true',
+        'on_js_event' => '', 'target_path' => $imagePathUpload,
+        'allow_image_updating' => 'false', 'max_file_size' => $imgMaxSize, 'image_width' => '120px',
+        'image_height' => '90px', 'resize_dir' => 'down|up|both', 'resize_image' => $resizeImage,
+        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify' => 'true', 'magnify_type' => 'magnifier',
+        'magnify_power' => '2', 'file_name' => $imageName . "_3",
+        'host' => 'local|remote', 'allow_downloading' => 'false', 'allowed_extensions' => ''
     ),
-    'image_path4'  => array(
-        'header'=>'รูปภาพ 4', 'type'=>'image',
-        'req_type'=>'st', 'width'=>'210px', 'title'=>'',
-        'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
-        'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
-        'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size' => $imgMaxSize, 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image' => $resizeImage,
-        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name'=>$imageName . "_4",
-        'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
+    'image_path4' => array(
+        'header' => 'รูปภาพ 4', 'type' => 'image',
+        'req_type' => 'st', 'width' => '210px', 'title' => '',
+        'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true',
+        'on_js_event' => '', 'target_path' => $imagePathUpload,
+        'allow_image_updating' => 'false', 'max_file_size' => $imgMaxSize, 'image_width' => '120px',
+        'image_height' => '90px', 'resize_dir' => 'down|up|both', 'resize_image' => $resizeImage,
+        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify' => 'true', 'magnify_type' => 'magnifier',
+        'magnify_power' => '2', 'file_name' => $imageName . "_4",
+        'host' => 'local|remote', 'allow_downloading' => 'false', 'allowed_extensions' => ''
     ),
-    'image_path5'  => array(
-        'header'=>'รูปภาพ 5', 'type'=>'image',
-        'req_type'=>'st', 'width'=>'210px', 'title'=>'',
-        'readonly'=>'false', 'maxlength'=>'-1', 'default'=>'',
-        'unique'=>'false', 'unique_condition'=>'', 'visible'=>'true',
-        'on_js_event'=>'', 'target_path' => $imagePathUpload,
-        'allow_image_updating'=>'false', 'max_file_size' => $imgMaxSize, 'image_width'=>'120px',
-        'image_height'=>'90px', 'resize_dir'=>'down|up|both', 'resize_image' => $resizeImage,
-        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify'=>'true', 'magnify_type'=>'magnifier',
-        'magnify_power'=>'2', 'file_name' => $imageName . "_5",
-        'host'=>'local|remote', 'allow_downloading'=>'false', 'allowed_extensions'=>''
+    'image_path5' => array(
+        'header' => 'รูปภาพ 5', 'type' => 'image',
+        'req_type' => 'st', 'width' => '210px', 'title' => '',
+        'readonly' => 'false', 'maxlength' => '-1', 'default' => '',
+        'unique' => 'false', 'unique_condition' => '', 'visible' => 'true',
+        'on_js_event' => '', 'target_path' => $imagePathUpload,
+        'allow_image_updating' => 'false', 'max_file_size' => $imgMaxSize, 'image_width' => '120px',
+        'image_height' => '90px', 'resize_dir' => 'down|up|both', 'resize_image' => $resizeImage,
+        'resize_width' => $imgWidth, 'resize_height' => $imgHeight, 'magnify' => 'true', 'magnify_type' => 'magnifier',
+        'magnify_power' => '2', 'file_name' => $imageName . "_5",
+        'host' => 'local|remote', 'allow_downloading' => 'false', 'allowed_extensions' => ''
     ),
+    'parent_id' => array('header' => ' Parent id', 'type' => 'textbox', 'req_type' => 'ry', 'width' => '210px',
+        'title' => 'Parent id', 'readonly' => 'true', 'maxlength' => '50', 'default' => '',
+        'post_addition' => $strCat),
     'description' => array('header' => ' รายละเอียด', 'type' => 'textarea', 'req_type' => 'ry', 'width' => '500px',
         'height' => '600px', 'title' => 'รายละเอียด', 'readonly' => 'false', 'maxlength' => '200', 'default' => '', "edit_type" => "wysiwyg"),
     'keyword' => array('header' => ' คำค้นหา', 'type' => 'textarea', 'req_type' => 'ry', 'width' => '210px',

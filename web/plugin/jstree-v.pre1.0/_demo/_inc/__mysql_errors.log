@@ -1,0 +1,562 @@
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] TRUNCATE TABLE `tree` <No database selected>
+[2013-11-07 17:30:18] INSERT INTO `tree` (`id`, `parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 0, 1, 2, 0 ) <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] nf: no result set <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 1 <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] nf: no result set <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 1 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] nf: no result set <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 1 <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] nf: no result set <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 1 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] nf: no result set <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 2 <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] nf: no result set <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 2 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 2 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (2, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] nf: no result set <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 2 <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] nf: no result set <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 2 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 2 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (2, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] nf: no result set <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 4 <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] nf: no result set <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 4 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 4 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (4, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] nf: no result set <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 5 <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] nf: no result set <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 5 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 5 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:30:18] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (5, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:30:18] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:30:18] No query pending <No database selected>
+[2013-11-07 17:31:31] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:31] No query pending <No database selected>
+[2013-11-07 17:31:31] TRUNCATE TABLE `tree` <No database selected>
+[2013-11-07 17:31:31] INSERT INTO `tree` (`id`, `parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 0, 1, 2, 0 ) <No database selected>
+[2013-11-07 17:31:31] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:31:31] No query pending <No database selected>
+[2013-11-07 17:31:31] nf: no result set <No database selected>
+[2013-11-07 17:31:31] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:31] No query pending <No database selected>
+[2013-11-07 17:31:31] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 1 <No database selected>
+[2013-11-07 17:31:31] No query pending <No database selected>
+[2013-11-07 17:31:31] nf: no result set <No database selected>
+[2013-11-07 17:31:31] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:31] No query pending <No database selected>
+[2013-11-07 17:31:31] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 1 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:31] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:31] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:31] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:31:31] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:31:31] No query pending <No database selected>
+[2013-11-07 17:31:31] nf: no result set <No database selected>
+[2013-11-07 17:31:31] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:31] No query pending <No database selected>
+[2013-11-07 17:31:31] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 1 <No database selected>
+[2013-11-07 17:31:31] No query pending <No database selected>
+[2013-11-07 17:31:31] nf: no result set <No database selected>
+[2013-11-07 17:31:31] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:31] No query pending <No database selected>
+[2013-11-07 17:31:31] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 1 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:31] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:31] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:31] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:31:31] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:31:31] No query pending <No database selected>
+[2013-11-07 17:31:31] nf: no result set <No database selected>
+[2013-11-07 17:31:31] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:31] No query pending <No database selected>
+[2013-11-07 17:31:31] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 2 <No database selected>
+[2013-11-07 17:31:31] No query pending <No database selected>
+[2013-11-07 17:31:31] nf: no result set <No database selected>
+[2013-11-07 17:31:31] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 2 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:31] No query pending <No database selected>
+[2013-11-07 17:31:31] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 2 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:31] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:32] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:32] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (2, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:31:32] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:31:32] No query pending <No database selected>
+[2013-11-07 17:31:32] nf: no result set <No database selected>
+[2013-11-07 17:31:32] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:32] No query pending <No database selected>
+[2013-11-07 17:31:32] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 2 <No database selected>
+[2013-11-07 17:31:32] No query pending <No database selected>
+[2013-11-07 17:31:32] nf: no result set <No database selected>
+[2013-11-07 17:31:32] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 2 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:32] No query pending <No database selected>
+[2013-11-07 17:31:32] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 2 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:32] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:32] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:32] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (2, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:31:32] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:31:32] No query pending <No database selected>
+[2013-11-07 17:31:32] nf: no result set <No database selected>
+[2013-11-07 17:31:32] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:32] No query pending <No database selected>
+[2013-11-07 17:31:32] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 4 <No database selected>
+[2013-11-07 17:31:32] No query pending <No database selected>
+[2013-11-07 17:31:32] nf: no result set <No database selected>
+[2013-11-07 17:31:32] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 4 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:32] No query pending <No database selected>
+[2013-11-07 17:31:32] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 4 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:32] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:32] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:32] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (4, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:31:32] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:31:32] No query pending <No database selected>
+[2013-11-07 17:31:32] nf: no result set <No database selected>
+[2013-11-07 17:31:32] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:32] No query pending <No database selected>
+[2013-11-07 17:31:32] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 5 <No database selected>
+[2013-11-07 17:31:32] No query pending <No database selected>
+[2013-11-07 17:31:32] nf: no result set <No database selected>
+[2013-11-07 17:31:32] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 5 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:32] No query pending <No database selected>
+[2013-11-07 17:31:32] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 5 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:32] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:32] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:31:32] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (5, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:31:32] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:31:32] No query pending <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] TRUNCATE TABLE `tree` <No database selected>
+[2013-11-07 17:32:49] INSERT INTO `tree` (`id`, `parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 0, 1, 2, 0 ) <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] nf: no result set <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 1 <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] nf: no result set <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 1 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] nf: no result set <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 1 <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] nf: no result set <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 1 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] nf: no result set <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 2 <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] nf: no result set <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 2 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 2 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (2, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] nf: no result set <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 2 <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] nf: no result set <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 2 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 2 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (2, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] nf: no result set <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 4 <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] nf: no result set <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 4 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 4 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (4, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] nf: no result set <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 5 <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] nf: no result set <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 5 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 5 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:32:49] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (5, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:32:49] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:32:49] No query pending <No database selected>
+[2013-11-07 17:33:13] CREATE TEMPORARY TABLE `temp_tree` (`id` INTEGER NOT NULL, `parent_id` INTEGER NOT NULL, `position` INTEGER NOT NULL) type=HEAP <No database selected>
+[2013-11-07 17:33:13] INSERT INTO `temp_tree` SELECT `id`, `parent_id`, `position` FROM `tree` <No database selected>
+[2013-11-07 17:33:13] CREATE TEMPORARY TABLE `temp_stack` (`id` INTEGER NOT NULL, `left` INTEGER, `right` INTEGER, `level` INTEGER, `stack_top` INTEGER NOT NULL, `parent_id` INTEGER, `position` INTEGER ) type=HEAP <No database selected>
+[2013-11-07 17:33:13] SELECT COUNT(*) FROM temp_tree <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] INSERT INTO `temp_stack` SELECT `id`, 1, NULL, 0, 1, `parent_id`, `position` FROM `temp_tree` WHERE `parent_id` = 0 <No database selected>
+[2013-11-07 17:33:13] DELETE FROM `temp_tree` WHERE `parent_id` = 0 <No database selected>
+[2013-11-07 17:33:13] CREATE TEMPORARY TABLE `temp_tree2` SELECT `id`, `title`, `type` FROM `tree`  <No database selected>
+[2013-11-07 17:33:13] TRUNCATE TABLE `tree` <No database selected>
+[2013-11-07 17:33:13] INSERT INTO tree (`id`, `parent_id`, `position`, `left`, `right`, `level` ) SELECT `id`, `parent_id`, `position`, `left`, `right`, `level` FROM temp_stack ORDER BY `id` <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` v, `temp_tree2` SET v.`id` = v.`id` , v.`title` = `temp_tree2`.`title` , v.`type` = `temp_tree2`.`type`  WHERE v.`id` = `temp_tree2`.`id`  <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] TRUNCATE TABLE `tree` <No database selected>
+[2013-11-07 17:33:13] INSERT INTO `tree` (`id`, `parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 0, 1, 2, 0 ) <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] nf: no result set <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 1 <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] nf: no result set <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 1 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] nf: no result set <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 1 <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] nf: no result set <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 1 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] nf: no result set <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 2 <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] nf: no result set <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 2 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 2 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (2, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] nf: no result set <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 2 <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] nf: no result set <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 2 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 2 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (2, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] nf: no result set <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 4 <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] nf: no result set <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 4 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 4 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (4, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] nf: no result set <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 5 <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] nf: no result set <No database selected>
+[2013-11-07 17:33:13] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 5 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:13] No query pending <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 5 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:13] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (5, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:33:14] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:14] No query pending <No database selected>
+[2013-11-07 17:33:18] SELECT `left` FROM `tree` s WHERE `parent_id` = 0  <No database selected>
+[2013-11-07 17:33:18] No query pending <No database selected>
+[2013-11-07 17:33:18] nf: no result set <No database selected>
+[2013-11-07 17:33:18] SELECT COUNT(*) FROM `tree` s WHERE `parent_id` != 0 AND (SELECT COUNT(*) FROM `tree` WHERE `id` = s.`parent_id`) = 0  <No database selected>
+[2013-11-07 17:33:18] No query pending <No database selected>
+[2013-11-07 17:33:18] SELECT MAX(`right`) FROM `tree` <No database selected>
+[2013-11-07 17:33:18] No query pending <No database selected>
+[2013-11-07 17:33:18] SELECT COUNT(*) FROM `tree` <No database selected>
+[2013-11-07 17:33:18] No query pending <No database selected>
+[2013-11-07 17:33:18] SELECT COUNT(`id`) FROM `tree` s WHERE (SELECT COUNT(*) FROM `tree` WHERE `right` < s.`right` AND `left` > s.`left` AND `level` = s.`level` + 1) != (SELECT COUNT(*) FROM `tree` WHERE `parent_id` = s.`id`)  <No database selected>
+[2013-11-07 17:33:18] No query pending <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] TRUNCATE TABLE `tree` <No database selected>
+[2013-11-07 17:33:20] INSERT INTO `tree` (`id`, `parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 0, 1, 2, 0 ) <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] nf: no result set <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 1 <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] nf: no result set <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 1 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] nf: no result set <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 1 <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] nf: no result set <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 1 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] nf: no result set <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 2 <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] nf: no result set <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 2 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 2 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (2, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] nf: no result set <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 2 <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] nf: no result set <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 2 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 2 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (2, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] nf: no result set <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 4 <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] nf: no result set <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 4 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 4 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (4, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] nf: no result set <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 5 <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] nf: no result set <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 5 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 5 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:33:20] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (5, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:33:20] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:33:20] No query pending <No database selected>
+[2013-11-07 17:36:02] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:02] No query pending <No database selected>
+[2013-11-07 17:36:02] TRUNCATE TABLE `tree` <No database selected>
+[2013-11-07 17:36:02] INSERT INTO `tree` (`id`, `parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 0, 1, 2, 0 ) <No database selected>
+[2013-11-07 17:36:02] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:36:02] No query pending <No database selected>
+[2013-11-07 17:36:02] nf: no result set <No database selected>
+[2013-11-07 17:36:02] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:02] No query pending <No database selected>
+[2013-11-07 17:36:02] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 1 <No database selected>
+[2013-11-07 17:36:02] No query pending <No database selected>
+[2013-11-07 17:36:02] nf: no result set <No database selected>
+[2013-11-07 17:36:02] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:02] No query pending <No database selected>
+[2013-11-07 17:36:02] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 1 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:02] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:02] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:02] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:36:02] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:36:02] No query pending <No database selected>
+[2013-11-07 17:36:02] nf: no result set <No database selected>
+[2013-11-07 17:36:02] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:02] No query pending <No database selected>
+[2013-11-07 17:36:02] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 1 <No database selected>
+[2013-11-07 17:36:02] No query pending <No database selected>
+[2013-11-07 17:36:03] nf: no result set <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 1 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (1, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] nf: no result set <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 2 <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] nf: no result set <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 2 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 2 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (2, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] nf: no result set <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 2 <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] nf: no result set <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 2 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 2 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (2, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] nf: no result set <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 4 <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] nf: no result set <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 4 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 4 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (4, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 0 <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] nf: no result set <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 0 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `id` = 5 <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] nf: no result set <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 5 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `position` = `position` + 1 WHERE `parent_id` = 5 AND `position` >= 0  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `left` = `left` + 2 WHERE `left` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] UPDATE `tree` SET `right` = `right` + 2 WHERE `right` >= 1  AND `id` NOT IN (-1)  <No database selected>
+[2013-11-07 17:36:03] INSERT INTO `tree` (`parent_id`, `position`, `left`, `right`, `level` ) VALUES (5, 0, 1, 2, 1) <No database selected>
+[2013-11-07 17:36:03] SELECT `id` , `parent_id` , `position` , `left` , `right` , `level` , `title` , `type` FROM `tree` WHERE `parent_id` = 1 ORDER BY `position` ASC <No database selected>
+[2013-11-07 17:36:03] No query pending <No database selected>

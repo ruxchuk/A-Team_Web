@@ -19,7 +19,7 @@ if ($actual_link == "curtain.php" || strpos($actual_link, 'product.php')) {
     $table = "link_website";
 } else if (strpos($actual_link, 'member.php')) {
     $table = "member";
-}  else if (strpos($actual_link, 'category.php')) {
+} else if (strpos($actual_link, 'category.php')) {
     $table = "category";
 } else {
     $table = "";
@@ -47,11 +47,11 @@ $webUrl = "http://latendahouse.com/";
                     $.post(webLogsUrl, {
                             table: table,
                             id: id,
-                            detail: "set_publish=1;user_name=" + userName + ";"+
+                            detail: "set_publish=1;user_name=" + userName + ";" +
                                 "user_id=" + userID
                         },
-                        function(result){
-                            f__doPostBack("toggle_status",  id,
+                        function (result) {
+                            f__doPostBack("toggle_status", id,
                                 "&f_page_size=50&f_p=1&f_toggle_status=1&f_toggle_field=publish&f_toggle_field_value=0");
                         }
                     );
@@ -61,19 +61,19 @@ $webUrl = "http://latendahouse.com/";
                 return false;
             });
             <?php if (strpos($actual_link, 'member.php') == false):?>
-            $('a').each(function(){
+            $('a').each(function () {
                 if (this.title == 'Update record') {
                     $(this).attr('id', 'button-edit');
                 }
             });
-            $('#button-edit').click(function(){
+            $('#button-edit').click(function () {
                 $.post(webLogsUrl, {
                         table: table,
                         id: '<?php echo @$_GET['f_rid']; ?>',
                         detail: "edit_data;user_name=" + userName + ";" +
                             "user_id=" + userID
                     },
-                    function(result){
+                    function (result) {
                         f_sendEditFields();
                     }
                 );
@@ -95,10 +95,9 @@ if (!empty($_SESSION['userdata'])) :
         ?>
         &nbsp;&nbsp;&nbsp;<a class="link-menu" href="<?php echo $webUrl; ?>auth/signOut">ออกจากระบบ</a>
     <?php else:
-        header("Location: $webUrl". "รายการ");
-    endif;
-else:
-    header("Location: $webUrl". "รายการ");
+        header("Location: $webUrl" . "รายการ");
+    endif; else:
+    header("Location: $webUrl" . "รายการ");
 endif;
 ?>
 <br>
@@ -107,31 +106,44 @@ endif;
     .link-menu {
         color: blue;
     }
-    .link-menu:link, .menu-active:link{
+
+    .link-menu:link, .menu-active:link {
         text-decoration: none;
     }
+
     .link-menu:hover {
         color: red;
     }
+
     .menu-active {
         color: red;
+    }
+
+    .no {
+        background-color: red;
+    }
+
+    .yes {
+        background-color: #008000;
     }
 </style>
 <?php
 ?>
 <div class="menu" valign="center">
-    <a class="<?php echo strpos($actual_link, 'curtain.php') ? 'menu-active': 'link-menu'; ?>" href="curtain.php">ผ้าม่าน</a>
+    <a class="<?php echo strpos($actual_link, 'curtain.php') ? 'menu-active' : 'link-menu'; ?>" href="curtain.php">ผ้าม่าน</a>
     <br>
 
-    <a class="<?php echo strpos($actual_link, 'product.php') ? 'menu-active': 'link-menu'; ?>" href="product.php">รายการสินค้า</a> |
-    <a class="<?php echo strpos($actual_link, 'category.php') ? 'menu-active': 'link-menu'; ?>" href="category.php">จัดการหมวดหมู่</a>
+    <a class="<?php echo strpos($actual_link, 'product.php') ? 'menu-active' : 'link-menu'; ?>" href="product.php">รายการสินค้า</a>
+    |
+    <a class="<?php echo strpos($actual_link, 'category.php') ? 'menu-active' : 'link-menu'; ?>" href="category.php">จัดการหมวดหมู่</a>
     <br>
 
-    <a class="<?php echo strpos($actual_link, 'link-website.php') ? 'menu-active': 'link-menu'; ?>" href="link-website.php">Link Website</a>
+    <a class="<?php echo strpos($actual_link, 'link-website.php') ? 'menu-active' : 'link-menu'; ?>"
+       href="link-website.php">Link Website</a>
     <br>
 
-    <?php if ($_SESSION['userdata']['member_type'] == "admin"):?>
-        <a class="<?php echo strpos($actual_link, 'member.php') ? 'menu-active': 'link-menu'; ?>" href="member.php">รายชื่อสมาชิก</a>
+    <?php if ($_SESSION['userdata']['member_type'] == "admin"): ?>
+        <a class="<?php echo strpos($actual_link, 'member.php') ? 'menu-active' : 'link-menu'; ?>" href="member.php">รายชื่อสมาชิก</a>
     <?php endif; ?>
 
 </div>
