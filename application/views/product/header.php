@@ -36,7 +36,7 @@ $urlImageHeader = $baseUrl . "web/images/header-sat.png";
     }
 
     .link-menu {
-        margin-left: 25px;
+        margin-left: 30px;
     }
 
     .link-menu a, .link-menu, #contact-sat, #contact-sat a {
@@ -91,7 +91,7 @@ $urlImageHeader = $baseUrl . "web/images/header-sat.png";
                                                  height="30"/></td>
                                         <td>
                             <span id="contact-sat">086 317 2217, 089 645 7911<br>
-                                <a href="mailto:latendahouse@gmail.com">info@latendahouse.com</a>
+                                mail: <a href="mailto:latendahouse@gmail.com">info@latendahouse.com</a>
                             </span>
                                         </td>
                                     </tr>

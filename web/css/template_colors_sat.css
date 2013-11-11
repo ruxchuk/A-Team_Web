@@ -1,0 +1,362 @@
+
+#tabmodules .module h3 {
+    color: #333333;
+}
+
+/* Preview Colors */
+
+#color-chooser .primary-bg {
+    background-color: #333333;
+}
+
+#color-chooser .primary-fg {
+    color: #ffffff;
+}
+
+#color-chooser .secondary-bg {
+    background-color: #b62922;
+}
+
+#color-chooser .secondary-fg {
+    color: #ffffff;
+}
+
+#color-chooser .tertiary-bg {
+    background-color: #0f2f6a;
+}
+
+#color-chooser .tertiary-fg {
+    color: #CCCCCC;
+}
+
+/* Primary Color */
+
+body,
+#horiz-menu,
+#horiz-menu ul ul {
+    background-color: #333333;
+}
+
+/* Secondary Color */
+
+#horiz-menu li.active a,
+td.leftcol .module h3,
+td.rightcol .module h3,
+#mainmodules1 .module h3,
+#mainmodules2 .module h3,
+#bottommodules .module h3 {
+    background-color: #b62922;
+}
+
+/* Tertiary Color */
+/** see Module Hilite4 Color **/
+
+/* Main Body Text Color */
+
+body {
+    color: #000;
+}
+
+/* Link Color */
+
+a,
+#banner a {
+    /*color: #CCCCCC;*/
+    color: #000;
+}
+a:link {
+    text-decoration: none;
+}
+a:hover {
+    color: red;
+}
+
+/* Bottom Module Text Color */
+
+#bottom,
+#bottom a {
+    color: #fff;
+}#bottom a:hover {
+    color: red;
+}
+
+#bottommodules .module-clean h3 {
+    color: #ffffff;
+}
+
+/*icon zoom*/
+a.gallerypic{
+    width:100%;
+    text-decoration:none;
+    position:relative;
+    display:block;
+    /*border:1px solid #666;*/
+    padding:3px;
+    margin-right:5px;
+    /*float:left;*/
+}
+
+span.zoom-icon{
+    visibility:hidden;
+    position:absolute;
+    left:85%;
+    top:80%;
+    /*filter:alpha(opacity=50);*/
+    /*-moz-opacity:0.5;*/
+    /*-khtml-opacity: 0.5;*/
+    /*opacity: 0.5;*/
+}
+
+a.gallerypic:hover span.zoom-icon{
+    visibility:visible;
+}
+
+span.p-zoom-icon{
+    visibility:hidden;
+    position:absolute;
+    left:78%;
+    top:75%;
+}
+a.gallerypic:hover span.p-zoom-icon{
+    visibility:visible;
+}
+
+
+
+/* Default Module Header Text Color */
+
+.module h3,
+#bottommodules .module h3 {
+    color: #ffffff;
+}
+
+/* Hilite1 Module Header Text Color */
+
+.module-hilite1 h3 {
+    color: #ffffff;
+}
+
+/* Hilite2 Module Header Text Color */
+
+.module-hilite2 h3 {
+    color: #fff;
+}
+
+/* Hilite3 Module Header Text Color */
+
+.module-hilite3 h3 {
+    color: #fff;
+}
+
+/* Hilite4 Module Header Text Color */
+
+.module-hilite4 h3 {
+    color: #CCCCCC;
+}
+
+/* Hilite5 Module Header Text Color */
+
+.module-hilite5,
+.module-hilite5 h3 {
+    color: #ffffff;
+}
+
+/* Module Background Color */
+
+ul.menu,
+td.leftcol .module-clean,
+td.rightcol .module-clean,
+td.leftcol .module,
+td.leftcol .module-hilite1,
+td.leftcol .module-hilite2,
+td.leftcol .module-hilite3,
+td.leftcol .module-hilite4,
+td.rightcol .module,
+td.rightcol .module-hilite1,
+td.rightcol .module-hilite2,
+td.rightcol .module-hilite3,
+td.rightcol .module-hilite4 {
+    background-color: #fff;
+}
+
+/* Menu Text Colors */
+
+#horiz-menu a,
+#horiz-menu li.active li a {
+    color: #ffffff;
+}
+
+#horiz-menu li.active a {
+    color: #ffffff;
+}
+
+#horiz-menu a:hover,
+#horiz-menu li.active a:hover {
+    color: #ffffff;
+}
+
+a#active_menu.sublevel,
+a.mainlevel:hover,
+a.sublevel:hover,
+ul.menu li.active a.daddy,
+ul.menu li a:hover,
+ul.menu li.active a:hover {
+    color: #fff;
+}
+
+/* Typography Heading Colors */
+
+
+.contentheading,
+.componentheading {
+    color: #ffffff;
+}
+
+h2 {
+    color: #ffffff;
+}
+
+h4 {
+    /*color: #CCCCCC;*/
+}
+
+#footer {
+    font-size: 15px;
+    text-align: left;
+    text-shadow: 1px 1px 1px;
+}
+
+#footer_widget1 {
+    /*width: 200px;*/
+    margin-left: 30px;
+}
+
+#footer_widget1, #footer_widget2, #footer_widget3 {
+    width: 300px;
+}
+
+.footer_widget {
+    float: left;
+}
+.widget ul li {
+    height: 20px;
+}
+/* Side Columns Background Color */
+
+#main-content {
+    background-color: darkgray;
+}
+
+/* Main Column Background Color */
+
+td.maincol {
+    /*background-color: #212121;*/
+    background-color: #fff;
+}
+
+/* Module Hilite1 Color */
+
+td.leftcol .module-hilite1 h3,
+td.rightcol .module-hilite1 h3,
+#mainmodules1 .module-hilite1 h3,
+#mainmodules2 .module-hilite1 h3,
+#bottommodules .module-hilite1 h3 {
+    background-color: #ccc;
+}
+
+/* Module Hilite2 Color */
+
+td.leftcol .module-hilite2 h3,
+td.rightcol .module-hilite2 h3,
+#mainmodules1 .module-hilite2 h3,
+#mainmodules2 .module-hilite2 h3,
+#bottommodules .module-hilite2 h3 {
+    background-color: #DEDEDE;
+    color: #000 !important;
+}
+
+/* Module Hilite3 Color */
+
+td.leftcol .module-hilite3 h3,
+td.rightcol .module-hilite3 h3,
+#mainmodules1 .module-hilite3 h3,
+#mainmodules2 .module-hilite3 h3,
+#bottommodules .module-hilite3 h3 {
+    /*background-color: #939392;*/
+    background-color: #fff;
+}
+
+/* Module Hilite4 Color */
+
+td.leftcol .module-hilite4 h3,
+td.rightcol .module-hilite4 h3,
+#mainmodules1 .module-hilite4 h3,
+#mainmodules2 .module-hilite4 h3,
+#bottommodules .module-hilite4 h3 {
+    background-color: #0f2f6a;
+}
+
+/* Module Hilite 5 Color */
+
+td.leftcol .module-hilite5,
+td.rightcol .module-hilite5,
+#mainmodules1 .module-hilite5,
+#mainmodules2 .module-hilite5,
+td.leftcol .module-hilite5 h3,
+td.rightcol .module-hilite5 h3,
+#mainmodules1 .module-hilite5 h3,
+#mainmodules2 .module-hilite5 h3 {
+    background-color: #b62922;
+}
+
+/* RokSlide Module Colors */
+
+#moduleslider-size,
+#rokslide-toolbar,
+#rokslide-toolbar li.current,
+#rokslide-toolbar li.last.current {
+    /*background-color: #222;*/
+    background-color: #fff;
+}
+
+#rokslide-toolbar li {
+    border-right: 1px solid #ccc;
+}
+
+/* Borders */
+
+#mainmodules1 .module,
+#mainmodules1 .module-hilite1,
+#mainmodules1 .module-hilite2,
+#mainmodules1 .module-hilite3,
+#mainmodules1 .module-hilite4,
+#mainmodules1 .module-hilite5,
+#mainmodules1 .module-clean,
+#mainmodules2 .module,
+#mainmodules2 .module-hilite1,
+#mainmodules2 .module-hilite2,
+#mainmodules2 .module-hilite3,
+#mainmodules2 .module-hilite4,
+#mainmodules2 .module-hilite5,
+#mainmodules2 .module-clean {
+    /*border: 1px solid #000;*/
+    border: 1px solid #fff;
+}
+
+td.maincol {
+    /*border-left: 1px solid #000;*/
+    /*border-right: 1px solid #000;*/
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+
+a.mainlevel,
+ul.menu a,
+tr.sectiontableentry1 td,
+tr.sectiontableentry2 td,
+td.sectiontableentry1,
+td.sectiontableentry2,
+.sectiontableheader {
+    /*border-bottom: 1px solid #000;*/
+    border-bottom: 1px solid #fff;
+}

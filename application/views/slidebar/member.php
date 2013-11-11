@@ -134,7 +134,8 @@ $webUrl = $this->Constant_model->webUrl();
 <?php
 if (empty($this->session->userdata['user_name'])) :
     ?>
-    <div class="module-hilite1">
+<!--    <div class="module-hilite1">-->
+    <div class="module">
         <div>
             <div>
                 <div>
@@ -196,7 +197,7 @@ if (empty($this->session->userdata['user_name'])) :
             return false;
         }
     </script>
-    <div class="module-hilite1">
+    <div class="module">
         <div>
             <div>
                 <div>

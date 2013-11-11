@@ -129,7 +129,7 @@ switch ($setImageHeader) {
                                                  height="30"/></td>
                                         <td>
                             <span>086 317 2217, 089 645 7911<br>
-                                <a href="mailto:latendahouse@gmail.com">info@latendahouse.com</a>
+                                mail: <a href="mailto:latendahouse@gmail.com">info@latendahouse.com</a>
                             </span>
                                         </td>
                                     </tr>

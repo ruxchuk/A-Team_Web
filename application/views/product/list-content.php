@@ -6,7 +6,7 @@
  * Time: 12:43 น.
  * To change this template use File | Settings | File Templates.
  */
-$this->load->view('header');
+$this->load->view('header_sat');
 $this->load->view("slidebar/content");
 $baseUrl = base_url();
 $pathIconNew = $baseUrl . "web/images/icon_new.gif";
